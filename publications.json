@@ -1,58 +1,19 @@
 [
   {
-    "title": "Deep learning for human activity recognition: A comprehensive review of architectures, performance, and challenges across five sensory datasets",
+    "title": "On the Predictive Skill of Artificial Intelligence–Based Weather Models for Extreme Events Using Uncertainty Quantification",
     "authors": [
-      "Abeer FathAllah Brery",
-      "Ascensión Gallardo-Antolín",
-      "Mahmoud Fakhry",
-      "Israel Gonzalez-Carrasco"
+      "Rodrigo Andrade Botelho de Almeida",
+      "Noelia Otero",
+      "Miguel‐Ángel Fernández‐Torres",
+      "Jackie Ma"
     ],
     "year": 2026,
-    "journal": "Expert Systems with Applications",
-    "doi": "https://doi.org/10.1016/j.eswa.2026.132415",
-    "url": "https://doi.org/10.1016/j.eswa.2026.132415",
-    "openalex_id": "https://openalex.org/W7154958687"
-  },
-  {
-    "title": "Deep Learning for Human Activity Recognition: A Comprehensive Review of Architectures, Performance, and Challenges Across Five Sensory Datasets",
-    "authors": [
-      "Abeer FathAllah Brery",
-      "Ascensión Gallardo-Antolín",
-      "Mahmoud Fakhry",
-      "Israel Gonzalez-Carrasco"
-    ],
-    "year": 2026,
-    "journal": "Expert Systems with Applications",
-    "doi": "https://doi.org/10.5281/zenodo.19628460",
-    "url": "https://doi.org/10.5281/zenodo.19628460",
-    "openalex_id": "https://openalex.org/W7154701022"
-  },
-  {
-    "title": "Deep Learning for Human Activity Recognition: A Comprehensive Review of Architectures, Performance, and Challenges Across Five Sensory Datasets",
-    "authors": [
-      "Abeer FathAllah Brery",
-      "Ascensión Gallardo-Antolín",
-      "Mahmoud Fakhry",
-      "Israel Gonzalez-Carrasco"
-    ],
-    "year": 2026,
-    "journal": "Expert Systems with Applications",
-    "doi": "https://doi.org/10.5281/zenodo.19628461",
-    "url": "https://doi.org/10.5281/zenodo.19628461",
-    "openalex_id": "https://openalex.org/W7154712275"
-  },
-  {
-    "title": "Building artificial situational awareness: Soundscape classification in daily-life scenarios of gender based violence victims",
-    "authors": [
-      "Claudia Montero-Ramírez",
-      "Esther Rituerto-González",
-      "Carmen Peláez-Moreno"
-    ],
-    "year": 2026,
-    "journal": "Engineering Applications of Artificial Intelligence",
-    "doi": "https://doi.org/10.1016/j.engappai.2026.114871",
-    "url": "https://doi.org/10.1016/j.engappai.2026.114871",
-    "openalex_id": "https://openalex.org/W7155693522"
+    "journal": "Artificial Intelligence for the Earth Systems",
+    "doi": "https://doi.org/10.1175/aies-d-25-0113.1",
+    "volume": "5",
+    "issue": "3",
+    "pages": "",
+    "openalex_id": "https://openalex.org/W4416596113"
   },
   {
     "title": "Lattice representations suggest novel organizing principles for odorant and neural spaces",
@@ -64,22 +25,26 @@
     "year": 2026,
     "journal": "Neural Networks",
     "doi": "https://doi.org/10.1016/j.neunet.2026.109471",
-    "url": "https://doi.org/10.1016/j.neunet.2026.109471",
+    "volume": "205",
+    "issue": "Pt B",
+    "pages": "109471-109471",
     "openalex_id": "https://openalex.org/W7172438819"
   },
   {
-    "title": "On the Predictive Skill of Artificial Intelligence–Based Weather Models for Extreme Events Using Uncertainty Quantification",
+    "title": "Deep learning for human activity recognition: A comprehensive review of architectures, performance, and challenges across five sensory datasets",
     "authors": [
-      "Rodrigo Andrade Botelho de Almeida",
-      "Noelia Otero",
-      "Miguel‐Ángel Fernández‐Torres",
-      "Jackie Ma"
+      "Abeer FathAllah Brery",
+      "Ascensión Gallardo-Antolín",
+      "Mahmoud Fakhry",
+      "Israel Gonzalez-Carrasco"
     ],
     "year": 2026,
-    "journal": "Artificial Intelligence for the Earth Systems",
-    "doi": "https://doi.org/10.1175/aies-d-25-0113.1",
-    "url": "https://doi.org/10.1175/aies-d-25-0113.1",
-    "openalex_id": "https://openalex.org/W4416596113"
+    "journal": "Expert Systems with Applications",
+    "doi": "https://doi.org/10.1016/j.eswa.2026.132415",
+    "volume": "323",
+    "issue": null,
+    "pages": "132415-132415",
+    "openalex_id": "https://openalex.org/W7154958687"
   },
   {
     "title": "Converting Raw Data Into Actionable Information: A topical review of artificial intelligence, machine learning, and digital twins in disaster management",
@@ -103,24 +68,25 @@
     "year": 2026,
     "journal": "IEEE Geoscience and Remote Sensing Magazine",
     "doi": "https://doi.org/10.1109/mgrs.2025.3642854",
-    "url": "https://doi.org/10.1109/mgrs.2025.3642854",
+    "volume": "14",
+    "issue": "3",
+    "pages": "76-96",
     "openalex_id": "https://openalex.org/W7163529117"
   },
   {
-    "title": "A multivariate analysis of atmospheric drivers for Western European heatwaves",
+    "title": "Building artificial situational awareness: Soundscape classification in daily-life scenarios of gender based violence victims",
     "authors": [
-      "Aytaç Paçal",
-      "Birgit Haßler",
-      "Katja Weigel",
-      "Miguel‐Ángel Fernández‐Torres",
-      "Gustau Camps‐Valls",
-      "Veronika Eyring"
+      "Claudia Montero-Ramírez",
+      "Esther Rituerto-González",
+      "Carmen Peláez-Moreno"
     ],
     "year": 2026,
-    "journal": "Earth System Dynamics",
-    "doi": "https://doi.org/10.5194/esd-17-955-2026",
-    "url": "https://doi.org/10.5194/esd-17-955-2026",
-    "openalex_id": "https://openalex.org/W7168176993"
+    "journal": "Engineering Applications of Artificial Intelligence",
+    "doi": "https://doi.org/10.1016/j.engappai.2026.114871",
+    "volume": "177",
+    "issue": null,
+    "pages": "114871-114871",
+    "openalex_id": "https://openalex.org/W7155693522"
   },
   {
     "title": "Bridging the weather and climate divide with artificial intelligence",
@@ -149,8 +115,28 @@
     "year": 2026,
     "journal": "Nature Communications",
     "doi": "https://doi.org/10.1038/s41467-026-75787-y",
-    "url": "https://doi.org/10.1038/s41467-026-75787-y",
+    "volume": "17",
+    "issue": "1",
+    "pages": "",
     "openalex_id": "https://openalex.org/W7203717668"
+  },
+  {
+    "title": "A multivariate analysis of atmospheric drivers for Western European heatwaves",
+    "authors": [
+      "Aytaç Paçal",
+      "Birgit Haßler",
+      "Katja Weigel",
+      "Miguel‐Ángel Fernández‐Torres",
+      "Gustau Camps‐Valls",
+      "Veronika Eyring"
+    ],
+    "year": 2026,
+    "journal": "Earth System Dynamics",
+    "doi": "https://doi.org/10.5194/esd-17-955-2026",
+    "volume": "17",
+    "issue": "4",
+    "pages": "955-986",
+    "openalex_id": "https://openalex.org/W7168176993"
   },
   {
     "title": "Self-supervised learning and hybrid deep models for predicting the progression of Fuchs’ endothelial corneal dystrophy after cataract surgery",
@@ -169,46 +155,10 @@
     "year": 2025,
     "journal": "Computer Methods and Programs in Biomedicine",
     "doi": "https://doi.org/10.1016/j.cmpb.2025.109100",
-    "url": "https://doi.org/10.1016/j.cmpb.2025.109100",
+    "volume": "273",
+    "issue": null,
+    "pages": "109100-109100",
     "openalex_id": "https://openalex.org/W4415119784"
-  },
-  {
-    "title": "L-SFAN: Lightweight Spatially Focused Attention Network for Pain Behavior Detection",
-    "authors": [
-      "Jorge Ortigoso-Narro",
-      "Fernando Díaz-de-María",
-      "Mohammad Mahdi Dehshibi",
-      "Ana Tajadura‐Jiménez"
-    ],
-    "year": 2025,
-    "journal": "IEEE Sensors Journal",
-    "doi": "https://doi.org/10.1109/jsen.2025.3540415",
-    "url": "https://doi.org/10.1109/jsen.2025.3540415",
-    "openalex_id": "https://openalex.org/W4407639404"
-  },
-  {
-    "title": "Alzheimer’s Disease Detection from Speech Using Shapley Additive Explanations for Feature Selection and Enhanced Interpretability",
-    "authors": [
-      "Irati Oiza-Zapata",
-      "Ascensión Gallardo-Antolín"
-    ],
-    "year": 2025,
-    "journal": "Electronics",
-    "doi": "https://doi.org/10.3390/electronics14112248",
-    "url": "https://doi.org/10.3390/electronics14112248",
-    "openalex_id": "https://openalex.org/W4410967561"
-  },
-  {
-    "title": "A hybrid neural network with multistage feature fusion for detecting heart failure and murmurs from time–frequency representations of phonocardiograms",
-    "authors": [
-      "Mahmoud Fakhry",
-      "Ascensión Gallardo-Antolín"
-    ],
-    "year": 2025,
-    "journal": "Systems and Soft Computing",
-    "doi": "https://doi.org/10.1016/j.sasc.2025.200391",
-    "url": "https://doi.org/10.1016/j.sasc.2025.200391",
-    "openalex_id": "https://openalex.org/W4414475571"
   },
   {
     "title": "Multilevel neural networks with dual-stage feature fusion for human activity recognition",
@@ -224,7 +174,9 @@
     "year": 2025,
     "journal": "Applied Computing and Intelligence",
     "doi": "https://doi.org/10.3934/aci.2025016",
-    "url": "https://doi.org/10.3934/aci.2025016",
+    "volume": "5",
+    "issue": "2",
+    "pages": "286-300",
     "openalex_id": "https://openalex.org/W7117237941"
   },
   {
@@ -237,36 +189,26 @@
     "year": 2025,
     "journal": "Applied Sciences",
     "doi": "https://doi.org/10.3390/app152212270",
-    "url": "https://doi.org/10.3390/app152212270",
+    "volume": "15",
+    "issue": "22",
+    "pages": "12270-12270",
     "openalex_id": "https://openalex.org/W4416392492"
   },
   {
-    "title": "Authenticity at Risk: Key Factors in the Generation and Detection of Audio Deepfakes",
+    "title": "L-SFAN: Lightweight Spatially Focused Attention Network for Pain Behavior Detection",
     "authors": [
-      "Alba Martínez-Serrano",
-      "Claudia Montero-Ramírez",
-      "Carmen Peláez-Moreno"
+      "Jorge Ortigoso-Narro",
+      "Fernando Díaz-de-María",
+      "Mohammad Mahdi Dehshibi",
+      "Ana Tajadura‐Jiménez"
     ],
     "year": 2025,
-    "journal": "Applied Sciences",
-    "doi": "https://doi.org/10.3390/app15020558",
-    "url": "https://doi.org/10.3390/app15020558",
-    "openalex_id": "https://openalex.org/W4406167452"
-  },
-  {
-    "title": "Formal Context Transforms and Their Affordances for Exploratory Data Analysis",
-    "authors": [
-      "Francisco J. Valverde-Albacete",
-      "Carmen Peláez-Moreno",
-      "Inma P. Cabrera",
-      "Pablo Cordero",
-      "Manuel Ojeda‐Aciego"
-    ],
-    "year": 2025,
-    "journal": "Mathematics",
-    "doi": "https://doi.org/10.3390/math14010032",
-    "url": "https://doi.org/10.3390/math14010032",
-    "openalex_id": "https://openalex.org/W7116933847"
+    "journal": "IEEE Sensors Journal",
+    "doi": "https://doi.org/10.1109/jsen.2025.3540415",
+    "volume": "25",
+    "issue": "10",
+    "pages": "18409-18418",
+    "openalex_id": "https://openalex.org/W4407639404"
   },
   {
     "title": "Gut microbiome and nutritional strategies in gastrointestinal cancers: Clinical implications and therapeutic perspectives",
@@ -284,8 +226,116 @@
     "year": 2025,
     "journal": "World Journal of Clinical Oncology",
     "doi": "https://doi.org/10.5306/wjco.v16.i10.107877",
-    "url": "https://doi.org/10.5306/wjco.v16.i10.107877",
+    "volume": "16",
+    "issue": "10",
+    "pages": "107877-107877",
     "openalex_id": "https://openalex.org/W4415489104"
+  },
+  {
+    "title": "Generative networks for spatio-temporal gap filling of Sentinel-2 reflectances",
+    "authors": [
+      "Maria Gonzalez-Calabuig",
+      "Miguel‐Ángel Fernández‐Torres",
+      "Gustau Camps‐Valls"
+    ],
+    "year": 2025,
+    "journal": "ISPRS Journal of Photogrammetry and Remote Sensing",
+    "doi": "https://doi.org/10.1016/j.isprsjprs.2025.01.016",
+    "volume": "220",
+    "issue": null,
+    "pages": "637-648",
+    "openalex_id": "https://openalex.org/W4406712435"
+  },
+  {
+    "title": "Formal Context Transforms and Their Affordances for Exploratory Data Analysis",
+    "authors": [
+      "Francisco J. Valverde-Albacete",
+      "Carmen Peláez-Moreno",
+      "Inma P. Cabrera",
+      "Pablo Cordero",
+      "Manuel Ojeda‐Aciego"
+    ],
+    "year": 2025,
+    "journal": "Mathematics",
+    "doi": "https://doi.org/10.3390/math14010032",
+    "volume": "14",
+    "issue": "1",
+    "pages": "32-32",
+    "openalex_id": "https://openalex.org/W7116933847"
+  },
+  {
+    "title": "Explainable Earth Surface Forecasting Under Extreme Events",
+    "authors": [
+      "Óscar J. Pellicer-Valero",
+      "Miguel‐Ángel Fernández‐Torres",
+      "Chaonan Ji",
+      "Miguel D. Mahecha",
+      "Gustau Camps‐Valls"
+    ],
+    "year": 2025,
+    "journal": "Earth s Future",
+    "doi": "https://doi.org/10.1029/2024ef005446",
+    "volume": "13",
+    "issue": "9",
+    "pages": "",
+    "openalex_id": "https://openalex.org/W4414518876"
+  },
+  {
+    "title": "Explainability can foster trust in artificial intelligence in geoscience",
+    "authors": [
+      "Jesper Dramsch",
+      "Monique M. Kuglitsch",
+      "Miguel‐Ángel Fernández‐Torres",
+      "Andrea Toreti",
+      "Rustem Arif Albayrak",
+      "Lorenzo Nava",
+      "Saman Ghaffarian",
+      "Ximeng Cheng",
+      "Jackie Ma",
+      "Wojciech Samek",
+      "Rudy Venguswamy",
+      "Anirudh Koul",
+      "Raghavan Muthuregunathan",
+      "Arthur Hrast Essenfelder"
+    ],
+    "year": 2025,
+    "journal": "Nature Geoscience",
+    "doi": "https://doi.org/10.1038/s41561-025-01639-x",
+    "volume": "18",
+    "issue": "2",
+    "pages": "112-114",
+    "openalex_id": "https://openalex.org/W4407150799"
+  },
+  {
+    "title": "Calibration and uncertainty quantification for deep learning-based drought detection",
+    "authors": [
+      "Mengxue Zhang",
+      "Miguel‐Ángel Fernández‐Torres",
+      "Kai-Hendrik Cohrs",
+      "Gustau Camps‐Valls"
+    ],
+    "year": 2025,
+    "journal": "International Journal of Applied Earth Observation and Geoinformation",
+    "doi": "https://doi.org/10.1016/j.jag.2025.104563",
+    "volume": "140",
+    "issue": null,
+    "pages": "104563-104563",
+    "openalex_id": "https://openalex.org/W4410221891"
+  },
+  {
+    "title": "Authenticity at Risk: Key Factors in the Generation and Detection of Audio Deepfakes",
+    "authors": [
+      "Alba Martínez-Serrano",
+      "Claudia Montero-Ramírez",
+      "Carmen Peláez-Moreno"
+    ],
+    "year": 2025,
+    "journal": "Applied Sciences",
+    "doi": "https://doi.org/10.3390/app15020558",
+    "volume": "15",
+    "issue": "2",
+    "pages": "558-558",
+    "openalex_id": "https://openalex.org/W4406167452"
   },
   {
     "title": "Artificial intelligence for modeling and understanding extreme weather and climate events",
@@ -319,74 +369,38 @@
     "year": 2025,
     "journal": "Nature Communications",
     "doi": "https://doi.org/10.1038/s41467-025-56573-8",
-    "url": "https://doi.org/10.1038/s41467-025-56573-8",
+    "volume": "16",
+    "issue": "1",
+    "pages": "1919-1919",
     "openalex_id": "https://openalex.org/W4407870507"
   },
   {
-    "title": "Explainability can foster trust in artificial intelligence in geoscience",
+    "title": "Alzheimer’s Disease Detection from Speech Using Shapley Additive Explanations for Feature Selection and Enhanced Interpretability",
     "authors": [
-      "Jesper Dramsch",
-      "Monique M. Kuglitsch",
-      "Miguel‐Ángel Fernández‐Torres",
-      "Andrea Toreti",
-      "Rustem Arif Albayrak",
-      "Lorenzo Nava",
-      "Saman Ghaffarian",
-      "Ximeng Cheng",
-      "Jackie Ma",
-      "Wojciech Samek",
-      "Rudy Venguswamy",
-      "Anirudh Koul",
-      "Raghavan Muthuregunathan",
-      "Arthur Hrast Essenfelder"
+      "Irati Oiza-Zapata",
+      "Ascensión Gallardo-Antolín"
     ],
     "year": 2025,
-    "journal": "Nature Geoscience",
-    "doi": "https://doi.org/10.1038/s41561-025-01639-x",
-    "url": "https://doi.org/10.1038/s41561-025-01639-x",
-    "openalex_id": "https://openalex.org/W4407150799"
+    "journal": "Electronics",
+    "doi": "https://doi.org/10.3390/electronics14112248",
+    "volume": "14",
+    "issue": "11",
+    "pages": "2248-2248",
+    "openalex_id": "https://openalex.org/W4410967561"
   },
   {
-    "title": "Generative networks for spatio-temporal gap filling of Sentinel-2 reflectances",
+    "title": "A hybrid neural network with multistage feature fusion for detecting heart failure and murmurs from time–frequency representations of phonocardiograms",
     "authors": [
-      "Maria Gonzalez-Calabuig",
-      "Miguel‐Ángel Fernández‐Torres",
-      "Gustau Camps‐Valls"
+      "Mahmoud Fakhry",
+      "Ascensión Gallardo-Antolín"
     ],
     "year": 2025,
-    "journal": "ISPRS Journal of Photogrammetry and Remote Sensing",
-    "doi": "https://doi.org/10.1016/j.isprsjprs.2025.01.016",
-    "url": "https://doi.org/10.1016/j.isprsjprs.2025.01.016",
-    "openalex_id": "https://openalex.org/W4406712435"
-  },
-  {
-    "title": "Calibration and uncertainty quantification for deep learning-based drought detection",
-    "authors": [
-      "Mengxue Zhang",
-      "Miguel‐Ángel Fernández‐Torres",
-      "Kai-Hendrik Cohrs",
-      "Gustau Camps‐Valls"
-    ],
-    "year": 2025,
-    "journal": "International Journal of Applied Earth Observation and Geoinformation",
-    "doi": "https://doi.org/10.1016/j.jag.2025.104563",
-    "url": "https://doi.org/10.1016/j.jag.2025.104563",
-    "openalex_id": "https://openalex.org/W4410221891"
-  },
-  {
-    "title": "Explainable Earth Surface Forecasting Under Extreme Events",
-    "authors": [
-      "Óscar J. Pellicer-Valero",
-      "Miguel‐Ángel Fernández‐Torres",
-      "Chaonan Ji",
-      "Miguel D. Mahecha",
-      "Gustau Camps‐Valls"
-    ],
-    "year": 2025,
-    "journal": "Earth s Future",
-    "doi": "https://doi.org/10.1029/2024ef005446",
-    "url": "https://doi.org/10.1029/2024ef005446",
-    "openalex_id": "https://openalex.org/W4414518876"
+    "journal": "Systems and Soft Computing",
+    "doi": "https://doi.org/10.1016/j.sasc.2025.200391",
+    "volume": "7",
+    "issue": null,
+    "pages": "200391-200391",
+    "openalex_id": "https://openalex.org/W4414475571"
   },
   {
     "title": "URI-CADS: A Fully Automated Computer-Aided Diagnosis System for Ultrasound Renal Imaging",
@@ -400,102 +414,10 @@
     "year": 2024,
     "journal": "Journal of Imaging Informatics in Medicine",
     "doi": "https://doi.org/10.1007/s10278-024-01055-4",
-    "url": "https://doi.org/10.1007/s10278-024-01055-4",
+    "volume": "37",
+    "issue": "4",
+    "pages": "1458-1474",
     "openalex_id": "https://openalex.org/W4392188907"
-  },
-  {
-    "title": "Integrating Egocentric and Robotic Vision for Object Identification Using Siamese Networks and Superquadric Estimations in Partial Occlusion Scenarios",
-    "authors": [
-      "Elisabeth Menéndez",
-      "Santiago Martínez",
-      "Fernando Díaz-de-María",
-      "Carlos Balaguer"
-    ],
-    "year": 2024,
-    "journal": "Biomimetics",
-    "doi": "https://doi.org/10.3390/biomimetics9020100",
-    "url": "https://doi.org/10.3390/biomimetics9020100",
-    "openalex_id": "https://openalex.org/W4391642623"
-  },
-  {
-    "title": "A self-supervised embedding of cell migration features for behavior discovery over cell populations",
-    "authors": [
-      "Miguel Molina-Moreno",
-      "Iván González-Díaz",
-      "Ralf Mikut",
-      "Fernando Díaz-de-María"
-    ],
-    "year": 2024,
-    "journal": "Computer Methods and Programs in Biomedicine",
-    "doi": "https://doi.org/10.1016/j.cmpb.2024.108337",
-    "url": "https://doi.org/10.1016/j.cmpb.2024.108337",
-    "openalex_id": "https://openalex.org/W4400850084"
-  },
-  {
-    "title": "Bayesian learning of feature spaces for multitask regression",
-    "authors": [
-      "Carlos Sevilla-Salcedo",
-      "Ascensión Gallardo-Antolín",
-      "Vanessa Gómez-Verdejo",
-      "Emilio Parrado-Hernández"
-    ],
-    "year": 2024,
-    "journal": "Neural Networks",
-    "doi": "https://doi.org/10.1016/j.neunet.2024.106619",
-    "url": "https://doi.org/10.1016/j.neunet.2024.106619",
-    "openalex_id": "https://openalex.org/W4401538831"
-  },
-  {
-    "title": "A Formalization of Multilabel Classification in Terms of Lattice Theory and Information Theory: Concerning Datasets",
-    "authors": [
-      "Francisco J. Valverde-Albacete",
-      "Carmen Peláez-Moreno"
-    ],
-    "year": 2024,
-    "journal": "Mathematics",
-    "doi": "https://doi.org/10.3390/math12020346",
-    "url": "https://doi.org/10.3390/math12020346",
-    "openalex_id": "https://openalex.org/W4391098676"
-  },
-  {
-    "title": "Asymmetric Multi-Task Learning for Interpretable Gaze-Driven Grasping Action Forecasting",
-    "authors": [
-      "Iván González-Díaz",
-      "Miguel Molina-Moreno",
-      "Jenny Benois‐Pineau",
-      "Aymar de Rugy"
-    ],
-    "year": 2024,
-    "journal": "IEEE Journal of Biomedical and Health Informatics",
-    "doi": "https://doi.org/10.1109/jbhi.2024.3430810",
-    "url": "https://doi.org/10.1109/jbhi.2024.3430810",
-    "openalex_id": "https://openalex.org/W4400770984"
-  },
-  {
-    "title": "Domain knowledge-driven variational recurrent networks for drought monitoring",
-    "authors": [
-      "Mengxue Zhang",
-      "Miguel‐Ángel Fernández‐Torres",
-      "Gustau Camps‐Valls"
-    ],
-    "year": 2024,
-    "journal": "Remote Sensing of Environment",
-    "doi": "https://doi.org/10.1016/j.rse.2024.114252",
-    "url": "https://doi.org/10.1016/j.rse.2024.114252",
-    "openalex_id": "https://openalex.org/W4399926161"
-  },
-  {
-    "title": "Deep Learning With Noisy Labels for Spatiotemporal Drought Detection",
-    "authors": [
-      "Jordi Cortés-Andrés",
-      "Miguel‐Ángel Fernández‐Torres",
-      "Gustau Camps‐Valls"
-    ],
-    "year": 2024,
-    "journal": "IEEE Transactions on Geoscience and Remote Sensing",
-    "doi": "https://doi.org/10.1109/tgrs.2024.3504340",
-    "url": "https://doi.org/10.1109/tgrs.2024.3504340",
-    "openalex_id": "https://openalex.org/W4404577001"
   },
   {
     "title": "The AIDE Toolbox: Artificial intelligence for disentangling extreme events [Software and Data Sets]",
@@ -511,8 +433,41 @@
     "year": 2024,
     "journal": "IEEE Geoscience and Remote Sensing Magazine",
     "doi": "https://doi.org/10.1109/mgrs.2024.3382544",
-    "url": "https://doi.org/10.1109/mgrs.2024.3382544",
+    "volume": "12",
+    "issue": "2",
+    "pages": "113-118",
     "openalex_id": "https://openalex.org/W4400229089"
+  },
+  {
+    "title": "Integrating Egocentric and Robotic Vision for Object Identification Using Siamese Networks and Superquadric Estimations in Partial Occlusion Scenarios",
+    "authors": [
+      "Elisabeth Menéndez",
+      "Santiago Martínez",
+      "Fernando Díaz-de-María",
+      "Carlos Balaguer"
+    ],
+    "year": 2024,
+    "journal": "Biomimetics",
+    "doi": "https://doi.org/10.3390/biomimetics9020100",
+    "volume": "9",
+    "issue": "2",
+    "pages": "100-100",
+    "openalex_id": "https://openalex.org/W4391642623"
+  },
+  {
+    "title": "Domain knowledge-driven variational recurrent networks for drought monitoring",
+    "authors": [
+      "Mengxue Zhang",
+      "Miguel‐Ángel Fernández‐Torres",
+      "Gustau Camps‐Valls"
+    ],
+    "year": 2024,
+    "journal": "Remote Sensing of Environment",
+    "doi": "https://doi.org/10.1016/j.rse.2024.114252",
+    "volume": "311",
+    "issue": null,
+    "pages": "114252-114252",
+    "openalex_id": "https://openalex.org/W4399926161"
   },
   {
     "title": "Detecting Spatiotemporal Dynamics of Western European Heatwaves Using Deep Learning",
@@ -527,8 +482,87 @@
     "year": 2024,
     "journal": "Artificial Intelligence for the Earth Systems",
     "doi": "https://doi.org/10.1175/aies-d-23-0107.1",
-    "url": "https://doi.org/10.1175/aies-d-23-0107.1",
+    "volume": "3",
+    "issue": "4",
+    "pages": "",
     "openalex_id": "https://openalex.org/W4403603923"
+  },
+  {
+    "title": "Deep Learning With Noisy Labels for Spatiotemporal Drought Detection",
+    "authors": [
+      "Jordi Cortés-Andrés",
+      "Miguel‐Ángel Fernández‐Torres",
+      "Gustau Camps‐Valls"
+    ],
+    "year": 2024,
+    "journal": "IEEE Transactions on Geoscience and Remote Sensing",
+    "doi": "https://doi.org/10.1109/tgrs.2024.3504340",
+    "volume": "62",
+    "issue": null,
+    "pages": "1-13",
+    "openalex_id": "https://openalex.org/W4404577001"
+  },
+  {
+    "title": "Bayesian learning of feature spaces for multitask regression",
+    "authors": [
+      "Carlos Sevilla-Salcedo",
+      "Ascensión Gallardo-Antolín",
+      "Vanessa Gómez-Verdejo",
+      "Emilio Parrado-Hernández"
+    ],
+    "year": 2024,
+    "journal": "Neural Networks",
+    "doi": "https://doi.org/10.1016/j.neunet.2024.106619",
+    "volume": "179",
+    "issue": null,
+    "pages": "106619-106619",
+    "openalex_id": "https://openalex.org/W4401538831"
+  },
+  {
+    "title": "Asymmetric Multi-Task Learning for Interpretable Gaze-Driven Grasping Action Forecasting",
+    "authors": [
+      "Iván González-Díaz",
+      "Miguel Molina-Moreno",
+      "Jenny Benois‐Pineau",
+      "Aymar de Rugy"
+    ],
+    "year": 2024,
+    "journal": "IEEE Journal of Biomedical and Health Informatics",
+    "doi": "https://doi.org/10.1109/jbhi.2024.3430810",
+    "volume": "28",
+    "issue": "12",
+    "pages": "7517-7530",
+    "openalex_id": "https://openalex.org/W4400770984"
+  },
+  {
+    "title": "A self-supervised embedding of cell migration features for behavior discovery over cell populations",
+    "authors": [
+      "Miguel Molina-Moreno",
+      "Iván González-Díaz",
+      "Ralf Mikut",
+      "Fernando Díaz-de-María"
+    ],
+    "year": 2024,
+    "journal": "Computer Methods and Programs in Biomedicine",
+    "doi": "https://doi.org/10.1016/j.cmpb.2024.108337",
+    "volume": "255",
+    "issue": null,
+    "pages": "108337-108337",
+    "openalex_id": "https://openalex.org/W4400850084"
+  },
+  {
+    "title": "A Formalization of Multilabel Classification in Terms of Lattice Theory and Information Theory: Concerning Datasets",
+    "authors": [
+      "Francisco J. Valverde-Albacete",
+      "Carmen Peláez-Moreno"
+    ],
+    "year": 2024,
+    "journal": "Mathematics",
+    "doi": "https://doi.org/10.3390/math12020346",
+    "volume": "12",
+    "issue": "2",
+    "pages": "346-346",
+    "openalex_id": "https://openalex.org/W4391098676"
   },
   {
     "title": "Pain Level and Pain-Related Behaviour Classification Using GRU-Based Sparsely-Connected RNNs",
@@ -542,48 +576,10 @@
     "year": 2023,
     "journal": "IEEE Journal of Selected Topics in Signal Processing",
     "doi": "https://doi.org/10.1109/jstsp.2023.3262358",
-    "url": "https://doi.org/10.1109/jstsp.2023.3262358",
+    "volume": "17",
+    "issue": "3",
+    "pages": "677-688",
     "openalex_id": "https://openalex.org/W4361756166"
-  },
-  {
-    "title": "As light of your footsteps: Investigating individual differences in the perception of own-body weight through auditory illusions",
-    "authors": [
-      "Amar D'Adamo",
-      "Mohammad Mahdi Dehshibi",
-      "Marte Roel",
-      "JOAQUIN ROBERTO DIAZ DURAN",
-      "Daniel de la Prida",
-      "LUIS ANTONIO AZPICUETA",
-      "Angel Sánchez",
-      "Fernando Díaz de María",
-      "Aleksander Väljamäe",
-      "Ana Tajadura-Jimenez"
-    ],
-    "year": 2023,
-    "journal": "Zenodo (CERN European Organization for Nuclear Research)",
-    "doi": "https://doi.org/10.5281/zenodo.19867090",
-    "url": "https://doi.org/10.5281/zenodo.19867090",
-    "openalex_id": "https://openalex.org/W7157949051"
-  },
-  {
-    "title": "As light of your footsteps: Investigating individual differences in the perception of own-body weight through auditory illusions",
-    "authors": [
-      "Amar D'Adamo",
-      "Mohammad Mahdi Dehshibi",
-      "Marte Roel",
-      "JOAQUIN ROBERTO DIAZ DURAN",
-      "Daniel de la Prida",
-      "LUIS ANTONIO AZPICUETA",
-      "Angel Sánchez",
-      "Fernando Díaz de María",
-      "Aleksander Väljamäe",
-      "Ana Tajadura-Jimenez"
-    ],
-    "year": 2023,
-    "journal": "Zenodo (CERN European Organization for Nuclear Research)",
-    "doi": "https://doi.org/10.5281/zenodo.19867091",
-    "url": "https://doi.org/10.5281/zenodo.19867091",
-    "openalex_id": "https://openalex.org/W7158187028"
   },
   {
     "title": "Elastic net regularization and gabor dictionary for classification of heart sound signals using deep learning",
@@ -594,7 +590,9 @@
     "year": 2023,
     "journal": "Engineering Applications of Artificial Intelligence",
     "doi": "https://doi.org/10.1016/j.engappai.2023.107406",
-    "url": "https://doi.org/10.1016/j.engappai.2023.107406",
+    "volume": "127",
+    "issue": null,
+    "pages": "107406-107406",
     "openalex_id": "https://openalex.org/W4388508151"
   },
   {
@@ -612,8 +610,70 @@
     "year": 2023,
     "journal": "IEEE Revista Iberoamericana de Tecnologias del Aprendizaje",
     "doi": "https://doi.org/10.1109/rita.2023.3301411",
-    "url": "https://doi.org/10.1109/rita.2023.3301411",
+    "volume": "18",
+    "issue": "3",
+    "pages": "233-238",
     "openalex_id": "https://openalex.org/W4385489613"
+  },
+  {
+    "title": "Wildfire Danger Prediction and Understanding With Deep Learning",
+    "authors": [
+      "Spyros Kondylatos",
+      "Ioannis Prapas",
+      "Michele Ronco",
+      "Ioannis Papoutsis",
+      "Gustau Camps‐Valls",
+      "María Piles",
+      "Miguel‐Ángel Fernández‐Torres",
+      "Nuno Carvalhais"
+    ],
+    "year": 2022,
+    "journal": "Geophysical Research Letters",
+    "doi": "https://doi.org/10.1029/2022gl099368",
+    "volume": "49",
+    "issue": "17",
+    "pages": "",
+    "openalex_id": "https://openalex.org/W4293919465"
+  },
+  {
+    "title": "The Homologous Recombination Deficiency Scar in Advanced Cancer: Agnostic Targeting of Damaged DNA Repair",
+    "authors": [
+      "Vilma Pacheco-Barcía",
+      "Andrés J. Muñoz Martín",
+      "Elena Castro",
+      "Ana Isabel Ballesteros",
+      "Gloria Marquina",
+      "Iván González-Díaz",
+      "Rámón Colomer",
+      "Nuria Romero-Laorden"
+    ],
+    "year": 2022,
+    "journal": "Cancers",
+    "doi": "https://doi.org/10.3390/cancers14122950",
+    "volume": "14",
+    "issue": "12",
+    "pages": "2950-2950",
+    "openalex_id": "https://openalex.org/W4282964330"
+  },
+  {
+    "title": "Bindi: Affective Internet of Things to Combat Gender-Based Violence",
+    "authors": [
+      "José Miranda",
+      "Esther Rituerto-González",
+      "Clara Luis-Mingueza",
+      "Manuel F. Canabal",
+      "Alberto Ramirez Barcenas",
+      "Jose M. Lanza-Gutiérrez",
+      "Carmen Peláez-Moreno",
+      "C. López-Ongil"
+    ],
+    "year": 2022,
+    "journal": "IEEE Internet of Things Journal",
+    "doi": "https://doi.org/10.1109/jiot.2022.3177256",
+    "volume": "9",
+    "issue": "21",
+    "pages": "21174-21193",
+    "openalex_id": "https://openalex.org/W4285120632"
   },
   {
     "title": "Behavioural immune landscapes of inflammation",
@@ -650,7 +710,9 @@
     "year": 2022,
     "journal": "Nature",
     "doi": "https://doi.org/10.1038/s41586-021-04263-y",
-    "url": "https://doi.org/10.1038/s41586-021-04263-y",
+    "volume": "601",
+    "issue": "7893",
+    "pages": "415-421",
     "openalex_id": "https://openalex.org/W4205280085"
   },
   {
@@ -664,7 +726,9 @@
     "year": 2022,
     "journal": "Artificial Intelligence in Medicine",
     "doi": "https://doi.org/10.1016/j.artmed.2022.102370",
-    "url": "https://doi.org/10.1016/j.artmed.2022.102370",
+    "volume": "132",
+    "issue": null,
+    "pages": "102370-102370",
     "openalex_id": "https://openalex.org/W4289260297"
   },
   {
@@ -681,98 +745,10 @@
     "year": 2022,
     "journal": "Medical Image Analysis",
     "doi": "https://doi.org/10.1016/j.media.2022.102358",
-    "url": "https://doi.org/10.1016/j.media.2022.102358",
+    "volume": "77",
+    "issue": null,
+    "pages": "102358-102358",
     "openalex_id": "https://openalex.org/W4206745055"
-  },
-  {
-    "title": "Bindi: Affective Internet of Things to Combat Gender-Based Violence",
-    "authors": [
-      "José Miranda",
-      "Esther Rituerto-González",
-      "Clara Luis-Mingueza",
-      "Manuel F. Canabal",
-      "Alberto Ramirez Barcenas",
-      "Jose M. Lanza-Gutiérrez",
-      "Carmen Peláez-Moreno",
-      "C. López-Ongil"
-    ],
-    "year": 2022,
-    "journal": "IEEE Internet of Things Journal",
-    "doi": "https://doi.org/10.1109/jiot.2022.3177256",
-    "url": "https://doi.org/10.1109/jiot.2022.3177256",
-    "openalex_id": "https://openalex.org/W4285120632"
-  },
-  {
-    "title": "The Homologous Recombination Deficiency Scar in Advanced Cancer: Agnostic Targeting of Damaged DNA Repair",
-    "authors": [
-      "Vilma Pacheco-Barcía",
-      "Andrés J. Muñoz Martín",
-      "Elena Castro",
-      "Ana Isabel Ballesteros",
-      "Gloria Marquina",
-      "Iván González-Díaz",
-      "Rámón Colomer",
-      "Nuria Romero-Laorden"
-    ],
-    "year": 2022,
-    "journal": "Cancers",
-    "doi": "https://doi.org/10.3390/cancers14122950",
-    "url": "https://doi.org/10.3390/cancers14122950",
-    "openalex_id": "https://openalex.org/W4282964330"
-  },
-  {
-    "title": "Wildfire Danger Prediction and Understanding With Deep Learning",
-    "authors": [
-      "Spyros Kondylatos",
-      "Ioannis Prapas",
-      "Michele Ronco",
-      "Ioannis Papoutsis",
-      "Gustau Camps‐Valls",
-      "María Piles",
-      "Miguel‐Ángel Fernández‐Torres",
-      "Nuno Carvalhais"
-    ],
-    "year": 2022,
-    "journal": "Geophysical Research Letters",
-    "doi": "https://doi.org/10.1029/2022gl099368",
-    "url": "https://doi.org/10.1029/2022gl099368",
-    "openalex_id": "https://openalex.org/W4293919465"
-  },
-  {
-    "title": "Detecting Deception from Gaze and Speech Using a Multimodal Attention LSTM-Based Framework",
-    "authors": [
-      "Ascensión Gallardo-Antolín",
-      "Juan Manuel Montero"
-    ],
-    "year": 2021,
-    "journal": "Applied Sciences",
-    "doi": "https://doi.org/10.3390/app11146393",
-    "url": "https://doi.org/10.3390/app11146393",
-    "openalex_id": "https://openalex.org/W3180920294"
-  },
-  {
-    "title": "On combining acoustic and modulation spectrograms in an attention LSTM-based system for speech intelligibility level classification",
-    "authors": [
-      "Ascensión Gallardo-Antolín",
-      "Juan Manuel Montero"
-    ],
-    "year": 2021,
-    "journal": "Neurocomputing",
-    "doi": "https://doi.org/10.1016/j.neucom.2021.05.065",
-    "url": "https://doi.org/10.1016/j.neucom.2021.05.065",
-    "openalex_id": "https://openalex.org/W3164350237"
-  },
-  {
-    "title": "An Auditory Saliency Pooling-Based LSTM Model for Speech Intelligibility Classification",
-    "authors": [
-      "Ascensión Gallardo-Antolín",
-      "Juan Manuel Montero"
-    ],
-    "year": 2021,
-    "journal": "Symmetry",
-    "doi": "https://doi.org/10.3390/sym13091728",
-    "url": "https://doi.org/10.3390/sym13091728",
-    "openalex_id": "https://openalex.org/W3201359772"
   },
   {
     "title": "Teaching Differently: The Digital Signal Processing of Multimedia Content Through the Use of Liberal Arts",
@@ -785,32 +761,24 @@
     "year": 2021,
     "journal": "IEEE Signal Processing Magazine",
     "doi": "https://doi.org/10.1109/msp.2021.3053218",
-    "url": "https://doi.org/10.1109/msp.2021.3053218",
+    "volume": "38",
+    "issue": "3",
+    "pages": "94-104",
     "openalex_id": "https://openalex.org/W3158508286"
   },
   {
-    "title": "End-to-end recurrent denoising autoencoder embeddings for speaker identification",
+    "title": "On combining acoustic and modulation spectrograms in an attention LSTM-based system for speech intelligibility level classification",
     "authors": [
-      "Esther Rituerto-González",
-      "Carmen Peláez-Moreno"
+      "Ascensión Gallardo-Antolín",
+      "Juan Manuel Montero"
     ],
     "year": 2021,
-    "journal": "Neural Computing and Applications",
-    "doi": "https://doi.org/10.1007/s00521-021-06083-7",
-    "url": "https://doi.org/10.1007/s00521-021-06083-7",
-    "openalex_id": "https://openalex.org/W3011869934"
-  },
-  {
-    "title": "Four-Fold Formal Concept Analysis Based on Complete Idempotent Semifields",
-    "authors": [
-      "Francisco J. Valverde-Albacete",
-      "Carmen Peláez-Moreno"
-    ],
-    "year": 2021,
-    "journal": "Mathematics",
-    "doi": "https://doi.org/10.3390/math9020173",
-    "url": "https://doi.org/10.3390/math9020173",
-    "openalex_id": "https://openalex.org/W3120443324"
+    "journal": "Neurocomputing",
+    "doi": "https://doi.org/10.1016/j.neucom.2021.05.065",
+    "volume": "456",
+    "issue": null,
+    "pages": "49-60",
+    "openalex_id": "https://openalex.org/W3164350237"
   },
   {
     "title": "Modulation of aqueous humor melatonin levels by yellow-filter and its protective effect on lens",
@@ -824,21 +792,66 @@
     "year": 2021,
     "journal": "Journal of Photochemistry and Photobiology B Biology",
     "doi": "https://doi.org/10.1016/j.jphotobiol.2021.112248",
-    "url": "https://doi.org/10.1016/j.jphotobiol.2021.112248",
+    "volume": "221",
+    "issue": null,
+    "pages": "112248-112248",
     "openalex_id": "https://openalex.org/W3176861787"
   },
   {
-    "title": "Interpretable Global-Local Dynamics for the Prediction of Eye Fixations in Autonomous Driving Scenarios",
+    "title": "Four-Fold Formal Concept Analysis Based on Complete Idempotent Semifields",
     "authors": [
-      "Javier Martínez-Cebrián",
-      "Miguel‐Ángel Fernández‐Torres",
-      "Fernando Díaz-de-María"
+      "Francisco J. Valverde-Albacete",
+      "Carmen Peláez-Moreno"
     ],
-    "year": 2020,
-    "journal": "IEEE Access",
-    "doi": "https://doi.org/10.1109/access.2020.3041606",
-    "url": "https://doi.org/10.1109/access.2020.3041606",
-    "openalex_id": "https://openalex.org/W3107323529"
+    "year": 2021,
+    "journal": "Mathematics",
+    "doi": "https://doi.org/10.3390/math9020173",
+    "volume": "9",
+    "issue": "2",
+    "pages": "173-173",
+    "openalex_id": "https://openalex.org/W3120443324"
+  },
+  {
+    "title": "End-to-end recurrent denoising autoencoder embeddings for speaker identification",
+    "authors": [
+      "Esther Rituerto-González",
+      "Carmen Peláez-Moreno"
+    ],
+    "year": 2021,
+    "journal": "Neural Computing and Applications",
+    "doi": "https://doi.org/10.1007/s00521-021-06083-7",
+    "volume": "33",
+    "issue": "21",
+    "pages": "14429-14439",
+    "openalex_id": "https://openalex.org/W3011869934"
+  },
+  {
+    "title": "Detecting Deception from Gaze and Speech Using a Multimodal Attention LSTM-Based Framework",
+    "authors": [
+      "Ascensión Gallardo-Antolín",
+      "Juan Manuel Montero"
+    ],
+    "year": 2021,
+    "journal": "Applied Sciences",
+    "doi": "https://doi.org/10.3390/app11146393",
+    "volume": "11",
+    "issue": "14",
+    "pages": "6393-6393",
+    "openalex_id": "https://openalex.org/W3180920294"
+  },
+  {
+    "title": "An Auditory Saliency Pooling-Based LSTM Model for Speech Intelligibility Classification",
+    "authors": [
+      "Ascensión Gallardo-Antolín",
+      "Juan Manuel Montero"
+    ],
+    "year": 2021,
+    "journal": "Symmetry",
+    "doi": "https://doi.org/10.3390/sym13091728",
+    "volume": "13",
+    "issue": "9",
+    "pages": "1728-1728",
+    "openalex_id": "https://openalex.org/W3201359772"
   },
   {
     "title": "Training deep retrieval models with noisy datasets: Bag exponential loss",
@@ -850,32 +863,10 @@
     "year": 2020,
     "journal": "Pattern Recognition",
     "doi": "https://doi.org/10.1016/j.patcog.2020.107811",
-    "url": "https://doi.org/10.1016/j.patcog.2020.107811",
+    "volume": "112",
+    "issue": null,
+    "pages": "107811-107811",
     "openalex_id": "https://openalex.org/W3116425452"
-  },
-  {
-    "title": "Automatic Detection of Depression in Speech Using Ensemble Convolutional Neural Networks",
-    "authors": [
-      "Adrián Vázquez-Romero",
-      "Ascensión Gallardo-Antolín"
-    ],
-    "year": 2020,
-    "journal": "Entropy",
-    "doi": "https://doi.org/10.3390/e22060688",
-    "url": "https://doi.org/10.3390/e22060688",
-    "openalex_id": "https://openalex.org/W3036548303"
-  },
-  {
-    "title": "An attention Long Short-Term Memory based system for automatic classification of speech intelligibility",
-    "authors": [
-      "Miguel Fernández-Díaz",
-      "Ascensión Gallardo-Antolín"
-    ],
-    "year": 2020,
-    "journal": "Engineering Applications of Artificial Intelligence",
-    "doi": "https://doi.org/10.1016/j.engappai.2020.103976",
-    "url": "https://doi.org/10.1016/j.engappai.2020.103976",
-    "openalex_id": "https://openalex.org/W3088145342"
   },
   {
     "title": "The Singular Value Decomposition over Completed Idempotent Semifields",
@@ -886,8 +877,39 @@
     "year": 2020,
     "journal": "Mathematics",
     "doi": "https://doi.org/10.3390/math8091577",
-    "url": "https://doi.org/10.3390/math8091577",
+    "volume": "8",
+    "issue": "9",
+    "pages": "1577-1577",
     "openalex_id": "https://openalex.org/W3086671834"
+  },
+  {
+    "title": "Representing Informational Harmoniums using Semifield-Valued Formal Concept Analysis.",
+    "authors": [
+      "Francisco J. Valverde-Albacete",
+      "Carmen Peláez-Moreno"
+    ],
+    "year": 2020,
+    "journal": "Concept Lattices and their Applications",
+    "doi": null,
+    "volume": null,
+    "issue": null,
+    "pages": "159-170",
+    "openalex_id": "https://openalex.org/W3089917164"
+  },
+  {
+    "title": "Interpretable Global-Local Dynamics for the Prediction of Eye Fixations in Autonomous Driving Scenarios",
+    "authors": [
+      "Javier Martínez-Cebrián",
+      "Miguel‐Ángel Fernández‐Torres",
+      "Fernando Díaz-de-María"
+    ],
+    "year": 2020,
+    "journal": "IEEE Access",
+    "doi": "https://doi.org/10.1109/access.2020.3041606",
+    "volume": "8",
+    "issue": null,
+    "pages": "217068-217085",
+    "openalex_id": "https://openalex.org/W3107323529"
   },
   {
     "title": "Exploratory Data Analysis of Multi-label Classification Tasks with Formal Context Analysis.",
@@ -901,20 +923,81 @@
     "year": 2020,
     "journal": "Concept Lattices and their Applications",
     "doi": null,
-    "url": null,
+    "volume": null,
+    "issue": null,
+    "pages": "171-183",
     "openalex_id": "https://openalex.org/W3090961546"
   },
   {
-    "title": "Representing Informational Harmoniums using Semifield-Valued Formal Concept Analysis.",
+    "title": "Automatic Detection of Depression in Speech Using Ensemble Convolutional Neural Networks",
+    "authors": [
+      "Adrián Vázquez-Romero",
+      "Ascensión Gallardo-Antolín"
+    ],
+    "year": 2020,
+    "journal": "Entropy",
+    "doi": "https://doi.org/10.3390/e22060688",
+    "volume": "22",
+    "issue": "6",
+    "pages": "688-688",
+    "openalex_id": "https://openalex.org/W3036548303"
+  },
+  {
+    "title": "An attention Long Short-Term Memory based system for automatic classification of speech intelligibility",
+    "authors": [
+      "Miguel Fernández-Díaz",
+      "Ascensión Gallardo-Antolín"
+    ],
+    "year": 2020,
+    "journal": "Engineering Applications of Artificial Intelligence",
+    "doi": "https://doi.org/10.1016/j.engappai.2020.103976",
+    "volume": "96",
+    "issue": null,
+    "pages": "103976-103976",
+    "openalex_id": "https://openalex.org/W3088145342"
+  },
+  {
+    "title": "The Rényi Entropies Operate in Positive Semifields",
     "authors": [
       "Francisco J. Valverde-Albacete",
       "Carmen Peláez-Moreno"
     ],
-    "year": 2020,
-    "journal": "Concept Lattices and their Applications",
-    "doi": null,
-    "url": null,
-    "openalex_id": "https://openalex.org/W3089917164"
+    "year": 2019,
+    "journal": "Entropy",
+    "doi": "https://doi.org/10.3390/e21080780",
+    "volume": "21",
+    "issue": "8",
+    "pages": "780-780",
+    "openalex_id": "https://openalex.org/W2968036748"
+  },
+  {
+    "title": "The Case for Shifting the Rényi Entropy",
+    "authors": [
+      "Francisco J. Valverde-Albacete",
+      "Carmen Peláez-Moreno"
+    ],
+    "year": 2019,
+    "journal": "Entropy",
+    "doi": "https://doi.org/10.3390/e21010046",
+    "volume": "21",
+    "issue": "1",
+    "pages": "46-46",
+    "openalex_id": "https://openalex.org/W2900670597"
+  },
+  {
+    "title": "Probabilistic Topic Model for Context-Driven Visual Attention Understanding",
+    "authors": [
+      "Miguel‐Ángel Fernández‐Torres",
+      "Iván González-Díaz",
+      "Fernando Díaz-de-María"
+    ],
+    "year": 2019,
+    "journal": "IEEE Transactions on Circuits and Systems for Video Technology",
+    "doi": "https://doi.org/10.1109/tcsvt.2019.2909427",
+    "volume": "30",
+    "issue": "6",
+    "pages": "1653-1667",
+    "openalex_id": "https://openalex.org/W2927333699"
   },
   {
     "title": "Predicting Image Aesthetics for Intelligent Tourism Information Systems",
@@ -929,7 +1012,9 @@
     "year": 2019,
     "journal": "Electronics",
     "doi": "https://doi.org/10.3390/electronics8060671",
-    "url": "https://doi.org/10.3390/electronics8060671",
+    "volume": "8",
+    "issue": "6",
+    "pages": "671-671",
     "openalex_id": "https://openalex.org/W2950490109"
   },
   {
@@ -943,21 +1028,10 @@
     "year": 2019,
     "journal": "Expert Systems with Applications",
     "doi": "https://doi.org/10.1016/j.eswa.2019.01.046",
-    "url": "https://doi.org/10.1016/j.eswa.2019.01.046",
+    "volume": "123",
+    "issue": null,
+    "pages": "315-327",
     "openalex_id": "https://openalex.org/W2911110922"
-  },
-  {
-    "title": "Probabilistic Topic Model for Context-Driven Visual Attention Understanding",
-    "authors": [
-      "Miguel‐Ángel Fernández‐Torres",
-      "Iván González-Díaz",
-      "Fernando Díaz-de-María"
-    ],
-    "year": 2019,
-    "journal": "IEEE Transactions on Circuits and Systems for Video Technology",
-    "doi": "https://doi.org/10.1109/tcsvt.2019.2909427",
-    "url": "https://doi.org/10.1109/tcsvt.2019.2909427",
-    "openalex_id": "https://openalex.org/W2927333699"
   },
   {
     "title": "Emotion and attention: Audiovisual models for group-level skin response recognition in short movies",
@@ -971,8 +1045,26 @@
     "year": 2019,
     "journal": "Web Intelligence",
     "doi": "https://doi.org/10.3233/web-190398",
-    "url": "https://doi.org/10.3233/web-190398",
+    "volume": "17",
+    "issue": "1",
+    "pages": "29-40",
     "openalex_id": "https://openalex.org/W2915903427"
+  },
+  {
+    "title": "Data Augmentation for Speaker Identification under Stress Conditions to Combat Gender-Based Violence",
+    "authors": [
+      "Esther Rituerto-González",
+      "Alba Mínguez-Sánchez",
+      "Ascensión Gallardo-Antolín",
+      "Carmen Peláez-Moreno"
+    ],
+    "year": 2019,
+    "journal": "Applied Sciences",
+    "doi": "https://doi.org/10.3390/app9112298",
+    "volume": "9",
+    "issue": "11",
+    "pages": "2298-2298",
+    "openalex_id": "https://openalex.org/W2948154152"
   },
   {
     "title": "A multi-threshold approach and a realistic error measure for vanishing point detection in natural landscapes",
@@ -986,22 +1078,10 @@
     "year": 2019,
     "journal": "Engineering Applications of Artificial Intelligence",
     "doi": "https://doi.org/10.1016/j.engappai.2019.08.001",
-    "url": "https://doi.org/10.1016/j.engappai.2019.08.001",
+    "volume": "85",
+    "issue": null,
+    "pages": "713-726",
     "openalex_id": "https://openalex.org/W2967420288"
-  },
-  {
-    "title": "Data Augmentation for Speaker Identification under Stress Conditions to Combat Gender-Based Violence",
-    "authors": [
-      "Esther Rituerto-González",
-      "Alba Mínguez-Sánchez",
-      "Ascensión Gallardo-Antolín",
-      "Carmen Peláez-Moreno"
-    ],
-    "year": 2019,
-    "journal": "Applied Sciences",
-    "doi": "https://doi.org/10.3390/app9112298",
-    "url": "https://doi.org/10.3390/app9112298",
-    "openalex_id": "https://openalex.org/W2948154152"
   },
   {
     "title": "A Framework for Supervised Classification Performance Analysis with Information-Theoretic Methods",
@@ -1012,45 +1092,42 @@
     "year": 2019,
     "journal": "IEEE Transactions on Knowledge and Data Engineering",
     "doi": "https://doi.org/10.1109/tkde.2019.2915643",
-    "url": "https://doi.org/10.1109/tkde.2019.2915643",
+    "volume": "32",
+    "issue": "11",
+    "pages": "2075-2087",
     "openalex_id": "https://openalex.org/W2944740470"
   },
   {
-    "title": "The Case for Shifting the Rényi Entropy",
+    "title": "The Robustness of Echoic Log-Surprise Auditory Saliency Detection",
     "authors": [
-      "Francisco J. Valverde-Albacete",
-      "Carmen Peláez-Moreno"
-    ],
-    "year": 2019,
-    "journal": "Entropy",
-    "doi": "https://doi.org/10.3390/e21010046",
-    "url": "https://doi.org/10.3390/e21010046",
-    "openalex_id": "https://openalex.org/W2900670597"
-  },
-  {
-    "title": "The Rényi Entropies Operate in Positive Semifields",
-    "authors": [
-      "Francisco J. Valverde-Albacete",
-      "Carmen Peláez-Moreno"
-    ],
-    "year": 2019,
-    "journal": "Entropy",
-    "doi": "https://doi.org/10.3390/e21080780",
-    "url": "https://doi.org/10.3390/e21080780",
-    "openalex_id": "https://openalex.org/W2968036748"
-  },
-  {
-    "title": "Efficient Scale-Adaptive License Plate Detection System",
-    "authors": [
-      "Miguel Molina-Moreno",
-      "Iván González-Díaz",
-      "Fernando Díaz-de-María"
+      "Antonio Rodríguez-Hidalgo",
+      "Carmen Peláez-Moreno",
+      "Ascensión Gallardo-Antolín"
     ],
     "year": 2018,
-    "journal": "IEEE Transactions on Intelligent Transportation Systems",
-    "doi": "https://doi.org/10.1109/tits.2018.2859035",
-    "url": "https://doi.org/10.1109/tits.2018.2859035",
-    "openalex_id": "https://openalex.org/W2947046587"
+    "journal": "IEEE Access",
+    "doi": "https://doi.org/10.1109/access.2018.2882055",
+    "volume": "6",
+    "issue": null,
+    "pages": "72083-72093",
+    "openalex_id": "https://openalex.org/W2901723759"
+  },
+  {
+    "title": "Perceptually-guided deep neural networks for ego-action prediction: Object grasping",
+    "authors": [
+      "Iván González-Díaz",
+      "Jenny Benois‐Pineau",
+      "Jean‐Philippe Domenger",
+      "Daniel Cattaert",
+      "Aymar de Rugy"
+    ],
+    "year": 2018,
+    "journal": "Pattern Recognition",
+    "doi": "https://doi.org/10.1016/j.patcog.2018.11.013",
+    "volume": "88",
+    "issue": null,
+    "pages": "223-235",
+    "openalex_id": "https://openalex.org/W2901915841"
   },
   {
     "title": "Optimized Update/Prediction Assignment for Lifting Transforms on Graphs",
@@ -1063,8 +1140,39 @@
     "year": 2018,
     "journal": "IEEE Transactions on Signal Processing",
     "doi": "https://doi.org/10.1109/tsp.2018.2802465",
-    "url": "https://doi.org/10.1109/tsp.2018.2802465",
+    "volume": "66",
+    "issue": "8",
+    "pages": "2098-2111",
     "openalex_id": "https://openalex.org/W2792682305"
+  },
+  {
+    "title": "K -Formal Concept Analysis as linear algebra over idempotent semifields",
+    "authors": [
+      "Francisco J. Valverde-Albacete",
+      "Carmen Peláez-Moreno"
+    ],
+    "year": 2018,
+    "journal": "Information Sciences",
+    "doi": "https://doi.org/10.1016/j.ins.2018.07.067",
+    "volume": "467",
+    "issue": null,
+    "pages": "579-603",
+    "openalex_id": "https://openalex.org/W2886364871"
+  },
+  {
+    "title": "Efficient Scale-Adaptive License Plate Detection System",
+    "authors": [
+      "Miguel Molina-Moreno",
+      "Iván González-Díaz",
+      "Fernando Díaz-de-María"
+    ],
+    "year": 2018,
+    "journal": "IEEE Transactions on Intelligent Transportation Systems",
+    "doi": "https://doi.org/10.1109/tits.2018.2859035",
+    "volume": "20",
+    "issue": "6",
+    "pages": "2109-2121",
+    "openalex_id": "https://openalex.org/W2947046587"
   },
   {
     "title": "Echoic log-surprise: A multi-scale scheme for acoustic saliency detection",
@@ -1076,33 +1184,23 @@
     "year": 2018,
     "journal": "Expert Systems with Applications",
     "doi": "https://doi.org/10.1016/j.eswa.2018.07.018",
-    "url": "https://doi.org/10.1016/j.eswa.2018.07.018",
+    "volume": "114",
+    "issue": null,
+    "pages": "255-266",
     "openalex_id": "https://openalex.org/W2883943760"
   },
   {
-    "title": "The Robustness of Echoic Log-Surprise Auditory Saliency Detection",
+    "title": "DermaKNet: Incorporating the Knowledge of Dermatologists to Convolutional Neural Networks for Skin Lesion Diagnosis",
     "authors": [
-      "Antonio Rodríguez-Hidalgo",
-      "Carmen Peláez-Moreno",
-      "Ascensión Gallardo-Antolín"
+      "Iván González-Díaz"
     ],
     "year": 2018,
-    "journal": "IEEE Access",
-    "doi": "https://doi.org/10.1109/access.2018.2882055",
-    "url": "https://doi.org/10.1109/access.2018.2882055",
-    "openalex_id": "https://openalex.org/W2901723759"
-  },
-  {
-    "title": "K -Formal Concept Analysis as linear algebra over idempotent semifields",
-    "authors": [
-      "Francisco J. Valverde-Albacete",
-      "Carmen Peláez-Moreno"
-    ],
-    "year": 2018,
-    "journal": "Information Sciences",
-    "doi": "https://doi.org/10.1016/j.ins.2018.07.067",
-    "url": "https://doi.org/10.1016/j.ins.2018.07.067",
-    "openalex_id": "https://openalex.org/W2886364871"
+    "journal": "IEEE Journal of Biomedical and Health Informatics",
+    "doi": "https://doi.org/10.1109/jbhi.2018.2806962",
+    "volume": "23",
+    "issue": "2",
+    "pages": "547-559",
+    "openalex_id": "https://openalex.org/W2922510944"
   },
   {
     "title": "Assessing Information Transmission in Data Transformations with the Channel Multivariate Entropy Triangle",
@@ -1113,7 +1211,9 @@
     "year": 2018,
     "journal": "Entropy",
     "doi": "https://doi.org/10.3390/e20070498",
-    "url": "https://doi.org/10.3390/e20070498",
+    "volume": "20",
+    "issue": "7",
+    "pages": "498-498",
     "openalex_id": "https://openalex.org/W2811227347"
   },
   {
@@ -1128,88 +1228,10 @@
     "year": 2018,
     "journal": "Concept Lattices and their Applications",
     "doi": null,
-    "url": null,
+    "volume": null,
+    "issue": null,
+    "pages": "117-128",
     "openalex_id": "https://openalex.org/W2887392859"
-  },
-  {
-    "title": "DermaKNet: Incorporating the Knowledge of Dermatologists to Convolutional Neural Networks for Skin Lesion Diagnosis",
-    "authors": [
-      "Iván González-Díaz"
-    ],
-    "year": 2018,
-    "journal": "IEEE Journal of Biomedical and Health Informatics",
-    "doi": "https://doi.org/10.1109/jbhi.2018.2806962",
-    "url": "https://doi.org/10.1109/jbhi.2018.2806962",
-    "openalex_id": "https://openalex.org/W2922510944"
-  },
-  {
-    "title": "Perceptually-guided deep neural networks for ego-action prediction: Object grasping",
-    "authors": [
-      "Iván González-Díaz",
-      "Jenny Benois‐Pineau",
-      "Jean‐Philippe Domenger",
-      "Daniel Cattaert",
-      "Aymar de Rugy"
-    ],
-    "year": 2018,
-    "journal": "Pattern Recognition",
-    "doi": "https://doi.org/10.1016/j.patcog.2018.11.013",
-    "url": "https://doi.org/10.1016/j.patcog.2018.11.013",
-    "openalex_id": "https://openalex.org/W2901915841"
-  },
-  {
-    "title": "Bayesian adaptive algorithm for fast coding unit decision in the High Efficiency Video Coding (HEVC) standard",
-    "authors": [
-      "Amaya Jiménez-Moreno",
-      "Eduardo Martínez-Enríquez",
-      "Fernando Díaz-de-María"
-    ],
-    "year": 2017,
-    "journal": "Signal Processing Image Communication",
-    "doi": "https://doi.org/10.1016/j.image.2017.04.004",
-    "url": "https://doi.org/10.1016/j.image.2017.04.004",
-    "openalex_id": "https://openalex.org/W2604378002"
-  },
-  {
-    "title": "Enriched dermoscopic-structure-based cad system for melanoma diagnosis",
-    "authors": [
-      "Javier López-Labraca",
-      "Miguel‐Ángel Fernández‐Torres",
-      "Iván González-Díaz",
-      "Fernando Díaz-de-María",
-      "Ángel Pizarro"
-    ],
-    "year": 2017,
-    "journal": "Multimedia Tools and Applications",
-    "doi": "https://doi.org/10.1007/s11042-017-4879-3",
-    "url": "https://doi.org/10.1007/s11042-017-4879-3",
-    "openalex_id": "https://openalex.org/W2625957711"
-  },
-  {
-    "title": "Adaptive Lagrange multiplier estimation algorithm in HEVC",
-    "authors": [
-      "José Luis González-de-Suso",
-      "Eduardo Martínez-Enríquez",
-      "Fernando Díaz-de-María"
-    ],
-    "year": 2017,
-    "journal": "Signal Processing Image Communication",
-    "doi": "https://doi.org/10.1016/j.image.2017.04.010",
-    "url": "https://doi.org/10.1016/j.image.2017.04.010",
-    "openalex_id": "https://openalex.org/W2607812157"
-  },
-  {
-    "title": "Bird sound spectrogram decomposition through Non-Negative Matrix Factorization for the acoustic classification of bird species",
-    "authors": [
-      "Jimmy Ludeña-Choez",
-      "Raisa Quispe-Soncco",
-      "Ascensión Gallardo-Antolín"
-    ],
-    "year": 2017,
-    "journal": "PLoS ONE",
-    "doi": "https://doi.org/10.1371/journal.pone.0179403",
-    "url": "https://doi.org/10.1371/journal.pone.0179403",
-    "openalex_id": "https://openalex.org/W2646300815"
   },
   {
     "title": "The evaluation of data sources using multivariate entropy tools",
@@ -1220,23 +1242,10 @@
     "year": 2017,
     "journal": "Expert Systems with Applications",
     "doi": "https://doi.org/10.1016/j.eswa.2017.02.010",
-    "url": "https://doi.org/10.1016/j.eswa.2017.02.010",
+    "volume": "78",
+    "issue": null,
+    "pages": "145-157",
     "openalex_id": "https://openalex.org/W2586305254"
-  },
-  {
-    "title": "Epidemiologia descriptiva de hendiduras labiopalatinas en la Clínica de Labio y Paladar Hendidos de Morelia, Michoacán, México (1989-2012) y su comparación con algunas poblaciones internacionales",
-    "authors": [
-      "José Mena-Olalde",
-      "Iván González-Díaz",
-      "Thania Venegas-Gómez",
-      "Verónica González-Díaz",
-      "Samuel Medina-Aguilar"
-    ],
-    "year": 2017,
-    "journal": "Cirugía Plástica Ibero-Latinoamericana",
-    "doi": "https://doi.org/10.4321/s0376-78922017000100006",
-    "url": "https://doi.org/10.4321/s0376-78922017000100006",
-    "openalex_id": "https://openalex.org/W2626536513"
   },
   {
     "title": "Exploiting visual saliency for assessing the impact of car commercials upon viewers",
@@ -1251,62 +1260,103 @@
     "year": 2017,
     "journal": "Multimedia Tools and Applications",
     "doi": "https://doi.org/10.1007/s11042-017-5339-9",
-    "url": "https://doi.org/10.1007/s11042-017-5339-9",
+    "volume": "77",
+    "issue": "15",
+    "pages": "18903-18933",
     "openalex_id": "https://openalex.org/W2765360047"
   },
   {
-    "title": "Complexity Control Based on a Fast Coding Unit Decision Method in the HEVC Video Coding Standard",
+    "title": "Epidemiologia descriptiva de hendiduras labiopalatinas en la Clínica de Labio y Paladar Hendidos de Morelia, Michoacán, México (1989-2012) y su comparación con algunas poblaciones internacionales",
+    "authors": [
+      "José Mena-Olalde",
+      "Iván González-Díaz",
+      "Thania Venegas-Gómez",
+      "Verónica González-Díaz",
+      "Samuel Medina-Aguilar"
+    ],
+    "year": 2017,
+    "journal": "Cirugía Plástica Ibero-Latinoamericana",
+    "doi": "https://doi.org/10.4321/s0376-78922017000100006",
+    "volume": "43",
+    "issue": "1",
+    "pages": "41-45",
+    "openalex_id": "https://openalex.org/W2626536513"
+  },
+  {
+    "title": "Enriched dermoscopic-structure-based cad system for melanoma diagnosis",
+    "authors": [
+      "Javier López-Labraca",
+      "Miguel‐Ángel Fernández‐Torres",
+      "Iván González-Díaz",
+      "Fernando Díaz-de-María",
+      "Ángel Pizarro"
+    ],
+    "year": 2017,
+    "journal": "Multimedia Tools and Applications",
+    "doi": "https://doi.org/10.1007/s11042-017-4879-3",
+    "volume": "77",
+    "issue": "10",
+    "pages": "12171-12202",
+    "openalex_id": "https://openalex.org/W2625957711"
+  },
+  {
+    "title": "Bird sound spectrogram decomposition through Non-Negative Matrix Factorization for the acoustic classification of bird species",
+    "authors": [
+      "Jimmy Ludeña-Choez",
+      "Raisa Quispe-Soncco",
+      "Ascensión Gallardo-Antolín"
+    ],
+    "year": 2017,
+    "journal": "PLoS ONE",
+    "doi": "https://doi.org/10.1371/journal.pone.0179403",
+    "volume": "12",
+    "issue": "6",
+    "pages": "e0179403-e0179403",
+    "openalex_id": "https://openalex.org/W2646300815"
+  },
+  {
+    "title": "Bayesian adaptive algorithm for fast coding unit decision in the High Efficiency Video Coding (HEVC) standard",
     "authors": [
       "Amaya Jiménez-Moreno",
       "Eduardo Martínez-Enríquez",
       "Fernando Díaz-de-María"
     ],
-    "year": 2016,
-    "journal": "IEEE Transactions on Multimedia",
-    "doi": "https://doi.org/10.1109/tmm.2016.2524995",
-    "url": "https://doi.org/10.1109/tmm.2016.2524995",
-    "openalex_id": "https://openalex.org/W2298523098"
+    "year": 2017,
+    "journal": "Signal Processing Image Communication",
+    "doi": "https://doi.org/10.1016/j.image.2017.04.004",
+    "volume": "56",
+    "issue": null,
+    "pages": "1-11",
+    "openalex_id": "https://openalex.org/W2604378002"
   },
   {
-    "title": "Directional Transforms for Video Coding Based on Lifting on Graphs",
+    "title": "Adaptive Lagrange multiplier estimation algorithm in HEVC",
     "authors": [
+      "José Luis González-de-Suso",
       "Eduardo Martínez-Enríquez",
-      "Jesús Cid‐Sueiro",
-      "Fernando Díaz-de-María",
-      "Antonio Ortega"
-    ],
-    "year": 2016,
-    "journal": "IEEE Transactions on Circuits and Systems for Video Technology",
-    "doi": "https://doi.org/10.1109/tcsvt.2016.2633418",
-    "url": "https://doi.org/10.1109/tcsvt.2016.2633418",
-    "openalex_id": "https://openalex.org/W2557464755"
-  },
-  {
-    "title": "Neighborhood Matching for Image Retrieval",
-    "authors": [
-      "Iván González-Díaz",
-      "Murat Birinci",
-      "Fernando Díaz-de-María",
-      "Edward J. Delp"
-    ],
-    "year": 2016,
-    "journal": "IEEE Transactions on Multimedia",
-    "doi": "https://doi.org/10.1109/tmm.2016.2616298",
-    "url": "https://doi.org/10.1109/tmm.2016.2616298",
-    "openalex_id": "https://openalex.org/W2531380228"
-  },
-  {
-    "title": "Comparing visual descriptors and automatic rating strategies for video aesthetics prediction",
-    "authors": [
-      "A. Hernández-García",
-      "Fernando Fernández-Martínez",
       "Fernando Díaz-de-María"
     ],
-    "year": 2016,
+    "year": 2017,
     "journal": "Signal Processing Image Communication",
-    "doi": "https://doi.org/10.1016/j.image.2016.07.004",
-    "url": "https://doi.org/10.1016/j.image.2016.07.004",
-    "openalex_id": "https://openalex.org/W2493642124"
+    "doi": "https://doi.org/10.1016/j.image.2017.04.010",
+    "volume": "56",
+    "issue": null,
+    "pages": "40-51",
+    "openalex_id": "https://openalex.org/W2607812157"
+  },
+  {
+    "title": "The spectra of reducible matrices over complete commutative idempotent semifields and their spectral lattices",
+    "authors": [
+      "Francisco J. Valverde-Albacete",
+      "Carmen Peláez-Moreno"
+    ],
+    "year": 2016,
+    "journal": "International Journal of General Systems",
+    "doi": "https://doi.org/10.1080/03081079.2015.1072923",
+    "volume": "45",
+    "issue": "2",
+    "pages": "86-115",
+    "openalex_id": "https://openalex.org/W2292259021"
   },
   {
     "title": "Proceedings of COLING 2016, the 26th International Conference on Computational Linguistics: Technical Papers",
@@ -1320,112 +1370,10 @@
     "year": 2016,
     "journal": "The Association for Computational Linguistics",
     "doi": null,
-    "url": null,
+    "volume": null,
+    "issue": null,
+    "pages": "",
     "openalex_id": "https://openalex.org/W2598789561"
-  },
-  {
-    "title": "Building a Decision Support System for Inpatient Admission Prediction With the Manchester Triage System and Administrative Check-in Variables",
-    "authors": [
-      "Alexander Zlotnik",
-      "Miguel Cuchí Alfaro",
-      "María Carmen Pérez Pérez",
-      "Ascensión Gallardo-Antolín",
-      "Juan Manuel Montero Martínez"
-    ],
-    "year": 2016,
-    "journal": "CIN Computers Informatics Nursing",
-    "doi": "https://doi.org/10.1097/cin.0000000000000230",
-    "url": "https://doi.org/10.1097/cin.0000000000000230",
-    "openalex_id": "https://openalex.org/W2335120868"
-  },
-  {
-    "title": "Enhancement of a text-independent speaker verification system by using feature combination and parallel structure classifiers",
-    "authors": [
-      "Kerlos Atia Abdalmalak",
-      "Ascensión Gallardo-Antolín"
-    ],
-    "year": 2016,
-    "journal": "Neural Computing and Applications",
-    "doi": "https://doi.org/10.1007/s00521-016-2470-x",
-    "url": "https://doi.org/10.1007/s00521-016-2470-x",
-    "openalex_id": "https://openalex.org/W2470829715"
-  },
-  {
-    "title": "Interactive knowledge discovery and data mining on genomic expression data with numeric formal concept analysis",
-    "authors": [
-      "José María González-Calabozo",
-      "Francisco J. Valverde-Albacete",
-      "Carmen Peláez-Moreno"
-    ],
-    "year": 2016,
-    "journal": "BMC Bioinformatics",
-    "doi": "https://doi.org/10.1186/s12859-016-1234-z",
-    "url": "https://doi.org/10.1186/s12859-016-1234-z",
-    "openalex_id": "https://openalex.org/W2519032607"
-  },
-  {
-    "title": "The spectra of reducible matrices over complete commutative idempotent semifields and their spectral lattices",
-    "authors": [
-      "Francisco J. Valverde-Albacete",
-      "Carmen Peláez-Moreno"
-    ],
-    "year": 2016,
-    "journal": "International Journal of General Systems",
-    "doi": "https://doi.org/10.1080/03081079.2015.1072923",
-    "url": "https://doi.org/10.1080/03081079.2015.1072923",
-    "openalex_id": "https://openalex.org/W2292259021"
-  },
-  {
-    "title": "Additional file 5 of Interactive knowledge discovery and data mining on genomic expression data with numeric formal concept analysis",
-    "authors": [
-      "José María González-Calabozo",
-      "Francisco Valverde-Albacete",
-      "Carmen Peláez-Moreno"
-    ],
-    "year": 2016,
-    "journal": "Figshare",
-    "doi": "https://doi.org/10.6084/m9.figshare.4414766.v1",
-    "url": "https://doi.org/10.6084/m9.figshare.4414766.v1",
-    "openalex_id": "https://openalex.org/W7136176427"
-  },
-  {
-    "title": "Additional file 3 of Interactive knowledge discovery and data mining on genomic expression data with numeric formal concept analysis",
-    "authors": [
-      "José María González-Calabozo",
-      "Francisco Valverde-Albacete",
-      "Carmen Peláez-Moreno"
-    ],
-    "year": 2016,
-    "journal": "Figshare",
-    "doi": "https://doi.org/10.6084/m9.figshare.4414694",
-    "url": "https://doi.org/10.6084/m9.figshare.4414694",
-    "openalex_id": "https://openalex.org/W7136432278"
-  },
-  {
-    "title": "Additional file 5 of Interactive knowledge discovery and data mining on genomic expression data with numeric formal concept analysis",
-    "authors": [
-      "José María González-Calabozo",
-      "Francisco Valverde-Albacete",
-      "Carmen Peláez-Moreno"
-    ],
-    "year": 2016,
-    "journal": "Figshare",
-    "doi": "https://doi.org/10.6084/m9.figshare.4414766",
-    "url": "https://doi.org/10.6084/m9.figshare.4414766",
-    "openalex_id": "https://openalex.org/W7136514040"
-  },
-  {
-    "title": "Additional file 3 of Interactive knowledge discovery and data mining on genomic expression data with numeric formal concept analysis",
-    "authors": [
-      "José María González-Calabozo",
-      "Francisco Valverde-Albacete",
-      "Carmen Peláez-Moreno"
-    ],
-    "year": 2016,
-    "journal": "Figshare",
-    "doi": "https://doi.org/10.6084/m9.figshare.4414694.v1",
-    "url": "https://doi.org/10.6084/m9.figshare.4414694.v1",
-    "openalex_id": "https://openalex.org/W7136895722"
   },
   {
     "title": "Perceptual modeling in the problem of active object recognition in visual scenes",
@@ -1437,8 +1385,71 @@
     "year": 2016,
     "journal": "Pattern Recognition",
     "doi": "https://doi.org/10.1016/j.patcog.2016.03.007",
-    "url": "https://doi.org/10.1016/j.patcog.2016.03.007",
+    "volume": "56",
+    "issue": null,
+    "pages": "129-141",
     "openalex_id": "https://openalex.org/W2298287476"
+  },
+  {
+    "title": "Neighborhood Matching for Image Retrieval",
+    "authors": [
+      "Iván González-Díaz",
+      "Murat Birinci",
+      "Fernando Díaz-de-María",
+      "Edward J. Delp"
+    ],
+    "year": 2016,
+    "journal": "IEEE Transactions on Multimedia",
+    "doi": "https://doi.org/10.1109/tmm.2016.2616298",
+    "volume": "19",
+    "issue": "3",
+    "pages": "544-558",
+    "openalex_id": "https://openalex.org/W2531380228"
+  },
+  {
+    "title": "Interactive knowledge discovery and data mining on genomic expression data with numeric formal concept analysis",
+    "authors": [
+      "José María González-Calabozo",
+      "Francisco J. Valverde-Albacete",
+      "Carmen Peláez-Moreno"
+    ],
+    "year": 2016,
+    "journal": "BMC Bioinformatics",
+    "doi": "https://doi.org/10.1186/s12859-016-1234-z",
+    "volume": "17",
+    "issue": "1",
+    "pages": "374-374",
+    "openalex_id": "https://openalex.org/W2519032607"
+  },
+  {
+    "title": "Enhancement of a text-independent speaker verification system by using feature combination and parallel structure classifiers",
+    "authors": [
+      "Kerlos Atia Abdalmalak",
+      "Ascensión Gallardo-Antolín"
+    ],
+    "year": 2016,
+    "journal": "Neural Computing and Applications",
+    "doi": "https://doi.org/10.1007/s00521-016-2470-x",
+    "volume": "29",
+    "issue": "3",
+    "pages": "637-651",
+    "openalex_id": "https://openalex.org/W2470829715"
+  },
+  {
+    "title": "Directional Transforms for Video Coding Based on Lifting on Graphs",
+    "authors": [
+      "Eduardo Martínez-Enríquez",
+      "Jesús Cid‐Sueiro",
+      "Fernando Díaz-de-María",
+      "Antonio Ortega"
+    ],
+    "year": 2016,
+    "journal": "IEEE Transactions on Circuits and Systems for Video Technology",
+    "doi": "https://doi.org/10.1109/tcsvt.2016.2633418",
+    "volume": "28",
+    "issue": "4",
+    "pages": "933-946",
+    "openalex_id": "https://openalex.org/W2557464755"
   },
   {
     "title": "Desgarro cervical en paciente con pesario",
@@ -1452,8 +1463,87 @@
     "year": 2016,
     "journal": "Ginecología y Obstetricia de México",
     "doi": null,
-    "url": null,
+    "volume": "84",
+    "issue": "6",
+    "pages": "396-402",
     "openalex_id": "https://openalex.org/W2624920769"
+  },
+  {
+    "title": "Complexity Control Based on a Fast Coding Unit Decision Method in the HEVC Video Coding Standard",
+    "authors": [
+      "Amaya Jiménez-Moreno",
+      "Eduardo Martínez-Enríquez",
+      "Fernando Díaz-de-María"
+    ],
+    "year": 2016,
+    "journal": "IEEE Transactions on Multimedia",
+    "doi": "https://doi.org/10.1109/tmm.2016.2524995",
+    "volume": "18",
+    "issue": "4",
+    "pages": "563-575",
+    "openalex_id": "https://openalex.org/W2298523098"
+  },
+  {
+    "title": "Comparing visual descriptors and automatic rating strategies for video aesthetics prediction",
+    "authors": [
+      "A. Hernández-García",
+      "Fernando Fernández-Martínez",
+      "Fernando Díaz-de-María"
+    ],
+    "year": 2016,
+    "journal": "Signal Processing Image Communication",
+    "doi": "https://doi.org/10.1016/j.image.2016.07.004",
+    "volume": "47",
+    "issue": null,
+    "pages": "280-288",
+    "openalex_id": "https://openalex.org/W2493642124"
+  },
+  {
+    "title": "Building a Decision Support System for Inpatient Admission Prediction With the Manchester Triage System and Administrative Check-in Variables",
+    "authors": [
+      "Alexander Zlotnik",
+      "Miguel Cuchí Alfaro",
+      "María Carmen Pérez Pérez",
+      "Ascensión Gallardo-Antolín",
+      "Juan Manuel Montero Martínez"
+    ],
+    "year": 2016,
+    "journal": "CIN Computers Informatics Nursing",
+    "doi": "https://doi.org/10.1097/cin.0000000000000230",
+    "volume": "34",
+    "issue": "5",
+    "pages": "224-230",
+    "openalex_id": "https://openalex.org/W2335120868"
+  },
+  {
+    "title": "Additional file 5 of Interactive knowledge discovery and data mining on genomic expression data with numeric formal concept analysis",
+    "authors": [
+      "José María González-Calabozo",
+      "Francisco Valverde-Albacete",
+      "Carmen Peláez-Moreno"
+    ],
+    "year": 2016,
+    "journal": "Figshare",
+    "doi": "https://doi.org/10.6084/m9.figshare.4414766.v1",
+    "volume": null,
+    "issue": null,
+    "pages": "",
+    "openalex_id": "https://openalex.org/W7136176427"
+  },
+  {
+    "title": "Additional file 3 of Interactive knowledge discovery and data mining on genomic expression data with numeric formal concept analysis",
+    "authors": [
+      "José María González-Calabozo",
+      "Francisco Valverde-Albacete",
+      "Carmen Peláez-Moreno"
+    ],
+    "year": 2016,
+    "journal": "Figshare",
+    "doi": "https://doi.org/10.6084/m9.figshare.4414694",
+    "volume": null,
+    "issue": null,
+    "pages": "",
+    "openalex_id": "https://openalex.org/W7136432278"
   },
   {
     "title": "Two-level sliding-window VBR control algorithm for video on demand streaming",
@@ -1467,8 +1557,71 @@
     "year": 2015,
     "journal": "Signal Processing Image Communication",
     "doi": "https://doi.org/10.1016/j.image.2015.05.004",
-    "url": "https://doi.org/10.1016/j.image.2015.05.004",
+    "volume": "36",
+    "issue": null,
+    "pages": "1-13",
     "openalex_id": "https://openalex.org/W413003264"
+  },
+  {
+    "title": "Supporting scientific knowledge discovery with extended, generalized Formal Concept Analysis",
+    "authors": [
+      "Francisco J. Valverde-Albacete",
+      "José María González-Calabozo",
+      "Anselmo Peñas",
+      "Carmen Peláez-Moreno"
+    ],
+    "year": 2015,
+    "journal": "Expert Systems with Applications",
+    "doi": "https://doi.org/10.1016/j.eswa.2015.09.022",
+    "volume": "44",
+    "issue": null,
+    "pages": "198-216",
+    "openalex_id": "https://openalex.org/W2125862613"
+  },
+  {
+    "title": "Morphologically Filtered Power-Normalized Cochleograms as Robust, Biologically Inspired Features for ASR",
+    "authors": [
+      "F. de-la-Calle-Silos",
+      "Francisco J. Valverde-Albacete",
+      "Ascensión Gallardo-Antolín",
+      "Carmen Peláez-Moreno"
+    ],
+    "year": 2015,
+    "journal": "IEEE/ACM Transactions on Audio Speech and Language Processing",
+    "doi": "https://doi.org/10.1109/taslp.2015.2464691",
+    "volume": "23",
+    "issue": "11",
+    "pages": "2070-2080",
+    "openalex_id": "https://openalex.org/W2012061403"
+  },
+  {
+    "title": "Goal-oriented top-down probabilistic visual attention model for recognition of manipulated objects in egocentric videos",
+    "authors": [
+      "Vincent Buso",
+      "Iván González-Díaz",
+      "Jenny Benois‐Pineau"
+    ],
+    "year": 2015,
+    "journal": "Signal Processing Image Communication",
+    "doi": "https://doi.org/10.1016/j.image.2015.05.006",
+    "volume": "39",
+    "issue": null,
+    "pages": "418-431",
+    "openalex_id": "https://openalex.org/W621239334"
+  },
+  {
+    "title": "Extending the HITS Algorithm over Dioids.",
+    "authors": [
+      "Francisco J. Valverde-Albacete",
+      "Carmen Peláez-Moreno"
+    ],
+    "year": 2015,
+    "journal": "",
+    "doi": null,
+    "volume": null,
+    "issue": null,
+    "pages": "",
+    "openalex_id": "https://openalex.org/W2405597542"
   },
   {
     "title": "Emergency Department Visit Forecasting and Dynamic Nursing Staff Allocation Using Machine Learning Techniques With Readily Available Open-Source Software",
@@ -1482,7 +1635,9 @@
     "year": 2015,
     "journal": "CIN Computers Informatics Nursing",
     "doi": "https://doi.org/10.1097/cin.0000000000000173",
-    "url": "https://doi.org/10.1097/cin.0000000000000173",
+    "volume": "33",
+    "issue": "8",
+    "pages": "368-377",
     "openalex_id": "https://openalex.org/W1039522147"
   },
   {
@@ -1494,75 +1649,24 @@
     "year": 2015,
     "journal": "Expert Systems with Applications",
     "doi": "https://doi.org/10.1016/j.eswa.2015.10.018",
-    "url": "https://doi.org/10.1016/j.eswa.2015.10.018",
+    "volume": "46",
+    "issue": null,
+    "pages": "77-86",
     "openalex_id": "https://openalex.org/W1875800788"
   },
   {
-    "title": "Morphologically Filtered Power-Normalized Cochleograms as Robust, Biologically Inspired Features for ASR",
-    "authors": [
-      "F. de-la-Calle-Silos",
-      "Francisco J. Valverde-Albacete",
-      "Ascensión Gallardo-Antolín",
-      "Carmen Peláez-Moreno"
-    ],
-    "year": 2015,
-    "journal": "IEEE/ACM Transactions on Audio Speech and Language Processing",
-    "doi": "https://doi.org/10.1109/taslp.2015.2464691",
-    "url": "https://doi.org/10.1109/taslp.2015.2464691",
-    "openalex_id": "https://openalex.org/W2012061403"
-  },
-  {
-    "title": "Supporting scientific knowledge discovery with extended, generalized Formal Concept Analysis",
-    "authors": [
-      "Francisco J. Valverde-Albacete",
-      "José María González-Calabozo",
-      "Anselmo Peñas",
-      "Carmen Peláez-Moreno"
-    ],
-    "year": 2015,
-    "journal": "Expert Systems with Applications",
-    "doi": "https://doi.org/10.1016/j.eswa.2015.09.022",
-    "url": "https://doi.org/10.1016/j.eswa.2015.09.022",
-    "openalex_id": "https://openalex.org/W2125862613"
-  },
-  {
-    "title": "Extending the HITS Algorithm over Dioids.",
+    "title": "The spectra of irreducible matrices over completed idempotent semifields",
     "authors": [
       "Francisco J. Valverde-Albacete",
       "Carmen Peláez-Moreno"
-    ],
-    "year": 2015,
-    "journal": null,
-    "doi": null,
-    "url": null,
-    "openalex_id": "https://openalex.org/W2405597542"
-  },
-  {
-    "title": "Goal-oriented top-down probabilistic visual attention model for recognition of manipulated objects in egocentric videos",
-    "authors": [
-      "Vincent Buso",
-      "Iván González-Díaz",
-      "Jenny Benois‐Pineau"
-    ],
-    "year": 2015,
-    "journal": "Signal Processing Image Communication",
-    "doi": "https://doi.org/10.1016/j.image.2015.05.006",
-    "url": "https://doi.org/10.1016/j.image.2015.05.006",
-    "openalex_id": "https://openalex.org/W621239334"
-  },
-  {
-    "title": "Standard-Compliant Low-Pass Temporal Filter to Reduce the Perceived Flicker Artifact",
-    "authors": [
-      "Amaya Jiménez-Moreno",
-      "Eduardo Martínez-Enríquez",
-      "Vinay Kumar",
-      "Fernando Díaz-de-María"
     ],
     "year": 2014,
-    "journal": "IEEE Transactions on Multimedia",
-    "doi": "https://doi.org/10.1109/tmm.2014.2347257",
-    "url": "https://doi.org/10.1109/tmm.2014.2347257",
-    "openalex_id": "https://openalex.org/W2026919707"
+    "journal": "Fuzzy Sets and Systems",
+    "doi": "https://doi.org/10.1016/j.fss.2014.09.022",
+    "volume": "271",
+    "issue": null,
+    "pages": "46-69",
+    "openalex_id": "https://openalex.org/W2007424992"
   },
   {
     "title": "Temporal segmentation and keyframe selection methods for user-generated video search-based annotation",
@@ -1575,8 +1679,41 @@
     "year": 2014,
     "journal": "Expert Systems with Applications",
     "doi": "https://doi.org/10.1016/j.eswa.2014.08.001",
-    "url": "https://doi.org/10.1016/j.eswa.2014.08.001",
+    "volume": "42",
+    "issue": "1",
+    "pages": "488-502",
     "openalex_id": "https://openalex.org/W2035282250"
+  },
+  {
+    "title": "Standard-Compliant Low-Pass Temporal Filter to Reduce the Perceived Flicker Artifact",
+    "authors": [
+      "Amaya Jiménez-Moreno",
+      "Eduardo Martínez-Enríquez",
+      "Vinay Kumar",
+      "Fernando Díaz-de-María"
+    ],
+    "year": 2014,
+    "journal": "IEEE Transactions on Multimedia",
+    "doi": "https://doi.org/10.1109/tmm.2014.2347257",
+    "volume": "16",
+    "issue": "7",
+    "pages": "1863-1873",
+    "openalex_id": "https://openalex.org/W2026919707"
+  },
+  {
+    "title": "On Concept Lattices as Information Channels",
+    "authors": [
+      "Francisco José Valverde Albacete",
+      "Carmen Peláez-Moreno",
+      "Anselmo Peñas"
+    ],
+    "year": 2014,
+    "journal": "Concept Lattices and their Applications",
+    "doi": null,
+    "volume": null,
+    "issue": null,
+    "pages": "119-130",
+    "openalex_id": "https://openalex.org/W2183141970"
   },
   {
     "title": "Feature extraction based on the high-pass filtering of audio signals for Acoustic Event Classification",
@@ -1587,7 +1724,9 @@
     "year": 2014,
     "journal": "Computer Speech & Language",
     "doi": "https://doi.org/10.1016/j.csl.2014.04.001",
-    "url": "https://doi.org/10.1016/j.csl.2014.04.001",
+    "volume": "30",
+    "issue": "1",
+    "pages": "32-42",
     "openalex_id": "https://openalex.org/W2001108690"
   },
   {
@@ -1601,7 +1740,9 @@
     "year": 2014,
     "journal": "e-Archivo (Carlos III University of Madrid)",
     "doi": "https://doi.org/10.13140/2.1.2304.3203",
-    "url": "https://doi.org/10.13140/2.1.2304.3203",
+    "volume": null,
+    "issue": null,
+    "pages": "14-18",
     "openalex_id": "https://openalex.org/W2579021393"
   },
   {
@@ -1618,9 +1759,11 @@
       "Juan Manuel Montero"
     ],
     "year": 2014,
-    "journal": null,
+    "journal": "",
     "doi": null,
-    "url": null,
+    "volume": null,
+    "issue": null,
+    "pages": "",
     "openalex_id": "https://openalex.org/W2608489317"
   },
   {
@@ -1632,33 +1775,10 @@
     "year": 2014,
     "journal": "PLoS ONE",
     "doi": "https://doi.org/10.1371/journal.pone.0084217",
-    "url": "https://doi.org/10.1371/journal.pone.0084217",
+    "volume": "9",
+    "issue": "1",
+    "pages": "e84217-e84217",
     "openalex_id": "https://openalex.org/W2015363484"
-  },
-  {
-    "title": "The spectra of irreducible matrices over completed idempotent semifields",
-    "authors": [
-      "Francisco J. Valverde-Albacete",
-      "Carmen Peláez-Moreno"
-    ],
-    "year": 2014,
-    "journal": "Fuzzy Sets and Systems",
-    "doi": "https://doi.org/10.1016/j.fss.2014.09.022",
-    "url": "https://doi.org/10.1016/j.fss.2014.09.022",
-    "openalex_id": "https://openalex.org/W2007424992"
-  },
-  {
-    "title": "On Concept Lattices as Information Channels",
-    "authors": [
-      "Francisco José Valverde Albacete",
-      "Carmen Peláez-Moreno",
-      "Anselmo Peñas"
-    ],
-    "year": 2014,
-    "journal": "Concept Lattices and their Applications",
-    "doi": null,
-    "url": null,
-    "openalex_id": "https://openalex.org/W2183141970"
   },
   {
     "title": "Mode Decision-Based Algorithm for Complexity Control in H.264/AVC",
@@ -1670,33 +1790,10 @@
     "year": 2013,
     "journal": "IEEE Transactions on Multimedia",
     "doi": "https://doi.org/10.1109/tmm.2013.2241414",
-    "url": "https://doi.org/10.1109/tmm.2013.2241414",
+    "volume": "15",
+    "issue": "5",
+    "pages": "1094-1109",
     "openalex_id": "https://openalex.org/W2074245885"
-  },
-  {
-    "title": "A Generative Model for Concurrent Image Retrieval and ROI Segmentation",
-    "authors": [
-      "Iván González-Díaz",
-      "Carlos E. Baz-Hormigos",
-      "Fernando Díaz-de-María"
-    ],
-    "year": 2013,
-    "journal": "IEEE Transactions on Multimedia",
-    "doi": "https://doi.org/10.1109/tmm.2013.2286083",
-    "url": "https://doi.org/10.1109/tmm.2013.2286083",
-    "openalex_id": "https://openalex.org/W2019946480"
-  },
-  {
-    "title": "A region-centered topic model for object discovery and category-based image segmentation",
-    "authors": [
-      "Iván González-Díaz",
-      "Fernando Díaz-de-María"
-    ],
-    "year": 2013,
-    "journal": "Pattern Recognition",
-    "doi": "https://doi.org/10.1016/j.patcog.2013.01.034",
-    "url": "https://doi.org/10.1016/j.patcog.2013.01.034",
-    "openalex_id": "https://openalex.org/W2061333400"
   },
   {
     "title": "Improved Method to Select the Lagrange Multiplier for Rate-Distortion Based Motion Estimation in Video Coding",
@@ -1709,7 +1806,9 @@
     "year": 2013,
     "journal": "IEEE Transactions on Circuits and Systems for Video Technology",
     "doi": "https://doi.org/10.1109/tcsvt.2013.2276857",
-    "url": "https://doi.org/10.1109/tcsvt.2013.2276857",
+    "volume": "24",
+    "issue": "3",
+    "pages": "452-464",
     "openalex_id": "https://openalex.org/W2114292419"
   },
   {
@@ -1723,8 +1822,54 @@
     "year": 2013,
     "journal": "IEEE Aerospace and Electronic Systems Magazine",
     "doi": "https://doi.org/10.1109/maes.2013.6477866",
-    "url": "https://doi.org/10.1109/maes.2013.6477866",
+    "volume": "28",
+    "issue": "2",
+    "pages": "24-33",
     "openalex_id": "https://openalex.org/W2023435711"
+  },
+  {
+    "title": "A region-centered topic model for object discovery and category-based image segmentation",
+    "authors": [
+      "Iván González-Díaz",
+      "Fernando Díaz-de-María"
+    ],
+    "year": 2013,
+    "journal": "Pattern Recognition",
+    "doi": "https://doi.org/10.1016/j.patcog.2013.01.034",
+    "volume": "46",
+    "issue": "9",
+    "pages": "2437-2449",
+    "openalex_id": "https://openalex.org/W2061333400"
+  },
+  {
+    "title": "A Generative Model for Concurrent Image Retrieval and ROI Segmentation",
+    "authors": [
+      "Iván González-Díaz",
+      "Carlos E. Baz-Hormigos",
+      "Fernando Díaz-de-María"
+    ],
+    "year": 2013,
+    "journal": "IEEE Transactions on Multimedia",
+    "doi": "https://doi.org/10.1109/tmm.2013.2286083",
+    "volume": "16",
+    "issue": "1",
+    "pages": "169-183",
+    "openalex_id": "https://openalex.org/W2019946480"
+  },
+  {
+    "title": "WebGeneKFCA: an On-line Conceptual Analysis Tool for Genomic Expression Data",
+    "authors": [
+      "Jose Mar",
+      "Carmen Peláez-Moreno",
+      "Francisco J. Valverde-Albacete"
+    ],
+    "year": 2012,
+    "journal": "Concept Lattices and their Applications",
+    "doi": null,
+    "volume": null,
+    "issue": null,
+    "pages": "345-350",
+    "openalex_id": "https://openalex.org/W2183394822"
   },
   {
     "title": "In-Layer Multibuffer Framework for Rate-Controlled Scalable Video Coding",
@@ -1735,7 +1880,9 @@
     "year": 2012,
     "journal": "IEEE Transactions on Circuits and Systems for Video Technology",
     "doi": "https://doi.org/10.1109/tcsvt.2012.2198089",
-    "url": "https://doi.org/10.1109/tcsvt.2012.2198089",
+    "volume": "22",
+    "issue": "8",
+    "pages": "1199-1212",
     "openalex_id": "https://openalex.org/W2005083984"
   },
   {
@@ -1749,21 +1896,10 @@
     "year": 2012,
     "journal": "Cognitive Computation",
     "doi": "https://doi.org/10.1007/s12559-012-9196-6",
-    "url": "https://doi.org/10.1007/s12559-012-9196-6",
+    "volume": "5",
+    "issue": "4",
+    "pages": "426-441",
     "openalex_id": "https://openalex.org/W2024880041"
-  },
-  {
-    "title": "WebGeneKFCA: an On-line Conceptual Analysis Tool for Genomic Expression Data",
-    "authors": [
-      "Jose Mar",
-      "Carmen Peláez-Moreno",
-      "Francisco J. Valverde-Albacete"
-    ],
-    "year": 2012,
-    "journal": "Concept Lattices and their Applications",
-    "doi": null,
-    "url": null,
-    "openalex_id": "https://openalex.org/W2183394822"
   },
   {
     "title": "Real-Time Robust Automatic Speech Recognition Using Compact Support Vector Machines",
@@ -1777,8 +1913,24 @@
     "year": 2011,
     "journal": "IEEE Transactions on Audio Speech and Language Processing",
     "doi": "https://doi.org/10.1109/tasl.2011.2178597",
-    "url": "https://doi.org/10.1109/tasl.2011.2178597",
+    "volume": "20",
+    "issue": "4",
+    "pages": "1347-1361",
     "openalex_id": "https://openalex.org/W2158702718"
+  },
+  {
+    "title": "RBF-Based QP Estimation Model for VBR Control in H.264/SVC",
+    "authors": [
+      "Sergio Sanz-Rodríguez",
+      "Fernando Díaz-de-María"
+    ],
+    "year": 2011,
+    "journal": "IEEE Transactions on Circuits and Systems for Video Technology",
+    "doi": "https://doi.org/10.1109/tcsvt.2011.2143330",
+    "volume": "21",
+    "issue": "9",
+    "pages": "1263-1277",
+    "openalex_id": "https://openalex.org/W2026699246"
   },
   {
     "title": "A low-complexity pre-processing system for restoring low-quality QR code images",
@@ -1790,7 +1942,9 @@
     "year": 2011,
     "journal": "IEEE Transactions on Consumer Electronics",
     "doi": "https://doi.org/10.1109/tce.2011.6018890",
-    "url": "https://doi.org/10.1109/tce.2011.6018890",
+    "volume": "57",
+    "issue": "3",
+    "pages": "1320-1328",
     "openalex_id": "https://openalex.org/W2146688720"
   },
   {
@@ -1804,33 +1958,97 @@
     "year": 2011,
     "journal": "IEEE Transactions on Circuits and Systems for Video Technology",
     "doi": "https://doi.org/10.1109/tcsvt.2011.2134010",
-    "url": "https://doi.org/10.1109/tcsvt.2011.2134010",
+    "volume": "21",
+    "issue": "11",
+    "pages": "1719-1732",
     "openalex_id": "https://openalex.org/W2143888767"
   },
   {
-    "title": "RBF-Based QP Estimation Model for VBR Control in H.264/SVC",
+    "title": "Uncertainty decoding on Frequency Filtered parameters for robust ASR",
     "authors": [
-      "Sergio Sanz-Rodríguez",
-      "Fernando Díaz-de-María"
-    ],
-    "year": 2011,
-    "journal": "IEEE Transactions on Circuits and Systems for Video Technology",
-    "doi": "https://doi.org/10.1109/tcsvt.2011.2143330",
-    "url": "https://doi.org/10.1109/tcsvt.2011.2143330",
-    "openalex_id": "https://openalex.org/W2026699246"
-  },
-  {
-    "title": "An adaptive algorithm for fast inter mode decision in the H.264/AVC video coding standard",
-    "authors": [
-      "Eduardo Martínez-Enríquez",
-      "Amaya Jiménez-Moreno",
+      "Jesús Vicente-Peña",
       "Fernando Díaz-de-María"
     ],
     "year": 2010,
-    "journal": "IEEE Transactions on Consumer Electronics",
-    "doi": "https://doi.org/10.1109/tce.2010.5506008",
-    "url": "https://doi.org/10.1109/tce.2010.5506008",
-    "openalex_id": "https://openalex.org/W2110694514"
+    "journal": "Speech Communication",
+    "doi": "https://doi.org/10.1016/j.specom.2010.02.002",
+    "volume": "52",
+    "issue": "5",
+    "pages": "440-449",
+    "openalex_id": "https://openalex.org/W2034819408"
+  },
+  {
+    "title": "UC3M AT TRECVID 2010 SEMANTIC INDEXING TASK",
+    "authors": [
+      "Iván González-Díaz",
+      "Vanessa Gómez-Verdejo",
+      "Fernando Díaz-de-María",
+      "Jerónimo Arenas‐García"
+    ],
+    "year": 2010,
+    "journal": "",
+    "doi": null,
+    "volume": null,
+    "issue": null,
+    "pages": "",
+    "openalex_id": "https://openalex.org/W2403972495"
+  },
+  {
+    "title": "Two information-theoretic tools to assess the performance of multi-class classifiers",
+    "authors": [
+      "Francisco J. Valverde-Albacete",
+      "Carmen Peláez-Moreno"
+    ],
+    "year": 2010,
+    "journal": "Pattern Recognition Letters",
+    "doi": "https://doi.org/10.1016/j.patrec.2010.05.017",
+    "volume": "31",
+    "issue": "12",
+    "pages": "1665-1671",
+    "openalex_id": "https://openalex.org/W2143550392"
+  },
+  {
+    "title": "State-space dynamics distance for clustering sequential data",
+    "authors": [
+      "Darío García-García",
+      "Emilio Parrado-Hernández",
+      "Fernando Díaz-de-María"
+    ],
+    "year": 2010,
+    "journal": "Pattern Recognition",
+    "doi": "https://doi.org/10.1016/j.patcog.2010.11.018",
+    "volume": "44",
+    "issue": "5",
+    "pages": "1014-1022",
+    "openalex_id": "https://openalex.org/W2134745505"
+  },
+  {
+    "title": "Histogram Equalization-Based Features for Speech, Music, and Song Discrimination",
+    "authors": [
+      "Ascensión Gallardo-Antolín",
+      "Juan Manuel Montero"
+    ],
+    "year": 2010,
+    "journal": "IEEE Signal Processing Letters",
+    "doi": "https://doi.org/10.1109/lsp.2010.2049877",
+    "volume": "17",
+    "issue": "7",
+    "pages": "659-662",
+    "openalex_id": "https://openalex.org/W2099988055"
+  },
+  {
+    "title": "Extending conceptualisation modes for generalised Formal Concept Analysis",
+    "authors": [
+      "Francisco J. Valverde-Albacete",
+      "Carmen Peláez-Moreno"
+    ],
+    "year": 2010,
+    "journal": "Information Sciences",
+    "doi": "https://doi.org/10.1016/j.ins.2010.04.014",
+    "volume": "181",
+    "issue": "10",
+    "pages": "1888-1909",
+    "openalex_id": "https://openalex.org/W2076308416"
   },
   {
     "title": "Data Balancing for Efficient Training of Hybrid ANN/HMM Automatic Speech Recognition Systems",
@@ -1843,7 +2061,9 @@
     "year": 2010,
     "journal": "IEEE Transactions on Audio Speech and Language Processing",
     "doi": "https://doi.org/10.1109/tasl.2010.2050513",
-    "url": "https://doi.org/10.1109/tasl.2010.2050513",
+    "volume": "19",
+    "issue": "3",
+    "pages": "468-481",
     "openalex_id": "https://openalex.org/W2001458616"
   },
   {
@@ -1857,73 +2077,10 @@
     "year": 2010,
     "journal": "IEEE Transactions on Circuits and Systems for Video Technology",
     "doi": "https://doi.org/10.1109/tcsvt.2010.2051369",
-    "url": "https://doi.org/10.1109/tcsvt.2010.2051369",
+    "volume": "20",
+    "issue": "8",
+    "pages": "1139-1143",
     "openalex_id": "https://openalex.org/W2071110464"
-  },
-  {
-    "title": "State-space dynamics distance for clustering sequential data",
-    "authors": [
-      "Darío García-García",
-      "Emilio Parrado-Hernández",
-      "Fernando Díaz-de-María"
-    ],
-    "year": 2010,
-    "journal": "Pattern Recognition",
-    "doi": "https://doi.org/10.1016/j.patcog.2010.11.018",
-    "url": "https://doi.org/10.1016/j.patcog.2010.11.018",
-    "openalex_id": "https://openalex.org/W2134745505"
-  },
-  {
-    "title": "An improved fast mode decision algorithm for intraprediction in H.264/AVC video coding",
-    "authors": [
-      "Manuel de-Frutos-López",
-      "Daniel Orellana-Quirós",
-      "José C. Pujol-Alcolado",
-      "Fernando Díaz-de-María"
-    ],
-    "year": 2010,
-    "journal": "Signal Processing Image Communication",
-    "doi": "https://doi.org/10.1016/j.image.2010.10.005",
-    "url": "https://doi.org/10.1016/j.image.2010.10.005",
-    "openalex_id": "https://openalex.org/W2081431073"
-  },
-  {
-    "title": "Uncertainty decoding on Frequency Filtered parameters for robust ASR",
-    "authors": [
-      "Jesús Vicente-Peña",
-      "Fernando Díaz-de-María"
-    ],
-    "year": 2010,
-    "journal": "Speech Communication",
-    "doi": "https://doi.org/10.1016/j.specom.2010.02.002",
-    "url": "https://doi.org/10.1016/j.specom.2010.02.002",
-    "openalex_id": "https://openalex.org/W2034819408"
-  },
-  {
-    "title": "UC3M AT TRECVID 2010 SEMANTIC INDEXING TASK",
-    "authors": [
-      "Iván González-Díaz",
-      "Vanessa Gómez-Verdejo",
-      "Fernando Díaz-de-María",
-      "Jerónimo Arenas‐García"
-    ],
-    "year": 2010,
-    "journal": null,
-    "doi": null,
-    "url": null,
-    "openalex_id": "https://openalex.org/W2403972495"
-  },
-  {
-    "title": "Histogram Equalization-Based Features for Speech, Music, and Song Discrimination",
-    "authors": [
-      "Ascensión Gallardo-Antolín",
-      "Juan Manuel Montero"
-    ],
-    "year": 2010,
-    "journal": "IEEE Signal Processing Letters",
-    "doi": "https://doi.org/10.1109/lsp.2010.2049877",
-    "url": "https://doi.org/10.1109/lsp.2010.2049877",
-    "openalex_id": "https://openalex.org/W2099988055"
   },
   {
     "title": "Automatic placement of outer volume suppression slices in MR spectroscopic imaging of the human brain",
@@ -1940,20 +2097,10 @@
     "year": 2010,
     "journal": "Magnetic Resonance in Medicine",
     "doi": "https://doi.org/10.1002/mrm.22275",
-    "url": "https://doi.org/10.1002/mrm.22275",
+    "volume": "63",
+    "issue": "3",
+    "pages": "592-600",
     "openalex_id": "https://openalex.org/W2087595728"
-  },
-  {
-    "title": "Extending conceptualisation modes for generalised Formal Concept Analysis",
-    "authors": [
-      "Francisco J. Valverde-Albacete",
-      "Carmen Peláez-Moreno"
-    ],
-    "year": 2010,
-    "journal": "Information Sciences",
-    "doi": "https://doi.org/10.1016/j.ins.2010.04.014",
-    "url": "https://doi.org/10.1016/j.ins.2010.04.014",
-    "openalex_id": "https://openalex.org/W2076308416"
   },
   {
     "title": "Analyzing phonetic confusions using formal concept analysis",
@@ -1965,20 +2112,73 @@
     "year": 2010,
     "journal": "The Journal of the Acoustical Society of America",
     "doi": "https://doi.org/10.1121/1.3458854",
-    "url": "https://doi.org/10.1121/1.3458854",
+    "volume": "128",
+    "issue": "3",
+    "pages": "1377-1390",
     "openalex_id": "https://openalex.org/W2032683783"
   },
   {
-    "title": "Two information-theoretic tools to assess the performance of multi-class classifiers",
+    "title": "An improved fast mode decision algorithm for intraprediction in H.264/AVC video coding",
     "authors": [
-      "Francisco J. Valverde-Albacete",
-      "Carmen Peláez-Moreno"
+      "Manuel de-Frutos-López",
+      "Daniel Orellana-Quirós",
+      "José C. Pujol-Alcolado",
+      "Fernando Díaz-de-María"
     ],
     "year": 2010,
-    "journal": "Pattern Recognition Letters",
-    "doi": "https://doi.org/10.1016/j.patrec.2010.05.017",
-    "url": "https://doi.org/10.1016/j.patrec.2010.05.017",
-    "openalex_id": "https://openalex.org/W2143550392"
+    "journal": "Signal Processing Image Communication",
+    "doi": "https://doi.org/10.1016/j.image.2010.10.005",
+    "volume": "25",
+    "issue": "10",
+    "pages": "709-716",
+    "openalex_id": "https://openalex.org/W2081431073"
+  },
+  {
+    "title": "An adaptive algorithm for fast inter mode decision in the H.264/AVC video coding standard",
+    "authors": [
+      "Eduardo Martínez-Enríquez",
+      "Amaya Jiménez-Moreno",
+      "Fernando Díaz-de-María"
+    ],
+    "year": 2010,
+    "journal": "IEEE Transactions on Consumer Electronics",
+    "doi": "https://doi.org/10.1109/tce.2010.5506008",
+    "volume": "56",
+    "issue": "2",
+    "pages": "826-834",
+    "openalex_id": "https://openalex.org/W2110694514"
+  },
+  {
+    "title": "UC3M AT TRECVID 2009.",
+    "authors": [
+      "Iván González-Díaz",
+      "Vanessa Gómez-Verdejo",
+      "Manel Martínez‐Ramón",
+      "Fernando Díaz-de-María",
+      "Jerónimo Arenas‐García"
+    ],
+    "year": 2009,
+    "journal": "",
+    "doi": null,
+    "volume": null,
+    "issue": null,
+    "pages": "",
+    "openalex_id": "https://openalex.org/W3184282645"
+  },
+  {
+    "title": "The synergy between bounded-distance HMM and spectral subtraction for robust speech recognition",
+    "authors": [
+      "Jesús Vicente-Peña",
+      "Fernando Díaz-de-María",
+      "W. Bastiaan Kleijn"
+    ],
+    "year": 2009,
+    "journal": "Speech Communication",
+    "doi": "https://doi.org/10.1016/j.specom.2009.09.002",
+    "volume": "52",
+    "issue": "2",
+    "pages": "123-133",
+    "openalex_id": "https://openalex.org/W2039031891"
   },
   {
     "title": "Characterization of Healthy and Pathological Voice Through Measures Based on Nonlinear Dynamics",
@@ -1993,48 +2193,10 @@
     "year": 2009,
     "journal": "IEEE Transactions on Audio Speech and Language Processing",
     "doi": "https://doi.org/10.1109/tasl.2009.2016734",
-    "url": "https://doi.org/10.1109/tasl.2009.2016734",
+    "volume": "17",
+    "issue": "6",
+    "pages": "1186-1195",
     "openalex_id": "https://openalex.org/W2117095944"
-  },
-  {
-    "title": "The synergy between bounded-distance HMM and spectral subtraction for robust speech recognition",
-    "authors": [
-      "Jesús Vicente-Peña",
-      "Fernando Díaz-de-María",
-      "W. Bastiaan Kleijn"
-    ],
-    "year": 2009,
-    "journal": "Speech Communication",
-    "doi": "https://doi.org/10.1016/j.specom.2009.09.002",
-    "url": "https://doi.org/10.1016/j.specom.2009.09.002",
-    "openalex_id": "https://openalex.org/W2039031891"
-  },
-  {
-    "title": "UC3M AT TRECVID 2009.",
-    "authors": [
-      "Iván González-Díaz",
-      "Vanessa Gómez-Verdejo",
-      "Manel Martínez‐Ramón",
-      "Fernando Díaz-de-María",
-      "Jerónimo Arenas‐García"
-    ],
-    "year": 2009,
-    "journal": null,
-    "doi": null,
-    "url": null,
-    "openalex_id": "https://openalex.org/W3184282645"
-  },
-  {
-    "title": "Adaptive Multipattern Fast Block-Matching Algorithm Based on Motion Classification Techniques",
-    "authors": [
-      "Iván González-Díaz",
-      "Fernando Díaz-de-María"
-    ],
-    "year": 2008,
-    "journal": "IEEE Transactions on Circuits and Systems for Video Technology",
-    "doi": "https://doi.org/10.1109/tcsvt.2008.2004917",
-    "url": "https://doi.org/10.1109/tcsvt.2008.2004917",
-    "openalex_id": "https://openalex.org/W2157879907"
   },
   {
     "title": "UC3M HIGH LEVEL FEATURE EXTRACTION AT TRECVID 2008",
@@ -2051,8 +2213,24 @@
     "year": 2008,
     "journal": "TRECVID",
     "doi": null,
-    "url": null,
+    "volume": null,
+    "issue": null,
+    "pages": "",
     "openalex_id": "https://openalex.org/W176435227"
+  },
+  {
+    "title": "Adaptive Multipattern Fast Block-Matching Algorithm Based on Motion Classification Techniques",
+    "authors": [
+      "Iván González-Díaz",
+      "Fernando Díaz-de-María"
+    ],
+    "year": 2008,
+    "journal": "IEEE Transactions on Circuits and Systems for Video Technology",
+    "doi": "https://doi.org/10.1109/tcsvt.2008.2004917",
+    "volume": "18",
+    "issue": "10",
+    "pages": "1369-1382",
+    "openalex_id": "https://openalex.org/W2157879907"
   },
   {
     "title": "Robust ASR using Support Vector Machines",
@@ -2066,8 +2244,24 @@
     "year": 2007,
     "journal": "Speech Communication",
     "doi": "https://doi.org/10.1016/j.specom.2007.01.013",
-    "url": "https://doi.org/10.1016/j.specom.2007.01.013",
+    "volume": "49",
+    "issue": "4",
+    "pages": "253-267",
     "openalex_id": "https://openalex.org/W1976524151"
+  },
+  {
+    "title": "Further Galois Connections between Semimodules over Idempotent Semirings.",
+    "authors": [
+      "Francisco J. Valverde-Albacete",
+      "Carmen Peláez-Moreno"
+    ],
+    "year": 2007,
+    "journal": "",
+    "doi": null,
+    "volume": null,
+    "issue": null,
+    "pages": "",
+    "openalex_id": "https://openalex.org/W149666907"
   },
   {
     "title": "A simulated annealing approach to speaker segmentation in audio databases",
@@ -2080,20 +2274,10 @@
     "year": 2007,
     "journal": "Engineering Applications of Artificial Intelligence",
     "doi": "https://doi.org/10.1016/j.engappai.2007.07.002",
-    "url": "https://doi.org/10.1016/j.engappai.2007.07.002",
+    "volume": "21",
+    "issue": "4",
+    "pages": "499-508",
     "openalex_id": "https://openalex.org/W2167250933"
-  },
-  {
-    "title": "Further Galois Connections between Semimodules over Idempotent Semirings.",
-    "authors": [
-      "Francisco J. Valverde-Albacete",
-      "Carmen Peláez-Moreno"
-    ],
-    "year": 2007,
-    "journal": null,
-    "doi": null,
-    "url": null,
-    "openalex_id": "https://openalex.org/W149666907"
   },
   {
     "title": "Support Vector Machines for continuous speech recognition",
@@ -2103,37 +2287,12 @@
       "Fernando Díaz-de-María"
     ],
     "year": 2006,
-    "journal": null,
+    "journal": "",
     "doi": null,
-    "url": null,
+    "volume": null,
+    "issue": null,
+    "pages": "1-4",
     "openalex_id": "https://openalex.org/W2097965598"
-  },
-  {
-    "title": "Band-pass filtering of the time sequences of spectral parameters for robust wireless speech recognition",
-    "authors": [
-      "Jesús Vicente-Peña",
-      "Ascensión Gallardo-Antolín",
-      "Carmen Peláez-Moreno",
-      "Fernando Díaz-de-María"
-    ],
-    "year": 2006,
-    "journal": "Speech Communication",
-    "doi": "https://doi.org/10.1016/j.specom.2006.07.007",
-    "url": "https://doi.org/10.1016/j.specom.2006.07.007",
-    "openalex_id": "https://openalex.org/W2030829256"
-  },
-  {
-    "title": "ESTIMACIÓN DE PROBABILIDADES A POSTERIORI EN SVMS MULTICLASE PARA RECONOCIMIENTO DE HABLA CONTINUA",
-    "authors": [
-      "Rubén Solera Ureña",
-      "Fernando Pérez‐Cruz",
-      "Fernando Díaz-de-María"
-    ],
-    "year": 2006,
-    "journal": null,
-    "doi": null,
-    "url": null,
-    "openalex_id": "https://openalex.org/W2169387349"
   },
   {
     "title": "Offline speaker segmentation using genetic algorithms and mutual information",
@@ -2146,8 +2305,41 @@
     "year": 2006,
     "journal": "IEEE Transactions on Evolutionary Computation",
     "doi": "https://doi.org/10.1109/tevc.2005.857079",
-    "url": "https://doi.org/10.1109/tevc.2005.857079",
+    "volume": "10",
+    "issue": "2",
+    "pages": "175-186",
     "openalex_id": "https://openalex.org/W2102964608"
+  },
+  {
+    "title": "ESTIMACIÓN DE PROBABILIDADES A POSTERIORI EN SVMS MULTICLASE PARA RECONOCIMIENTO DE HABLA CONTINUA",
+    "authors": [
+      "Rubén Solera Ureña",
+      "Fernando Pérez‐Cruz",
+      "Fernando Díaz-de-María"
+    ],
+    "year": 2006,
+    "journal": "",
+    "doi": null,
+    "volume": null,
+    "issue": null,
+    "pages": "",
+    "openalex_id": "https://openalex.org/W2169387349"
+  },
+  {
+    "title": "Band-pass filtering of the time sequences of spectral parameters for robust wireless speech recognition",
+    "authors": [
+      "Jesús Vicente-Peña",
+      "Ascensión Gallardo-Antolín",
+      "Carmen Peláez-Moreno",
+      "Fernando Díaz-de-María"
+    ],
+    "year": 2006,
+    "journal": "Speech Communication",
+    "doi": "https://doi.org/10.1016/j.specom.2006.07.007",
+    "volume": "48",
+    "issue": "10",
+    "pages": "1379-1398",
+    "openalex_id": "https://openalex.org/W2030829256"
   },
   {
     "title": "Recognizing GSM digital speech",
@@ -2159,7 +2351,9 @@
     "year": 2005,
     "journal": "IEEE Transactions on Speech and Audio Processing",
     "doi": "https://doi.org/10.1109/tsa.2005.853210",
-    "url": "https://doi.org/10.1109/tsa.2005.853210",
+    "volume": "13",
+    "issue": "6",
+    "pages": "1186-1205",
     "openalex_id": "https://openalex.org/W2099210939"
   },
   {
@@ -2173,7 +2367,9 @@
     "year": 2005,
     "journal": "Signal Processing",
     "doi": "https://doi.org/10.1016/j.sigpro.2005.08.011",
-    "url": "https://doi.org/10.1016/j.sigpro.2005.08.011",
+    "volume": "86",
+    "issue": "7",
+    "pages": "1502-1508",
     "openalex_id": "https://openalex.org/W2094516940"
   },
   {
@@ -2187,9 +2383,11 @@
       "Fernando Díaz-de-María"
     ],
     "year": 2003,
-    "journal": null,
+    "journal": "",
     "doi": null,
-    "url": null,
+    "volume": null,
+    "issue": null,
+    "pages": "28",
     "openalex_id": "https://openalex.org/W2400839724"
   },
   {
@@ -2203,24 +2401,12 @@
       "José Manuel Pardo"
     ],
     "year": 2003,
-    "journal": null,
+    "journal": "",
     "doi": null,
-    "url": null,
+    "volume": null,
+    "issue": null,
+    "pages": "",
     "openalex_id": "https://openalex.org/W2135321612"
-  },
-  {
-    "title": "Svm-Based Lost Packets Concealment For Asr Applications Over Ip",
-    "authors": [
-      "Carmen Peláez-Moreno",
-      "Ascensión Gallardo-Antolín",
-      "Emilio Parrado-Hernández",
-      "Fernando Díaz-de-María"
-    ],
-    "year": 2002,
-    "journal": "INFM-OAR (INFN Catania)",
-    "doi": "https://doi.org/10.5281/zenodo.38104",
-    "url": "https://doi.org/10.5281/zenodo.38104",
-    "openalex_id": "https://openalex.org/W1544612028"
   },
   {
     "title": "Recognizing voice over IP: a robust front-end for speech recognition on the world wide web",
@@ -2232,7 +2418,9 @@
     "year": 2001,
     "journal": "IEEE Transactions on Multimedia",
     "doi": "https://doi.org/10.1109/6046.923820",
-    "url": "https://doi.org/10.1109/6046.923820",
+    "volume": "3",
+    "issue": "2",
+    "pages": "209-218",
     "openalex_id": "https://openalex.org/W2171180249"
   },
   {
@@ -2243,7 +2431,9 @@
     "year": 2000,
     "journal": "BIT Numerical Mathematics",
     "doi": null,
-    "url": null,
+    "volume": null,
+    "issue": "124",
+    "pages": "114-115",
     "openalex_id": "https://openalex.org/W3215626505"
   },
   {
@@ -2258,7 +2448,9 @@
     "year": 1999,
     "journal": "Dialnet (Universidad de la Rioja)",
     "doi": null,
-    "url": null,
+    "volume": null,
+    "issue": null,
+    "pages": "212-216",
     "openalex_id": "https://openalex.org/W2904260262"
   },
   {
@@ -2270,8 +2462,23 @@
     "year": 1997,
     "journal": "International Journal of Adaptive Control and Signal Processing",
     "doi": "https://doi.org/10.1002/(sici)1099-1115(199711)11:7<585::aid-acs454>3.0.co;2-9",
-    "url": "https://doi.org/10.1002/(sici)1099-1115(199711)11:7<585::aid-acs454>3.0.co;2-9",
+    "volume": "11",
+    "issue": "7",
+    "pages": "585-601",
     "openalex_id": "https://openalex.org/W2029945649"
+  },
+  {
+    "title": "Funciones de base radial para codificación predictiva de voz",
+    "authors": [
+      "Fernando Díaz-de-María"
+    ],
+    "year": 1996,
+    "journal": "Dialnet (Universidad de la Rioja)",
+    "doi": null,
+    "volume": null,
+    "issue": null,
+    "pages": "",
+    "openalex_id": "https://openalex.org/W2985236713"
   },
   {
     "title": "Efficient regularized RBF prediction for CELP-type speech coders",
@@ -2282,18 +2489,9 @@
     "year": 1996,
     "journal": "Dialnet (Universidad de la Rioja)",
     "doi": null,
-    "url": null,
+    "volume": null,
+    "issue": null,
+    "pages": "1-5",
     "openalex_id": "https://openalex.org/W2245993371"
-  },
-  {
-    "title": "Funciones de base radial para codificación predictiva de voz",
-    "authors": [
-      "Fernando Díaz-de-María"
-    ],
-    "year": 1996,
-    "journal": "Dialnet (Universidad de la Rioja)",
-    "doi": null,
-    "url": null,
-    "openalex_id": "https://openalex.org/W2985236713"
   }
 ]
