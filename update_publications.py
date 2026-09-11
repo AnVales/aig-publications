@@ -1,3 +1,4 @@
+```python
 import json
 import urllib.request
 import urllib.parse
@@ -47,16 +48,24 @@ def normalize_title(title):
 
 
 def normalize_doi(doi):
-    """Normaliza un DOI."""
+    """Normaliza un DOI eliminando URLs y prefijos."""
 
     if not doi:
         return ""
 
-    doi = doi.lower().strip()
+    doi = doi.strip().lower()
 
-    doi = doi.replace("https://doi.org/", "")
-    doi = doi.replace("http://doi.org/", "")
-    doi = doi.replace("http://dx.doi.org/", "")
+    prefixes = [
+        "https://doi.org/",
+        "http://doi.org/",
+        "http://dx.doi.org/",
+        "https://dx.doi.org/",
+        "doi:"
+    ]
+
+    for prefix in prefixes:
+        if doi.startswith(prefix):
+            doi = doi[len(prefix):]
 
     return doi
 
@@ -79,9 +88,11 @@ def is_repository_doi(doi):
 
 def format_author(name):
     """
-    Convierte:
+    Convierte, por ejemplo:
+
     'Fernando Díaz-de-María'
     en:
+
     'F. Díaz-de-María'
     """
 
@@ -108,7 +119,7 @@ def format_author(name):
 
 
 def format_authors(authors):
-    """Da formato Papercite a la lista de autores."""
+    """Da formato a la lista de autores."""
 
     formatted = [
         format_author(author)
@@ -147,9 +158,13 @@ def escape_bibtex(value):
 
 
 def make_bibtex(pub):
-    """Genera un registro BibTeX básico."""
+    """Genera un registro BibTeX."""
 
-    first_author = pub["authors"][0] if pub["authors"] else "publication"
+    first_author = (
+        pub["authors"][0]
+        if pub["authors"]
+        else "publication"
+    )
 
     author_key = re.sub(
         r"[^a-zA-Z0-9]",
@@ -211,7 +226,11 @@ def make_bibtex(pub):
             f"  doi = {{{normalize_doi(pub['doi'])}}}"
         )
 
-    return "@article{" + key + ",\n" + ",\n".join(fields) + "\n}"
+    return (
+        "@article{" + key + ",\n"
+        + ",\n".join(fields)
+        + "\n}"
+    )
 
 
 # ============================================================
@@ -238,6 +257,7 @@ for researcher in researchers:
 
     for work in works:
 
+        # Solo artículos
         if work.get("type") != "article":
             continue
 
@@ -248,14 +268,17 @@ for researcher in researchers:
 
         doi = work.get("doi")
 
-        # Ignorar Zenodo y otros registros de repositorio
+        # Ignorar Zenodo y otros repositorios
         if is_repository_doi(doi):
             continue
 
         normalized_doi = normalize_doi(doi)
         normalized_title = normalize_title(title)
 
-        # Datos de la revista
+        # ----------------------------------------------------
+        # DATOS DE LA REVISTA
+        # ----------------------------------------------------
+
         journal = ""
 
         primary_location = work.get("primary_location") or {}
@@ -264,7 +287,10 @@ for researcher in researchers:
         if source_info:
             journal = source_info.get("display_name") or ""
 
-        # Autores
+        # ----------------------------------------------------
+        # AUTORES
+        # ----------------------------------------------------
+
         authors = []
 
         for authorship in work.get("authorships", []):
@@ -278,7 +304,10 @@ for researcher in researchers:
             if author and author not in authors:
                 authors.append(author)
 
-        # Datos bibliográficos
+        # ----------------------------------------------------
+        # DATOS BIBLIOGRÁFICOS
+        # ----------------------------------------------------
+
         biblio = work.get("biblio") or {}
 
         volume = biblio.get("volume")
@@ -290,7 +319,11 @@ for researcher in researchers:
         pages = ""
 
         if first_page and last_page:
-            pages = f"{first_page}-{last_page}"
+
+            if str(first_page) == str(last_page):
+                pages = str(first_page)
+            else:
+                pages = f"{first_page}-{last_page}"
 
         elif first_page:
             pages = str(first_page)
@@ -308,14 +341,19 @@ for researcher in researchers:
         }
 
         # ----------------------------------------------------
-        # ELIMINAR DUPLICADOS
+        # ELIMINAR DUPLICADOS POR DOI
         # ----------------------------------------------------
 
-        # Primero por DOI
-        if normalized_doi and normalized_doi in publications_by_doi:
+        if (
+            normalized_doi
+            and normalized_doi in publications_by_doi
+        ):
             continue
 
-        # Después por título
+        # ----------------------------------------------------
+        # ELIMINAR DUPLICADOS POR TÍTULO
+        # ----------------------------------------------------
+
         if normalized_title in publications_by_title:
 
             existing = publications_by_title[normalized_title]
@@ -323,27 +361,38 @@ for researcher in researchers:
             # Preferimos el registro que tenga DOI
             if not existing.get("doi") and doi:
 
-                old_doi = normalize_doi(existing.get("doi"))
-
-                if old_doi in publications_by_doi:
-                    del publications_by_doi[old_doi]
-
-                publications_by_title[normalized_title] = publication
+                publications_by_title[
+                    normalized_title
+                ] = publication
 
                 if normalized_doi:
-                    publications_by_doi[normalized_doi] = publication
+                    publications_by_doi[
+                        normalized_doi
+                    ] = publication
 
             continue
 
-        # Guardar publicación
-        publications_by_title[normalized_title] = publication
+        # ----------------------------------------------------
+        # GUARDAR PUBLICACIÓN
+        # ----------------------------------------------------
+
+        publications_by_title[
+            normalized_title
+        ] = publication
 
         if normalized_doi:
-            publications_by_doi[normalized_doi] = publication
+            publications_by_doi[
+                normalized_doi
+            ] = publication
 
 
-# Convertir a lista
-all_publications = list(publications_by_title.values())
+# ============================================================
+# CONVERTIR A LISTA
+# ============================================================
+
+all_publications = list(
+    publications_by_title.values()
+)
 
 
 # ============================================================
@@ -390,19 +439,31 @@ for index, pub in enumerate(all_publications):
 
     year = pub.get("year")
 
+    # --------------------------------------------------------
+    # CABECERA DEL AÑO
+    # --------------------------------------------------------
+
     if year != current_year:
 
         html_output.append(f"<h3>{year}</h3>")
 
         current_year = year
 
+    # --------------------------------------------------------
+    # DATOS
+    # --------------------------------------------------------
+
     authors = format_authors(pub["authors"])
 
-    title = html.escape(pub["title"])
+    title = html.escape(
+        pub["title"],
+        quote=True
+    )
 
     journal = html.escape(
-        (pub.get("journal") or "").upper()
-    )
+        pub.get("journal") or "",
+        quote=True
+    ).upper()
 
     doi = pub.get("doi")
 
@@ -411,10 +472,20 @@ for index, pub in enumerate(all_publications):
     pages = pub.get("pages")
 
     # --------------------------------------------------------
-    # DOI + ICONO
+    # CONSTRUIR REFERENCIA
     # --------------------------------------------------------
 
     reference = ""
+
+    # --------------------------------------------------------
+    # DOI + ICONO
+    #
+    # FORMATO:
+    #
+    # <a href="http://dx.doi.org/..." title="View document
+    # on publisher site">[DOI]</a>
+    # (<img src="...external.png">)
+    # --------------------------------------------------------
 
     if doi:
 
@@ -425,7 +496,7 @@ for index, pub in enumerate(all_publications):
         )
 
         reference += (
-            f'<a href="{doi_url}" '
+            f'<a href="{html.escape(doi_url, quote=True)}" '
             f'title="View document on publisher site" '
             f'target="_blank">[DOI]</a> '
         )
@@ -440,19 +511,24 @@ for index, pub in enumerate(all_publications):
     # AUTORES
     # --------------------------------------------------------
 
-    reference += f"{authors}, "
+    reference += (
+        f"{html.escape(authors)}, "
+    )
 
     # --------------------------------------------------------
     # TÍTULO
     # --------------------------------------------------------
 
-    reference += f"“{title},” "
+    reference += (
+        f"“{title},” "
+    )
 
     # --------------------------------------------------------
     # REVISTA
     # --------------------------------------------------------
 
-    reference += f"<em>{journal}</em>"
+    if journal:
+        reference += f"<em>{journal}</em>"
 
     # --------------------------------------------------------
     # VOLUMEN
@@ -485,20 +561,22 @@ for index, pub in enumerate(all_publications):
     # BIBTEX DESPLEGABLE
     # --------------------------------------------------------
 
-    bibtex = html.escape(make_bibtex(pub))
+    bibtex = html.escape(
+        make_bibtex(pub)
+    )
 
     bibtex_id = f"bibtex-{index}"
 
     reference_html = (
-        f'<p>{reference}<br>'
+        f"<p>{reference}<br>"
         f'<a href="#" '
         f'onclick="var e=document.getElementById(\'{bibtex_id}\');'
-        f'e.style.display=(e.style.display===\'none\' ? \'block\' : \'none\');'
+        f"e.style.display=(e.style.display==='none' ? 'block' : 'none');"
         f'return false;">[Bibtex]</a>'
         f'<pre id="{bibtex_id}" '
         f'style="display:none; white-space:pre-wrap;">'
-        f'{bibtex}</pre>'
-        f'</p>'
+        f"{bibtex}</pre>"
+        f"</p>"
     )
 
     html_output.append(reference_html)
@@ -518,5 +596,9 @@ with open(
 
 
 print()
-print(f"Total de publicaciones únicas: {len(all_publications)}")
+print(
+    f"Total de publicaciones únicas: "
+    f"{len(all_publications)}"
+)
 print("Archivos generados correctamente.")
+```
