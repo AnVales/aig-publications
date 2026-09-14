@@ -129,7 +129,7 @@
     "openalex_id": "https://openalex.org/W7172438819"
   },
   {
-    "title": "On the Predictive Skill of Artificial Intelligence–Based Weather Models for Extreme Events Using Uncertainty Quantification",
+    "title": "On the Predictive Skill of Artificial Intelligence-Based Weather Models for Extreme Events Using Uncertainty Quantification",
     "year": 2026,
     "doi": "10.1175/aies-d-25-0113.1",
     "authors": [
@@ -142,11 +142,11 @@
     "volume": "5",
     "issue": "3",
     "pages": "",
-    "bibtex": "@article{almeida2026,\n  title = {On the Predictive Skill of Artificial Intelligence–Based Weather Models for Extreme Events Using Uncertainty Quantification},\n  author = {Rodrigo Andrade Botelho de Almeida and Noelia Otero and Miguel-Ángel Fernández-Torres and Jackie Ma},\n  journal = {Artificial Intelligence for the Earth Systems},\n  volume = {5},\n  number = {3},\n  year = {2026},\n  doi = {10.1175/aies-d-25-0113.1}\n}",
+    "bibtex": "@article{almeida2026,\n  title = {On the Predictive Skill of Artificial Intelligence-Based Weather Models for Extreme Events Using Uncertainty Quantification},\n  author = {Rodrigo Andrade Botelho de Almeida and Noelia Otero and Miguel-Ángel Fernández-Torres and Jackie Ma},\n  journal = {Artificial Intelligence for the Earth Systems},\n  volume = {5},\n  number = {3},\n  year = {2026},\n  doi = {10.1175/aies-d-25-0113.1}\n}",
     "openalex_id": "https://openalex.org/W4416596113"
   },
   {
-    "title": "A hybrid neural network with multistage feature fusion for detecting heart failure and murmurs from time–frequency representations of phonocardiograms",
+    "title": "A hybrid neural network with multistage feature fusion for detecting heart failure and murmurs from time-frequency representations of phonocardiograms",
     "year": 2025,
     "doi": "10.1016/j.sasc.2025.200391",
     "authors": [
@@ -157,7 +157,7 @@
     "volume": "7",
     "issue": "",
     "pages": "200391",
-    "bibtex": "@article{fakhry2025,\n  title = {A hybrid neural network with multistage feature fusion for detecting heart failure and murmurs from time–frequency representations of phonocardiograms},\n  author = {Mahmoud Fakhry and Ascensión Gallardo-Antolín},\n  journal = {Systems and Soft Computing},\n  volume = {7},\n  pages = {200391},\n  year = {2025},\n  doi = {10.1016/j.sasc.2025.200391}\n}",
+    "bibtex": "@article{fakhry2025,\n  title = {A hybrid neural network with multistage feature fusion for detecting heart failure and murmurs from time-frequency representations of phonocardiograms},\n  author = {Mahmoud Fakhry and Ascensión Gallardo-Antolín},\n  journal = {Systems and Soft Computing},\n  volume = {7},\n  pages = {200391},\n  year = {2025},\n  doi = {10.1016/j.sasc.2025.200391}\n}",
     "openalex_id": "https://openalex.org/W4414475571"
   },
   {
