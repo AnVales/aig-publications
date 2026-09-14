@@ -6,10 +6,7 @@ from collections import defaultdict
 
 OPENALEX = "https://api.openalex.org/works"
 
-EXTERNAL_ICON = (
-"https://aig.webs.tsc.uc3m.es/"
-"wp-content/plugins/papercite/img/external.png"
-)
+EXTERNAL_ICON = "https://aig.webs.tsc.uc3m.es/wp-content/plugins/papercite/img/external.png"
 
 OUTPUT_JSON = "publications.json"
 OUTPUT_HTML = "publications.html"
@@ -18,7 +15,6 @@ OUTPUT_BIB = "publications.bib"
 def normalize_spaces(text):
 if not text:
 return ""
-
 return re.sub(r"\s+", " ", str(text)).strip()
 
 def normalize_doi(doi):
@@ -137,16 +133,6 @@ if len(formatted) == 2:
 
 return ", ".join(formatted[:-1]) + ", and " + formatted[-1]
 
-def escape_bibtex_value(value):
-if not value:
-return ""
-
-value = str(value)
-
-value = value.replace("\\", "\\\\")
-
-return value
-
 def make_bibtex_key(authors, year):
 first_author = (
 normalize_author_name(authors[0])
@@ -176,35 +162,12 @@ doi="",
 key=None,
 ):
 if key is None:
-key = make_bibtex_key(
-authors,
-year,
-)
-
-title = escape_bibtex_value(title)
-journal = escape_bibtex_value(journal)
-year = escape_bibtex_value(year)
-volume = escape_bibtex_value(volume)
-issue = escape_bibtex_value(issue)
-
-pages = escape_bibtex_value(
-    pages.replace("-", "--")
-)
-
-doi = escape_bibtex_value(doi)
-
-escaped_authors = [
-    escape_bibtex_value(author)
-    for author in authors
-    if author
-]
+key = make_bibtex_key(authors, year)
 
 lines = [
     f"@article{{{key},",
     f"  title = {{{title}}},",
-    "  author = {"
-    + " and ".join(escaped_authors)
-    + "},",
+    "  author = {" + " and ".join(authors) + "},",
     f"  journal = {{{journal}}},",
 ]
 
@@ -220,7 +183,7 @@ if issue:
 
 if pages:
     lines.append(
-        f"  pages = {{{pages}}},"
+        f"  pages = {{{pages.replace('-', '--')}}},"
     )
 
 lines.append(
@@ -302,11 +265,11 @@ authors = []
 
 for authorship in work.get(
     "authorships",
-    [],
+    []
 ):
     author = authorship.get(
         "author",
-        {},
+        {}
     )
 
     display_name = normalize_author_name(
@@ -515,19 +478,29 @@ if doi:
 metadata = ""
 
 if journal:
-    metadata += f"<em>{journal}</em>"
+    metadata += (
+        f"<em>{journal}</em>"
+    )
 
 if volume:
-    metadata += f", vol. {volume}"
+    metadata += (
+        f", vol. {volume}"
+    )
 
 if issue:
-    metadata += f", iss. {issue}"
+    metadata += (
+        f", iss. {issue}"
+    )
 
 if pages:
-    metadata += f", {pages}"
+    metadata += (
+        f", {pages}"
+    )
 
 if year:
-    metadata += f", {year}"
+    metadata += (
+        f", {year}"
+    )
 
 bib_id = f"bibtex-{bibtex_index}"
 
@@ -536,7 +509,7 @@ bibtex = html.escape(
 )
 
 bibtex_html = (
-    f"<br>"
+    f'<br>'
     f'<a href="#" '
     f'onclick="var e=document.getElementById(\'{bib_id}\');'
     f"e.style.display=(e.style.display==='none' "
@@ -545,17 +518,17 @@ bibtex_html = (
     f'<pre id="{bib_id}" '
     f'style="display:none; '
     f'white-space:pre-wrap;">'
-    f"{bibtex}"
-    f"</pre>"
+    f'{bibtex}'
+    f'</pre>'
 )
 
 return (
-    f"<p>{doi_html}"
-    f"{authors}, "
-    f"“{title},” "
-    f"{metadata}."
-    f"{bibtex_html}"
-    f"</p>"
+    f'<p>{doi_html}'
+    f'{authors}, '
+    f'“{title},” '
+    f'{metadata}.'
+    f'{bibtex_html}'
+    f'</p>'
 )
 
 def generate_html(publications):
@@ -586,7 +559,7 @@ for year in years:
         grouped[year],
         key=lambda p: p.get(
             "title",
-            "",
+            ""
         ).lower(),
     )
 
@@ -600,9 +573,7 @@ for year in years:
 
         bibtex_index += 1
 
-output.append(
-    "</div>"
-)
+output.append("</div>")
 
 return "\n".join(output)
 
@@ -610,10 +581,10 @@ def generate_bibtex_file(publications):
 entries = []
 
 for pub in publications:
-    bibtex = (
-        pub.get("bibtex", "")
-        .strip()
-    )
+    bibtex = pub.get(
+        "bibtex",
+        "",
+    ).strip()
 
     if bibtex:
         entries.append(bibtex)
@@ -621,10 +592,7 @@ for pub in publications:
 if not entries:
     return ""
 
-return (
-    "\n\n".join(entries)
-    + "\n"
-)
+return "\n\n".join(entries) + "\n"
 
 def main():
 print(
@@ -678,8 +646,8 @@ for researcher in researchers:
     )
 
     for work in works:
-        publication = (
-            work_to_publication(work)
+        publication = work_to_publication(
+            work
         )
 
         if publication is not None:
@@ -710,7 +678,7 @@ all_publications.sort(
         else 0,
         p.get(
             "title",
-            "",
+            ""
         ).lower(),
     )
 )
@@ -763,7 +731,7 @@ with open(
 
 print()
 print(
-    "Proceso terminado correctamente"
+    "Proceso terminado"
 )
 print(
     f"Publicaciones: "
