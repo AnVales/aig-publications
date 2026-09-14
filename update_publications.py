@@ -16,8 +16,6 @@ EXTERNAL_ICON = (
 OUTPUT_JSON = "publications.json"
 OUTPUT_HTML = "publications.html"
 
-MAILTO = "publications@uc3m.es"
-
 
 # ============================================================
 # UTILIDADES
