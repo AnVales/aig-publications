@@ -322,7 +322,9 @@ def main():
     print("Leyendo researchers.json...")
 
     with open("researchers.json", "r", encoding="utf-8") as f:
-        researchers = json.load(f)
+    data = json.load(f)
+
+researchers = data["researchers"]
 
     all_publications = []
 
