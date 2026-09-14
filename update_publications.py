@@ -8,7 +8,6 @@ OPENALEX = "https://api.openalex.org/works"
 EXTERNAL_ICON = "https://aig.webs.tsc.uc3m.es/wp-content/plugins/papercite/img/external.png"
 OUTPUT_JSON = "publications.json"
 OUTPUT_HTML = "publications.html"
-MAILTO = "publications@uc3m.es"
 
 
 def normalize_spaces(text):
@@ -75,12 +74,9 @@ def format_author_for_html(name):
     initials = []
 
     for part in given_names:
-        if part.lower() in {"de", "del", "da", "do", "dos", "das", "van", "von"}:
-            continue
+        # Keep particles as initials, matching the desired Papercite-style
+        # output (e.g. Rodrigo Andrade Botelho de Almeida -> R. A. B. D. Almeida).
         initials.append(part[0].upper() + ".")
-
-    if not initials:
-        return surname
 
     return " ".join(initials) + " " + surname
 
@@ -149,7 +145,6 @@ def get_works(orcid):
     params = {
         "filter": f"author.orcid:{orcid},type:article",
         "per-page": 100,
-        "mailto": MAILTO,
     }
 
     response = requests.get(OPENALEX, params=params, timeout=60)
@@ -247,8 +242,8 @@ def ensure_unique_bibtex_keys(publications):
 
 
 def publication_to_html(pub, bibtex_index):
-    title = html.escape(pub.get("title", ""))
-    doi = pub.get("doi", "")
+    title = html.escape(pub.get("title", ""), quote=True)
+    doi = normalize_doi(pub.get("doi", ""))
     authors = html.escape(format_authors_for_html(pub.get("authors", [])))
     journal = html.escape(pub.get("journal", "")).upper()
     volume = html.escape(pub.get("volume", ""))
@@ -258,10 +253,16 @@ def publication_to_html(pub, bibtex_index):
 
     doi_html = ""
     if doi:
-        doi_url = "http://dx.doi.org/" + html.escape(doi)
+        # IMPORTANT: HTML attributes must contain plain URLs, not Markdown links.
+        doi_url = html.escape(
+            "http://dx.doi.org/" + doi,
+            quote=True,
+        )
+        icon_url = html.escape(EXTERNAL_ICON, quote=True)
+
         doi_html = (
             f'<a href="{doi_url}" title="View document on publisher site" target="_blank">[DOI]</a> '
-            f'(<img src="{EXTERNAL_ICON}" alt="external link" style="width:12px;height:12px;">) '
+            f'(<img src="{icon_url}" alt="external link" style="width:12px;height:12px;">) '
         )
 
     metadata = ""
@@ -288,7 +289,7 @@ def publication_to_html(pub, bibtex_index):
     )
 
     return (
-        f"<p>{doi_html}{authors}, “{title},” {metadata}.{bibtex_html}</p>"
+        f'<p>{doi_html}{authors}, “{title},” {metadata}.{bibtex_html}</p>'
     )
 
 
@@ -303,7 +304,7 @@ def generate_html(publications):
     bibtex_index = 0
 
     for year in years:
-        output.append(f"<h3>{html.escape(str(year))}</h3>")
+        output.append(f'<h3>{html.escape(str(year))}</h3>')
 
         publications_year = sorted(
             grouped[year],
@@ -314,7 +315,7 @@ def generate_html(publications):
             output.append(publication_to_html(pub, bibtex_index))
             bibtex_index += 1
 
-    output.append("</div>")
+    output.append('</div>')
     return "\n".join(output)
 
 
