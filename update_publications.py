@@ -6,10 +6,6 @@ import html
 import unicodedata
 
 
-# ============================================================
-# CONFIGURACIÓN
-# ============================================================
-
 OPENALEX = "https://api.openalex.org/works"
 
 EXTERNAL_ICON = (
@@ -27,11 +23,10 @@ HTML_OUTPUT = "publications.html"
 # ============================================================
 
 def get_works(orcid):
-    """Busca artículos de un investigador en OpenAlex."""
+    """Obtiene artículos de OpenAlex para un ORCID."""
 
-    orcid = orcid.strip()
+    orcid = str(orcid).strip()
 
-    # OpenAlex acepta el ORCID directamente en el filtro.
     filter_value = urllib.parse.quote(
         f"author.orcid:{orcid}",
         safe=""
@@ -48,7 +43,7 @@ def get_works(orcid):
         request = urllib.request.Request(
             url,
             headers={
-                "User-Agent": "aig-publications/1.0"
+                "User-Agent": "AIG-Publications/1.0"
             }
         )
 
@@ -62,24 +57,23 @@ def get_works(orcid):
 
     except Exception as exc:
         print(
-            f"ERROR consultando OpenAlex para "
-            f"{orcid}: {exc}"
+            f"ERROR OpenAlex {orcid}: {exc}"
         )
         return []
 
 
 # ============================================================
-# NORMALIZACIÓN
+# TEXTO
 # ============================================================
 
 def normalize_dashes(text):
-    """Normaliza diferentes tipos de guiones."""
+    """Convierte diferentes guiones Unicode en '-'."""
 
     if not text:
         return ""
 
     return (
-        text
+        str(text)
         .replace("‐", "-")
         .replace("-", "-")
         .replace("‒", "-")
@@ -98,32 +92,24 @@ def normalize_spaces(text):
     return re.sub(
         r"\s+",
         " ",
-        text
+        str(text)
     ).strip()
 
 
-def normalize_title(title):
-    """Normaliza un título para detectar duplicados."""
+def normalize_text(text):
+    """Normaliza texto general."""
 
-    if not title:
-        return ""
-
-    title = normalize_dashes(title)
-    title = normalize_spaces(title)
-    title = title.lower()
-
-    title = re.sub(
-        r"[^\w\s]",
-        "",
-        title,
-        flags=re.UNICODE
+    return normalize_spaces(
+        normalize_dashes(text)
     )
 
-    return title.strip()
 
+# ============================================================
+# DOI
+# ============================================================
 
 def normalize_doi(doi):
-    """Limpia y normaliza un DOI."""
+    """Devuelve solamente el DOI."""
 
     if not doi:
         return ""
@@ -152,22 +138,19 @@ def normalize_doi(doi):
     )
 
     return doi.rstrip(
-        " .;,)"
+        " .,;)"
     )
 
 
 def is_repository_doi(doi):
-    """
-    Identifica DOI de repositorios/preprints que no deben
-    aparecer como publicación editorial.
-    """
+    """Detecta DOI de repositorios/preprints."""
 
     if not doi:
         return False
 
-    doi_lower = doi.lower()
+    doi = doi.lower()
 
-    repository_patterns = [
+    patterns = [
         "10.5281/zenodo.",
         "10.48550/arxiv.",
         "10.31219/osf.io/",
@@ -176,9 +159,30 @@ def is_repository_doi(doi):
     ]
 
     return any(
-        pattern in doi_lower
-        for pattern in repository_patterns
+        pattern in doi
+        for pattern in patterns
     )
+
+
+# ============================================================
+# TÍTULOS
+# ============================================================
+
+def normalize_title(title):
+    """Normaliza títulos para detectar duplicados."""
+
+    title = normalize_text(title)
+
+    title = title.lower()
+
+    title = re.sub(
+        r"[^\w\s]",
+        "",
+        title,
+        flags=re.UNICODE
+    )
+
+    return title
 
 
 # ============================================================
@@ -194,11 +198,7 @@ JOURNAL_FIXES = {
 def normalize_journal(journal):
     """Normaliza el nombre de la revista."""
 
-    if not journal:
-        return ""
-
-    journal = normalize_spaces(journal)
-    journal = normalize_dashes(journal)
+    journal = normalize_text(journal)
 
     if journal in JOURNAL_FIXES:
         return JOURNAL_FIXES[journal]
@@ -211,28 +211,25 @@ def normalize_journal(journal):
 # ============================================================
 
 def normalize_author_name(name):
-    """Normaliza un nombre de autor."""
+    """Normaliza el nombre de un autor."""
 
-    if not name:
-        return ""
-
-    name = normalize_spaces(name)
-    name = normalize_dashes(name)
-
-    return name
+    return normalize_text(name)
 
 
-def format_author(name):
+def format_author_for_html(name):
     """
-    Convierte un nombre completo en formato bibliográfico.
+    Formato abreviado para HTML.
 
-    Ejemplo:
+    Ejemplos:
 
-        Fernando Díaz de María
+    Miguel-Ángel Fernández-Torres
+    -> M.-Á. Fernández-Torres
 
-    ->
+    Gustau Camps-Valls
+    -> G. Camps-Valls
 
-        F. D. d. María
+    Claudia Montero-Ramírez
+    -> C. Montero-Ramírez
     """
 
     name = normalize_author_name(name)
@@ -245,69 +242,64 @@ def format_author(name):
     if len(parts) == 1:
         return parts[0]
 
-    # Partículas habituales que forman parte del apellido.
-    particles = {
-        "de",
-        "del",
-        "de la",
-        "da",
-        "do",
-        "dos",
-        "di",
-        "van",
-        "von",
-        "der",
-        "den",
-    }
-
-    # En nombres de OpenAlex, la forma más segura para el
-    # listado tipo Papercite es utilizar iniciales para los
-    # nombres y conservar el último elemento como apellido.
     surname = parts[-1]
-
-    given_parts = parts[:-1]
+    given_names = parts[:-1]
 
     initials = []
 
-    for part in given_parts:
-        clean = re.sub(
-            r"[^\wÀ-ÿ]",
-            "",
-            part,
-            flags=re.UNICODE
-        )
+    for given in given_names:
 
-        if not clean:
-            continue
+        if "-" in given:
 
-        initials.append(
-            clean[0].upper() + "."
-        )
+            subparts = [
+                p for p in given.split("-")
+                if p
+            ]
 
-    if initials:
-        return (
-            " ".join(initials)
-            + " "
-            + surname
-        )
+            if len(subparts) == 2:
+                initials.append(
+                    f"{subparts[0][0].upper()}.-"
+                    f"{subparts[1][0].upper()}."
+                )
+            else:
+                initials.append(
+                    given[0].upper() + "."
+                )
 
-    return surname
+        else:
+
+            clean = re.sub(
+                r"[^\wÀ-ÿ]",
+                "",
+                given,
+                flags=re.UNICODE
+            )
+
+            if clean:
+                initials.append(
+                    clean[0].upper() + "."
+                )
+
+    return (
+        " ".join(initials)
+        + " "
+        + surname
+    ).strip()
 
 
 def format_authors(authors):
-    """Devuelve autores en formato tipo Papercite."""
+    """Formatea autores para la referencia HTML."""
 
     formatted = []
 
     for author in authors:
-        formatted_author = format_author(
+
+        value = format_author_for_html(
             author
         )
 
-        if formatted_author:
-            formatted.append(
-                formatted_author
-            )
+        if value:
+            formatted.append(value)
 
     if not formatted:
         return ""
@@ -333,13 +325,7 @@ def format_authors(authors):
 # ============================================================
 
 def normalize_pages(first_page, last_page):
-    """
-    Convierte:
-
-        1919 + 1919 -> 1919
-        112 + 114 -> 112-114
-        76 + 96 -> 76-96
-    """
+    """Normaliza páginas y números de artículo."""
 
     first_page = str(
         first_page or ""
@@ -358,7 +344,9 @@ def normalize_pages(first_page, last_page):
     if first_page == last_page:
         return first_page
 
-    return f"{first_page}-{last_page}"
+    return (
+        f"{first_page}-{last_page}"
+    )
 
 
 # ============================================================
@@ -366,7 +354,7 @@ def normalize_pages(first_page, last_page):
 # ============================================================
 
 def escape_bibtex(value):
-    """Escapa caracteres problemáticos para BibTeX."""
+    """Escapa caracteres especiales de BibTeX."""
 
     if not value:
         return ""
@@ -376,16 +364,6 @@ def escape_bibtex(value):
     value = value.replace(
         "\\",
         r"\textbackslash "
-    )
-
-    value = value.replace(
-        "{",
-        r"\{"
-    )
-
-    value = value.replace(
-        "}",
-        r"\}"
     )
 
     value = value.replace(
@@ -406,47 +384,42 @@ def escape_bibtex(value):
     return value
 
 
-def bibtex_key(work):
-    """Genera una clave BibTeX básica."""
+def make_bibtex_key(work):
+    """Genera una clave BibTeX."""
 
     authorships = work.get(
         "authorships",
         []
     )
 
-    first_author = "unknown"
+    surname = "unknown"
 
     if authorships:
-        author = (
+
+        name = (
             authorships[0]
             .get("author", {})
             .get("display_name", "")
         )
 
-        if author:
-            first_author = (
-                author
-                .split()[-1]
-            )
+        if name:
+            surname = name.split()[-1]
 
-    first_author = unicodedata.normalize(
+    # Eliminar tildes.
+    surname = unicodedata.normalize(
         "NFKD",
-        first_author
+        surname
     )
 
-    first_author = (
-        first_author
-        .encode(
-            "ascii",
-            "ignore"
-        )
-        .decode("ascii")
-    )
+    surname = surname.encode(
+        "ascii",
+        "ignore"
+    ).decode("ascii")
 
-    first_author = re.sub(
+    surname = re.sub(
         r"[^A-Za-z0-9]",
         "",
-        first_author
+        surname
     ).lower()
 
     year = (
@@ -454,13 +427,13 @@ def bibtex_key(work):
         or "nd"
     )
 
-    return f"{first_author}{year}"
+    return f"{surname}{year}"
 
 
 def make_bibtex(work):
-    """Genera una entrada BibTeX."""
+    """Genera BibTeX completo."""
 
-    title = normalize_spaces(
+    title = normalize_text(
         work.get("title", "")
     )
 
@@ -478,29 +451,29 @@ def make_bibtex(work):
         "authorships",
         []
     ):
+
         author = authorship.get(
             "author",
             {}
         )
 
         name = author.get(
-            "display_name"
+            "display_name",
+            ""
         )
 
         if name:
             authors.append(
-                normalize_author_name(
-                    name
-                )
+                normalize_author_name(name)
             )
 
-    primary_location = (
+    location = (
         work.get("primary_location")
         or {}
     )
 
     source = (
-        primary_location.get("source")
+        location.get("source")
         or {}
     )
 
@@ -533,7 +506,8 @@ def make_bibtex(work):
 
     if title:
         fields.append(
-            f"  title = {{{escape_bibtex(title)}}}"
+            "  title = "
+            f"{{{escape_bibtex(title)}}}"
         )
 
     if authors:
@@ -548,22 +522,32 @@ def make_bibtex(work):
 
     if journal:
         fields.append(
-            f"  journal = {{{escape_bibtex(journal)}}}"
+            "  journal = "
+            f"{{{escape_bibtex(journal)}}}"
         )
 
     if volume:
         fields.append(
-            f"  volume = {{{escape_bibtex(volume)}}}"
+            "  volume = "
+            f"{{{escape_bibtex(volume)}}}"
         )
 
     if issue:
         fields.append(
-            f"  number = {{{escape_bibtex(issue)}}}"
+            "  number = "
+            f"{{{escape_bibtex(issue)}}}"
         )
 
     if pages:
+
+        bib_pages = pages.replace(
+            "-",
+            "--"
+        )
+
         fields.append(
-            f"  pages = {{{escape_bibtex(pages.replace('-', '--'))}}}"
+            "  pages = "
+            f"{{{escape_bibtex(bib_pages)}}}"
         )
 
     if year:
@@ -573,10 +557,13 @@ def make_bibtex(work):
 
     if doi:
         fields.append(
-            f"  doi = {{{escape_bibtex(doi)}}}"
+            "  doi = "
+            f"{{{escape_bibtex(doi)}}}"
         )
 
-    key = bibtex_key(work)
+    key = make_bibtex_key(
+        work
+    )
 
     return (
         f"@article{{{key},\n"
@@ -586,39 +573,13 @@ def make_bibtex(work):
 
 
 # ============================================================
-# PROCESAMIENTO
+# CONVERSIÓN OPENALEX -> PUBLICACIÓN
 # ============================================================
 
-def load_researchers():
-    """Carga researchers.json."""
-
-    with open(
-        INPUT_FILE,
-        "r",
-        encoding="utf-8"
-    ) as file:
-        data = json.load(file)
-
-    if isinstance(data, dict):
-
-        if "researchers" in data:
-            return data["researchers"]
-
-        return [
-            {
-                "name": name,
-                "orcid": orcid
-            }
-            for name, orcid in data.items()
-        ]
-
-    return data
-
-
 def work_to_publication(work):
-    """Convierte un registro OpenAlex a nuestra estructura."""
+    """Convierte un registro OpenAlex."""
 
-    title = normalize_spaces(
+    title = normalize_text(
         work.get("title", "")
     )
 
@@ -630,13 +591,13 @@ def work_to_publication(work):
         work.get("doi", "")
     )
 
-    primary_location = (
+    location = (
         work.get("primary_location")
         or {}
     )
 
     source = (
-        primary_location.get("source")
+        location.get("source")
         or {}
     )
 
@@ -660,14 +621,13 @@ def work_to_publication(work):
         )
 
         name = author.get(
-            "display_name"
+            "display_name",
+            ""
         )
 
         if name:
             authors.append(
-                normalize_author_name(
-                    name
-                )
+                normalize_author_name(name)
             )
 
     biblio = (
@@ -688,6 +648,9 @@ def work_to_publication(work):
         biblio.get("last_page")
     )
 
+    # IMPORTANTE:
+    # OpenAlex devuelve una URL normal.
+    # No añadimos Markdown.
     openalex_id = work.get(
         "id",
         ""
@@ -707,8 +670,42 @@ def work_to_publication(work):
     }
 
 
-def process_publications():
-    """Obtiene todas las publicaciones."""
+# ============================================================
+# INVESTIGADORES
+# ============================================================
+
+def load_researchers():
+    """Carga researchers.json."""
+
+    with open(
+        INPUT_FILE,
+        "r",
+        encoding="utf-8"
+    ) as file:
+
+        data = json.load(file)
+
+    if isinstance(data, dict):
+
+        if "researchers" in data:
+            return data["researchers"]
+
+        return [
+            {
+                "name": name,
+                "orcid": orcid
+            }
+            for name, orcid in data.items()
+        ]
+
+    return data
+
+
+# ============================================================
+# OBTENER PUBLICACIONES
+# ============================================================
+
+def collect_publications():
 
     researchers = load_researchers()
 
@@ -720,11 +717,12 @@ def process_publications():
             researcher,
             str
         ):
-            researcher_name = researcher
+            name = researcher
             orcid = researcher
 
         else:
-            researcher_name = (
+
+            name = (
                 researcher.get("name")
                 or researcher.get(
                     "display_name"
@@ -739,23 +737,43 @@ def process_publications():
 
         if not orcid:
             print(
-                f"AVISO: {researcher_name} "
-                f"no tiene ORCID."
+                f"AVISO: {name} "
+                f"no tiene ORCID"
             )
             continue
 
         print(
-            f"Consultando OpenAlex: "
-            f"{researcher_name} ({orcid})"
+            f"Consultando: {name} "
+            f"({orcid})"
         )
 
-        works = get_works(orcid)
+        works = get_works(
+            orcid
+        )
 
         print(
-            f"  -> {len(works)} registros"
+            f"  {len(works)} registros"
         )
 
         for work in works:
+
+            # Solo artículos.
+            if work.get("type") != "article":
+                continue
+
+            doi = normalize_doi(
+                work.get("doi", "")
+            )
+
+            # Eliminar repositorios/preprints.
+            if is_repository_doi(doi):
+
+                print(
+                    f"  OMITIDO repositorio: "
+                    f"{doi}"
+                )
+
+                continue
 
             title = work.get(
                 "title",
@@ -765,24 +783,10 @@ def process_publications():
             if not title:
                 continue
 
-            # Solo artículos.
-            if work.get("type") != "article":
-                continue
-
-            # Ignorar repositorios/preprints.
-            doi = normalize_doi(
-                work.get("doi", "")
-            )
-
-            if is_repository_doi(doi):
-                print(
-                    f"  -> Ignorado repositorio: "
-                    f"{doi}"
+            publication = (
+                work_to_publication(
+                    work
                 )
-                continue
-
-            publication = work_to_publication(
-                work
             )
 
             if not publication["year"]:
@@ -796,19 +800,10 @@ def process_publications():
 
 
 # ============================================================
-# DEDUPLICACIÓN
+# DUPLICADOS
 # ============================================================
 
-def deduplicate_publications(
-    publications
-):
-    """
-    Elimina duplicados.
-
-    Prioridad:
-      1. DOI
-      2. título normalizado
-    """
+def deduplicate(publications):
 
     unique = {}
 
@@ -833,14 +828,12 @@ def deduplicate_publications(
                 "doi:"
                 + doi.lower()
             )
+
         else:
             key = (
                 "title:"
                 + title
             )
-
-        if not key:
-            continue
 
         if key not in unique:
             unique[key] = publication
@@ -851,21 +844,12 @@ def deduplicate_publications(
 
 
 # ============================================================
-# CLAVES BIBTEX ÚNICAS
+# BIBTEX: CLAVES ÚNICAS
 # ============================================================
 
 def make_unique_bibtex_keys(
     publications
 ):
-    """
-    Evita claves BibTeX repetidas.
-
-    Ejemplo:
-
-        campsvalls2025
-        campsvalls2025a
-        campsvalls2025b
-    """
 
     used = {}
 
@@ -884,28 +868,30 @@ def make_unique_bibtex_keys(
         if not match:
             continue
 
-        base_key = match.group(1)
+        base = match.group(1)
 
         count = used.get(
-            base_key,
+            base,
             0
         )
 
         if count == 0:
-            new_key = base_key
+            key = base
+
         else:
-            new_key = (
-                f"{base_key}"
+            key = (
+                f"{base}"
                 f"{chr(96 + count + 1)}"
             )
 
-        used[base_key] = count + 1
+        used[base] = count + 1
 
         publication["bibtex"] = (
-            bibtex.replace(
-                f"@article{{{base_key},",
-                f"@article{{{new_key},",
-                1
+            re.sub(
+                r"^@article\{[^,]+,",
+                f"@article{{{key},",
+                bibtex,
+                count=1
             )
         )
 
@@ -915,7 +901,6 @@ def make_unique_bibtex_keys(
 # ============================================================
 
 def make_doi_html(doi):
-    """Genera el enlace DOI."""
 
     if not doi:
         return ""
@@ -940,20 +925,12 @@ def make_publication_html(
     publication,
     index
 ):
-    """Genera HTML para una publicación."""
 
     title = html.escape(
         publication.get(
             "title",
             ""
         )
-    )
-
-    journal = html.escape(
-        publication.get(
-            "journal",
-            ""
-        ).upper()
     )
 
     authors = format_authors(
@@ -965,6 +942,15 @@ def make_publication_html(
 
     authors = html.escape(
         authors
+    )
+
+    journal = publication.get(
+        "journal",
+        ""
+    )
+
+    journal = html.escape(
+        journal.upper()
     )
 
     year = publication.get(
@@ -1025,17 +1011,10 @@ def make_publication_html(
 
     if year:
         metadata += (
-            f", "
-            f"{html.escape(str(year))}"
+            f", {html.escape(str(year))}"
         )
 
-    # Si no hay páginas, no añadimos pp.
-    if metadata.endswith("."):
-        citation_metadata = metadata
-    else:
-        citation_metadata = (
-            metadata + "."
-        )
+    metadata += "."
 
     bibtex = html.escape(
         publication.get(
@@ -1053,13 +1032,16 @@ def make_publication_html(
         f"{doi_html} "
         f"{authors}, "
         f"“{title},” "
-        f"{citation_metadata}"
+        f"{metadata}"
         "<br>"
         f'<a href="#" '
-        f'onclick="var e=document.getElementById(\'{bib_id}\');'
-        f'e.style.display=(e.style.display===\'none\' '
-        f'? \'block\' : \'none\');'
-        f'return false;">[Bibtex]</a>'
+        f'onclick="var e=document.getElementById('
+        f"'{bib_id}'"
+        f');e.style.display=('
+        f"e.style.display==='none' "
+        f"? 'block' : 'none');"
+        f"return false;"
+        f'">[Bibtex]</a>'
         f'<pre id="{bib_id}" '
         f'style="display:none; '
         f'white-space:pre-wrap;">'
@@ -1072,13 +1054,10 @@ def make_publication_html(
 def generate_html(
     publications
 ):
-    """Genera publications.html agrupado por año."""
 
-    output = []
-
-    output.append(
+    output = [
         '<div class="publications">'
-    )
+    ]
 
     current_year = None
 
@@ -1096,9 +1075,7 @@ def generate_html(
                 output.append("")
 
             output.append(
-                f"<h3>"
-                f"{html.escape(str(year))}"
-                f"</h3>"
+                f"<h3>{html.escape(str(year))}</h3>"
             )
 
             current_year = year
@@ -1130,7 +1107,7 @@ def main():
     )
 
     print(
-        "Actualización de publicaciones"
+        "AIG Publications updater"
     )
 
     print(
@@ -1138,37 +1115,31 @@ def main():
     )
 
     publications = (
-        process_publications()
+        collect_publications()
     )
 
     print(
-        f"\nPublicaciones obtenidas: "
+        f"\nObtenidas: "
         f"{len(publications)}"
     )
 
-    publications = (
-        deduplicate_publications(
-            publications
-        )
+    publications = deduplicate(
+        publications
     )
 
     print(
-        f"Después de eliminar duplicados: "
+        f"Después de duplicados: "
         f"{len(publications)}"
     )
 
-    # Claves BibTeX únicas.
     make_unique_bibtex_keys(
         publications
     )
 
-    # Orden:
-    # año descendente
-    # título ascendente
     publications.sort(
-        key=lambda p: (
-            -(p.get("year") or 0),
-            p.get(
+        key=lambda item: (
+            -(item.get("year") or 0),
+            item.get(
                 "title",
                 ""
             ).lower()
@@ -1193,8 +1164,7 @@ def main():
         )
 
     print(
-        f"JSON generado: "
-        f"{JSON_OUTPUT}"
+        f"Generado: {JSON_OUTPUT}"
     )
 
     # --------------------------------------------------------
@@ -1218,8 +1188,7 @@ def main():
         )
 
     print(
-        f"HTML generado: "
-        f"{HTML_OUTPUT}"
+        f"Generado: {HTML_OUTPUT}"
     )
 
     print(
@@ -1227,7 +1196,7 @@ def main():
     )
 
     print(
-        "Proceso terminado correctamente"
+        "FIN OK"
     )
 
     print(
