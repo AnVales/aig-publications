@@ -12,7 +12,7 @@ import requests
 # CONFIGURACIÓN
 # ============================================================
 
-INPUT_FILE = "researchers.json"
+INPUT_FILE = "researchers1.json"
 
 OUTPUT_JSON = "publications.json"
 OUTPUT_HTML = "publications.html"
