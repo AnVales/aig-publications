@@ -47,7 +47,25 @@ def orcid_get(url):
     response.raise_for_status()
     return response.json()
 
+def get_orcid_works(orcid):
+    """Obtiene las obras públicas de un investigador."""
 
+    print(f"🔎 Consultando ORCID: {orcid}", flush=True)
+
+    url = f"{ORCID_API}/{orcid}/works"
+    print(f"🌐 URL: {url}", flush=True)
+
+    data = orcid_get(url)
+
+    print("📦 Respuesta recibida de ORCID", flush=True)
+    print(f"🔑 Claves recibidas: {list(data.keys())}", flush=True)
+
+    works = data.get("group", [])
+
+    print(f"📚 Grupos encontrados: {len(works)}", flush=True)
+
+    return works
+    
 def get_orcid_works(orcid):
     """Obtiene las obras públicas de un investigador."""
 
