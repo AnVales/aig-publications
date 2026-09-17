@@ -1,55 +1,5 @@
 [
   {
-    "researcher": "Carmen Peláez-Moreno",
-    "orcid": "0000-0003-1425-6763",
-    "title": "Lattice representations suggest novel organizing principles for odorant and neural spaces",
-    "doi": "10.1016/j.neunet.2026.109471",
-    "url": "https://doi.org/10.1016/j.neunet.2026.109471",
-    "authors": [
-      "Emma Reyner-Fuentes",
-      "Carmen Peláez-Moreno",
-      "Francisco J. Valverde-Albacete"
-    ],
-    "year": "2027",
-    "date": "2027-01",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 222767405,
-    "bibtex_key": "ReynerFuentes2027Latticerepresentationssuggestnovelorgani"
-  },
-  {
-    "researcher": "Miguel Ángel Fernández Torres",
-    "orcid": "0000-0002-0801-199X",
-    "title": "The Maturation of AI in Drought Science: A Review of Trends, Pitfalls, and Priorities",
-    "doi": "10.1029/2025WR041828",
-    "url": "https://doi.org/10.1029/2025WR041828",
-    "authors": [
-      "Guido Ascenso",
-      "Matteo Giuliani",
-      "Jorge Pérez‐Aracil",
-      "Sancho Salcedo‐Sanz",
-      "Claudia Bertini",
-      "Paolo Bonetti",
-      "Gustau Camps‐Valls",
-      "Miguel Ángel Fernández Torres",
-      "Andrea Ficchì",
-      "Nora Linscheid",
-      "Martina Merlo",
-      "Giulio Palcic",
-      "Markus Reichstein",
-      "Marcello Restelli",
-      "Andrea Toreti",
-      "Eliot Walt",
-      "Andrea Castelletti"
-    ],
-    "year": "2026",
-    "date": "2026-04",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 211061636,
-    "bibtex_key": "Ascenso2026TheMaturationofAIinDroughtScienceAReview"
-  },
-  {
     "researcher": "Fernando Díaz-de-María",
     "orcid": "0000-0002-6437-914X",
     "title": "Self-supervised learning and hybrid deep models for predicting the progression of Fuchs’ endothelial corneal dystrophy after cataract surgery",
@@ -69,46 +19,936 @@
     ],
     "year": "2026",
     "date": "2026-01",
-    "journal": "",
+    "journal": "Computer Methods and Programs in Biomedicine",
     "type": "journal-article",
-    "put_code": 194083622,
-    "bibtex_key": "LeonTarife2026Selfsupervisedlearningandhybriddeepmodel"
+    "put_code": 194083622
   },
   {
-    "researcher": "Miguel Ángel Fernández Torres",
-    "orcid": "0000-0002-0801-199X",
-    "title": "On the Predictive Skill of Artificial Intelligence–Based Weather Models for Extreme Events Using Uncertainty Quantification",
-    "doi": "10.1175/AIES-D-25-0113.1",
-    "url": "https://doi.org/10.1175/AIES-D-25-0113.1",
+    "researcher": "Fernando Díaz-de-María",
+    "orcid": "0000-0002-6437-914X",
+    "title": "L-SFAN: Lightweight Spatially Focused Attention Network for Pain Behavior Detection",
+    "doi": "10.1109/JSEN.2025.3540415",
+    "url": "https://doi.org/10.1109/JSEN.2025.3540415",
     "authors": [
-      "Rodrigo Almeida",
-      "Noelia Otero",
-      "Miguel-Ángel Fernández-Torres",
-      "Jackie Ma"
+      "Jorge Ortigoso-Narro",
+      "Fernando Diaz-de-Maria",
+      "Mohammad Mahdi Dehshibi",
+      "Ana Tajadura-Jiménez"
     ],
-    "year": "2026",
-    "date": "2026-07",
-    "journal": "",
+    "year": "2025",
+    "date": "2025-05-15",
+    "journal": "IEEE Sensors Journal",
     "type": "journal-article",
-    "put_code": 224822868,
-    "bibtex_key": "Almeida2026OnthePredictiveSkillofArtificialIntellig"
+    "put_code": 184141487
   },
   {
-    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
-    "orcid": "0000-0002-9322-3128",
-    "title": "Leveraging unlabeled data for lung sound classification through self-supervised contrastive learning",
-    "doi": "10.1016/j.bspc.2025.108477",
-    "url": "https://doi.org/10.1016/j.bspc.2025.108477",
+    "researcher": "Fernando Díaz-de-María",
+    "orcid": "0000-0002-6437-914X",
+    "title": "A self-supervised embedding of cell migration features for behavior discovery over cell populations",
+    "doi": "10.1016/j.cmpb.2024.108337",
+    "url": "https://doi.org/10.1016/j.cmpb.2024.108337",
     "authors": [
-      "Antonio Castejón-Barrio",
-      "Ascensión Gallardo-Antolín"
+      "Miguel Molina-Moreno",
+      "Iván González-Díaz",
+      "Ralf Mikut",
+      "Fernando Díaz-de-María"
     ],
-    "year": "2026",
-    "date": "2026-02",
-    "journal": "",
+    "year": "2024",
+    "date": "2024-10",
+    "journal": "Computer Methods and Programs in Biomedicine",
     "type": "journal-article",
-    "put_code": 189874014,
-    "bibtex_key": "CastejonBarrio2026Leveragingunlabeleddataforlungsoundclass"
+    "put_code": 163974614
+  },
+  {
+    "researcher": "Fernando Díaz-de-María",
+    "orcid": "0000-0002-6437-914X",
+    "title": "URI-CADS: A Fully Automated Computer-Aided Diagnosis System for Ultrasound Renal Imaging",
+    "doi": "10.1007/s10278-024-01055-4",
+    "url": "https://doi.org/10.1007/s10278-024-01055-4",
+    "authors": [
+      "Miguel Molina-Moreno",
+      "Iván González-Díaz",
+      "Maite Rivera Gorrín",
+      "Víctor Burguera Vion",
+      "Fernando Díaz-de-María"
+    ],
+    "year": "2024",
+    "date": "2024-02-27",
+    "journal": "Journal of Imaging Informatics in Medicine",
+    "type": "journal-article",
+    "put_code": 154175488
+  },
+  {
+    "researcher": "Fernando Díaz-de-María",
+    "orcid": "0000-0002-6437-914X",
+    "title": "Integrating Egocentric and Robotic Vision for Object Identification Using Siamese Networks and Superquadric Estimations in Partial Occlusion Scenarios",
+    "doi": "10.3390/biomimetics9020100",
+    "url": "https://doi.org/10.3390/biomimetics9020100",
+    "authors": [
+      "Elisabeth Menendez",
+      "Santiago Martínez",
+      "Fernando Díaz-de-María",
+      "Carlos Balaguer"
+    ],
+    "year": "2024",
+    "date": "2024-02-08",
+    "journal": "Biomimetics",
+    "type": "journal-article",
+    "put_code": 152722531
+  },
+  {
+    "researcher": "Fernando Díaz-de-María",
+    "orcid": "0000-0002-6437-914X",
+    "title": "Pain Level and Pain-Related Behaviour Classification Using GRU-Based Sparsely-Connected RNNs",
+    "doi": "10.1109/JSTSP.2023.3262358",
+    "url": "https://doi.org/10.1109/JSTSP.2023.3262358",
+    "authors": [
+      "Mohammad Mahdi Dehshibi",
+      "Temitayo Olugbade",
+      "Fernando Diaz-de-Maria",
+      "Nadia Bianchi-Berthouze",
+      "Ana Tajadura-Jiménez"
+    ],
+    "year": "2023",
+    "date": "2023-05",
+    "journal": "IEEE Journal of Selected Topics in Signal Processing",
+    "type": "journal-article",
+    "put_code": 138623844
+  },
+  {
+    "researcher": "Fernando Díaz-de-María",
+    "orcid": "0000-0002-6437-914X",
+    "title": "An interpretable CNN-based CAD system for skin lesion diagnosis",
+    "doi": "10.1016/j.artmed.2022.102370",
+    "url": "https://doi.org/10.1016/j.artmed.2022.102370",
+    "authors": [
+      "Javier López-Labraca",
+      "Iván González-Díaz",
+      "Fernando Díaz-de-María",
+      "Alejandro Fueyo-Casado"
+    ],
+    "year": "2022",
+    "date": "2022-10",
+    "journal": "Artificial Intelligence in Medicine",
+    "type": "journal-article",
+    "put_code": 116654074
+  },
+  {
+    "researcher": "Fernando Díaz-de-María",
+    "orcid": "0000-0002-6437-914X",
+    "title": "Training deep retrieval models with noisy datasets: Bag exponential loss",
+    "doi": "10.1016/j.patcog.2020.107811",
+    "url": "https://doi.org/10.1016/j.patcog.2020.107811",
+    "authors": [
+      "Tomás Martínez-Cortés",
+      "Iván González-Díaz",
+      "Fernando Díaz-de-María"
+    ],
+    "year": "2021",
+    "date": "2021-04",
+    "journal": "Pattern Recognition",
+    "type": "journal-article",
+    "put_code": 86073520
+  },
+  {
+    "researcher": "Fernando Díaz-de-María",
+    "orcid": "0000-0002-6437-914X",
+    "title": "Interpretable Global-Local Dynamics for the Prediction of Eye Fixations in Autonomous Driving Scenarios",
+    "doi": "10.1109/ACCESS.2020.3041606",
+    "url": "https://doi.org/10.1109/ACCESS.2020.3041606",
+    "authors": [
+      "Javier Martinez-Cebrian",
+      "Miguel-Angel Fernandez-Torres",
+      "Fernando Diaz-De-Maria"
+    ],
+    "year": "2020",
+    "date": "2020",
+    "journal": "IEEE Access",
+    "type": "journal-article",
+    "put_code": 85320328
+  },
+  {
+    "researcher": "Fernando Díaz-de-María",
+    "orcid": "0000-0002-6437-914X",
+    "title": "A multi-threshold approach and a realistic error measure for vanishing point detection in natural landscapes",
+    "doi": "10.1016/j.engappai.2019.08.001",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85070357782&partnerID=MN8TOARS",
+    "authors": [
+      "García-Faura, Á.",
+      "Fernández-Martínez, F.",
+      "Kleinlein, R.",
+      "San-Segundo, R.",
+      "Díaz-de-María, F."
+    ],
+    "year": "2019",
+    "date": "2019",
+    "journal": "Engineering Applications of Artificial Intelligence",
+    "type": "journal-article",
+    "put_code": 65596242
+  },
+  {
+    "researcher": "Fernando Díaz-de-María",
+    "orcid": "0000-0002-6437-914X",
+    "title": "Efficient Scale-Adaptive License Plate Detection System",
+    "doi": "10.1109/TITS.2018.2859035",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85051661795&partnerID=MN8TOARS",
+    "authors": [
+      "Molina-Moreno, M.",
+      "Gonzalez-Diaz, I.",
+      "Diaz-De-Maria, F."
+    ],
+    "year": "2019",
+    "date": "2019",
+    "journal": "IEEE Transactions on Intelligent Transportation Systems",
+    "type": "journal-article",
+    "put_code": 53155716
+  },
+  {
+    "researcher": "Fernando Díaz-de-María",
+    "orcid": "0000-0002-6437-914X",
+    "title": "Emotion and attention: Audiovisual models for group-level skin response recognition in short movies",
+    "doi": "10.3233/WEB-190398",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85062170062&partnerID=MN8TOARS",
+    "authors": [
+      "García-Faura, A.",
+      "Hernández-García, A.",
+      "Fernández-Martínez, F.",
+      "Díaz-De-María, F.",
+      "San-Segundo, R."
+    ],
+    "year": "2019",
+    "date": "2019",
+    "journal": "Web Intelligence",
+    "type": "journal-article",
+    "put_code": 65596244
+  },
+  {
+    "researcher": "Fernando Díaz-de-María",
+    "orcid": "0000-0002-6437-914X",
+    "title": "Finding landmarks within settled areas using hierarchical density-based clustering and meta-data from publicly available images",
+    "doi": "10.1016/j.eswa.2019.01.046",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85060238970&partnerID=MN8TOARS",
+    "authors": [
+      "Pla-Sacristán, E.",
+      "González-Díaz, I.",
+      "Martínez-Cortés, T.",
+      "Díaz-de-María, F."
+    ],
+    "year": "2019",
+    "date": "2019",
+    "journal": "Expert Systems with Applications",
+    "type": "journal-article",
+    "put_code": 65596243
+  },
+  {
+    "researcher": "Fernando Díaz-de-María",
+    "orcid": "0000-0002-6437-914X",
+    "title": "Predicting image aesthetics for intelligent tourism information systems",
+    "doi": "10.3390/electronics8060671",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85071183949&partnerID=MN8TOARS",
+    "authors": [
+      "Kleinlein, R.",
+      "García-Faura, Á.",
+      "Jiménez, C.L.",
+      "Montero, J.M.",
+      "Díaz-De-maría, F.",
+      "Fernández-Martínez, F."
+    ],
+    "year": "2019",
+    "date": "2019",
+    "journal": "Electronics (Switzerland)",
+    "type": "journal-article",
+    "put_code": 65596245
+  },
+  {
+    "researcher": "Fernando Díaz-de-María",
+    "orcid": "0000-0002-6437-914X",
+    "title": "Probabilistic Topic Model for Context-Driven Visual Attention Understanding",
+    "doi": "10.1109/tcsvt.2019.2909427",
+    "url": "http://dx.doi.org/10.1109/tcsvt.2019.2909427",
+    "authors": [],
+    "year": "2019",
+    "date": "2019",
+    "journal": "IEEE Transactions on Circuits and Systems for Video Technology",
+    "type": "journal-article",
+    "put_code": 65590346
+  },
+  {
+    "researcher": "Fernando Díaz-de-María",
+    "orcid": "0000-0002-6437-914X",
+    "title": "Exploiting visual saliency for assessing the impact of car commercials upon viewers",
+    "doi": "10.1007/s11042-017-5339-9",
+    "url": "http://dx.doi.org/10.1007/s11042-017-5339-9",
+    "authors": [],
+    "year": "2018",
+    "date": "2018-08",
+    "journal": "Multimedia Tools and Applications",
+    "type": "journal-article",
+    "put_code": 65590618
+  },
+  {
+    "researcher": "Fernando Díaz-de-María",
+    "orcid": "0000-0002-6437-914X",
+    "title": "Directional Transforms for Video Coding Based on Lifting on Graphs",
+    "doi": "10.1109/TCSVT.2016.2633418",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85043494920&partnerID=MN8TOARS",
+    "authors": [
+      "Martinez-Enriquez, E.",
+      "Cid-Sueiro, J.",
+      "Diaz-De-Maria, F.",
+      "Ortega, A."
+    ],
+    "year": "2018",
+    "date": "2018",
+    "journal": "IEEE Transactions on Circuits and Systems for Video Technology",
+    "type": "journal-article",
+    "put_code": 53155705
+  },
+  {
+    "researcher": "Fernando Díaz-de-María",
+    "orcid": "0000-0002-6437-914X",
+    "title": "Enriched dermoscopic-structure-based cad system for melanoma diagnosis",
+    "doi": "10.1007/s11042-017-4879-3",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85020743290&partnerID=MN8TOARS",
+    "authors": [
+      "López-Labraca, J.",
+      "Fernández-Torres, M.Á.",
+      "González-Díaz, I.",
+      "Díaz-De-María, F.",
+      "Pizarro, Á."
+    ],
+    "year": "2018",
+    "date": "2018",
+    "journal": "Multimedia Tools and Applications",
+    "type": "journal-article",
+    "put_code": 53155703
+  },
+  {
+    "researcher": "Fernando Díaz-de-María",
+    "orcid": "0000-0002-6437-914X",
+    "title": "Optimized update/prediction assignment for lifting transforms on graphs",
+    "doi": "10.1109/TSP.2018.2802465",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85041525978&partnerID=MN8TOARS",
+    "authors": [
+      "Martinez-Enriquez, E.",
+      "Cid-Sueiro, J.",
+      "Diaz-De-Maria, F.",
+      "Ortega, A."
+    ],
+    "year": "2018",
+    "date": "2018",
+    "journal": "IEEE Transactions on Signal Processing",
+    "type": "journal-article",
+    "put_code": 53155724
+  },
+  {
+    "researcher": "Fernando Díaz-de-María",
+    "orcid": "0000-0002-6437-914X",
+    "title": "Adaptive Lagrange multiplier estimation algorithm in HEVC",
+    "doi": "10.1016/j.image.2017.04.010",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85018432171&partnerID=MN8TOARS",
+    "authors": [
+      "González-de-Suso, J.L.",
+      "Martínez-Enríquez, E.",
+      "Díaz-de-María, F."
+    ],
+    "year": "2017",
+    "date": "2017",
+    "journal": "Signal Processing: Image Communication",
+    "type": "journal-article",
+    "put_code": 53155684
+  },
+  {
+    "researcher": "Fernando Díaz-de-María",
+    "orcid": "0000-0002-6437-914X",
+    "title": "Bayesian adaptive algorithm for fast coding unit decision in the High Efficiency Video Coding (HEVC) standard",
+    "doi": "10.1016/j.image.2017.04.004",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85017503874&partnerID=MN8TOARS",
+    "authors": [
+      "Jiménez-Moreno, A.",
+      "Martínez-Enríquez, E.",
+      "Díaz-de-María, F."
+    ],
+    "year": "2017",
+    "date": "2017",
+    "journal": "Signal Processing: Image Communication",
+    "type": "journal-article",
+    "put_code": 53155679
+  },
+  {
+    "researcher": "Fernando Díaz-de-María",
+    "orcid": "0000-0002-6437-914X",
+    "title": "Neighborhood Matching for Image Retrieval",
+    "doi": "10.1109/TMM.2016.2616298",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85013466531&partnerID=MN8TOARS",
+    "authors": [
+      "González-Díaz, I.",
+      "Birinci, M.",
+      "Díaz-De-María, F.",
+      "Delp, E.J."
+    ],
+    "year": "2017",
+    "date": "2017",
+    "journal": "IEEE Transactions on Multimedia",
+    "type": "journal-article",
+    "put_code": 53155660
+  },
+  {
+    "researcher": "Fernando Díaz-de-María",
+    "orcid": "0000-0002-6437-914X",
+    "title": "Comparing visual descriptors and automatic rating strategies for video aesthetics prediction",
+    "doi": "10.1016/j.image.2016.07.004",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84979518501&partnerID=MN8TOARS",
+    "authors": [
+      "Hernández-García, A.",
+      "Fernández-Martínez, F.",
+      "Díaz-de-María, F."
+    ],
+    "year": "2016",
+    "date": "2016",
+    "journal": "Signal Processing: Image Communication",
+    "type": "journal-article",
+    "put_code": 53155669
+  },
+  {
+    "researcher": "Fernando Díaz-de-María",
+    "orcid": "0000-0002-6437-914X",
+    "title": "Complexity Control Based on a Fast Coding Unit Decision Method in the HEVC Video Coding Standard",
+    "doi": "10.1109/TMM.2016.2524995",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84963813280&partnerID=MN8TOARS",
+    "authors": [
+      "Jimenez-Moreno, A.",
+      "Martinez-Enriquez, E.",
+      "Diaz-De-Maria, F."
+    ],
+    "year": "2016",
+    "date": "2016",
+    "journal": "IEEE Transactions on Multimedia",
+    "type": "journal-article",
+    "put_code": 53155668
+  },
+  {
+    "researcher": "Fernando Díaz-de-María",
+    "orcid": "0000-0002-6437-914X",
+    "title": "Succeeding metadata based annotation scheme and visual tips for the automatic assessment of video aesthetic quality in car commercials",
+    "doi": "10.1016/j.eswa.2014.07.033",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84906807377&partnerID=MN8TOARS",
+    "authors": [
+      "Fernández-Martínez, F.",
+      "Hernández García, A.",
+      "Díaz De María, F."
+    ],
+    "year": "2015",
+    "date": "2015",
+    "journal": "Expert Systems with Applications",
+    "type": "journal-article",
+    "put_code": 53155667
+  },
+  {
+    "researcher": "Fernando Díaz-de-María",
+    "orcid": "0000-0002-6437-914X",
+    "title": "Temporal segmentation and keyframe selection methods for user-generated video search-based annotation",
+    "doi": "10.1016/j.eswa.2014.08.001",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84907564420&partnerID=MN8TOARS",
+    "authors": [
+      "González-Díaz, I.",
+      "Martínez-Cortés, T.",
+      "Gallardo-Antolín, A.",
+      "Díaz-De-María, F."
+    ],
+    "year": "2015",
+    "date": "2015",
+    "journal": "Expert Systems with Applications",
+    "type": "journal-article",
+    "put_code": 53155693
+  },
+  {
+    "researcher": "Fernando Díaz-de-María",
+    "orcid": "0000-0002-6437-914X",
+    "title": "Two-level sliding-window VBR control algorithm for video on demand streaming",
+    "doi": "10.1016/j.image.2015.05.004",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84939247038&partnerID=MN8TOARS",
+    "authors": [
+      "De-Frutos-López, M.",
+      "González-De-Suso, J.L.",
+      "Sanz-Rodríguez, S.",
+      "Peláez-Moreno, C.",
+      "Díaz-De-María, F."
+    ],
+    "year": "2015",
+    "date": "2015",
+    "journal": "Signal Processing: Image Communication",
+    "type": "journal-article",
+    "put_code": 53155682
+  },
+  {
+    "researcher": "Fernando Díaz-de-María",
+    "orcid": "0000-0002-6437-914X",
+    "title": "A generative model for concurrent image retrieval and ROI segmentation",
+    "doi": "10.1109/TMM.2013.2286083",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84890959626&partnerID=MN8TOARS",
+    "authors": [
+      "Gonzalez-Diaz, I.",
+      "Baz-Hormigos, C.E.",
+      "Diaz-De-Maria, F."
+    ],
+    "year": "2014",
+    "date": "2014",
+    "journal": "IEEE Transactions on Multimedia",
+    "type": "journal-article",
+    "put_code": 53155694
+  },
+  {
+    "researcher": "Fernando Díaz-de-María",
+    "orcid": "0000-0002-6437-914X",
+    "title": "Improved method to select the lagrange multiplier for rate-distortion based motion estimation in video coding",
+    "doi": "10.1109/TCSVT.2013.2276857",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84896528947&partnerID=MN8TOARS",
+    "authors": [
+      "Gonzalez-De-Suso, J.L.",
+      "Jimenez-Moreno, A.",
+      "Martinez-Enriquez, E.",
+      "Diaz-De-Maria, F."
+    ],
+    "year": "2014",
+    "date": "2014",
+    "journal": "IEEE Transactions on Circuits and Systems for Video Technology",
+    "type": "journal-article",
+    "put_code": 53155709
+  },
+  {
+    "researcher": "Fernando Díaz-de-María",
+    "orcid": "0000-0002-6437-914X",
+    "title": "Standard-compliant low-pass temporal filter to reduce the perceived flicker artifact",
+    "doi": "10.1109/TMM.2014.2347257",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84908139516&partnerID=MN8TOARS",
+    "authors": [
+      "Jimenez-Moreno, A.",
+      "Martinez-Enriquez, E.",
+      "Kumar, V.",
+      "Diaz-De-Maria, F."
+    ],
+    "year": "2014",
+    "date": "2014",
+    "journal": "IEEE Transactions on Multimedia",
+    "type": "journal-article",
+    "put_code": 53155670
+  },
+  {
+    "researcher": "Fernando Díaz-de-María",
+    "orcid": "0000-0002-6437-914X",
+    "title": "A region-centered topic model for object discovery and category-based image segmentation",
+    "doi": "10.1016/j.patcog.2013.01.034",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84876704651&partnerID=MN8TOARS",
+    "authors": [
+      "González-Díaz, I.",
+      "Díaz-De-María, F."
+    ],
+    "year": "2013",
+    "date": "2013",
+    "journal": "Pattern Recognition",
+    "type": "journal-article",
+    "put_code": 53155661
+  },
+  {
+    "researcher": "Fernando Díaz-de-María",
+    "orcid": "0000-0002-6437-914X",
+    "title": "Design of an embedded speech-centric interface for applications in handheld terminals",
+    "doi": "10.1109/MAES.2013.6477866",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84897749098&partnerID=MN8TOARS",
+    "authors": [
+      "Gallardo-Antolín, A.",
+      "García-Moral, A.I.",
+      "Pereiro-Estevan, Y.",
+      "Díaz-De-María, F."
+    ],
+    "year": "2013",
+    "date": "2013",
+    "journal": "IEEE Aerospace and Electronic Systems Magazine",
+    "type": "journal-article",
+    "put_code": 53155697
+  },
+  {
+    "researcher": "Fernando Díaz-de-María",
+    "orcid": "0000-0002-6437-914X",
+    "title": "Mode decision-based algorithm for complexity control in H.264/AVC",
+    "doi": "10.1109/TMM.2013.2241414",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84880833947&partnerID=MN8TOARS",
+    "authors": [
+      "Jiménez-Moreno, A.",
+      "Martínez-Enríquez, E.",
+      "Díaz-De-María, F."
+    ],
+    "year": "2013",
+    "date": "2013",
+    "journal": "IEEE Transactions on Multimedia",
+    "type": "journal-article",
+    "put_code": 53155678
+  },
+  {
+    "researcher": "Fernando Díaz-de-María",
+    "orcid": "0000-0002-6437-914X",
+    "title": "In-layer multibuffer framework for rate-controlled scalable video coding",
+    "doi": "10.1109/TCSVT.2012.2198089",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84864692647&partnerID=MN8TOARS",
+    "authors": [
+      "Sanz-Rodríguez, S.",
+      "Díaz-De-María, F."
+    ],
+    "year": "2012",
+    "date": "2012",
+    "journal": "IEEE Transactions on Circuits and Systems for Video Technology",
+    "type": "journal-article",
+    "put_code": 53155718
+  },
+  {
+    "researcher": "Fernando Díaz-de-María",
+    "orcid": "0000-0002-6437-914X",
+    "title": "Real-time robust automatic speech recognition using compact support vector machines",
+    "doi": "10.1109/TASL.2011.2178597",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84857488250&partnerID=MN8TOARS",
+    "authors": [
+      "Solera-Ureña, R.",
+      "García-Moral, A.I.",
+      "Peláez-Moreno, C.",
+      "Martínez-Ramon, M.",
+      "Díaz-De-María, F."
+    ],
+    "year": "2012",
+    "date": "2012",
+    "journal": "IEEE Transactions on Audio, Speech and Language Processing",
+    "type": "journal-article",
+    "put_code": 53155699
+  },
+  {
+    "researcher": "Fernando Díaz-de-María",
+    "orcid": "0000-0002-6437-914X",
+    "title": "A low-complexity pre-processing system for restoring low-quality QR code images",
+    "doi": "10.1109/TCE.2011.6018890",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-80052928607&partnerID=MN8TOARS",
+    "authors": [
+      "Munoz-Mejias, D.",
+      "Gonzalez-Diaz, I.",
+      "Diaz-De-Maria, F."
+    ],
+    "year": "2011",
+    "date": "2011",
+    "journal": "IEEE Transactions on Consumer Electronics",
+    "type": "journal-article",
+    "put_code": 53155672
+  },
+  {
+    "researcher": "Fernando Díaz-de-María",
+    "orcid": "0000-0002-6437-914X",
+    "title": "A two-level classification-based approach to inter mode decision in H.264/AVC",
+    "doi": "10.1109/TCSVT.2011.2134010",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-80455178886&partnerID=MN8TOARS",
+    "authors": [
+      "Martínez-Enríquez, E.",
+      "Jiménez-Moreno, A.",
+      "Ángel-Pellón, M.",
+      "Díaz-De-María, F."
+    ],
+    "year": "2011",
+    "date": "2011",
+    "journal": "IEEE Transactions on Circuits and Systems for Video Technology",
+    "type": "journal-article",
+    "put_code": 53155719
+  },
+  {
+    "researcher": "Fernando Díaz-de-María",
+    "orcid": "0000-0002-6437-914X",
+    "title": "Data balancing for efficient training of hybrid ANN/HMM automatic speech recognition systems",
+    "doi": "10.1109/TASL.2010.2050513",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-78149247542&partnerID=MN8TOARS",
+    "authors": [
+      "García-Moral, A.I.",
+      "Solera-Ureña, R.",
+      "Peláez-Moreno, C.",
+      "Díaz-De-María, F."
+    ],
+    "year": "2011",
+    "date": "2011",
+    "journal": "IEEE Transactions on Audio, Speech and Language Processing",
+    "type": "journal-article",
+    "put_code": 53155696
+  },
+  {
+    "researcher": "Fernando Díaz-de-María",
+    "orcid": "0000-0002-6437-914X",
+    "title": "RBF-based QP estimation model for VBR control in H.264/SVC",
+    "doi": "10.1109/TCSVT.2011.2143330",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-80052538639&partnerID=MN8TOARS",
+    "authors": [
+      "Sanz-Rodriguez, S.",
+      "Diaz-De-Maria, F."
+    ],
+    "year": "2011",
+    "date": "2011",
+    "journal": "IEEE Transactions on Circuits and Systems for Video Technology",
+    "type": "journal-article",
+    "put_code": 53155673
+  },
+  {
+    "researcher": "Fernando Díaz-de-María",
+    "orcid": "0000-0002-6437-914X",
+    "title": "State-space dynamics distance for clustering sequential data",
+    "doi": "10.1016/j.patcog.2010.11.018",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-78651329531&partnerID=MN8TOARS",
+    "authors": [
+      "García-García, D.",
+      "Parrado-Hernández, E.",
+      "Diaz-De-Maria, F."
+    ],
+    "year": "2011",
+    "date": "2011",
+    "journal": "Pattern Recognition",
+    "type": "journal-article",
+    "put_code": 53155702
+  },
+  {
+    "researcher": "Fernando Díaz-de-María",
+    "orcid": "0000-0002-6437-914X",
+    "title": "An adaptive algorithm for fast inter mode decision in the H.264/AVC video coding standard",
+    "doi": "10.1109/TCE.2010.5506008",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-77954693749&partnerID=MN8TOARS",
+    "authors": [
+      "Martínez-Enríquez, E.",
+      "Jiménez-Moreno, A.",
+      "Diaz-De-Maria, F."
+    ],
+    "year": "2010",
+    "date": "2010",
+    "journal": "IEEE Transactions on Consumer Electronics",
+    "type": "journal-article",
+    "put_code": 53155717
+  },
+  {
+    "researcher": "Fernando Díaz-de-María",
+    "orcid": "0000-0002-6437-914X",
+    "title": "An improved fast mode decision algorithm for intraprediction in H.264/AVC video coding",
+    "doi": "10.1016/j.image.2010.10.005",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-78649462496&partnerID=MN8TOARS",
+    "authors": [
+      "De-Frutos-López, M.",
+      "Orellana-Quirós, D.",
+      "Pujol-Alcolado, J.C.",
+      "Díaz-De-María, F."
+    ],
+    "year": "2010",
+    "date": "2010",
+    "journal": "Signal Processing: Image Communication",
+    "type": "journal-article",
+    "put_code": 53155722
+  },
+  {
+    "researcher": "Fernando Díaz-de-María",
+    "orcid": "0000-0002-6437-914X",
+    "title": "Cauchy-density-based basic unit layer rate controller for H.264/AVC",
+    "doi": "10.1109/TCSVT.2010.2051369",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-77955620654&partnerID=MN8TOARS",
+    "authors": [
+      "Sanz-Rodriguez, S.",
+      "Del-Ama-Esteban, Ó.",
+      "De-Frutos-López, M.",
+      "Díaz-De-María, F."
+    ],
+    "year": "2010",
+    "date": "2010",
+    "journal": "IEEE Transactions on Circuits and Systems for Video Technology",
+    "type": "journal-article",
+    "put_code": 53155690
+  },
+  {
+    "researcher": "Fernando Díaz-de-María",
+    "orcid": "0000-0002-6437-914X",
+    "title": "The synergy between bounded-distance HMM and spectral subtraction for robust speech recognition",
+    "doi": "10.1016/j.specom.2009.09.002",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-70449133421&partnerID=MN8TOARS",
+    "authors": [
+      "Vicente-Peña, J.",
+      "Díaz-de-María, F.",
+      "Kleijn, W.B."
+    ],
+    "year": "2010",
+    "date": "2010",
+    "journal": "Speech Communication",
+    "type": "journal-article",
+    "put_code": 53155711
+  },
+  {
+    "researcher": "Fernando Díaz-de-María",
+    "orcid": "0000-0002-6437-914X",
+    "title": "Uncertainty decoding on Frequency Filtered parameters for robust ASR",
+    "doi": "10.1016/j.specom.2010.02.002",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-77949914685&partnerID=MN8TOARS",
+    "authors": [
+      "Vicente-Peña, J.",
+      "Díaz-de-María, F."
+    ],
+    "year": "2010",
+    "date": "2010",
+    "journal": "Speech Communication",
+    "type": "journal-article",
+    "put_code": 53155689
+  },
+  {
+    "researcher": "Fernando Díaz-de-María",
+    "orcid": "0000-0002-6437-914X",
+    "title": "A new distance measure for model-based sequence clustering",
+    "doi": "10.1109/TPAMI.2008.268",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-67349244757&partnerID=MN8TOARS",
+    "authors": [
+      "García-García, D.",
+      "Parrado Hernández, E.",
+      "Díaz-de María, F."
+    ],
+    "year": "2009",
+    "date": "2009",
+    "journal": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
+    "type": "journal-article",
+    "put_code": 53155698
+  },
+  {
+    "researcher": "Fernando Díaz-de-María",
+    "orcid": "0000-0002-6437-914X",
+    "title": "Characterization of Healthy and Pathological Voice Through Measures Based on Nonlinear Dynamics",
+    "doi": "10.1109/TASL.2009.2016734",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85008035391&partnerID=MN8TOARS",
+    "authors": [
+      "Henríquez, P.",
+      "Alonso, J.B.",
+      "Ferrer, M.A.",
+      "Travieso, C.M.",
+      "Godino-Llorente, J.I.",
+      "Díaz-de-María, F."
+    ],
+    "year": "2009",
+    "date": "2009",
+    "journal": "IEEE Transactions on Audio, Speech and Language Processing",
+    "type": "journal-article",
+    "put_code": 53155721
+  },
+  {
+    "researcher": "Fernando Díaz-de-María",
+    "orcid": "0000-0002-6437-914X",
+    "title": "Adaptive multipattern fast block-matching algorithm based on motion classification techniques",
+    "doi": "10.1109/TCSVT.2008.2004917",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-55249095581&partnerID=MN8TOARS",
+    "authors": [
+      "González-Díaz, I.",
+      "Díaz-de-María, F."
+    ],
+    "year": "2008",
+    "date": "2008",
+    "journal": "IEEE Transactions on Circuits and Systems for Video Technology",
+    "type": "journal-article",
+    "put_code": 53155687
+  },
+  {
+    "researcher": "Fernando Díaz-de-María",
+    "orcid": "0000-0002-6437-914X",
+    "title": "Robust ASR using Support Vector Machines",
+    "doi": "10.1016/j.specom.2007.01.013",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-34047146422&partnerID=MN8TOARS",
+    "authors": [
+      "Solera-Ureña, R.",
+      "Martín-Iglesias, D.",
+      "Gallardo-Antolín, A.",
+      "Peláez-Moreno, C.",
+      "Díaz-de-María, F."
+    ],
+    "year": "2007",
+    "date": "2007",
+    "journal": "Speech Communication",
+    "type": "journal-article",
+    "put_code": 53155683
+  },
+  {
+    "researcher": "Fernando Díaz-de-María",
+    "orcid": "0000-0002-6437-914X",
+    "title": "A comparison of front-ends for bitstream-based ASR over IP",
+    "doi": "10.1016/j.sigpro.2005.08.011",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-33646161231&partnerID=MN8TOARS",
+    "authors": [
+      "Peláez-Moreno, C.",
+      "Gallardo-Antolín, A.",
+      "Gómez-Cajas, D.F.",
+      "Díaz-de-María, F."
+    ],
+    "year": "2006",
+    "date": "2006",
+    "journal": "Signal Processing",
+    "type": "journal-article",
+    "put_code": 53155666
+  },
+  {
+    "researcher": "Fernando Díaz-de-María",
+    "orcid": "0000-0002-6437-914X",
+    "title": "Band-pass filtering of the time sequences of spectral parameters for robust wireless speech recognition",
+    "doi": "10.1016/j.specom.2006.07.007",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-33748463352&partnerID=MN8TOARS",
+    "authors": [
+      "Vicente-Peña, J.",
+      "Gallardo-Antolín, A.",
+      "Peláez-Moreno, C.",
+      "Díaz-de-María, F."
+    ],
+    "year": "2006",
+    "date": "2006",
+    "journal": "Speech Communication",
+    "type": "journal-article",
+    "put_code": 53155691
+  },
+  {
+    "researcher": "Fernando Díaz-de-María",
+    "orcid": "0000-0002-6437-914X",
+    "title": "Recognizing GSM digital speech",
+    "doi": "10.1109/TSA.2005.853210",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-27744477310&partnerID=MN8TOARS",
+    "authors": [
+      "Gallardo-Antolín, A.",
+      "Peláez-Moreno, C.",
+      "Díaz-De-María, F."
+    ],
+    "year": "2005",
+    "date": "2005",
+    "journal": "IEEE Transactions on Speech and Audio Processing",
+    "type": "journal-article",
+    "put_code": 53155662
+  },
+  {
+    "researcher": "Fernando Díaz-de-María",
+    "orcid": "0000-0002-6437-914X",
+    "title": "Recognizing voice over IP: A robust front-end for speech recognition on the World Wide Web",
+    "doi": "10.1109/6046.923820",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-0035365050&partnerID=MN8TOARS",
+    "authors": [
+      "Peláez-Moreno, C.",
+      "Gallardo-Antolín, A.",
+      "Díaz-de-María, F."
+    ],
+    "year": "2001",
+    "date": "2001",
+    "journal": "IEEE Transactions on Multimedia",
+    "type": "journal-article",
+    "put_code": 53155706
+  },
+  {
+    "researcher": "Fernando Díaz-de-María",
+    "orcid": "0000-0002-6437-914X",
+    "title": "Improving CELP coders by backward adaptive non-linear prediction",
+    "doi": "10.1002/(SICI)1099-1115(199711)11:7<585::AID-ACS454>3.0.CO;2-9",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-0031276546&partnerID=MN8TOARS",
+    "authors": [
+      "Díaz-De-María, F.",
+      "Figueiras-Vidal, A.R."
+    ],
+    "year": "1997",
+    "date": "1997",
+    "journal": "International Journal of Adaptive Control and Signal Processing",
+    "type": "journal-article",
+    "put_code": 53155688
   },
   {
     "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
@@ -124,10 +964,652 @@
     ],
     "year": "2026",
     "date": "2026-08",
+    "journal": "Expert Systems with Applications",
+    "type": "journal-article",
+    "put_code": 212363046
+  },
+  {
+    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
+    "orcid": "0000-0002-9322-3128",
+    "title": "Leveraging unlabeled data for lung sound classification through self-supervised contrastive learning",
+    "doi": "10.1016/j.bspc.2025.108477",
+    "url": "https://doi.org/10.1016/j.bspc.2025.108477",
+    "authors": [
+      "Antonio Castejón-Barrio",
+      "Ascensión Gallardo-Antolín"
+    ],
+    "year": "2026",
+    "date": "2026-02",
+    "journal": "Biomedical Signal Processing and Control",
+    "type": "journal-article",
+    "put_code": 189874014
+  },
+  {
+    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
+    "orcid": "0000-0002-9322-3128",
+    "title": "Alzheimer’s Disease Detection from Speech Using Shapley Additive Explanations for Feature Selection and Enhanced Interpretability",
+    "doi": "10.3390/electronics14112248",
+    "url": "https://www.mdpi.com/2079-9292/14/11/2248",
+    "authors": [
+      "Irati Oiza-Zapata",
+      "Ascensión Gallardo-Antolín"
+    ],
+    "year": "2025",
+    "date": "2025-05",
+    "journal": "Electronics",
+    "type": "journal-article",
+    "put_code": 185116288
+  },
+  {
+    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
+    "orcid": "0000-0002-9322-3128",
+    "title": "Bayesian learning of feature spaces for multitask regression",
+    "doi": "10.1016/j.neunet.2024.106619",
+    "url": "https://doi.org/10.1016/j.neunet.2024.106619",
+    "authors": [
+      "Carlos Sevilla-Salcedo",
+      "Ascensión Gallardo-Antolín",
+      "Vanessa Gómez-Verdejo",
+      "Emilio Parrado-Hernández"
+    ],
+    "year": "2024",
+    "date": "2024-11",
+    "journal": "Neural Networks",
+    "type": "journal-article",
+    "put_code": 165434723
+  },
+  {
+    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
+    "orcid": "0000-0002-9322-3128",
+    "title": "Elastic net regularization and gabor dictionary for classification of heart sound signals using deep learning",
+    "doi": "10.1016/j.engappai.2023.107406",
+    "url": "https://doi.org/10.1016/j.engappai.2023.107406",
+    "authors": [
+      "Mahmoud Fakhry",
+      "Ascensión Gallardo-Antolín"
+    ],
+    "year": "2024",
+    "date": "2024-01",
+    "journal": "Engineering Applications of Artificial Intelligence",
+    "type": "journal-article",
+    "put_code": 146231553
+  },
+  {
+    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
+    "orcid": "0000-0002-9322-3128",
+    "title": "An Auditory Saliency Pooling-Based LSTM Model for Speech Intelligibility Classification",
+    "doi": "10.3390/sym13091728",
+    "url": "https://www.mdpi.com/2073-8994/13/9/1728",
+    "authors": [
+      "Ascensión Gallardo-Antolín",
+      "Juan M. Montero"
+    ],
+    "year": "2021",
+    "date": "2021-09",
+    "journal": "Symmetry",
+    "type": "journal-article",
+    "put_code": 100182304
+  },
+  {
+    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
+    "orcid": "0000-0002-9322-3128",
+    "title": "Detecting Deception from Gaze and Speech Using a Multimodal Attention LSTM-Based Framework",
+    "doi": "10.3390/app11146393",
+    "url": "https://doi.org/10.3390/app11146393",
+    "authors": [
+      "Ascensión Gallardo-Antolín",
+      "Juan M. Montero"
+    ],
+    "year": "2021",
+    "date": "2021-07-11",
+    "journal": "Applied Sciences",
+    "type": "journal-article",
+    "put_code": 96838114
+  },
+  {
+    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
+    "orcid": "0000-0002-9322-3128",
+    "title": "On combining acoustic and modulation spectrograms in an attention LSTM-based system for speech intelligibility level classification",
+    "doi": "10.1016/j.neucom.2021.05.065",
+    "url": "https://doi.org/10.1016/j.neucom.2021.05.065",
+    "authors": [
+      "Ascensión Gallardo-Antolín",
+      "Juan M. Montero"
+    ],
+    "year": "2021",
+    "date": "2021-05",
+    "journal": "Neurocomputing",
+    "type": "journal-article",
+    "put_code": 94379033
+  },
+  {
+    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
+    "orcid": "0000-0002-9322-3128",
+    "title": "Automatic Detection of Depression in Speech Using Ensemble Convolutional Neural Networks",
+    "doi": "10.3390/e22060688",
+    "url": "https://doi.org/10.3390/e22060688",
+    "authors": [
+      "Adrián Vázquez-Romero",
+      "Ascensión Gallardo-Antolín"
+    ],
+    "year": "2020",
+    "date": "2020-06-20",
+    "journal": "Entropy",
+    "type": "journal-article",
+    "put_code": 76043324
+  },
+  {
+    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
+    "orcid": "0000-0002-9322-3128",
+    "title": "An attention Long Short-Term Memory based system for automatic classification of speech intelligibility",
+    "doi": "10.1016/j.engappai.2020.103976",
+    "url": "https://www.sciencedirect.com/science/article/pii/S0952197620302827",
+    "authors": [],
+    "year": "2020",
+    "date": "2020",
+    "journal": "Engineering Applications of Artificial Intelligence",
+    "type": "journal-article",
+    "put_code": 89776750
+  },
+  {
+    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
+    "orcid": "0000-0002-9322-3128",
+    "title": "Data Augmentation for Speaker Identification under Stress Conditions to Combat Gender-Based Violence",
+    "doi": "10.3390/app9112298",
+    "url": "https://doi.org/10.3390/app9112298",
+    "authors": [
+      "Esther Rituerto-González",
+      "Alba Mínguez-Sánchez",
+      "Ascensión Gallardo-Antolín",
+      "Carmen Peláez-Moreno"
+    ],
+    "year": "2019",
+    "date": "2019-06-04",
+    "journal": "Applied Sciences",
+    "type": "journal-article",
+    "put_code": 58177009
+  },
+  {
+    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
+    "orcid": "0000-0002-9322-3128",
+    "title": "Echoic log-surprise: A multi-scale scheme for acoustic saliency detection",
+    "doi": "10.1016/j.eswa.2018.07.018",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85050863450&partnerID=MN8TOARS",
+    "authors": [
+      "Rodríguez-Hidalgo, A.",
+      "Peláez-Moreno, C.",
+      "Gallardo-Antolín, A."
+    ],
+    "year": "2018",
+    "date": "2018",
+    "journal": "Expert Systems with Applications",
+    "type": "journal-article",
+    "put_code": 50748721
+  },
+  {
+    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
+    "orcid": "0000-0002-9322-3128",
+    "title": "Enhancement of a text-independent speaker verification system by using feature combination and parallel structure classifiers",
+    "doi": "10.1007/s00521-016-2470-x",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84978872996&partnerID=MN8TOARS",
+    "authors": [
+      "Abdalmalak, K.A.",
+      "Gallardo-Antolín, A."
+    ],
+    "year": "2018",
+    "date": "2018",
+    "journal": "Neural Computing and Applications",
+    "type": "journal-article",
+    "put_code": 50748722
+  },
+  {
+    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
+    "orcid": "0000-0002-9322-3128",
+    "title": "The Robustness of Echoic Log-Surprise Auditory Saliency Detection",
+    "doi": "10.1109/access.2018.2882055",
+    "url": "http://dx.doi.org/10.1109/access.2018.2882055",
+    "authors": [],
+    "year": "2018",
+    "date": "2018",
+    "journal": "IEEE Access",
+    "type": "journal-article",
+    "put_code": 56347506
+  },
+  {
+    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
+    "orcid": "0000-0002-9322-3128",
+    "title": "Bird sound spectrogram decomposition through Non-Negative Matrix Factorization for the acoustic classification of bird species",
+    "doi": "10.1371/journal.pone.0179403",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85020903270&partnerID=MN8TOARS",
+    "authors": [
+      "Ludeña-Choez, J.",
+      "Quispe-Soncco, R.",
+      "Gallardo-Antolín, A."
+    ],
+    "year": "2017",
+    "date": "2017",
+    "journal": "PLoS ONE",
+    "type": "journal-article",
+    "put_code": 50748728
+  },
+  {
+    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
+    "orcid": "0000-0002-9322-3128",
+    "title": "Acoustic Event Classification using spectral band selection and Non-Negative Matrix Factorization-based features",
+    "doi": "10.1016/j.eswa.2015.10.018",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84946616129&partnerID=MN8TOARS",
+    "authors": [
+      "Ludeña-Choez, J.",
+      "Gallardo-Antolín, A."
+    ],
+    "year": "2016",
+    "date": "2016",
+    "journal": "Expert Systems with Applications",
+    "type": "journal-article",
+    "put_code": 50748725
+  },
+  {
+    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
+    "orcid": "0000-0002-9322-3128",
+    "title": "Building a Decision Support System for Inpatient Admission Prediction with the Manchester Triage System and Administrative Check-in Variables",
+    "doi": "10.1097/CIN.0000000000000230",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84961221583&partnerID=MN8TOARS",
+    "authors": [
+      "Zlotnik, A.",
+      "Alfaro, M.C.",
+      "Perez, M.C.P.",
+      "Gallardo-Antolin, A.",
+      "Martinez, J.M.M."
+    ],
+    "year": "2016",
+    "date": "2016",
+    "journal": "CIN - Computers Informatics Nursing",
+    "type": "journal-article",
+    "put_code": 50748730
+  },
+  {
+    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
+    "orcid": "0000-0002-9322-3128",
+    "title": "Emergency department visit forecasting and dynamic nursing staff allocation using machine learning techniques with readily available open-source software",
+    "doi": "10.1097/CIN.0000000000000173",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84957558290&partnerID=MN8TOARS",
+    "authors": [
+      "Zlotnik, A.",
+      "Gallardo-Antolín, A.",
+      "Alfaro, M.C.",
+      "Pérez, M.C.P.",
+      "Martínez, J.M.M."
+    ],
+    "year": "2015",
+    "date": "2015",
+    "journal": "CIN - Computers Informatics Nursing",
+    "type": "journal-article",
+    "put_code": 50748719
+  },
+  {
+    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
+    "orcid": "0000-0002-9322-3128",
+    "title": "Feature extraction based on the high-pass filtering of audio signals for Acoustic Event Classification",
+    "doi": "10.1016/j.csl.2014.04.001",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84913604166&partnerID=MN8TOARS",
+    "authors": [
+      "Ludeña-Choez, J.",
+      "Gallardo-Antolín, A."
+    ],
+    "year": "2015",
+    "date": "2015",
+    "journal": "Computer Speech and Language",
+    "type": "journal-article",
+    "put_code": 13528557
+  },
+  {
+    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
+    "orcid": "0000-0002-9322-3128",
+    "title": "Morphologically filtered power-normalized cochleograms as robust, biologically inspired features for ASR",
+    "doi": "10.1109/TASLP.2015.2464691",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84941096334&partnerID=MN8TOARS",
+    "authors": [
+      "De-La-Calle-Silos, F.",
+      "Valverde-Albacete, F.J.",
+      "Gallardo-Antolín, A.",
+      "Peláez-Moreno, C."
+    ],
+    "year": "2015",
+    "date": "2015",
+    "journal": "IEEE/ACM Transactions on Audio Speech and Language Processing",
+    "type": "journal-article",
+    "put_code": 50748723
+  },
+  {
+    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
+    "orcid": "0000-0002-9322-3128",
+    "title": "A Comparison of Multivariate SARIMA and SVM Models for Emergency Department Admission Prediction",
+    "doi": "",
+    "url": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcAuth=ORCID&SrcApp=OrcidOrg&DestLinkType=FullRecord&DestApp=INSPEC&KeyUT=INSPEC:13535510&KeyUID=INSPEC:13535510",
+    "authors": [
+      "Zlotnik, A.",
+      "Montero Martinez, J.M.",
+      "Gallardo-Antolin, A.",
+      "Stacey, D.",
+      "Sole-Casals, J.",
+      "Fred, A.",
+      "Gamboa, H."
+    ],
+    "year": "2013",
+    "date": "2013",
+    "journal": "Proceedings of the 6th International Conference on Health Informatics (HEALTHINF 2013)",
+    "type": "journal-article",
+    "put_code": 48225542
+  },
+  {
+    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
+    "orcid": "0000-0002-9322-3128",
+    "title": "Auditory-Inspired Morphological Processing of Speech Spectrograms: Applications in Automatic Speech Recognition and Speech Enhancement",
+    "doi": "10.1007/s12559-012-9196-6",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84890126800&partnerID=MN8TOARS",
+    "authors": [
+      "Cadore, J.",
+      "Valverde-Albacete, F.J.",
+      "Gallardo-Antolín, A.",
+      "Peláez-Moreno, C."
+    ],
+    "year": "2013",
+    "date": "2013",
     "journal": "",
     "type": "journal-article",
-    "put_code": 212363046,
-    "bibtex_key": "Brery2026DeeplearningforhumanactivityrecognitionA"
+    "put_code": 13528558
+  },
+  {
+    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
+    "orcid": "0000-0002-9322-3128",
+    "title": "NMF-Based Spectral Analysis for Acoustic Event Classification Tasks",
+    "doi": "10.1007/978-3-642-38847-7_2",
+    "url": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcAuth=ORCID&SrcApp=OrcidOrg&DestLinkType=FullRecord&DestApp=INSPEC&KeyUT=INSPEC:13692247&KeyUID=INSPEC:13692247",
+    "authors": [
+      "Ludena-Choez, J.",
+      "Gallardo-Antolin, A.",
+      "Drugman, T.",
+      "Dutoit, T."
+    ],
+    "year": "2013",
+    "date": "2013",
+    "journal": "Advances in Nonlinear Speech Processing. 6th International Conference, NOLISP 2013. Proceedings. LNCS 7911",
+    "type": "journal-article",
+    "put_code": 48225545
+  },
+  {
+    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
+    "orcid": "0000-0002-9322-3128",
+    "title": "Speech Denoising Using Non-negative Matrix Factorization with Kullback-Leibler Divergence and Sparseness Constraints",
+    "doi": "",
+    "url": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcAuth=ORCID&SrcApp=OrcidOrg&DestLinkType=FullRecord&DestApp=WOS_CPL&KeyUT=WOS:000316029900022&KeyUID=WOS:000316029900022",
+    "authors": [
+      "Ludena-Choez, Jimmy",
+      "Gallardo-Antolin, Ascension",
+      "Toledano, DT",
+      "Gimenez, AO",
+      "Teixeira, A",
+      "Rodriguez, JG",
+      "Gomez, LH",
+      "Hernandez, RSS",
+      "Castro, DR"
+    ],
+    "year": "2012",
+    "date": "2012",
+    "journal": "Advances in Speech and Language Technologies For Iberian Languages",
+    "type": "journal-article",
+    "put_code": 48225546
+  },
+  {
+    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
+    "orcid": "0000-0002-9322-3128",
+    "title": "Feature Extraction Assessment for an Acoustic-Event Classification Task using the Entropy Triangle",
+    "doi": "",
+    "url": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcAuth=ORCID&SrcApp=OrcidOrg&DestLinkType=FullRecord&DestApp=WOS_CPL&KeyUT=WOS:000316502200081&KeyUID=WOS:000316502200081",
+    "authors": [
+      "Mejia-Navarrete, David",
+      "Gallardo-Antolin, Ascension",
+      "Pelaez-Moreno, Carmen",
+      "Valverde-Albacete, Francisco J.",
+      "Int  Speech Commun Assoc"
+    ],
+    "year": "2011",
+    "date": "2011",
+    "journal": "12th Annual Conference of the International Speech Communication Association 2011 (Interspeech 2011), Vols 1-5",
+    "type": "journal-article",
+    "put_code": 48225547
+  },
+  {
+    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
+    "orcid": "0000-0002-9322-3128",
+    "title": "Morphological Processing of Spectrograms for Speech Enhancement",
+    "doi": "",
+    "url": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcAuth=ORCID&SrcApp=OrcidOrg&DestLinkType=FullRecord&DestApp=WOS_CPL&KeyUT=WOS:000306444200029&KeyUID=WOS:000306444200029",
+    "authors": [
+      "Cadore, Joyner",
+      "Gallardo-Antolin, Ascension",
+      "Pelaez-Moreno, Carmen",
+      "TraviesoGonzalez, CM",
+      "AlonsoHernandez, JB"
+    ],
+    "year": "2011",
+    "date": "2011",
+    "journal": "Advances in Nonlinear Speech Processing",
+    "type": "journal-article",
+    "put_code": 48225548
+  },
+  {
+    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
+    "orcid": "0000-0002-9322-3128",
+    "title": "Automatic placement of outer volume suppression slices in MR spectroscopic imaging of the human brain",
+    "doi": "10.1002/mrm.22275",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-77649178092&partnerID=MN8TOARS",
+    "authors": [
+      "Martínez-Ramón, M.",
+      "Gallardo-Antolín, A.",
+      "Cid-Sueiro, J.",
+      "Heileman, G.L.",
+      "Yung, K.-T.",
+      "Zheng, W.",
+      "Zhao, C.",
+      "Posse, S."
+    ],
+    "year": "2010",
+    "date": "2010",
+    "journal": "",
+    "type": "journal-article",
+    "put_code": 13528567
+  },
+  {
+    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
+    "orcid": "0000-0002-9322-3128",
+    "title": "Histogram equalization-based features for speech, music, and song discrimination",
+    "doi": "10.1109/LSP.2010.2049877",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-77952944068&partnerID=MN8TOARS",
+    "authors": [
+      "Gallardo-Antolin, A.",
+      "Montero, J.M."
+    ],
+    "year": "2010",
+    "date": "2010",
+    "journal": "",
+    "type": "journal-article",
+    "put_code": 13528566
+  },
+  {
+    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
+    "orcid": "0000-0002-9322-3128",
+    "title": "EXPRESSIVE SPEECH IDENTIFICATIONS BASED ON HIDDEN MARKOV MODEL",
+    "doi": "",
+    "url": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcAuth=ORCID&SrcApp=OrcidOrg&DestLinkType=FullRecord&DestApp=WOS_CPL&KeyUT=WOS:000266586700082&KeyUID=WOS:000266586700082",
+    "authors": [
+      "Lutfi, Syaheerah L.",
+      "Montero, J. M.",
+      "Barra-Chicote, R.",
+      "Lucas-Cuesta, J. M.",
+      "Gallardo-Antolin, A.",
+      "Azevedo, L",
+      "Londral, AR"
+    ],
+    "year": "2009",
+    "date": "2009",
+    "journal": "Healthinf 2009: Proceedings of the International Conference on Health Informatics",
+    "type": "journal-article",
+    "put_code": 48225551
+  },
+  {
+    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
+    "orcid": "0000-0002-9322-3128",
+    "title": "A simulated annealing approach to speaker segmentation in audio databases",
+    "doi": "10.1016/j.engappai.2007.07.002",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-43549107972&partnerID=MN8TOARS",
+    "authors": [
+      "Leiva-Murillo, J.M.",
+      "Salcedo-Sanz, S.",
+      "Gallardo-Antolín, A.",
+      "Artés-Rodríguez, A."
+    ],
+    "year": "2008",
+    "date": "2008",
+    "journal": "",
+    "type": "journal-article",
+    "put_code": 13528569
+  },
+  {
+    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
+    "orcid": "0000-0002-9322-3128",
+    "title": "Automatic Phonetic Segmentation of Spanish Emotional Speech",
+    "doi": "",
+    "url": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcAuth=ORCID&SrcApp=OrcidOrg&DestLinkType=FullRecord&DestApp=WOS_CPL&KeyUT=WOS:000269998601222&KeyUID=WOS:000269998601222",
+    "authors": [
+      "Gallardo-Antolin, A.",
+      "Barra, R.",
+      "Schroeder, M.",
+      "Krstulovic, S.",
+      "Montero, J. M.",
+      "ISCA"
+    ],
+    "year": "2007",
+    "date": "2007",
+    "journal": "Interspeech 2007: 8th Annual Conference of the International Speech Communication Association, Vols 1-4",
+    "type": "journal-article",
+    "put_code": 48225553
+  },
+  {
+    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
+    "orcid": "0000-0002-9322-3128",
+    "title": "Multi-Stream Speaker Diarization Systems for the Meetings Domain",
+    "doi": "",
+    "url": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcAuth=ORCID&SrcApp=OrcidOrg&DestLinkType=FullRecord&DestApp=WOS_CPL&KeyUT=WOS:000269965901284&KeyUID=WOS:000269965901284",
+    "authors": [
+      "Gallardo-Antolin, Ascension",
+      "Anguera, Xavier",
+      "Wooters, Chuck",
+      "ISCA"
+    ],
+    "year": "2006",
+    "date": "2006",
+    "journal": "Interspeech 2006 and 9th International Conference on Spoken Language Processing, Vols 1-5",
+    "type": "journal-article",
+    "put_code": 48225558
+  },
+  {
+    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
+    "orcid": "0000-0002-9322-3128",
+    "title": "Offline speaker segmentation using genetic algorithms and mutual information",
+    "doi": "10.1109/TEVC.2005.857079",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-33645558215&partnerID=MN8TOARS",
+    "authors": [
+      "Salcedo-Sanz, S.",
+      "Gallardo-Antolín, A.",
+      "Leiva-Murillo, J.M.",
+      "Bousoño-Calzón, C."
+    ],
+    "year": "2006",
+    "date": "2006",
+    "journal": "",
+    "type": "journal-article",
+    "put_code": 13528576
+  },
+  {
+    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
+    "orcid": "0000-0002-9322-3128",
+    "title": "A speech recognizer based on multiclass SVMs with HMM-guided segmentation",
+    "doi": "",
+    "url": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcAuth=ORCID&SrcApp=OrcidOrg&DestLinkType=FullRecord&DestApp=INSPEC&KeyUT=INSPEC:8804237&KeyUID=INSPEC:8804237",
+    "authors": [
+      "Martin-Iglesias, D.",
+      "Bernal-Chaves, J.",
+      "Pelaez-Moreno, C.",
+      "Gallardo-Antolin, A.",
+      "Diaz-de-Maria, F.",
+      "Faundez-Zanuy, M.",
+      "Janer, L.",
+      "Esposito, A.",
+      "Satue-Villar, A.",
+      "Roure, J.",
+      "Espinosa-Duro, V."
+    ],
+    "year": "2005",
+    "date": "2005",
+    "journal": "Nonlinear Analyses and Algorithms for Speech Processing. International Conference on Non-Linear Speech Processing, NOLISP 2005. Revised Selected Papers (Lecture Notes in Artificial Intelligence Vol.3817)",
+    "type": "journal-article",
+    "put_code": 48225560
+  },
+  {
+    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
+    "orcid": "0000-0002-9322-3128",
+    "title": "Avoiding distortions due to speech coding and transmission errors in GSM ASR tasks",
+    "doi": "10.1109/ICASSP.1999.758116",
+    "url": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcAuth=ORCID&SrcApp=OrcidOrg&DestLinkType=FullRecord&DestApp=INSPEC&KeyUT=INSPEC:6352027&KeyUID=INSPEC:6352027",
+    "authors": [
+      "Gallardo-Antolin, A.",
+      "Diaz-de-Maria, F.",
+      "Valverde-Albacete, F."
+    ],
+    "year": "1999",
+    "date": "1999",
+    "journal": "1999 IEEE International Conference on Acoustics, Speech, and Signal Processing. Proceedings. ICASSP99 (Cat. No.99CH36258)",
+    "type": "journal-article",
+    "put_code": 48225565
+  },
+  {
+    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
+    "orcid": "0000-0002-9322-3128",
+    "title": "Initial evaluation of a preselection module for a flexible large vocabulary speech recognition system in telephone environment",
+    "doi": "10.1109/ICSLP.1996.607017",
+    "url": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcAuth=ORCID&SrcApp=OrcidOrg&DestLinkType=FullRecord&DestApp=INSPEC&KeyUT=INSPEC:5677781&KeyUID=INSPEC:5677781",
+    "authors": [
+      "Macias-Guarasa, J.",
+      "Gallardo, A.",
+      "Ferreiros, J.",
+      "Pardo, J.M.",
+      "Villarrubia, L.",
+      "Bunnell, H.T.",
+      "Idsardi, W."
+    ],
+    "year": "1996",
+    "date": "1996",
+    "journal": "Proceedings ICSLP 96. Fourth International Conference on Spoken Language Processing (Cat. No.96TH8206)",
+    "type": "journal-article",
+    "put_code": 48225566
+  },
+  {
+    "researcher": "Carmen Peláez-Moreno",
+    "orcid": "0000-0003-1425-6763",
+    "title": "Lattice representations suggest novel organizing principles for odorant and neural spaces",
+    "doi": "10.1016/j.neunet.2026.109471",
+    "url": "https://doi.org/10.1016/j.neunet.2026.109471",
+    "authors": [
+      "Emma Reyner-Fuentes",
+      "Carmen Peláez-Moreno",
+      "Francisco J. Valverde-Albacete"
+    ],
+    "year": "2027",
+    "date": "2027-01",
+    "journal": "Neural Networks",
+    "type": "journal-article",
+    "put_code": 222767405
   },
   {
     "researcher": "Carmen Peláez-Moreno",
@@ -142,10 +1624,569 @@
     ],
     "year": "2026",
     "date": "2026-08",
+    "journal": "Engineering Applications of Artificial Intelligence",
+    "type": "journal-article",
+    "put_code": 212911179
+  },
+  {
+    "researcher": "Carmen Peláez-Moreno",
+    "orcid": "0000-0003-1425-6763",
+    "title": "Formal Context Transforms and Their Affordances for Exploratory Data Analysis",
+    "doi": "10.3390/math14010032",
+    "url": "https://doi.org/10.3390/math14010032",
+    "authors": [
+      "Francisco J. Valverde-Albacete",
+      "Carmen Peláez-Moreno",
+      "Inma P. Cabrera",
+      "Pablo Cordero",
+      "Manuel Ojeda-Aciego"
+    ],
+    "year": "2025",
+    "date": "2025-12-22",
+    "journal": "Mathematics",
+    "type": "journal-article",
+    "put_code": 200586448
+  },
+  {
+    "researcher": "Carmen Peláez-Moreno",
+    "orcid": "0000-0003-1425-6763",
+    "title": "Machine Unlearning for Speaker-Agnostic Detection of Gender-Based Violence Condition in Speech",
+    "doi": "10.3390/app152212270",
+    "url": "https://doi.org/10.3390/app152212270",
+    "authors": [
+      "Emma Reyner-Fuentes",
+      "Esther Rituerto-González",
+      "Carmen Peláez-Moreno"
+    ],
+    "year": "2025",
+    "date": "2025-11-19",
+    "journal": "Applied Sciences",
+    "type": "journal-article",
+    "put_code": 197356813
+  },
+  {
+    "researcher": "Carmen Peláez-Moreno",
+    "orcid": "0000-0003-1425-6763",
+    "title": "Authenticity at Risk: Key Factors in the Generation and Detection of Audio Deepfakes",
+    "doi": "10.3390/app15020558",
+    "url": "https://doi.org/10.3390/app15020558",
+    "authors": [
+      "Alba Martínez-Serrano",
+      "Claudia Montero-Ramírez",
+      "Carmen Peláez-Moreno"
+    ],
+    "year": "2025",
+    "date": "2025-01-08",
+    "journal": "Applied Sciences",
+    "type": "journal-article",
+    "put_code": 175286160
+  },
+  {
+    "researcher": "Carmen Peláez-Moreno",
+    "orcid": "0000-0003-1425-6763",
+    "title": "A Formalization of Multilabel Classification in Terms of Lattice Theory and Information Theory: Concerning Datasets",
+    "doi": "10.3390/math12020346",
+    "url": "https://doi.org/10.3390/math12020346",
+    "authors": [
+      "Francisco J. Valverde-Albacete",
+      "Carmen Peláez-Moreno"
+    ],
+    "year": "2024",
+    "date": "2024-01-21",
+    "journal": "Mathematics",
+    "type": "journal-article",
+    "put_code": 151281627
+  },
+  {
+    "researcher": "Carmen Peláez-Moreno",
+    "orcid": "0000-0003-1425-6763",
+    "title": "Bindi: Affective Internet of Things to Combat Gender-Based Violence",
+    "doi": "10.1109/JIOT.2022.3177256",
+    "url": "https://doi.org/10.1109/JIOT.2022.3177256",
+    "authors": [
+      "Jose A. Miranda Calero",
+      "Esther Rituerto-Gonzalez",
+      "Clara Luis-Mingueza",
+      "Manuel F. Canabal",
+      "Alberto Ramirez Barcenas",
+      "Jose M. Lanza-Gutierrez",
+      "Carmen Pelaez-Moreno",
+      "Celia Lopez-Ongil"
+    ],
+    "year": "2022",
+    "date": "2022-11-01",
+    "journal": "IEEE Internet of Things Journal",
+    "type": "journal-article",
+    "put_code": 122071817
+  },
+  {
+    "researcher": "Carmen Peláez-Moreno",
+    "orcid": "0000-0003-1425-6763",
+    "title": "End-to-end recurrent denoising autoencoder embeddings for speaker identification",
+    "doi": "10.1007/s00521-021-06083-7",
+    "url": "http://dx.doi.org/10.1007/s00521-021-06083-7",
+    "authors": [],
+    "year": "2021",
+    "date": "2021-11",
+    "journal": "Neural Computing and Applications",
+    "type": "journal-article",
+    "put_code": 106913578
+  },
+  {
+    "researcher": "Carmen Peláez-Moreno",
+    "orcid": "0000-0003-1425-6763",
+    "title": "Teaching Differently: The Digital Signal Processing of Multimedia Content Through the Use of Liberal Arts",
+    "doi": "10.1109/MSP.2021.3053218",
+    "url": "https://doi.org/10.1109/MSP.2021.3053218",
+    "authors": [
+      "Jorge Torres Gomez",
+      "Antonio Rodriguez-Hidalgo",
+      "Yannelys Virginia Jerez Naranjo",
+      "Carmen Pelaez-Moreno"
+    ],
+    "year": "2021",
+    "date": "2021-05",
+    "journal": "IEEE Signal Processing Magazine",
+    "type": "journal-article",
+    "put_code": 92999161
+  },
+  {
+    "researcher": "Carmen Peláez-Moreno",
+    "orcid": "0000-0003-1425-6763",
+    "title": "Four-Fold Formal Concept Analysis Based on Complete Idempotent Semifields",
+    "doi": "10.3390/math9020173",
+    "url": "https://doi.org/10.3390/math9020173",
+    "authors": [
+      "Francisco José Valverde-Albacete",
+      "Carmen Peláez-Moreno"
+    ],
+    "year": "2021",
+    "date": "2021-01-15",
+    "journal": "Mathematics",
+    "type": "journal-article",
+    "put_code": 86926025
+  },
+  {
+    "researcher": "Carmen Peláez-Moreno",
+    "orcid": "0000-0003-1425-6763",
+    "title": "A Framework for Supervised Classification Performance Analysis with Information-Theoretic Methods",
+    "doi": "10.1109/TKDE.2019.2915643",
+    "url": "https://doi.org/10.1109/TKDE.2019.2915643",
+    "authors": [
+      "Francisco J. Valverde-Albacete",
+      "Carmen Pelaez-Moreno"
+    ],
+    "year": "2020",
+    "date": "2020-11-01",
+    "journal": "IEEE Transactions on Knowledge and Data Engineering",
+    "type": "journal-article",
+    "put_code": 81598029
+  },
+  {
+    "researcher": "Carmen Peláez-Moreno",
+    "orcid": "0000-0003-1425-6763",
+    "title": "The Singular Value Decomposition over Completed Idempotent Semifields",
+    "doi": "10.3390/math8091577",
+    "url": "https://doi.org/10.3390/math8091577",
+    "authors": [
+      "Francisco Valverde-Albacete",
+      "Carmen Peláez-Moreno"
+    ],
+    "year": "2020",
+    "date": "2020-09-12",
+    "journal": "Mathematics",
+    "type": "journal-article",
+    "put_code": 80281767
+  },
+  {
+    "researcher": "Carmen Peláez-Moreno",
+    "orcid": "0000-0003-1425-6763",
+    "title": "The Rényi Entropies Operate in Positive Semifields",
+    "doi": "10.3390/e21080780",
+    "url": "https://doi.org/10.3390/e21080780",
+    "authors": [
+      "Francisco J. Valverde-Albacete",
+      "Carmen Peláez-Moreno"
+    ],
+    "year": "2019",
+    "date": "2019-08-08",
+    "journal": "Entropy",
+    "type": "journal-article",
+    "put_code": 60350897
+  },
+  {
+    "researcher": "Carmen Peláez-Moreno",
+    "orcid": "0000-0003-1425-6763",
+    "title": "The Case for Shifting the Rényi Entropy",
+    "doi": "10.3390/e21010046",
+    "url": "https://doi.org/10.3390/e21010046",
+    "authors": [
+      "Francisco J. Valverde-Albacete",
+      "Carmen Peláez-Moreno"
+    ],
+    "year": "2019",
+    "date": "2019-01-09",
+    "journal": "Entropy",
+    "type": "journal-article",
+    "put_code": 52537168
+  },
+  {
+    "researcher": "Carmen Peláez-Moreno",
+    "orcid": "0000-0003-1425-6763",
+    "title": "K-Formal Concept Analysis as linear algebra over idempotent semifields",
+    "doi": "10.1016/j.ins.2018.07.067",
+    "url": "https://doi.org/10.1016/j.ins.2018.07.067",
+    "authors": [
+      "Francisco J. Valverde-Albacete",
+      "Carmen Peláez-Moreno"
+    ],
+    "year": "2018",
+    "date": "2018-10",
+    "journal": "Information Sciences",
+    "type": "journal-article",
+    "put_code": 47082072
+  },
+  {
+    "researcher": "Carmen Peláez-Moreno",
+    "orcid": "0000-0003-1425-6763",
+    "title": "Assessing Information Transmission in Data Transformations with the Channel Multivariate Entropy Triangle",
+    "doi": "10.3390/e20070498",
+    "url": "https://doi.org/10.3390/e20070498",
+    "authors": [
+      "Francisco Valverde-Albacete",
+      "Carmen Peláez-Moreno"
+    ],
+    "year": "2018",
+    "date": "2018-06-27",
+    "journal": "Entropy",
+    "type": "journal-article",
+    "put_code": 46061848
+  },
+  {
+    "researcher": "Carmen Peláez-Moreno",
+    "orcid": "0000-0003-1425-6763",
+    "title": "The evaluation of data sources using multivariate entropy tools",
+    "doi": "10.1016/j.eswa.2017.02.010",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85013216653&partnerID=MN8TOARS",
+    "authors": [
+      "Valverde-Albacete, F.J.",
+      "Peláez-Moreno, C."
+    ],
+    "year": "2017",
+    "date": "2017",
+    "journal": "Expert Systems with Applications",
+    "type": "journal-article",
+    "put_code": 52292420
+  },
+  {
+    "researcher": "Carmen Peláez-Moreno",
+    "orcid": "0000-0003-1425-6763",
+    "title": "Interactive knowledge discovery and data mining on genomic expression data with numeric formal concept analysis",
+    "doi": "10.1186/s12859-016-1234-z",
+    "url": "https://doi.org/10.1186/s12859-016-1234-z",
+    "authors": [
+      "Jose M González-Calabozo",
+      "Francisco J Valverde-Albacete",
+      "Carmen Peláez-Moreno"
+    ],
+    "year": "2016",
+    "date": "2016-09-15",
+    "journal": "BMC Bioinformatics",
+    "type": "journal-article",
+    "put_code": 26769665
+  },
+  {
+    "researcher": "Carmen Peláez-Moreno",
+    "orcid": "0000-0003-1425-6763",
+    "title": "Supporting scientific knowledge discovery with extended, generalized Formal Concept Analysis",
+    "doi": "10.1016/j.eswa.2015.09.022",
+    "url": "",
+    "authors": [
+      "Francisco J. Valverde-Albacete",
+      "José María González-Calabozo",
+      "Anselmo Peñas",
+      "Carmen Peláez-Moreno"
+    ],
+    "year": "2016",
+    "date": "2016-02-01",
+    "journal": "Expert Systems with Applications",
+    "type": "journal-article",
+    "put_code": 20121835
+  },
+  {
+    "researcher": "Carmen Peláez-Moreno",
+    "orcid": "0000-0003-1425-6763",
+    "title": "The spectra of reducible matrices over complete commutative idempotent semifields and their spectral lattices",
+    "doi": "10.1080/03081079.2015.1072923",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84960414542&partnerID=MN8TOARS",
+    "authors": [
+      "Valverde-Albacete, F.J.",
+      "Peláez-Moreno, C."
+    ],
+    "year": "2016",
+    "date": "2016",
+    "journal": "International Journal of General Systems",
+    "type": "journal-article",
+    "put_code": 52292421
+  },
+  {
+    "researcher": "Carmen Peláez-Moreno",
+    "orcid": "0000-0003-1425-6763",
+    "title": "The spectra of irreducible matrices over completed idempotent semifields",
+    "doi": "10.1016/j.fss.2014.09.022",
+    "url": "",
+    "authors": [],
+    "year": "2015",
+    "date": "2015-07-01",
+    "journal": "Fuzzy Sets and Systems",
+    "type": "journal-article",
+    "put_code": 20121834
+  },
+  {
+    "researcher": "Carmen Peláez-Moreno",
+    "orcid": "0000-0003-1425-6763",
+    "title": "100% classification accuracy considered harmful: The normalized information transfer factor explains the accuracy paradox",
+    "doi": "10.1371/journal.pone.0084217",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84897546403&partnerID=MN8TOARS",
+    "authors": [
+      "Valverde-Albacete, F.J.",
+      "Peláez-Moreno, C."
+    ],
+    "year": "2014",
+    "date": "2014",
     "journal": "",
     "type": "journal-article",
-    "put_code": 212911179,
-    "bibtex_key": "MonteroRamirez2026BuildingartificialsituationalawarenessSo"
+    "put_code": 13656853
+  },
+  {
+    "researcher": "Carmen Peláez-Moreno",
+    "orcid": "0000-0003-1425-6763",
+    "title": "Extending conceptualisation modes for generalised Formal Concept Analysis",
+    "doi": "10.1016/j.ins.2010.04.014",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-79251599435&partnerID=MN8TOARS",
+    "authors": [
+      "Valverde-Albacete, F.J.",
+      "Peláez-Moreno, C."
+    ],
+    "year": "2011",
+    "date": "2011",
+    "journal": "",
+    "type": "journal-article",
+    "put_code": 13656863
+  },
+  {
+    "researcher": "Carmen Peláez-Moreno",
+    "orcid": "0000-0003-1425-6763",
+    "title": "Analyzing phonetic confusions using formal concept analysis",
+    "doi": "10.1121/1.3458854",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-77956407956&partnerID=MN8TOARS",
+    "authors": [
+      "Peláez-Moreno, C.",
+      "García-Moral, A.I.",
+      "Valverde-Albacete, F.J."
+    ],
+    "year": "2010",
+    "date": "2010",
+    "journal": "",
+    "type": "journal-article",
+    "put_code": 13656867
+  },
+  {
+    "researcher": "Carmen Peláez-Moreno",
+    "orcid": "0000-0003-1425-6763",
+    "title": "Two information-theoretic tools to assess the performance of multi-class classifiers",
+    "doi": "10.1016/j.patrec.2010.05.017",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-77955557676&partnerID=MN8TOARS",
+    "authors": [
+      "Valverde-Albacete, F.J.",
+      "Peláez-Moreno, C."
+    ],
+    "year": "2010",
+    "date": "2010",
+    "journal": "",
+    "type": "journal-article",
+    "put_code": 13656866
+  },
+  {
+    "researcher": "IVAN GONZALEZ",
+    "orcid": "0000-0003-4644-8479",
+    "title": "Asymmetric Multi-Task Learning for Interpretable Gaze-Driven Grasping Action Forecasting",
+    "doi": "10.1109/JBHI.2024.3430810",
+    "url": "https://doi.org/10.1109/JBHI.2024.3430810",
+    "authors": [
+      "Iván González-Díaz",
+      "Miguel Molina-Moreno",
+      "Jenny Benois-Pineau",
+      "Aymar de Rugy"
+    ],
+    "year": "2024",
+    "date": "2024-12",
+    "journal": "IEEE Journal of Biomedical and Health Informatics",
+    "type": "journal-article",
+    "put_code": 173199142
+  },
+  {
+    "researcher": "IVAN GONZALEZ",
+    "orcid": "0000-0003-4644-8479",
+    "title": "ACME: Automatic feature extraction for cell migration examination through intravital microscopy imaging",
+    "doi": "10.1016/j.media.2022.102358",
+    "url": "http://dx.doi.org/10.1016/j.media.2022.102358",
+    "authors": [],
+    "year": "2022",
+    "date": "2022-04",
+    "journal": "Medical Image Analysis",
+    "type": "journal-article",
+    "put_code": 107074046
+  },
+  {
+    "researcher": "IVAN GONZALEZ",
+    "orcid": "0000-0003-4644-8479",
+    "title": "Behavioural immune landscapes of inflammation",
+    "doi": "10.1038/s41586-021-04263-y",
+    "url": "http://dx.doi.org/10.1038/s41586-021-04263-y",
+    "authors": [],
+    "year": "2022",
+    "date": "2022-01-05",
+    "journal": "Nature",
+    "type": "journal-article",
+    "put_code": 105870611
+  },
+  {
+    "researcher": "IVAN GONZALEZ",
+    "orcid": "0000-0003-4644-8479",
+    "title": "Perceptually-guided deep neural networks for ego-action prediction: Object grasping",
+    "doi": "10.1016/j.patcog.2018.11.013",
+    "url": "https://doi.org/10.1016/j.patcog.2018.11.013",
+    "authors": [
+      "Iván González-Díaz",
+      "Jenny Benois-Pineau",
+      "Jean-Philippe Domenger",
+      "Daniel Cattaert",
+      "Aymar de Rugy"
+    ],
+    "year": "2019",
+    "date": "2019-04",
+    "journal": "Pattern Recognition",
+    "type": "journal-article",
+    "put_code": 50734054
+  },
+  {
+    "researcher": "IVAN GONZALEZ",
+    "orcid": "0000-0003-4644-8479",
+    "title": "DermaKNet: Incorporating the Knowledge of Dermatologists to Convolutional Neural Networks for Skin Lesion Diagnosis",
+    "doi": "10.1109/JBHI.2018.2806962",
+    "url": "https://doi.org/10.1109/JBHI.2018.2806962",
+    "authors": [
+      "Ivan Gonzalez-Diaz"
+    ],
+    "year": "2019",
+    "date": "2019-03",
+    "journal": "IEEE Journal of Biomedical and Health Informatics",
+    "type": "journal-article",
+    "put_code": 54919739
+  },
+  {
+    "researcher": "IVAN GONZALEZ",
+    "orcid": "0000-0003-4644-8479",
+    "title": "Perceptual modeling in the problem of active object recognition in visual scenes",
+    "doi": "10.1016/j.patcog.2016.03.007",
+    "url": "https://doi.org/10.1016/j.patcog.2016.03.007",
+    "authors": [
+      "Iván González-Díaz",
+      "Vincent Buso",
+      "Jenny Benois-Pineau"
+    ],
+    "year": "2016",
+    "date": "2016-08",
+    "journal": "Pattern Recognition",
+    "type": "journal-article",
+    "put_code": 25381481
+  },
+  {
+    "researcher": "IVAN GONZALEZ",
+    "orcid": "0000-0003-4644-8479",
+    "title": "A probabilistic topic approach for context-aware visual attention modeling",
+    "doi": "10.1109/cbmi.2016.7500272",
+    "url": "",
+    "authors": [
+      "Miguel-Angel Fernandez-Torres",
+      "Ivan Gonzalez-Diaz",
+      "Fernando Diaz-de-Maria"
+    ],
+    "year": "2016",
+    "date": "2016-06",
+    "journal": "2016 14th International Workshop on Content-Based Multimedia Indexing (CBMI)",
+    "type": "other",
+    "put_code": 122548609
+  },
+  {
+    "researcher": "IVAN GONZALEZ",
+    "orcid": "0000-0003-4644-8479",
+    "title": "Goal-oriented top-down probabilistic visual attention model for recognition of manipulated objects in egocentric videos",
+    "doi": "10.1016/j.image.2015.05.006",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84947870785&partnerID=MN8TOARS",
+    "authors": [
+      "Buso, V.",
+      "González-Díaz, I.",
+      "Benois-Pineau, J."
+    ],
+    "year": "2015",
+    "date": "2015",
+    "journal": "Signal Processing: Image Communication",
+    "type": "journal-article",
+    "put_code": 38646784
+  },
+  {
+    "researcher": "IVAN GONZALEZ",
+    "orcid": "0000-0003-4644-8479",
+    "title": "Mid-level feature set for specific event and anomaly detection in crowded scenes",
+    "doi": "10.1109/icip.2013.6738824",
+    "url": "",
+    "authors": [
+      "E de-la-Calle-Silos",
+      "I. Gonzalez-Diaz",
+      "E Diaz-de-Maria"
+    ],
+    "year": "2013",
+    "date": "2013-09",
+    "journal": "2013 IEEE International Conference on Image Processing",
+    "type": "other",
+    "put_code": 122548616
+  },
+  {
+    "researcher": "IVAN GONZALEZ",
+    "orcid": "0000-0003-4644-8479",
+    "title": "Incorporating spatio-temporal mid-level features in a region segmentation algorithm for video sequences",
+    "doi": "10.1109/icip.2008.4711676",
+    "url": "",
+    "authors": [
+      "Ivan Gonzalez-Diaz",
+      "Kevin McGuinness",
+      "Tomasz Adamek",
+      "Noel E. O'Connor",
+      "Fernando Diaz-de-Maria"
+    ],
+    "year": "2008",
+    "date": "2008",
+    "journal": "2008 15th IEEE International Conference on Image Processing",
+    "type": "other",
+    "put_code": 122548640
+  },
+  {
+    "researcher": "IVAN GONZALEZ",
+    "orcid": "0000-0003-4644-8479",
+    "title": "Improved Motion Classification Techniques for Adaptive Multi-Pattern Fast Block-Matching Algorithm",
+    "doi": "10.1109/icip.2007.4379198",
+    "url": "",
+    "authors": [
+      "Ivan Gonzalez-Diaz",
+      "Fernando Diaz-de-Maria"
+    ],
+    "year": "2007",
+    "date": "2007",
+    "journal": "2007 IEEE International Conference on Image Processing",
+    "type": "other",
+    "put_code": 122548595
   },
   {
     "researcher": "Miguel Ángel Fernández Torres",
@@ -177,10 +2218,9 @@
     ],
     "year": "2026",
     "date": "2026-08-18",
-    "journal": "",
+    "journal": "Nature Communications",
     "type": "journal-article",
-    "put_code": 224190741,
-    "bibtex_key": "CampsValls2026Bridgingtheweatherandclimatedividewithar"
+    "put_code": 224190741
   },
   {
     "researcher": "Miguel Ángel Fernández Torres",
@@ -198,10 +2238,58 @@
     ],
     "year": "2026",
     "date": "2026-07-13",
-    "journal": "",
+    "journal": "Earth System Dynamics",
     "type": "journal-article",
-    "put_code": 220504531,
-    "bibtex_key": "Pacal2026Amultivariateanalysisofatmosphericdriver"
+    "put_code": 220504531
+  },
+  {
+    "researcher": "Miguel Ángel Fernández Torres",
+    "orcid": "0000-0002-0801-199X",
+    "title": "On the Predictive Skill of Artificial Intelligence–Based Weather Models for Extreme Events Using Uncertainty Quantification",
+    "doi": "10.1175/AIES-D-25-0113.1",
+    "url": "https://doi.org/10.1175/AIES-D-25-0113.1",
+    "authors": [
+      "Rodrigo Almeida",
+      "Noelia Otero",
+      "Miguel-Ángel Fernández-Torres",
+      "Jackie Ma"
+    ],
+    "year": "2026",
+    "date": "2026-07",
+    "journal": "Artificial Intelligence for the Earth Systems",
+    "type": "journal-article",
+    "put_code": 224822868
+  },
+  {
+    "researcher": "Miguel Ángel Fernández Torres",
+    "orcid": "0000-0002-0801-199X",
+    "title": "The Maturation of AI in Drought Science: A Review of Trends, Pitfalls, and Priorities",
+    "doi": "10.1029/2025WR041828",
+    "url": "https://doi.org/10.1029/2025WR041828",
+    "authors": [
+      "Guido Ascenso",
+      "Matteo Giuliani",
+      "Jorge Pérez‐Aracil",
+      "Sancho Salcedo‐Sanz",
+      "Claudia Bertini",
+      "Paolo Bonetti",
+      "Gustau Camps‐Valls",
+      "Miguel Ángel Fernández Torres",
+      "Andrea Ficchì",
+      "Nora Linscheid",
+      "Martina Merlo",
+      "Giulio Palcic",
+      "Markus Reichstein",
+      "Marcello Restelli",
+      "Andrea Toreti",
+      "Eliot Walt",
+      "Andrea Castelletti"
+    ],
+    "year": "2026",
+    "date": "2026-04",
+    "journal": "Water Resources Research",
+    "type": "journal-article",
+    "put_code": 211061636
   },
   {
     "researcher": "Miguel Ángel Fernández Torres",
@@ -218,85 +2306,9 @@
     ],
     "year": "2026",
     "date": "2026-01-20",
-    "journal": "",
+    "journal": "Scientific Data",
     "type": "journal-article",
-    "put_code": 202988605,
-    "bibtex_key": "Hohl2026Alargescalemultitaskmultisensorydatasetf"
-  },
-  {
-    "researcher": "Carmen Peláez-Moreno",
-    "orcid": "0000-0003-1425-6763",
-    "title": "Machine Unlearning for Speaker-Agnostic Detection of Gender-Based Violence Condition in Speech",
-    "doi": "10.3390/app152212270",
-    "url": "https://doi.org/10.3390/app152212270",
-    "authors": [
-      "Emma Reyner-Fuentes",
-      "Esther Rituerto-González",
-      "Carmen Peláez-Moreno"
-    ],
-    "year": "2025",
-    "date": "2025-11-19",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 197356813,
-    "bibtex_key": "ReynerFuentes2025MachineUnlearningforSpeakerAgnosticDetec"
-  },
-  {
-    "researcher": "Fernando Díaz-de-María",
-    "orcid": "0000-0002-6437-914X",
-    "title": "L-SFAN: Lightweight Spatially Focused Attention Network for Pain Behavior Detection",
-    "doi": "10.1109/JSEN.2025.3540415",
-    "url": "https://doi.org/10.1109/JSEN.2025.3540415",
-    "authors": [
-      "Jorge Ortigoso-Narro",
-      "Fernando Diaz-de-Maria",
-      "Mohammad Mahdi Dehshibi",
-      "Ana Tajadura-Jiménez"
-    ],
-    "year": "2025",
-    "date": "2025-05-15",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 184141487,
-    "bibtex_key": "OrtigosoNarro2025LSFANLightweightSpatiallyFocusedAttentio"
-  },
-  {
-    "researcher": "Miguel Ángel Fernández Torres",
-    "orcid": "0000-0002-0801-199X",
-    "title": "Generative networks for spatio-temporal gap filling of Sentinel-2 reflectances",
-    "doi": "10.1016/j.isprsjprs.2025.01.016",
-    "url": "https://doi.org/10.1016/j.isprsjprs.2025.01.016",
-    "authors": [
-      "Maria Gonzalez-Calabuig",
-      "Miguel-Ángel Fernández-Torres",
-      "Gustau Camps-Valls"
-    ],
-    "year": "2025",
-    "date": "2025-02",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 176387367,
-    "bibtex_key": "GonzalezCalabuig2025Generativenetworksforspatiotemporalgapfi"
-  },
-  {
-    "researcher": "Carmen Peláez-Moreno",
-    "orcid": "0000-0003-1425-6763",
-    "title": "Formal Context Transforms and Their Affordances for Exploratory Data Analysis",
-    "doi": "10.3390/math14010032",
-    "url": "https://doi.org/10.3390/math14010032",
-    "authors": [
-      "Francisco J. Valverde-Albacete",
-      "Carmen Peláez-Moreno",
-      "Inma P. Cabrera",
-      "Pablo Cordero",
-      "Manuel Ojeda-Aciego"
-    ],
-    "year": "2025",
-    "date": "2025-12-22",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 200586448,
-    "bibtex_key": "ValverdeAlbacete2025FormalContextTransformsandTheirAffordanc"
+    "put_code": 202988605
   },
   {
     "researcher": "Miguel Ángel Fernández Torres",
@@ -313,69 +2325,9 @@
     ],
     "year": "2025",
     "date": "2025-09",
-    "journal": "",
+    "journal": "Earth's Future",
     "type": "journal-article",
-    "put_code": 192707628,
-    "bibtex_key": "PellicerValero2025ExplainableEarthSurfaceForecastingUnderE"
-  },
-  {
-    "researcher": "Miguel Ángel Fernández Torres",
-    "orcid": "0000-0002-0801-199X",
-    "title": "Explainability can foster trust in artificial intelligence in geoscience",
-    "doi": "10.1038/s41561-025-01639-x",
-    "url": "https://doi.org/10.1038/s41561-025-01639-x",
-    "authors": [
-      "Jesper Sören Dramsch",
-      "Monique M. Kuglitsch",
-      "Miguel-Ángel Fernández-Torres",
-      "Andrea Toreti",
-      "Rustem Arif Albayrak",
-      "Lorenzo Nava",
-      "Saman Ghaffarian",
-      "Ximeng Cheng",
-      "Jackie Ma",
-      "Wojciech Samek",
-      "Rudy Venguswamy",
-      "Anirudh Koul",
-      "Raghavan Muthuregunathan",
-      "Arthur Hrast Essenfelder"
-    ],
-    "year": "2025",
-    "date": "2025-02",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 177388716,
-    "bibtex_key": "Dramsch2025Explainabilitycanfostertrustinartificial"
-  },
-  {
-    "researcher": "Miguel Ángel Fernández Torres",
-    "orcid": "0000-0002-0801-199X",
-    "title": "DeepExtremeCubes: Earth system spatio-temporal data for assessing compound heatwave and drought impacts",
-    "doi": "10.1038/s41597-025-04447-5",
-    "url": "https://doi.org/10.1038/s41597-025-04447-5",
-    "authors": [
-      "Chaonan Ji",
-      "Tonio Fincke",
-      "Vitus Benson",
-      "Gustau Camps-Valls",
-      "Miguel-Ángel Fernández-Torres",
-      "Fabian Gans",
-      "Guido Kraemer",
-      "Francesco Martinuzzi",
-      "David Montero",
-      "Karin Mora",
-      "Oscar J. Pellicer-Valero",
-      "Claire Robin",
-      "Maximilian Söchting",
-      "Mélanie Weynants",
-      "Miguel D. Mahecha"
-    ],
-    "year": "2025",
-    "date": "2025-01-25",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 176621395,
-    "bibtex_key": "Ji2025DeepExtremeCubesEarthsystemspatiotempora"
+    "put_code": 192707628
   },
   {
     "researcher": "Miguel Ángel Fernández Torres",
@@ -391,28 +2343,9 @@
     ],
     "year": "2025",
     "date": "2025-06",
-    "journal": "",
+    "journal": "International Journal of Applied Earth Observation and Geoinformation",
     "type": "journal-article",
-    "put_code": 183765708,
-    "bibtex_key": "Zhang2025Calibrationanduncertaintyquantificationf"
-  },
-  {
-    "researcher": "Carmen Peláez-Moreno",
-    "orcid": "0000-0003-1425-6763",
-    "title": "Authenticity at Risk: Key Factors in the Generation and Detection of Audio Deepfakes",
-    "doi": "10.3390/app15020558",
-    "url": "https://doi.org/10.3390/app15020558",
-    "authors": [
-      "Alba Martínez-Serrano",
-      "Claudia Montero-Ramírez",
-      "Carmen Peláez-Moreno"
-    ],
-    "year": "2025",
-    "date": "2025-01-08",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 175286160,
-    "bibtex_key": "MartinezSerrano2025AuthenticityatRiskKeyFactorsintheGenerat"
+    "put_code": 183765708
   },
   {
     "researcher": "Miguel Ángel Fernández Torres",
@@ -449,47 +2382,83 @@
     ],
     "year": "2025",
     "date": "2025-02-24",
-    "journal": "",
+    "journal": "Nature Communications",
     "type": "journal-article",
-    "put_code": 178815106,
-    "bibtex_key": "CampsValls2025Artificialintelligenceformodelingandunde"
+    "put_code": 178815106
   },
   {
-    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
-    "orcid": "0000-0002-9322-3128",
-    "title": "Alzheimer’s Disease Detection from Speech Using Shapley Additive Explanations for Feature Selection and Enhanced Interpretability",
-    "doi": "10.3390/electronics14112248",
-    "url": "https://www.mdpi.com/2079-9292/14/11/2248",
+    "researcher": "Miguel Ángel Fernández Torres",
+    "orcid": "0000-0002-0801-199X",
+    "title": "Explainability can foster trust in artificial intelligence in geoscience",
+    "doi": "10.1038/s41561-025-01639-x",
+    "url": "https://doi.org/10.1038/s41561-025-01639-x",
     "authors": [
-      "Irati Oiza-Zapata",
-      "Ascensión Gallardo-Antolín"
+      "Jesper Sören Dramsch",
+      "Monique M. Kuglitsch",
+      "Miguel-Ángel Fernández-Torres",
+      "Andrea Toreti",
+      "Rustem Arif Albayrak",
+      "Lorenzo Nava",
+      "Saman Ghaffarian",
+      "Ximeng Cheng",
+      "Jackie Ma",
+      "Wojciech Samek",
+      "Rudy Venguswamy",
+      "Anirudh Koul",
+      "Raghavan Muthuregunathan",
+      "Arthur Hrast Essenfelder"
     ],
     "year": "2025",
-    "date": "2025-05",
-    "journal": "",
+    "date": "2025-02",
+    "journal": "Nature Geoscience",
     "type": "journal-article",
-    "put_code": 185116288,
-    "bibtex_key": "OizaZapata2025AlzheimersDiseaseDetectionfromSpeechUsin"
+    "put_code": 177388716
   },
   {
-    "researcher": "Fernando Díaz-de-María",
-    "orcid": "0000-0002-6437-914X",
-    "title": "URI-CADS: A Fully Automated Computer-Aided Diagnosis System for Ultrasound Renal Imaging",
-    "doi": "10.1007/s10278-024-01055-4",
-    "url": "https://doi.org/10.1007/s10278-024-01055-4",
+    "researcher": "Miguel Ángel Fernández Torres",
+    "orcid": "0000-0002-0801-199X",
+    "title": "Generative networks for spatio-temporal gap filling of Sentinel-2 reflectances",
+    "doi": "10.1016/j.isprsjprs.2025.01.016",
+    "url": "https://doi.org/10.1016/j.isprsjprs.2025.01.016",
     "authors": [
-      "Miguel Molina-Moreno",
-      "Iván González-Díaz",
-      "Maite Rivera Gorrín",
-      "Víctor Burguera Vion",
-      "Fernando Díaz-de-María"
+      "Maria Gonzalez-Calabuig",
+      "Miguel-Ángel Fernández-Torres",
+      "Gustau Camps-Valls"
     ],
-    "year": "2024",
-    "date": "2024-02-27",
-    "journal": "",
+    "year": "2025",
+    "date": "2025-02",
+    "journal": "ISPRS Journal of Photogrammetry and Remote Sensing",
     "type": "journal-article",
-    "put_code": 154175488,
-    "bibtex_key": "MolinaMoreno2024URICADSAFullyAutomatedComputerAidedDiagn"
+    "put_code": 176387367
+  },
+  {
+    "researcher": "Miguel Ángel Fernández Torres",
+    "orcid": "0000-0002-0801-199X",
+    "title": "DeepExtremeCubes: Earth system spatio-temporal data for assessing compound heatwave and drought impacts",
+    "doi": "10.1038/s41597-025-04447-5",
+    "url": "https://doi.org/10.1038/s41597-025-04447-5",
+    "authors": [
+      "Chaonan Ji",
+      "Tonio Fincke",
+      "Vitus Benson",
+      "Gustau Camps-Valls",
+      "Miguel-Ángel Fernández-Torres",
+      "Fabian Gans",
+      "Guido Kraemer",
+      "Francesco Martinuzzi",
+      "David Montero",
+      "Karin Mora",
+      "Oscar J. Pellicer-Valero",
+      "Claire Robin",
+      "Maximilian Söchting",
+      "Mélanie Weynants",
+      "Miguel D. Mahecha"
+    ],
+    "year": "2025",
+    "date": "2025-01-25",
+    "journal": "Scientific Data",
+    "type": "journal-article",
+    "put_code": 176621395
   },
   {
     "researcher": "Miguel Ángel Fernández Torres",
@@ -508,10 +2477,111 @@
     ],
     "year": "2024",
     "date": "2024-06",
-    "journal": "",
+    "journal": "IEEE Geoscience and Remote Sensing Magazine",
     "type": "journal-article",
-    "put_code": 162831644,
-    "bibtex_key": "GonzalezCalabuig2024TheAIDEToolboxArtificialintelligenceford"
+    "put_code": 162831644
+  },
+  {
+    "researcher": "Miguel Ángel Fernández Torres",
+    "orcid": "0000-0002-0801-199X",
+    "title": "AI for Extreme Event Modeling and Understanding: Methodologies and Challenges",
+    "doi": "10.48550/arXiv.2406.20080",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85199594590&partnerID=MN8TOARS",
+    "authors": [
+      "Camps-Valls, G.",
+      "Fernández-Torres, M.-Á.",
+      "Cohrs, K.-H.",
+      "Höhl, A.",
+      "Castelletti, A.",
+      "Pacal, A.",
+      "Robin, C.",
+      "Martinuzzi, F.",
+      "Papoutsis, I.",
+      "Prapas, I.",
+      "Pérez-Aracil, J.",
+      "Weigel, K.",
+      "Gonzalez-Calabuig, M.",
+      "Reichstein, M.",
+      "Rabel, M.",
+      "Giuliani, M.",
+      "Mahecha, M.",
+      "Popescu, O.-I.",
+      "Pellicer-Valero, O.J.",
+      "Ouala, S.",
+      "Salcedo-Sanz, S.",
+      "Sippel, S.",
+      "Kondylatos, S.",
+      "Happé, T.",
+      "Williams, T."
+    ],
+    "year": "2024",
+    "date": "2024",
+    "journal": "arXiv",
+    "type": "other",
+    "put_code": 182564783
+  },
+  {
+    "researcher": "Miguel Ángel Fernández Torres",
+    "orcid": "0000-0002-0801-199X",
+    "title": "Deep Learning With Noisy Labels for Spatiotemporal Drought Detection",
+    "doi": "10.1109/TGRS.2024.3504340",
+    "url": "https://doi.org/10.1109/TGRS.2024.3504340",
+    "authors": [
+      "Jordi Cortés-Andrés",
+      "Miguel-Ángel Fernández-Torres",
+      "Gustau Camps-Valls"
+    ],
+    "year": "2024",
+    "date": "2024",
+    "journal": "IEEE Transactions on Geoscience and Remote Sensing",
+    "type": "journal-article",
+    "put_code": 172230316
+  },
+  {
+    "researcher": "Miguel Ángel Fernández Torres",
+    "orcid": "0000-0002-0801-199X",
+    "title": "DeepExtremeCubes: Integrating Earth system spatio-temporal data for impact assessment of climate extremes",
+    "doi": "10.48550/arXiv.2406.18179",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85198062677&partnerID=MN8TOARS",
+    "authors": [
+      "Ji, C.",
+      "Fincke, T.",
+      "Benson, V.",
+      "Camps-Valls, G.",
+      "Fernández-Torres, M.-Á.",
+      "Gans, F.",
+      "Kraemer, G.",
+      "Martinuzzi, F.",
+      "Montero, D.",
+      "Mora, K.",
+      "Pellicer-Valero, O.J.",
+      "Robin, C.",
+      "Söchting, M.",
+      "Weynants, M.",
+      "Mahecha, M.D."
+    ],
+    "year": "2024",
+    "date": "2024",
+    "journal": "arXiv",
+    "type": "other",
+    "put_code": 182564797
+  },
+  {
+    "researcher": "Miguel Ángel Fernández Torres",
+    "orcid": "0000-0002-0801-199X",
+    "title": "Domain knowledge-driven variational recurrent networks for drought monitoring",
+    "doi": "10.1016/j.rse.2024.114252",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85196497679&partnerID=MN8TOARS",
+    "authors": [
+      "Zhang, M.",
+      "Fernández-Torres, M.-Á.",
+      "Camps-Valls, G."
+    ],
+    "year": "2024",
+    "date": "2024",
+    "journal": "Remote Sensing of Environment",
+    "type": "journal-article",
+    "put_code": 182564782
   },
   {
     "researcher": "Miguel Ángel Fernández Torres",
@@ -531,176 +2601,31 @@
     ],
     "year": "2024",
     "date": "2024",
-    "journal": "",
+    "journal": "IEEE Geoscience and Remote Sensing Magazine",
     "type": "journal-article",
-    "put_code": 171048308,
-    "bibtex_key": "Hohl2024OpeningtheBlackBoxAsystematicreviewonexp"
-  },
-  {
-    "researcher": "Fernando Díaz-de-María",
-    "orcid": "0000-0002-6437-914X",
-    "title": "Integrating Egocentric and Robotic Vision for Object Identification Using Siamese Networks and Superquadric Estimations in Partial Occlusion Scenarios",
-    "doi": "10.3390/biomimetics9020100",
-    "url": "https://doi.org/10.3390/biomimetics9020100",
-    "authors": [
-      "Elisabeth Menendez",
-      "Santiago Martínez",
-      "Fernando Díaz-de-María",
-      "Carlos Balaguer"
-    ],
-    "year": "2024",
-    "date": "2024-02-08",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 152722531,
-    "bibtex_key": "Menendez2024IntegratingEgocentricandRoboticVisionfor"
-  },
-  {
-    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
-    "orcid": "0000-0002-9322-3128",
-    "title": "Elastic net regularization and gabor dictionary for classification of heart sound signals using deep learning",
-    "doi": "10.1016/j.engappai.2023.107406",
-    "url": "https://doi.org/10.1016/j.engappai.2023.107406",
-    "authors": [
-      "Mahmoud Fakhry",
-      "Ascensión Gallardo-Antolín"
-    ],
-    "year": "2024",
-    "date": "2024-01",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 146231553,
-    "bibtex_key": "Fakhry2024Elasticnetregularizationandgabordictiona"
+    "put_code": 171048308
   },
   {
     "researcher": "Miguel Ángel Fernández Torres",
     "orcid": "0000-0002-0801-199X",
-    "title": "Domain knowledge-driven variational recurrent networks for drought monitoring",
-    "doi": "10.1016/j.rse.2024.114252",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85196497679&partnerID=MN8TOARS",
+    "title": "Opening the Black-Box: A Systematic Review on Explainable AI in Remote Sensing",
+    "doi": "10.48550/arXiv.2402.13791",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85186360840&partnerID=MN8TOARS",
     "authors": [
-      "Zhang, M.",
+      "Höhl, A.",
+      "Obadic, I.",
       "Fernández-Torres, M.-Á.",
-      "Camps-Valls, G."
+      "Najjar, H.",
+      "Oliveira, D.",
+      "Akata, Z.",
+      "Dengel, A.",
+      "Zhu, X.X."
     ],
     "year": "2024",
     "date": "2024",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 182564782,
-    "bibtex_key": "M2024Domainknowledgedrivenvariationalrecurren"
-  },
-  {
-    "researcher": "Miguel Ángel Fernández Torres",
-    "orcid": "0000-0002-0801-199X",
-    "title": "Deep Learning With Noisy Labels for Spatiotemporal Drought Detection",
-    "doi": "10.1109/TGRS.2024.3504340",
-    "url": "https://doi.org/10.1109/TGRS.2024.3504340",
-    "authors": [
-      "Jordi Cortés-Andrés",
-      "Miguel-Ángel Fernández-Torres",
-      "Gustau Camps-Valls"
-    ],
-    "year": "2024",
-    "date": "2024",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 172230316,
-    "bibtex_key": "CortesAndres2024DeepLearningWithNoisyLabelsforSpatiotemp"
-  },
-  {
-    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
-    "orcid": "0000-0002-9322-3128",
-    "title": "Bayesian learning of feature spaces for multitask regression",
-    "doi": "10.1016/j.neunet.2024.106619",
-    "url": "https://doi.org/10.1016/j.neunet.2024.106619",
-    "authors": [
-      "Carlos Sevilla-Salcedo",
-      "Ascensión Gallardo-Antolín",
-      "Vanessa Gómez-Verdejo",
-      "Emilio Parrado-Hernández"
-    ],
-    "year": "2024",
-    "date": "2024-11",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 165434723,
-    "bibtex_key": "SevillaSalcedo2024Bayesianlearningoffeaturespacesformultit"
-  },
-  {
-    "researcher": "IVAN GONZALEZ",
-    "orcid": "0000-0003-4644-8479",
-    "title": "Asymmetric Multi-Task Learning for Interpretable Gaze-Driven Grasping Action Forecasting",
-    "doi": "10.1109/JBHI.2024.3430810",
-    "url": "https://doi.org/10.1109/JBHI.2024.3430810",
-    "authors": [
-      "Iván González-Díaz",
-      "Miguel Molina-Moreno",
-      "Jenny Benois-Pineau",
-      "Aymar de Rugy"
-    ],
-    "year": "2024",
-    "date": "2024-12",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 173199142,
-    "bibtex_key": "GonzalezDiaz2024AsymmetricMultiTaskLearningforInterpreta"
-  },
-  {
-    "researcher": "Fernando Díaz-de-María",
-    "orcid": "0000-0002-6437-914X",
-    "title": "A self-supervised embedding of cell migration features for behavior discovery over cell populations",
-    "doi": "10.1016/j.cmpb.2024.108337",
-    "url": "https://doi.org/10.1016/j.cmpb.2024.108337",
-    "authors": [
-      "Miguel Molina-Moreno",
-      "Iván González-Díaz",
-      "Ralf Mikut",
-      "Fernando Díaz-de-María"
-    ],
-    "year": "2024",
-    "date": "2024-10",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 163974614,
-    "bibtex_key": "MolinaMoreno2024Aselfsupervisedembeddingofcellmigrationf"
-  },
-  {
-    "researcher": "Carmen Peláez-Moreno",
-    "orcid": "0000-0003-1425-6763",
-    "title": "A Formalization of Multilabel Classification in Terms of Lattice Theory and Information Theory: Concerning Datasets",
-    "doi": "10.3390/math12020346",
-    "url": "https://doi.org/10.3390/math12020346",
-    "authors": [
-      "Francisco J. Valverde-Albacete",
-      "Carmen Peláez-Moreno"
-    ],
-    "year": "2024",
-    "date": "2024-01-21",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 151281627,
-    "bibtex_key": "ValverdeAlbacete2024AFormalizationofMultilabelClassification"
-  },
-  {
-    "researcher": "Fernando Díaz-de-María",
-    "orcid": "0000-0002-6437-914X",
-    "title": "Pain Level and Pain-Related Behaviour Classification Using GRU-Based Sparsely-Connected RNNs",
-    "doi": "10.1109/JSTSP.2023.3262358",
-    "url": "https://doi.org/10.1109/JSTSP.2023.3262358",
-    "authors": [
-      "Mohammad Mahdi Dehshibi",
-      "Temitayo Olugbade",
-      "Fernando Diaz-de-Maria",
-      "Nadia Bianchi-Berthouze",
-      "Ana Tajadura-Jiménez"
-    ],
-    "year": "2023",
-    "date": "2023-05",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 138623844,
-    "bibtex_key": "Dehshibi2023PainLevelandPainRelatedBehaviourClassifi"
+    "journal": "arXiv",
+    "type": "other",
+    "put_code": 182564784
   },
   {
     "researcher": "Miguel Ángel Fernández Torres",
@@ -720,10 +2645,24 @@
     ],
     "year": "2023",
     "date": "2023",
-    "journal": "",
+    "journal": "Revista Iberoamericana de Tecnologias del Aprendizaje",
     "type": "journal-article",
-    "put_code": 182564796,
-    "bibtex_key": "V2023AssessingtheImpactofUsingShortVideosforT"
+    "put_code": 182564796
+  },
+  {
+    "researcher": "Miguel Ángel Fernández Torres",
+    "orcid": "0000-0002-0801-199X",
+    "title": "HIERARCHICAL REPRESENTATIONS FOR SPATIO-TEMPORAL VISUAL ATTENTION MODELING AND UNDERSTANDING",
+    "doi": "10.48550/arXiv.2308.05189",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85168642025&partnerID=MN8TOARS",
+    "authors": [
+      "Fernández Torres, M.Á."
+    ],
+    "year": "2023",
+    "date": "2023",
+    "journal": "arXiv",
+    "type": "other",
+    "put_code": 182564788
   },
   {
     "researcher": "Miguel Ángel Fernández Torres",
@@ -743,1701 +2682,30 @@
     ],
     "year": "2022",
     "date": "2022",
-    "journal": "",
+    "journal": "Geophysical Research Letters",
     "type": "journal-article",
-    "put_code": 182564787,
-    "bibtex_key": "S2022WildfireDangerPredictionandUnderstanding"
+    "put_code": 182564787
   },
   {
-    "researcher": "Carmen Peláez-Moreno",
-    "orcid": "0000-0003-1425-6763",
-    "title": "Bindi: Affective Internet of Things to Combat Gender-Based Violence",
-    "doi": "10.1109/JIOT.2022.3177256",
-    "url": "https://doi.org/10.1109/JIOT.2022.3177256",
+    "researcher": "Miguel Ángel Fernández Torres",
+    "orcid": "0000-0002-0801-199X",
+    "title": "Deep learning methods for daily wildfire danger forecasting",
+    "doi": "10.48550/arxiv.2111.02736",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85169994163&partnerID=MN8TOARS",
     "authors": [
-      "Jose A. Miranda Calero",
-      "Esther Rituerto-Gonzalez",
-      "Clara Luis-Mingueza",
-      "Manuel F. Canabal",
-      "Alberto Ramirez Barcenas",
-      "Jose M. Lanza-Gutierrez",
-      "Carmen Pelaez-Moreno",
-      "Celia Lopez-Ongil"
-    ],
-    "year": "2022",
-    "date": "2022-11-01",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 122071817,
-    "bibtex_key": "Calero2022BindiAffectiveInternetofThingstoCombatGe"
-  },
-  {
-    "researcher": "IVAN GONZALEZ",
-    "orcid": "0000-0003-4644-8479",
-    "title": "Behavioural immune landscapes of inflammation",
-    "doi": "10.1038/s41586-021-04263-y",
-    "url": "http://dx.doi.org/10.1038/s41586-021-04263-y",
-    "authors": [],
-    "year": "2022",
-    "date": "2022-01-05",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 105870611,
-    "bibtex_key": "Unknown2022Behaviouralimmunelandscapesofinflammatio"
-  },
-  {
-    "researcher": "Fernando Díaz-de-María",
-    "orcid": "0000-0002-6437-914X",
-    "title": "An interpretable CNN-based CAD system for skin lesion diagnosis",
-    "doi": "10.1016/j.artmed.2022.102370",
-    "url": "https://doi.org/10.1016/j.artmed.2022.102370",
-    "authors": [
-      "Javier López-Labraca",
-      "Iván González-Díaz",
-      "Fernando Díaz-de-María",
-      "Alejandro Fueyo-Casado"
-    ],
-    "year": "2022",
-    "date": "2022-10",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 116654074,
-    "bibtex_key": "LopezLabraca2022AninterpretableCNNbasedCADsystemforskinl"
-  },
-  {
-    "researcher": "IVAN GONZALEZ",
-    "orcid": "0000-0003-4644-8479",
-    "title": "ACME: Automatic feature extraction for cell migration examination through intravital microscopy imaging",
-    "doi": "10.1016/j.media.2022.102358",
-    "url": "http://dx.doi.org/10.1016/j.media.2022.102358",
-    "authors": [],
-    "year": "2022",
-    "date": "2022-04",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 107074046,
-    "bibtex_key": "Unknown2022ACMEAutomaticfeatureextractionforcellmig"
-  },
-  {
-    "researcher": "Fernando Díaz-de-María",
-    "orcid": "0000-0002-6437-914X",
-    "title": "Training deep retrieval models with noisy datasets: Bag exponential loss",
-    "doi": "10.1016/j.patcog.2020.107811",
-    "url": "https://doi.org/10.1016/j.patcog.2020.107811",
-    "authors": [
-      "Tomás Martínez-Cortés",
-      "Iván González-Díaz",
-      "Fernando Díaz-de-María"
+      "Prapas, I.",
+      "Kondylatos, S.",
+      "Papoutsis, I.",
+      "Camps-Valls, G.",
+      "Ronco, M.",
+      "Fernández-Torres, M.-Á.",
+      "Guillem, M.P.",
+      "Carvalhais, N."
     ],
     "year": "2021",
-    "date": "2021-04",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 86073520,
-    "bibtex_key": "MartinezCortes2021Trainingdeepretrievalmodelswithnoisydata"
-  },
-  {
-    "researcher": "Carmen Peláez-Moreno",
-    "orcid": "0000-0003-1425-6763",
-    "title": "Teaching Differently: The Digital Signal Processing of Multimedia Content Through the Use of Liberal Arts",
-    "doi": "10.1109/MSP.2021.3053218",
-    "url": "https://doi.org/10.1109/MSP.2021.3053218",
-    "authors": [
-      "Jorge Torres Gomez",
-      "Antonio Rodriguez-Hidalgo",
-      "Yannelys Virginia Jerez Naranjo",
-      "Carmen Pelaez-Moreno"
-    ],
-    "year": "2021",
-    "date": "2021-05",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 92999161,
-    "bibtex_key": "Gomez2021TeachingDifferentlyTheDigitalSignalProce"
-  },
-  {
-    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
-    "orcid": "0000-0002-9322-3128",
-    "title": "On combining acoustic and modulation spectrograms in an attention LSTM-based system for speech intelligibility level classification",
-    "doi": "10.1016/j.neucom.2021.05.065",
-    "url": "https://doi.org/10.1016/j.neucom.2021.05.065",
-    "authors": [
-      "Ascensión Gallardo-Antolín",
-      "Juan M. Montero"
-    ],
-    "year": "2021",
-    "date": "2021-05",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 94379033,
-    "bibtex_key": "GallardoAntolin2021Oncombiningacousticandmodulationspectrog"
-  },
-  {
-    "researcher": "Carmen Peláez-Moreno",
-    "orcid": "0000-0003-1425-6763",
-    "title": "Four-Fold Formal Concept Analysis Based on Complete Idempotent Semifields",
-    "doi": "10.3390/math9020173",
-    "url": "https://doi.org/10.3390/math9020173",
-    "authors": [
-      "Francisco José Valverde-Albacete",
-      "Carmen Peláez-Moreno"
-    ],
-    "year": "2021",
-    "date": "2021-01-15",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 86926025,
-    "bibtex_key": "ValverdeAlbacete2021FourFoldFormalConceptAnalysisBasedonComp"
-  },
-  {
-    "researcher": "Carmen Peláez-Moreno",
-    "orcid": "0000-0003-1425-6763",
-    "title": "End-to-end recurrent denoising autoencoder embeddings for speaker identification",
-    "doi": "10.1007/s00521-021-06083-7",
-    "url": "http://dx.doi.org/10.1007/s00521-021-06083-7",
-    "authors": [],
-    "year": "2021",
-    "date": "2021-11",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 106913578,
-    "bibtex_key": "Unknown2021Endtoendrecurrentdenoisingautoencoderemb"
-  },
-  {
-    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
-    "orcid": "0000-0002-9322-3128",
-    "title": "Detecting Deception from Gaze and Speech Using a Multimodal Attention LSTM-Based Framework",
-    "doi": "10.3390/app11146393",
-    "url": "https://doi.org/10.3390/app11146393",
-    "authors": [
-      "Ascensión Gallardo-Antolín",
-      "Juan M. Montero"
-    ],
-    "year": "2021",
-    "date": "2021-07-11",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 96838114,
-    "bibtex_key": "GallardoAntolin2021DetectingDeceptionfromGazeandSpeechUsing"
-  },
-  {
-    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
-    "orcid": "0000-0002-9322-3128",
-    "title": "An Auditory Saliency Pooling-Based LSTM Model for Speech Intelligibility Classification",
-    "doi": "10.3390/sym13091728",
-    "url": "https://www.mdpi.com/2073-8994/13/9/1728",
-    "authors": [
-      "Ascensión Gallardo-Antolín",
-      "Juan M. Montero"
-    ],
-    "year": "2021",
-    "date": "2021-09",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 100182304,
-    "bibtex_key": "GallardoAntolin2021AnAuditorySaliencyPoolingBasedLSTMModelf"
-  },
-  {
-    "researcher": "Carmen Peláez-Moreno",
-    "orcid": "0000-0003-1425-6763",
-    "title": "The Singular Value Decomposition over Completed Idempotent Semifields",
-    "doi": "10.3390/math8091577",
-    "url": "https://doi.org/10.3390/math8091577",
-    "authors": [
-      "Francisco Valverde-Albacete",
-      "Carmen Peláez-Moreno"
-    ],
-    "year": "2020",
-    "date": "2020-09-12",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 80281767,
-    "bibtex_key": "ValverdeAlbacete2020TheSingularValueDecompositionoverComplet"
-  },
-  {
-    "researcher": "Fernando Díaz-de-María",
-    "orcid": "0000-0002-6437-914X",
-    "title": "Interpretable Global-Local Dynamics for the Prediction of Eye Fixations in Autonomous Driving Scenarios",
-    "doi": "10.1109/ACCESS.2020.3041606",
-    "url": "https://doi.org/10.1109/ACCESS.2020.3041606",
-    "authors": [
-      "Javier Martinez-Cebrian",
-      "Miguel-Angel Fernandez-Torres",
-      "Fernando Diaz-De-Maria"
-    ],
-    "year": "2020",
-    "date": "2020",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 85320328,
-    "bibtex_key": "MartinezCebrian2020InterpretableGlobalLocalDynamicsforthePr"
-  },
-  {
-    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
-    "orcid": "0000-0002-9322-3128",
-    "title": "Automatic Detection of Depression in Speech Using Ensemble Convolutional Neural Networks",
-    "doi": "10.3390/e22060688",
-    "url": "https://doi.org/10.3390/e22060688",
-    "authors": [
-      "Adrián Vázquez-Romero",
-      "Ascensión Gallardo-Antolín"
-    ],
-    "year": "2020",
-    "date": "2020-06-20",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 76043324,
-    "bibtex_key": "VazquezRomero2020AutomaticDetectionofDepressioninSpeechUs"
-  },
-  {
-    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
-    "orcid": "0000-0002-9322-3128",
-    "title": "An attention Long Short-Term Memory based system for automatic classification of speech intelligibility",
-    "doi": "10.1016/j.engappai.2020.103976",
-    "url": "https://www.sciencedirect.com/science/article/pii/S0952197620302827",
-    "authors": [],
-    "year": "2020",
-    "date": "2020",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 89776750,
-    "bibtex_key": "Unknown2020AnattentionLongShortTermMemorybasedsyste"
-  },
-  {
-    "researcher": "Carmen Peláez-Moreno",
-    "orcid": "0000-0003-1425-6763",
-    "title": "A Framework for Supervised Classification Performance Analysis with Information-Theoretic Methods",
-    "doi": "10.1109/TKDE.2019.2915643",
-    "url": "https://doi.org/10.1109/TKDE.2019.2915643",
-    "authors": [
-      "Francisco J. Valverde-Albacete",
-      "Carmen Pelaez-Moreno"
-    ],
-    "year": "2020",
-    "date": "2020-11-01",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 81598029,
-    "bibtex_key": "ValverdeAlbacete2020AFrameworkforSupervisedClassificationPer"
-  },
-  {
-    "researcher": "Carmen Peláez-Moreno",
-    "orcid": "0000-0003-1425-6763",
-    "title": "The Rényi Entropies Operate in Positive Semifields",
-    "doi": "10.3390/e21080780",
-    "url": "https://doi.org/10.3390/e21080780",
-    "authors": [
-      "Francisco J. Valverde-Albacete",
-      "Carmen Peláez-Moreno"
-    ],
-    "year": "2019",
-    "date": "2019-08-08",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 60350897,
-    "bibtex_key": "ValverdeAlbacete2019TheRenyiEntropiesOperateinPositiveSemifi"
-  },
-  {
-    "researcher": "Carmen Peláez-Moreno",
-    "orcid": "0000-0003-1425-6763",
-    "title": "The Case for Shifting the Rényi Entropy",
-    "doi": "10.3390/e21010046",
-    "url": "https://doi.org/10.3390/e21010046",
-    "authors": [
-      "Francisco J. Valverde-Albacete",
-      "Carmen Peláez-Moreno"
-    ],
-    "year": "2019",
-    "date": "2019-01-09",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 52537168,
-    "bibtex_key": "ValverdeAlbacete2019TheCaseforShiftingtheRenyiEntropy"
-  },
-  {
-    "researcher": "Fernando Díaz-de-María",
-    "orcid": "0000-0002-6437-914X",
-    "title": "Probabilistic Topic Model for Context-Driven Visual Attention Understanding",
-    "doi": "10.1109/tcsvt.2019.2909427",
-    "url": "http://dx.doi.org/10.1109/tcsvt.2019.2909427",
-    "authors": [],
-    "year": "2019",
-    "date": "2019",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 65590346,
-    "bibtex_key": "Unknown2019ProbabilisticTopicModelforContextDrivenV"
-  },
-  {
-    "researcher": "Fernando Díaz-de-María",
-    "orcid": "0000-0002-6437-914X",
-    "title": "Predicting image aesthetics for intelligent tourism information systems",
-    "doi": "10.3390/electronics8060671",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85071183949&partnerID=MN8TOARS",
-    "authors": [
-      "Kleinlein, R.",
-      "García-Faura, Á.",
-      "Jiménez, C.L.",
-      "Montero, J.M.",
-      "Díaz-De-maría, F.",
-      "Fernández-Martínez, F."
-    ],
-    "year": "2019",
-    "date": "2019",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 65596245,
-    "bibtex_key": "R2019Predictingimageaestheticsforintelligentt"
-  },
-  {
-    "researcher": "IVAN GONZALEZ",
-    "orcid": "0000-0003-4644-8479",
-    "title": "Perceptually-guided deep neural networks for ego-action prediction: Object grasping",
-    "doi": "10.1016/j.patcog.2018.11.013",
-    "url": "https://doi.org/10.1016/j.patcog.2018.11.013",
-    "authors": [
-      "Iván González-Díaz",
-      "Jenny Benois-Pineau",
-      "Jean-Philippe Domenger",
-      "Daniel Cattaert",
-      "Aymar de Rugy"
-    ],
-    "year": "2019",
-    "date": "2019-04",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 50734054,
-    "bibtex_key": "GonzalezDiaz2019Perceptuallyguideddeepneuralnetworksfore"
-  },
-  {
-    "researcher": "Fernando Díaz-de-María",
-    "orcid": "0000-0002-6437-914X",
-    "title": "Finding landmarks within settled areas using hierarchical density-based clustering and meta-data from publicly available images",
-    "doi": "10.1016/j.eswa.2019.01.046",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85060238970&partnerID=MN8TOARS",
-    "authors": [
-      "Pla-Sacristán, E.",
-      "González-Díaz, I.",
-      "Martínez-Cortés, T.",
-      "Díaz-de-María, F."
-    ],
-    "year": "2019",
-    "date": "2019",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 65596243,
-    "bibtex_key": "E2019Findinglandmarkswithinsettledareasusingh"
-  },
-  {
-    "researcher": "Fernando Díaz-de-María",
-    "orcid": "0000-0002-6437-914X",
-    "title": "Emotion and attention: Audiovisual models for group-level skin response recognition in short movies",
-    "doi": "10.3233/WEB-190398",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85062170062&partnerID=MN8TOARS",
-    "authors": [
-      "García-Faura, A.",
-      "Hernández-García, A.",
-      "Fernández-Martínez, F.",
-      "Díaz-De-María, F.",
-      "San-Segundo, R."
-    ],
-    "year": "2019",
-    "date": "2019",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 65596244,
-    "bibtex_key": "A2019EmotionandattentionAudiovisualmodelsforg"
-  },
-  {
-    "researcher": "Fernando Díaz-de-María",
-    "orcid": "0000-0002-6437-914X",
-    "title": "Efficient Scale-Adaptive License Plate Detection System",
-    "doi": "10.1109/TITS.2018.2859035",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85051661795&partnerID=MN8TOARS",
-    "authors": [
-      "Molina-Moreno, M.",
-      "Gonzalez-Diaz, I.",
-      "Diaz-De-Maria, F."
-    ],
-    "year": "2019",
-    "date": "2019",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 53155716,
-    "bibtex_key": "M2019EfficientScaleAdaptiveLicensePlateDetect"
-  },
-  {
-    "researcher": "IVAN GONZALEZ",
-    "orcid": "0000-0003-4644-8479",
-    "title": "DermaKNet: Incorporating the Knowledge of Dermatologists to Convolutional Neural Networks for Skin Lesion Diagnosis",
-    "doi": "10.1109/JBHI.2018.2806962",
-    "url": "https://doi.org/10.1109/JBHI.2018.2806962",
-    "authors": [
-      "Ivan Gonzalez-Diaz"
-    ],
-    "year": "2019",
-    "date": "2019-03",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 54919739,
-    "bibtex_key": "GonzalezDiaz2019DermaKNetIncorporatingtheKnowledgeofDerm"
-  },
-  {
-    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
-    "orcid": "0000-0002-9322-3128",
-    "title": "Data Augmentation for Speaker Identification under Stress Conditions to Combat Gender-Based Violence",
-    "doi": "10.3390/app9112298",
-    "url": "https://doi.org/10.3390/app9112298",
-    "authors": [
-      "Esther Rituerto-González",
-      "Alba Mínguez-Sánchez",
-      "Ascensión Gallardo-Antolín",
-      "Carmen Peláez-Moreno"
-    ],
-    "year": "2019",
-    "date": "2019-06-04",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 58177009,
-    "bibtex_key": "RituertoGonzalez2019DataAugmentationforSpeakerIdentification"
-  },
-  {
-    "researcher": "Fernando Díaz-de-María",
-    "orcid": "0000-0002-6437-914X",
-    "title": "A multi-threshold approach and a realistic error measure for vanishing point detection in natural landscapes",
-    "doi": "10.1016/j.engappai.2019.08.001",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85070357782&partnerID=MN8TOARS",
-    "authors": [
-      "García-Faura, Á.",
-      "Fernández-Martínez, F.",
-      "Kleinlein, R.",
-      "San-Segundo, R.",
-      "Díaz-de-María, F."
-    ],
-    "year": "2019",
-    "date": "2019",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 65596242,
-    "bibtex_key": "A2019Amultithresholdapproachandarealisticerro"
-  },
-  {
-    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
-    "orcid": "0000-0002-9322-3128",
-    "title": "The Robustness of Echoic Log-Surprise Auditory Saliency Detection",
-    "doi": "10.1109/access.2018.2882055",
-    "url": "http://dx.doi.org/10.1109/access.2018.2882055",
-    "authors": [],
-    "year": "2018",
-    "date": "2018",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 56347506,
-    "bibtex_key": "Unknown2018TheRobustnessofEchoicLogSurpriseAuditory"
-  },
-  {
-    "researcher": "Fernando Díaz-de-María",
-    "orcid": "0000-0002-6437-914X",
-    "title": "Optimized update/prediction assignment for lifting transforms on graphs",
-    "doi": "10.1109/TSP.2018.2802465",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85041525978&partnerID=MN8TOARS",
-    "authors": [
-      "Martinez-Enriquez, E.",
-      "Cid-Sueiro, J.",
-      "Diaz-De-Maria, F.",
-      "Ortega, A."
-    ],
-    "year": "2018",
-    "date": "2018",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 53155724,
-    "bibtex_key": "E2018Optimizedupdatepredictionassignmentforli"
-  },
-  {
-    "researcher": "Carmen Peláez-Moreno",
-    "orcid": "0000-0003-1425-6763",
-    "title": "K-Formal Concept Analysis as linear algebra over idempotent semifields",
-    "doi": "10.1016/j.ins.2018.07.067",
-    "url": "https://doi.org/10.1016/j.ins.2018.07.067",
-    "authors": [
-      "Francisco J. Valverde-Albacete",
-      "Carmen Peláez-Moreno"
-    ],
-    "year": "2018",
-    "date": "2018-10",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 47082072,
-    "bibtex_key": "ValverdeAlbacete2018KFormalConceptAnalysisaslinearalgebraove"
-  },
-  {
-    "researcher": "Fernando Díaz-de-María",
-    "orcid": "0000-0002-6437-914X",
-    "title": "Exploiting visual saliency for assessing the impact of car commercials upon viewers",
-    "doi": "10.1007/s11042-017-5339-9",
-    "url": "http://dx.doi.org/10.1007/s11042-017-5339-9",
-    "authors": [],
-    "year": "2018",
-    "date": "2018-08",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 65590618,
-    "bibtex_key": "Unknown2018Exploitingvisualsaliencyforassessingthei"
-  },
-  {
-    "researcher": "Fernando Díaz-de-María",
-    "orcid": "0000-0002-6437-914X",
-    "title": "Enriched dermoscopic-structure-based cad system for melanoma diagnosis",
-    "doi": "10.1007/s11042-017-4879-3",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85020743290&partnerID=MN8TOARS",
-    "authors": [
-      "López-Labraca, J.",
-      "Fernández-Torres, M.Á.",
-      "González-Díaz, I.",
-      "Díaz-De-María, F.",
-      "Pizarro, Á."
-    ],
-    "year": "2018",
-    "date": "2018",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 53155703,
-    "bibtex_key": "J2018Enricheddermoscopicstructurebasedcadsyst"
-  },
-  {
-    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
-    "orcid": "0000-0002-9322-3128",
-    "title": "Enhancement of a text-independent speaker verification system by using feature combination and parallel structure classifiers",
-    "doi": "10.1007/s00521-016-2470-x",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84978872996&partnerID=MN8TOARS",
-    "authors": [
-      "Abdalmalak, K.A.",
-      "Gallardo-Antolín, A."
-    ],
-    "year": "2018",
-    "date": "2018",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 50748722,
-    "bibtex_key": "KA2018Enhancementofatextindependentspeakerveri"
-  },
-  {
-    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
-    "orcid": "0000-0002-9322-3128",
-    "title": "Echoic log-surprise: A multi-scale scheme for acoustic saliency detection",
-    "doi": "10.1016/j.eswa.2018.07.018",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85050863450&partnerID=MN8TOARS",
-    "authors": [
-      "Rodríguez-Hidalgo, A.",
-      "Peláez-Moreno, C.",
-      "Gallardo-Antolín, A."
-    ],
-    "year": "2018",
-    "date": "2018",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 50748721,
-    "bibtex_key": "A2018EchoiclogsurpriseAmultiscaleschemeforaco"
-  },
-  {
-    "researcher": "Fernando Díaz-de-María",
-    "orcid": "0000-0002-6437-914X",
-    "title": "Directional Transforms for Video Coding Based on Lifting on Graphs",
-    "doi": "10.1109/TCSVT.2016.2633418",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85043494920&partnerID=MN8TOARS",
-    "authors": [
-      "Martinez-Enriquez, E.",
-      "Cid-Sueiro, J.",
-      "Diaz-De-Maria, F.",
-      "Ortega, A."
-    ],
-    "year": "2018",
-    "date": "2018",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 53155705,
-    "bibtex_key": "E2018DirectionalTransformsforVideoCodingBased"
-  },
-  {
-    "researcher": "Carmen Peláez-Moreno",
-    "orcid": "0000-0003-1425-6763",
-    "title": "Assessing Information Transmission in Data Transformations with the Channel Multivariate Entropy Triangle",
-    "doi": "10.3390/e20070498",
-    "url": "https://doi.org/10.3390/e20070498",
-    "authors": [
-      "Francisco Valverde-Albacete",
-      "Carmen Peláez-Moreno"
-    ],
-    "year": "2018",
-    "date": "2018-06-27",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 46061848,
-    "bibtex_key": "ValverdeAlbacete2018AssessingInformationTransmissioninDataTr"
-  },
-  {
-    "researcher": "Carmen Peláez-Moreno",
-    "orcid": "0000-0003-1425-6763",
-    "title": "The evaluation of data sources using multivariate entropy tools",
-    "doi": "10.1016/j.eswa.2017.02.010",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85013216653&partnerID=MN8TOARS",
-    "authors": [
-      "Valverde-Albacete, F.J.",
-      "Peláez-Moreno, C."
-    ],
-    "year": "2017",
-    "date": "2017",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 52292420,
-    "bibtex_key": "FJ2017Theevaluationofdatasourcesusingmultivari"
-  },
-  {
-    "researcher": "Fernando Díaz-de-María",
-    "orcid": "0000-0002-6437-914X",
-    "title": "Neighborhood Matching for Image Retrieval",
-    "doi": "10.1109/TMM.2016.2616298",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85013466531&partnerID=MN8TOARS",
-    "authors": [
-      "González-Díaz, I.",
-      "Birinci, M.",
-      "Díaz-De-María, F.",
-      "Delp, E.J."
-    ],
-    "year": "2017",
-    "date": "2017",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 53155660,
-    "bibtex_key": "I2017NeighborhoodMatchingforImageRetrieval"
-  },
-  {
-    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
-    "orcid": "0000-0002-9322-3128",
-    "title": "Bird sound spectrogram decomposition through Non-Negative Matrix Factorization for the acoustic classification of bird species",
-    "doi": "10.1371/journal.pone.0179403",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85020903270&partnerID=MN8TOARS",
-    "authors": [
-      "Ludeña-Choez, J.",
-      "Quispe-Soncco, R.",
-      "Gallardo-Antolín, A."
-    ],
-    "year": "2017",
-    "date": "2017",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 50748728,
-    "bibtex_key": "J2017Birdsoundspectrogramdecompositionthrough"
-  },
-  {
-    "researcher": "Fernando Díaz-de-María",
-    "orcid": "0000-0002-6437-914X",
-    "title": "Bayesian adaptive algorithm for fast coding unit decision in the High Efficiency Video Coding (HEVC) standard",
-    "doi": "10.1016/j.image.2017.04.004",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85017503874&partnerID=MN8TOARS",
-    "authors": [
-      "Jiménez-Moreno, A.",
-      "Martínez-Enríquez, E.",
-      "Díaz-de-María, F."
-    ],
-    "year": "2017",
-    "date": "2017",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 53155679,
-    "bibtex_key": "A2017Bayesianadaptivealgorithmforfastcodingun"
-  },
-  {
-    "researcher": "Fernando Díaz-de-María",
-    "orcid": "0000-0002-6437-914X",
-    "title": "Adaptive Lagrange multiplier estimation algorithm in HEVC",
-    "doi": "10.1016/j.image.2017.04.010",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85018432171&partnerID=MN8TOARS",
-    "authors": [
-      "González-de-Suso, J.L.",
-      "Martínez-Enríquez, E.",
-      "Díaz-de-María, F."
-    ],
-    "year": "2017",
-    "date": "2017",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 53155684,
-    "bibtex_key": "JL2017AdaptiveLagrangemultiplierestimationalgo"
-  },
-  {
-    "researcher": "Carmen Peláez-Moreno",
-    "orcid": "0000-0003-1425-6763",
-    "title": "The spectra of reducible matrices over complete commutative idempotent semifields and their spectral lattices",
-    "doi": "10.1080/03081079.2015.1072923",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84960414542&partnerID=MN8TOARS",
-    "authors": [
-      "Valverde-Albacete, F.J.",
-      "Peláez-Moreno, C."
-    ],
-    "year": "2016",
-    "date": "2016",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 52292421,
-    "bibtex_key": "FJ2016Thespectraofreduciblematricesovercomplet"
-  },
-  {
-    "researcher": "Carmen Peláez-Moreno",
-    "orcid": "0000-0003-1425-6763",
-    "title": "Supporting scientific knowledge discovery with extended, generalized Formal Concept Analysis",
-    "doi": "10.1016/j.eswa.2015.09.022",
-    "url": "",
-    "authors": [
-      "Francisco J. Valverde-Albacete",
-      "José María González-Calabozo",
-      "Anselmo Peñas",
-      "Carmen Peláez-Moreno"
-    ],
-    "year": "2016",
-    "date": "2016-02-01",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 20121835,
-    "bibtex_key": "ValverdeAlbacete2016Supportingscientificknowledgediscoverywi"
-  },
-  {
-    "researcher": "IVAN GONZALEZ",
-    "orcid": "0000-0003-4644-8479",
-    "title": "Perceptual modeling in the problem of active object recognition in visual scenes",
-    "doi": "10.1016/j.patcog.2016.03.007",
-    "url": "https://doi.org/10.1016/j.patcog.2016.03.007",
-    "authors": [
-      "Iván González-Díaz",
-      "Vincent Buso",
-      "Jenny Benois-Pineau"
-    ],
-    "year": "2016",
-    "date": "2016-08",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 25381481,
-    "bibtex_key": "GonzalezDiaz2016Perceptualmodelingintheproblemofactiveob"
-  },
-  {
-    "researcher": "Carmen Peláez-Moreno",
-    "orcid": "0000-0003-1425-6763",
-    "title": "Interactive knowledge discovery and data mining on genomic expression data with numeric formal concept analysis",
-    "doi": "10.1186/s12859-016-1234-z",
-    "url": "https://doi.org/10.1186/s12859-016-1234-z",
-    "authors": [
-      "Jose M González-Calabozo",
-      "Francisco J Valverde-Albacete",
-      "Carmen Peláez-Moreno"
-    ],
-    "year": "2016",
-    "date": "2016-09-15",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 26769665,
-    "bibtex_key": "GonzalezCalabozo2016Interactiveknowledgediscoveryanddatamini"
-  },
-  {
-    "researcher": "Fernando Díaz-de-María",
-    "orcid": "0000-0002-6437-914X",
-    "title": "Complexity Control Based on a Fast Coding Unit Decision Method in the HEVC Video Coding Standard",
-    "doi": "10.1109/TMM.2016.2524995",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84963813280&partnerID=MN8TOARS",
-    "authors": [
-      "Jimenez-Moreno, A.",
-      "Martinez-Enriquez, E.",
-      "Diaz-De-Maria, F."
-    ],
-    "year": "2016",
-    "date": "2016",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 53155668,
-    "bibtex_key": "A2016ComplexityControlBasedonaFastCodingUnitD"
-  },
-  {
-    "researcher": "Fernando Díaz-de-María",
-    "orcid": "0000-0002-6437-914X",
-    "title": "Comparing visual descriptors and automatic rating strategies for video aesthetics prediction",
-    "doi": "10.1016/j.image.2016.07.004",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84979518501&partnerID=MN8TOARS",
-    "authors": [
-      "Hernández-García, A.",
-      "Fernández-Martínez, F.",
-      "Díaz-de-María, F."
-    ],
-    "year": "2016",
-    "date": "2016",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 53155669,
-    "bibtex_key": "A2016Comparingvisualdescriptorsandautomaticra"
-  },
-  {
-    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
-    "orcid": "0000-0002-9322-3128",
-    "title": "Building a Decision Support System for Inpatient Admission Prediction with the Manchester Triage System and Administrative Check-in Variables",
-    "doi": "10.1097/CIN.0000000000000230",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84961221583&partnerID=MN8TOARS",
-    "authors": [
-      "Zlotnik, A.",
-      "Alfaro, M.C.",
-      "Perez, M.C.P.",
-      "Gallardo-Antolin, A.",
-      "Martinez, J.M.M."
-    ],
-    "year": "2016",
-    "date": "2016",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 50748730,
-    "bibtex_key": "A2016BuildingaDecisionSupportSystemforInpatie"
-  },
-  {
-    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
-    "orcid": "0000-0002-9322-3128",
-    "title": "Acoustic Event Classification using spectral band selection and Non-Negative Matrix Factorization-based features",
-    "doi": "10.1016/j.eswa.2015.10.018",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84946616129&partnerID=MN8TOARS",
-    "authors": [
-      "Ludeña-Choez, J.",
-      "Gallardo-Antolín, A."
-    ],
-    "year": "2016",
-    "date": "2016",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 50748725,
-    "bibtex_key": "J2016AcousticEventClassificationusingspectral"
-  },
-  {
-    "researcher": "Fernando Díaz-de-María",
-    "orcid": "0000-0002-6437-914X",
-    "title": "Two-level sliding-window VBR control algorithm for video on demand streaming",
-    "doi": "10.1016/j.image.2015.05.004",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84939247038&partnerID=MN8TOARS",
-    "authors": [
-      "De-Frutos-López, M.",
-      "González-De-Suso, J.L.",
-      "Sanz-Rodríguez, S.",
-      "Peláez-Moreno, C.",
-      "Díaz-De-María, F."
-    ],
-    "year": "2015",
-    "date": "2015",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 53155682,
-    "bibtex_key": "M2015TwolevelslidingwindowVBRcontrolalgorithm"
-  },
-  {
-    "researcher": "Carmen Peláez-Moreno",
-    "orcid": "0000-0003-1425-6763",
-    "title": "The spectra of irreducible matrices over completed idempotent semifields",
-    "doi": "10.1016/j.fss.2014.09.022",
-    "url": "",
-    "authors": [],
-    "year": "2015",
-    "date": "2015-07-01",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 20121834,
-    "bibtex_key": "Unknown2015Thespectraofirreduciblematricesovercompl"
-  },
-  {
-    "researcher": "Fernando Díaz-de-María",
-    "orcid": "0000-0002-6437-914X",
-    "title": "Temporal segmentation and keyframe selection methods for user-generated video search-based annotation",
-    "doi": "10.1016/j.eswa.2014.08.001",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84907564420&partnerID=MN8TOARS",
-    "authors": [
-      "González-Díaz, I.",
-      "Martínez-Cortés, T.",
-      "Gallardo-Antolín, A.",
-      "Díaz-De-María, F."
-    ],
-    "year": "2015",
-    "date": "2015",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 53155693,
-    "bibtex_key": "I2015Temporalsegmentationandkeyframeselection"
-  },
-  {
-    "researcher": "Fernando Díaz-de-María",
-    "orcid": "0000-0002-6437-914X",
-    "title": "Succeeding metadata based annotation scheme and visual tips for the automatic assessment of video aesthetic quality in car commercials",
-    "doi": "10.1016/j.eswa.2014.07.033",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84906807377&partnerID=MN8TOARS",
-    "authors": [
-      "Fernández-Martínez, F.",
-      "Hernández García, A.",
-      "Díaz De María, F."
-    ],
-    "year": "2015",
-    "date": "2015",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 53155667,
-    "bibtex_key": "F2015Succeedingmetadatabasedannotationschemea"
-  },
-  {
-    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
-    "orcid": "0000-0002-9322-3128",
-    "title": "Morphologically filtered power-normalized cochleograms as robust, biologically inspired features for ASR",
-    "doi": "10.1109/TASLP.2015.2464691",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84941096334&partnerID=MN8TOARS",
-    "authors": [
-      "De-La-Calle-Silos, F.",
-      "Valverde-Albacete, F.J.",
-      "Gallardo-Antolín, A.",
-      "Peláez-Moreno, C."
-    ],
-    "year": "2015",
-    "date": "2015",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 50748723,
-    "bibtex_key": "F2015Morphologicallyfilteredpowernormalizedco"
-  },
-  {
-    "researcher": "IVAN GONZALEZ",
-    "orcid": "0000-0003-4644-8479",
-    "title": "Goal-oriented top-down probabilistic visual attention model for recognition of manipulated objects in egocentric videos",
-    "doi": "10.1016/j.image.2015.05.006",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84947870785&partnerID=MN8TOARS",
-    "authors": [
-      "Buso, V.",
-      "González-Díaz, I.",
-      "Benois-Pineau, J."
-    ],
-    "year": "2015",
-    "date": "2015",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 38646784,
-    "bibtex_key": "V2015Goalorientedtopdownprobabilisticvisualat"
-  },
-  {
-    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
-    "orcid": "0000-0002-9322-3128",
-    "title": "Feature extraction based on the high-pass filtering of audio signals for Acoustic Event Classification",
-    "doi": "10.1016/j.csl.2014.04.001",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84913604166&partnerID=MN8TOARS",
-    "authors": [
-      "Ludeña-Choez, J.",
-      "Gallardo-Antolín, A."
-    ],
-    "year": "2015",
-    "date": "2015",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 13528557,
-    "bibtex_key": "J2015Featureextractionbasedonthehighpassfilte"
-  },
-  {
-    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
-    "orcid": "0000-0002-9322-3128",
-    "title": "Emergency department visit forecasting and dynamic nursing staff allocation using machine learning techniques with readily available open-source software",
-    "doi": "10.1097/CIN.0000000000000173",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84957558290&partnerID=MN8TOARS",
-    "authors": [
-      "Zlotnik, A.",
-      "Gallardo-Antolín, A.",
-      "Alfaro, M.C.",
-      "Pérez, M.C.P.",
-      "Martínez, J.M.M."
-    ],
-    "year": "2015",
-    "date": "2015",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 50748719,
-    "bibtex_key": "A2015Emergencydepartmentvisitforecastinganddy"
-  },
-  {
-    "researcher": "Fernando Díaz-de-María",
-    "orcid": "0000-0002-6437-914X",
-    "title": "Standard-compliant low-pass temporal filter to reduce the perceived flicker artifact",
-    "doi": "10.1109/TMM.2014.2347257",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84908139516&partnerID=MN8TOARS",
-    "authors": [
-      "Jimenez-Moreno, A.",
-      "Martinez-Enriquez, E.",
-      "Kumar, V.",
-      "Diaz-De-Maria, F."
-    ],
-    "year": "2014",
-    "date": "2014",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 53155670,
-    "bibtex_key": "A2014Standardcompliantlowpasstemporalfilterto"
-  },
-  {
-    "researcher": "Fernando Díaz-de-María",
-    "orcid": "0000-0002-6437-914X",
-    "title": "Improved method to select the lagrange multiplier for rate-distortion based motion estimation in video coding",
-    "doi": "10.1109/TCSVT.2013.2276857",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84896528947&partnerID=MN8TOARS",
-    "authors": [
-      "Gonzalez-De-Suso, J.L.",
-      "Jimenez-Moreno, A.",
-      "Martinez-Enriquez, E.",
-      "Diaz-De-Maria, F."
-    ],
-    "year": "2014",
-    "date": "2014",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 53155709,
-    "bibtex_key": "JL2014Improvedmethodtoselectthelagrangemultipl"
-  },
-  {
-    "researcher": "Fernando Díaz-de-María",
-    "orcid": "0000-0002-6437-914X",
-    "title": "A generative model for concurrent image retrieval and ROI segmentation",
-    "doi": "10.1109/TMM.2013.2286083",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84890959626&partnerID=MN8TOARS",
-    "authors": [
-      "Gonzalez-Diaz, I.",
-      "Baz-Hormigos, C.E.",
-      "Diaz-De-Maria, F."
-    ],
-    "year": "2014",
-    "date": "2014",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 53155694,
-    "bibtex_key": "I2014Agenerativemodelforconcurrentimageretrie"
-  },
-  {
-    "researcher": "Carmen Peláez-Moreno",
-    "orcid": "0000-0003-1425-6763",
-    "title": "100% classification accuracy considered harmful: The normalized information transfer factor explains the accuracy paradox",
-    "doi": "10.1371/journal.pone.0084217",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84897546403&partnerID=MN8TOARS",
-    "authors": [
-      "Valverde-Albacete, F.J.",
-      "Peláez-Moreno, C."
-    ],
-    "year": "2014",
-    "date": "2014",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 13656853,
-    "bibtex_key": "FJ2014100classificationaccuracyconsideredharmf"
-  },
-  {
-    "researcher": "Fernando Díaz-de-María",
-    "orcid": "0000-0002-6437-914X",
-    "title": "Mode decision-based algorithm for complexity control in H.264/AVC",
-    "doi": "10.1109/TMM.2013.2241414",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84880833947&partnerID=MN8TOARS",
-    "authors": [
-      "Jiménez-Moreno, A.",
-      "Martínez-Enríquez, E.",
-      "Díaz-De-María, F."
-    ],
-    "year": "2013",
-    "date": "2013",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 53155678,
-    "bibtex_key": "A2013Modedecisionbasedalgorithmforcomplexityc"
-  },
-  {
-    "researcher": "Fernando Díaz-de-María",
-    "orcid": "0000-0002-6437-914X",
-    "title": "Design of an embedded speech-centric interface for applications in handheld terminals",
-    "doi": "10.1109/MAES.2013.6477866",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84897749098&partnerID=MN8TOARS",
-    "authors": [
-      "Gallardo-Antolín, A.",
-      "García-Moral, A.I.",
-      "Pereiro-Estevan, Y.",
-      "Díaz-De-María, F."
-    ],
-    "year": "2013",
-    "date": "2013",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 53155697,
-    "bibtex_key": "A2013Designofanembeddedspeechcentricinterface"
-  },
-  {
-    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
-    "orcid": "0000-0002-9322-3128",
-    "title": "Auditory-Inspired Morphological Processing of Speech Spectrograms: Applications in Automatic Speech Recognition and Speech Enhancement",
-    "doi": "10.1007/s12559-012-9196-6",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84890126800&partnerID=MN8TOARS",
-    "authors": [
-      "Cadore, J.",
-      "Valverde-Albacete, F.J.",
-      "Gallardo-Antolín, A.",
-      "Peláez-Moreno, C."
-    ],
-    "year": "2013",
-    "date": "2013",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 13528558,
-    "bibtex_key": "J2013AuditoryInspiredMorphologicalProcessingo"
-  },
-  {
-    "researcher": "Fernando Díaz-de-María",
-    "orcid": "0000-0002-6437-914X",
-    "title": "A region-centered topic model for object discovery and category-based image segmentation",
-    "doi": "10.1016/j.patcog.2013.01.034",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84876704651&partnerID=MN8TOARS",
-    "authors": [
-      "González-Díaz, I.",
-      "Díaz-De-María, F."
-    ],
-    "year": "2013",
-    "date": "2013",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 53155661,
-    "bibtex_key": "I2013Aregioncenteredtopicmodelforobjectdiscov"
-  },
-  {
-    "researcher": "Fernando Díaz-de-María",
-    "orcid": "0000-0002-6437-914X",
-    "title": "Real-time robust automatic speech recognition using compact support vector machines",
-    "doi": "10.1109/TASL.2011.2178597",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84857488250&partnerID=MN8TOARS",
-    "authors": [
-      "Solera-Ureña, R.",
-      "García-Moral, A.I.",
-      "Peláez-Moreno, C.",
-      "Martínez-Ramon, M.",
-      "Díaz-De-María, F."
-    ],
-    "year": "2012",
-    "date": "2012",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 53155699,
-    "bibtex_key": "R2012Realtimerobustautomaticspeechrecognition"
-  },
-  {
-    "researcher": "Fernando Díaz-de-María",
-    "orcid": "0000-0002-6437-914X",
-    "title": "In-layer multibuffer framework for rate-controlled scalable video coding",
-    "doi": "10.1109/TCSVT.2012.2198089",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84864692647&partnerID=MN8TOARS",
-    "authors": [
-      "Sanz-Rodríguez, S.",
-      "Díaz-De-María, F."
-    ],
-    "year": "2012",
-    "date": "2012",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 53155718,
-    "bibtex_key": "S2012Inlayermultibufferframeworkforratecontro"
-  },
-  {
-    "researcher": "Fernando Díaz-de-María",
-    "orcid": "0000-0002-6437-914X",
-    "title": "State-space dynamics distance for clustering sequential data",
-    "doi": "10.1016/j.patcog.2010.11.018",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-78651329531&partnerID=MN8TOARS",
-    "authors": [
-      "García-García, D.",
-      "Parrado-Hernández, E.",
-      "Diaz-De-Maria, F."
-    ],
-    "year": "2011",
-    "date": "2011",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 53155702,
-    "bibtex_key": "D2011Statespacedynamicsdistanceforclusterings"
-  },
-  {
-    "researcher": "Fernando Díaz-de-María",
-    "orcid": "0000-0002-6437-914X",
-    "title": "RBF-based QP estimation model for VBR control in H.264/SVC",
-    "doi": "10.1109/TCSVT.2011.2143330",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-80052538639&partnerID=MN8TOARS",
-    "authors": [
-      "Sanz-Rodriguez, S.",
-      "Diaz-De-Maria, F."
-    ],
-    "year": "2011",
-    "date": "2011",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 53155673,
-    "bibtex_key": "S2011RBFbasedQPestimationmodelforVBRcontrolin"
-  },
-  {
-    "researcher": "Carmen Peláez-Moreno",
-    "orcid": "0000-0003-1425-6763",
-    "title": "Extending conceptualisation modes for generalised Formal Concept Analysis",
-    "doi": "10.1016/j.ins.2010.04.014",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-79251599435&partnerID=MN8TOARS",
-    "authors": [
-      "Valverde-Albacete, F.J.",
-      "Peláez-Moreno, C."
-    ],
-    "year": "2011",
-    "date": "2011",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 13656863,
-    "bibtex_key": "FJ2011Extendingconceptualisationmodesforgenera"
-  },
-  {
-    "researcher": "Fernando Díaz-de-María",
-    "orcid": "0000-0002-6437-914X",
-    "title": "Data balancing for efficient training of hybrid ANN/HMM automatic speech recognition systems",
-    "doi": "10.1109/TASL.2010.2050513",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-78149247542&partnerID=MN8TOARS",
-    "authors": [
-      "García-Moral, A.I.",
-      "Solera-Ureña, R.",
-      "Peláez-Moreno, C.",
-      "Díaz-De-María, F."
-    ],
-    "year": "2011",
-    "date": "2011",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 53155696,
-    "bibtex_key": "AI2011Databalancingforefficienttrainingofhybri"
-  },
-  {
-    "researcher": "Fernando Díaz-de-María",
-    "orcid": "0000-0002-6437-914X",
-    "title": "A two-level classification-based approach to inter mode decision in H.264/AVC",
-    "doi": "10.1109/TCSVT.2011.2134010",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-80455178886&partnerID=MN8TOARS",
-    "authors": [
-      "Martínez-Enríquez, E.",
-      "Jiménez-Moreno, A.",
-      "Ángel-Pellón, M.",
-      "Díaz-De-María, F."
-    ],
-    "year": "2011",
-    "date": "2011",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 53155719,
-    "bibtex_key": "E2011Atwolevelclassificationbasedapproachtoin"
-  },
-  {
-    "researcher": "Fernando Díaz-de-María",
-    "orcid": "0000-0002-6437-914X",
-    "title": "A low-complexity pre-processing system for restoring low-quality QR code images",
-    "doi": "10.1109/TCE.2011.6018890",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-80052928607&partnerID=MN8TOARS",
-    "authors": [
-      "Munoz-Mejias, D.",
-      "Gonzalez-Diaz, I.",
-      "Diaz-De-Maria, F."
-    ],
-    "year": "2011",
-    "date": "2011",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 53155672,
-    "bibtex_key": "D2011Alowcomplexitypreprocessingsystemforrest"
-  },
-  {
-    "researcher": "Fernando Díaz-de-María",
-    "orcid": "0000-0002-6437-914X",
-    "title": "Uncertainty decoding on Frequency Filtered parameters for robust ASR",
-    "doi": "10.1016/j.specom.2010.02.002",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-77949914685&partnerID=MN8TOARS",
-    "authors": [
-      "Vicente-Peña, J.",
-      "Díaz-de-María, F."
-    ],
-    "year": "2010",
-    "date": "2010",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 53155689,
-    "bibtex_key": "J2010UncertaintydecodingonFrequencyFilteredpa"
-  },
-  {
-    "researcher": "Carmen Peláez-Moreno",
-    "orcid": "0000-0003-1425-6763",
-    "title": "Two information-theoretic tools to assess the performance of multi-class classifiers",
-    "doi": "10.1016/j.patrec.2010.05.017",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-77955557676&partnerID=MN8TOARS",
-    "authors": [
-      "Valverde-Albacete, F.J.",
-      "Peláez-Moreno, C."
-    ],
-    "year": "2010",
-    "date": "2010",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 13656866,
-    "bibtex_key": "FJ2010Twoinformationtheoretictoolstoassessthep"
-  },
-  {
-    "researcher": "Fernando Díaz-de-María",
-    "orcid": "0000-0002-6437-914X",
-    "title": "The synergy between bounded-distance HMM and spectral subtraction for robust speech recognition",
-    "doi": "10.1016/j.specom.2009.09.002",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-70449133421&partnerID=MN8TOARS",
-    "authors": [
-      "Vicente-Peña, J.",
-      "Díaz-de-María, F.",
-      "Kleijn, W.B."
-    ],
-    "year": "2010",
-    "date": "2010",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 53155711,
-    "bibtex_key": "J2010ThesynergybetweenboundeddistanceHMMandsp"
-  },
-  {
-    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
-    "orcid": "0000-0002-9322-3128",
-    "title": "Histogram equalization-based features for speech, music, and song discrimination",
-    "doi": "10.1109/LSP.2010.2049877",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-77952944068&partnerID=MN8TOARS",
-    "authors": [
-      "Gallardo-Antolin, A.",
-      "Montero, J.M."
-    ],
-    "year": "2010",
-    "date": "2010",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 13528566,
-    "bibtex_key": "A2010Histogramequalizationbasedfeaturesforspe"
-  },
-  {
-    "researcher": "Fernando Díaz-de-María",
-    "orcid": "0000-0002-6437-914X",
-    "title": "Cauchy-density-based basic unit layer rate controller for H.264/AVC",
-    "doi": "10.1109/TCSVT.2010.2051369",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-77955620654&partnerID=MN8TOARS",
-    "authors": [
-      "Sanz-Rodriguez, S.",
-      "Del-Ama-Esteban, Ó.",
-      "De-Frutos-López, M.",
-      "Díaz-De-María, F."
-    ],
-    "year": "2010",
-    "date": "2010",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 53155690,
-    "bibtex_key": "S2010Cauchydensitybasedbasicunitlayerratecont"
-  },
-  {
-    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
-    "orcid": "0000-0002-9322-3128",
-    "title": "Automatic placement of outer volume suppression slices in MR spectroscopic imaging of the human brain",
-    "doi": "10.1002/mrm.22275",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-77649178092&partnerID=MN8TOARS",
-    "authors": [
-      "Martínez-Ramón, M.",
-      "Gallardo-Antolín, A.",
-      "Cid-Sueiro, J.",
-      "Heileman, G.L.",
-      "Yung, K.-T.",
-      "Zheng, W.",
-      "Zhao, C.",
-      "Posse, S."
-    ],
-    "year": "2010",
-    "date": "2010",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 13528567,
-    "bibtex_key": "M2010Automaticplacementofoutervolumesuppressi"
-  },
-  {
-    "researcher": "Carmen Peláez-Moreno",
-    "orcid": "0000-0003-1425-6763",
-    "title": "Analyzing phonetic confusions using formal concept analysis",
-    "doi": "10.1121/1.3458854",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-77956407956&partnerID=MN8TOARS",
-    "authors": [
-      "Peláez-Moreno, C.",
-      "García-Moral, A.I.",
-      "Valverde-Albacete, F.J."
-    ],
-    "year": "2010",
-    "date": "2010",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 13656867,
-    "bibtex_key": "C2010Analyzingphoneticconfusionsusingformalco"
-  },
-  {
-    "researcher": "Fernando Díaz-de-María",
-    "orcid": "0000-0002-6437-914X",
-    "title": "An improved fast mode decision algorithm for intraprediction in H.264/AVC video coding",
-    "doi": "10.1016/j.image.2010.10.005",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-78649462496&partnerID=MN8TOARS",
-    "authors": [
-      "De-Frutos-López, M.",
-      "Orellana-Quirós, D.",
-      "Pujol-Alcolado, J.C.",
-      "Díaz-De-María, F."
-    ],
-    "year": "2010",
-    "date": "2010",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 53155722,
-    "bibtex_key": "M2010Animprovedfastmodedecisionalgorithmforin"
-  },
-  {
-    "researcher": "Fernando Díaz-de-María",
-    "orcid": "0000-0002-6437-914X",
-    "title": "An adaptive algorithm for fast inter mode decision in the H.264/AVC video coding standard",
-    "doi": "10.1109/TCE.2010.5506008",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-77954693749&partnerID=MN8TOARS",
-    "authors": [
-      "Martínez-Enríquez, E.",
-      "Jiménez-Moreno, A.",
-      "Diaz-De-Maria, F."
-    ],
-    "year": "2010",
-    "date": "2010",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 53155717,
-    "bibtex_key": "E2010Anadaptivealgorithmforfastintermodedecis"
-  },
-  {
-    "researcher": "Fernando Díaz-de-María",
-    "orcid": "0000-0002-6437-914X",
-    "title": "Characterization of Healthy and Pathological Voice Through Measures Based on Nonlinear Dynamics",
-    "doi": "10.1109/TASL.2009.2016734",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85008035391&partnerID=MN8TOARS",
-    "authors": [
-      "Henríquez, P.",
-      "Alonso, J.B.",
-      "Ferrer, M.A.",
-      "Travieso, C.M.",
-      "Godino-Llorente, J.I.",
-      "Díaz-de-María, F."
-    ],
-    "year": "2009",
-    "date": "2009",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 53155721,
-    "bibtex_key": "P2009CharacterizationofHealthyandPathological"
-  },
-  {
-    "researcher": "Fernando Díaz-de-María",
-    "orcid": "0000-0002-6437-914X",
-    "title": "A new distance measure for model-based sequence clustering",
-    "doi": "10.1109/TPAMI.2008.268",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-67349244757&partnerID=MN8TOARS",
-    "authors": [
-      "García-García, D.",
-      "Parrado Hernández, E.",
-      "Díaz-de María, F."
-    ],
-    "year": "2009",
-    "date": "2009",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 53155698,
-    "bibtex_key": "D2009Anewdistancemeasureformodelbasedsequence"
-  },
-  {
-    "researcher": "Fernando Díaz-de-María",
-    "orcid": "0000-0002-6437-914X",
-    "title": "Adaptive multipattern fast block-matching algorithm based on motion classification techniques",
-    "doi": "10.1109/TCSVT.2008.2004917",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-55249095581&partnerID=MN8TOARS",
-    "authors": [
-      "González-Díaz, I.",
-      "Díaz-de-María, F."
-    ],
-    "year": "2008",
-    "date": "2008",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 53155687,
-    "bibtex_key": "I2008Adaptivemultipatternfastblockmatchingalg"
-  },
-  {
-    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
-    "orcid": "0000-0002-9322-3128",
-    "title": "A simulated annealing approach to speaker segmentation in audio databases",
-    "doi": "10.1016/j.engappai.2007.07.002",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-43549107972&partnerID=MN8TOARS",
-    "authors": [
-      "Leiva-Murillo, J.M.",
-      "Salcedo-Sanz, S.",
-      "Gallardo-Antolín, A.",
-      "Artés-Rodríguez, A."
-    ],
-    "year": "2008",
-    "date": "2008",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 13528569,
-    "bibtex_key": "JM2008Asimulatedannealingapproachtospeakersegm"
-  },
-  {
-    "researcher": "Fernando Díaz-de-María",
-    "orcid": "0000-0002-6437-914X",
-    "title": "Robust ASR using Support Vector Machines",
-    "doi": "10.1016/j.specom.2007.01.013",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-34047146422&partnerID=MN8TOARS",
-    "authors": [
-      "Solera-Ureña, R.",
-      "Martín-Iglesias, D.",
-      "Gallardo-Antolín, A.",
-      "Peláez-Moreno, C.",
-      "Díaz-de-María, F."
-    ],
-    "year": "2007",
-    "date": "2007",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 53155683,
-    "bibtex_key": "R2007RobustASRusingSupportVectorMachines"
-  },
-  {
-    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
-    "orcid": "0000-0002-9322-3128",
-    "title": "Offline speaker segmentation using genetic algorithms and mutual information",
-    "doi": "10.1109/TEVC.2005.857079",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-33645558215&partnerID=MN8TOARS",
-    "authors": [
-      "Salcedo-Sanz, S.",
-      "Gallardo-Antolín, A.",
-      "Leiva-Murillo, J.M.",
-      "Bousoño-Calzón, C."
-    ],
-    "year": "2006",
-    "date": "2006",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 13528576,
-    "bibtex_key": "S2006Offlinespeakersegmentationusinggenetical"
-  },
-  {
-    "researcher": "Fernando Díaz-de-María",
-    "orcid": "0000-0002-6437-914X",
-    "title": "Band-pass filtering of the time sequences of spectral parameters for robust wireless speech recognition",
-    "doi": "10.1016/j.specom.2006.07.007",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-33748463352&partnerID=MN8TOARS",
-    "authors": [
-      "Vicente-Peña, J.",
-      "Gallardo-Antolín, A.",
-      "Peláez-Moreno, C.",
-      "Díaz-de-María, F."
-    ],
-    "year": "2006",
-    "date": "2006",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 53155691,
-    "bibtex_key": "J2006Bandpassfilteringofthetimesequencesofspe"
-  },
-  {
-    "researcher": "Fernando Díaz-de-María",
-    "orcid": "0000-0002-6437-914X",
-    "title": "A comparison of front-ends for bitstream-based ASR over IP",
-    "doi": "10.1016/j.sigpro.2005.08.011",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-33646161231&partnerID=MN8TOARS",
-    "authors": [
-      "Peláez-Moreno, C.",
-      "Gallardo-Antolín, A.",
-      "Gómez-Cajas, D.F.",
-      "Díaz-de-María, F."
-    ],
-    "year": "2006",
-    "date": "2006",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 53155666,
-    "bibtex_key": "C2006AcomparisonoffrontendsforbitstreambasedA"
-  },
-  {
-    "researcher": "Fernando Díaz-de-María",
-    "orcid": "0000-0002-6437-914X",
-    "title": "Recognizing GSM digital speech",
-    "doi": "10.1109/TSA.2005.853210",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-27744477310&partnerID=MN8TOARS",
-    "authors": [
-      "Gallardo-Antolín, A.",
-      "Peláez-Moreno, C.",
-      "Díaz-De-María, F."
-    ],
-    "year": "2005",
-    "date": "2005",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 53155662,
-    "bibtex_key": "A2005RecognizingGSMdigitalspeech"
-  },
-  {
-    "researcher": "Fernando Díaz-de-María",
-    "orcid": "0000-0002-6437-914X",
-    "title": "Recognizing voice over IP: A robust front-end for speech recognition on the World Wide Web",
-    "doi": "10.1109/6046.923820",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-0035365050&partnerID=MN8TOARS",
-    "authors": [
-      "Peláez-Moreno, C.",
-      "Gallardo-Antolín, A.",
-      "Díaz-de-María, F."
-    ],
-    "year": "2001",
-    "date": "2001",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 53155706,
-    "bibtex_key": "C2001RecognizingvoiceoverIPArobustfrontendfor"
-  },
-  {
-    "researcher": "Fernando Díaz-de-María",
-    "orcid": "0000-0002-6437-914X",
-    "title": "Improving CELP coders by backward adaptive non-linear prediction",
-    "doi": "10.1002/(SICI)1099-1115(199711)11:7<585::AID-ACS454>3.0.CO;2-9",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-0031276546&partnerID=MN8TOARS",
-    "authors": [
-      "Díaz-De-María, F.",
-      "Figueiras-Vidal, A.R."
-    ],
-    "year": "1997",
-    "date": "1997",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 53155688,
-    "bibtex_key": "F1997ImprovingCELPcodersbybackwardadaptivenon"
-  },
-  {
-    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
-    "orcid": "0000-0002-9322-3128",
-    "title": "Initial evaluation of a preselection module for a flexible large vocabulary speech recognition system in telephone environment",
-    "doi": "10.1109/ICSLP.1996.607017",
-    "url": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcAuth=ORCID&SrcApp=OrcidOrg&DestLinkType=FullRecord&DestApp=INSPEC&KeyUT=INSPEC:5677781&KeyUID=INSPEC:5677781",
-    "authors": [
-      "Macias-Guarasa, J.",
-      "Gallardo, A.",
-      "Ferreiros, J.",
-      "Pardo, J.M.",
-      "Villarrubia, L.",
-      "Bunnell, H.T.",
-      "Idsardi, W."
-    ],
-    "year": "1996",
-    "date": "1996",
-    "journal": "",
-    "type": "journal-article",
-    "put_code": 48225566,
-    "bibtex_key": "J1996Initialevaluationofapreselectionmodulefo"
+    "date": "2021",
+    "journal": "arXiv",
+    "type": "other",
+    "put_code": 182564794
   }
 ]
