@@ -1,4 +1,3 @@
-
 import os
 import json
 import re
@@ -44,22 +43,34 @@ def orcid_get(url):
         headers=HEADERS,
         timeout=60
     )
+
     response.raise_for_status()
+
     return response.json()
 
 
 def get_orcid_works(orcid):
     """Obtiene las obras públicas de un investigador."""
 
-    print(f"🔎 Consultando ORCID: {orcid}", flush=True)
+    print(
+        f"🔎 Consultando ORCID: {orcid}",
+        flush=True
+    )
 
     url = f"{ORCID_API}/{orcid}/works"
 
-    print(f"🌐 URL: {url}", flush=True)
+    print(
+        f"🌐 URL: {url}",
+        flush=True
+    )
 
     data = orcid_get(url)
 
-    print("📦 Respuesta recibida de ORCID", flush=True)
+    print(
+        "📦 Respuesta recibida de ORCID",
+        flush=True
+    )
+
     print(
         f"🔑 Claves recibidas: {list(data.keys())}",
         flush=True
@@ -91,6 +102,7 @@ def get_orcid_work(orcid, put_code):
             f"No se pudo recuperar la obra "
             f"{put_code}: {error}"
         )
+
         return None
 
 
@@ -615,11 +627,13 @@ def publication_to_html(
     return f"""
 <article class="publication">
   <h2>{title}</h2>
+
   <p>
     <strong>Investigador:</strong> {researcher}<br>
     <strong>Año:</strong> {year}<br>
     <strong>Revista:</strong> {journal}
   </p>
+
   <p>{" | ".join(links)}</p>
 </article>
 """
@@ -639,7 +653,9 @@ def create_html(
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+
   <title>Publicaciones</title>
+
   <style>
     body {{
       font-family: Arial, sans-serif;
@@ -658,9 +674,13 @@ def create_html(
     }}
   </style>
 </head>
+
 <body>
+
   <h1>Publicaciones</h1>
+
   {items}
+
 </body>
 </html>
 """
@@ -677,6 +697,7 @@ def main():
         "r",
         encoding="utf-8"
     ) as file:
+
         researchers = json.load(file)
 
     publications = []
@@ -698,6 +719,7 @@ def main():
                 f"Se omite {name}: "
                 "no tiene ORCID."
             )
+
             continue
 
         print(
@@ -717,6 +739,7 @@ def main():
                 f"{name}: {error}",
                 flush=True
             )
+
             continue
 
         for group in work_groups:
@@ -751,52 +774,48 @@ def main():
                 researcher
             )
 
-            if publication:
+            if not publication:
+                continue
 
-                publication_type = (
-                    publication.get(
-                        "type",
-                        ""
-                    ).lower()
+            publication_type = (
+                publication.get(
+                    "type",
+                    ""
+                ).lower()
+            )
+
+            print(
+                f"OBRA ORCID: "
+                f"título={publication.get('title')} | "
+                f"tipo={publication_type} | "
+                f"DOI={publication.get('doi')}",
+                flush=True
+            )
+
+            # ====================================================
+            # SOLO ARTÍCULOS DE REVISTA
+            # ====================================================
+
+            if publication_type == "journal-article":
+
+                publications.append(
+                    publication
                 )
 
-                # ====================================================
-                # SOLO ARTÍCULOS DE REVISTA
-                # ====================================================
+                print(
+                    "✅ Artículo añadido: "
+                    f"{publication['title']}",
+                    flush=True
+                )
 
-                publication_type = publication.get("type", "").lower()
+            else:
 
-                print( f"OBRA ORCID: título={publication.get('title')} | "
-                      f"tipo={publication_type} | "
-                      f"DOI={publication.get('doi')}",
-                      flush=True)
-
-                if publication_type == "journal-article":
-                    publications.append(publication)
-                else:
-                    print(
-                        f"EXCLUIDA: {publication.get('title')} "
-                        f"(tipo ORCID: {publication_type})",
-                        flush=True)
-
-                    publications.append(
-                        publication
-                    )
-
-                    print(
-                        "✅ Artículo añadido: "
-                        f"{publication['title']}",
-                        flush=True
-                    )
-
-                else:
-
-                    print(
-                        "⏭️ Omitido "
-                        f"({publication_type}): "
-                        f"{publication['title']}",
-                        flush=True
-                    )
+                print(
+                    "⏭️ Omitido "
+                    f"({publication_type}): "
+                    f"{publication['title']}",
+                    flush=True
+                )
 
     # ========================================================
     # ELIMINAR DUPLICADOS
