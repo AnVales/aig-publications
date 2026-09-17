@@ -54,7 +54,18 @@ def get_orcid_works(orcid):
     url = f"{ORCID_API}/{orcid}/works"
     data = orcid_get(url)
 
-    return data.get("group", [])
+    # ORCID puede devolver las obras bajo distintas claves
+    works = data.get("group")
+
+    if works is None:
+        works = data.get("activities:group", [])
+
+    if not isinstance(works, list):
+        works = []
+
+    print(f"ORCID {orcid}: {len(works)} grupos de obras encontrados")
+
+    return works
 
 
 def get_orcid_work(orcid, put_code):
