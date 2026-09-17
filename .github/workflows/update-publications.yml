@@ -1,51 +1,754 @@
-name: Actualizar publicaciones ORCID
+import json
+import re
+import html
+import requests
+from collections import defaultdict
 
-on:
-  workflow_dispatch:
+OPENALEX = "https://api.openalex.org/works"
+EXTERNAL_ICON = "https://aig.webs.tsc.uc3m.es/wp-content/plugins/papercite/img/external.png"
+OUTPUT_JSON = "publications.json"
+OUTPUT_HTML = "publications.html"
+OUTPUT_BIB = "publications.bib"
 
-jobs:
-  actualizar-publicaciones:
-    runs-on: ubuntu-latest
+def normalize_spaces(text):
+if not text:
+return ""
+return re.sub(r"\s+", " ", str(text)).strip()
 
-    steps:
-      - name: Descargar el repositorio
-        uses: actions/checkout@v4
+def normalize_doi(doi):
+if not doi:
+return ""
 
-      - name: Instalar Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
+doi = str(doi).strip()
 
-      - name: Instalar dependencias
-        run: pip install requests
+doi = re.sub(
+    r"^https?://(dx\\.)?doi\\.org/",
+    "",
+    doi,
+    flags=re.IGNORECASE,
+)
 
-      - name: Obtener token de ORCID
-        env:
-          ORCID_CLIENT_ID: ${{ secrets.ORCID_CLIENT_ID }}
-          ORCID_CLIENT_SECRET: ${{ secrets.ORCID_CLIENT_SECRET }}
-        run: |
-          python - <<'PY'
-          import os
-          import requests
+doi = re.sub(
+    r"^doi:\s\*",
+    "",
+    doi,
+    flags=re.IGNORECASE,
+)
 
-          response = requests.post(
-              "https://orcid.org/oauth/token",
-              headers={"Accept": "application/json"},
-              data={
-                  "client_id": os.environ["ORCID_CLIENT_ID"],
-                  "client_secret": os.environ["ORCID_CLIENT_SECRET"],
-                  "grant_type": "client_credentials",
-                  "scope": "/read-public",
-              },
-              timeout=60,
-          )
+return doi.strip().rstrip(").,;")
 
-          response.raise_for_status()
-          token = response.json()["access_token"]
+def normalize_openalex_id(value):
+if not value:
+return ""
 
-          with open(os.environ["GITHUB_ENV"], "a") as file:
-              file.write(f"ORCID_ACCESS_TOKEN={token}\n")
-          PY
+value = str(value).strip()
 
-      - name: Ejecutar programa
-        run: python orcid_publications.py
+match = re.search(
+    r"https?://openalex\\.org/[A-Za-z0-9]+",
+    value,
+    flags=re.IGNORECASE,
+)
+
+if match:
+    return match.group(0)
+
+return value
+
+def normalize_pages(pages):
+if not pages:
+return ""
+
+pages = normalize\_spaces(pages)
+
+if "-" in pages:
+    parts = [p.strip() for p in pages.split("-")]
+
+    if len(parts) == 2 and parts[0] == parts[1]:
+        return parts[0]
+
+return pages
+
+def normalize_journal(journal):
+if not journal:
+return ""
+
+journal = normalize\_spaces(journal)
+
+return {
+    "Earth s Future": "Earth’s Future"
+}.get(journal, journal)
+
+def normalize_author_name(name):
+if not name:
+return ""
+
+name = normalize\_spaces(name)
+
+return (
+    name
+    .replace("‐", "-")
+    .replace("–", "-")
+    .replace("—", "-")
+)
+
+def format_author_for_html(name):
+name = normalize_author_name(name)
+
+if not name:
+    return ""
+
+parts = name.split()
+
+if len(parts) == 1:
+    return parts[0]
+
+surname = parts[-1]
+given\_names = parts[:-1]
+
+initials = []
+
+\# Keep particles as initials.
+\# Example:
+\# Rodrigo Andrade Botelho de Almeida
+\# -> R. A. B. D. Almeida
+for part in given\_names:
+    initials.append(part[0].upper() + ".")
+
+return " ".join(initials) + " " + surname
+
+def format_authors_for_html(authors):
+formatted = [
+format_author_for_html(a)
+for a in authors
+if a
+]
+
+if not formatted:
+    return ""
+
+if len(formatted) == 1:
+    return formatted[0]
+
+if len(formatted) == 2:
+    return " and ".join(formatted)
+
+return ", ".join(formatted[:-1]) + ", and " + formatted[-1]
+
+def make_bibtex_key(authors, year):
+first_author = (
+normalize_author_name(authors[0])
+if authors
+else "publication"
+)
+
+surname = first\_author.split()[-1]
+
+surname = re.sub(
+    r"[^A-Za-z0-9]",
+    "",
+    surname,
+).lower()
+
+return f"{surname}{year}"
+
+def make_bibtex(
+title,
+authors,
+journal,
+year,
+volume="",
+issue="",
+pages="",
+doi="",
+key=None,
+):
+if key is None:
+key = make_bibtex_key(authors, year)
+
+lines = [
+    f"@article{{{key},",
+    f"  title = {{{title}}},",
+    "  author = {" + " and ".join(authors) + "},",
+    f"  journal = {{{journal}}},",
+]
+
+if volume:
+    lines.append(
+        f"  volume = {{{volume}}},"
+    )
+
+if issue:
+    lines.append(
+        f"  number = {{{issue}}},"
+    )
+
+if pages:
+    lines.append(
+        f"  pages = {{{pages.replace('-', '--')}}},"
+    )
+
+lines.append(
+    f"  year = {{{year}}},"
+)
+
+if doi:
+    lines.append(
+        f"  doi = {{{doi}}}"
+    )
+
+lines.append("}")
+
+return "\n".join(lines)
+
+def is_repository_doi(doi):
+if not doi:
+return False
+
+doi\_lower = doi.lower()
+
+excluded = [
+    "10.5281/zenodo.",
+    "10.48550/arxiv.",
+    "10.17632/",
+    "10.6084/m9.figshare.",
+    "10.31219/osf.io/",
+]
+
+return any(
+    doi\_lower.startswith(prefix)
+    for prefix in excluded
+)
+
+def get_works(orcid):
+params = {
+"filter": f"author.orcid:{orcid},type:article",
+"per-page": 100,
+}
+
+response = requests.get(
+    OPENALEX,
+    params=params,
+    timeout=60,
+)
+
+response.raise\_for\_status()
+
+return response.json().get(
+    "results",
+    [],
+)
+
+def work_to_publication(work):
+title = normalize_spaces(
+work.get("display_name")
+or work.get("title")
+or ""
+)
+
+year = (
+    work.get("publication\_year")
+    or work.get("year")
+    or ""
+)
+
+doi = normalize\_doi(
+    work.get("doi") or ""
+)
+
+if is\_repository\_doi(doi):
+    return None
+
+openalex\_id = normalize\_openalex\_id(
+    work.get("id", "")
+)
+
+authors = []
+
+for authorship in work.get(
+    "authorships",
+    []
+):
+    author = authorship.get(
+        "author",
+        {}
+    )
+
+    display\_name = normalize\_author\_name(
+        author.get("display\_name")
+        or ""
+    )
+
+    if display\_name:
+        authors.append(display\_name)
+
+primary\_location = (
+    work.get("primary\_location")
+    or {}
+)
+
+source = (
+    primary\_location.get("source")
+    or {}
+)
+
+journal = normalize\_journal(
+    source.get("display\_name")
+    or ""
+)
+
+biblio = (
+    work.get("biblio")
+    or {}
+)
+
+volume = normalize\_spaces(
+    biblio.get("volume")
+    or ""
+)
+
+issue = normalize\_spaces(
+    biblio.get("issue")
+    or ""
+)
+
+first\_page = normalize\_spaces(
+    biblio.get("first\_page")
+    or ""
+)
+
+last\_page = normalize\_spaces(
+    biblio.get("last\_page")
+    or ""
+)
+
+if first\_page and last\_page:
+    pages = f"{first\_page}-{last\_page}"
+
+elif first\_page:
+    pages = first\_page
+
+elif last\_page:
+    pages = last\_page
+
+else:
+    pages = ""
+
+pages = normalize\_pages(pages)
+
+bibtex\_key = make\_bibtex\_key(
+    authors,
+    year,
+)
+
+bibtex = make\_bibtex(
+    title,
+    authors,
+    journal,
+    year,
+    volume,
+    issue,
+    pages,
+    doi,
+    bibtex\_key,
+)
+
+return {
+    "title": title,
+    "year": year,
+    "doi": doi,
+    "authors": authors,
+    "journal": journal,
+    "volume": volume,
+    "issue": issue,
+    "pages": pages,
+    "bibtex": bibtex,
+    "openalex\_id": openalex\_id,
+}
+
+def deduplicate_publications(publications):
+unique = {}
+
+for pub in publications:
+    doi = normalize\_doi(
+        pub.get("doi", "")
+    ).lower()
+
+    title = normalize\_spaces(
+        pub.get("title", "")
+    ).lower()
+
+    if doi:
+        key = f"doi:{doi}"
+    else:
+        key = f"title:{title}"
+
+    unique[key] = pub
+
+return list(unique.values())
+
+def ensure_unique_bibtex_keys(publications):
+counters = defaultdict(int)
+
+for pub in publications:
+    base\_key = make\_bibtex\_key(
+        pub.get("authors", []),
+        pub.get("year", ""),
+    )
+
+    counters[base\_key] += 1
+
+    count = counters[base\_key]
+
+    final\_key = (
+        base\_key
+        if count == 1
+        else f"{base\_key}{count}"
+    )
+
+    pub["bibtex"] = re.sub(
+        r"@article\\{[^,]+,",
+        f"@article{{{final\_key},",
+        pub.get("bibtex", ""),
+        count=1,
+    )
+
+return publications
+
+def publication_to_html(
+pub,
+bibtex_index,
+):
+title = html.escape(
+pub.get("title", ""),
+quote=True,
+)
+
+doi = normalize\_doi(
+    pub.get("doi", "")
+)
+
+authors = html.escape(
+    format\_authors\_for\_html(
+        pub.get("authors", [])
+    ),
+    quote=True,
+)
+
+journal = html.escape(
+    pub.get("journal", "")
+).upper()
+
+volume = html.escape(
+    pub.get("volume", "")
+)
+
+issue = html.escape(
+    pub.get("issue", "")
+)
+
+pages = html.escape(
+    pub.get("pages", "")
+)
+
+year = html.escape(
+    str(pub.get("year", ""))
+)
+
+doi\_html = ""
+
+if doi:
+    \# Plain URL inside the HTML attribute.
+    \# DO NOT use Markdown syntax here.
+    doi\_url = html.escape(
+        "[http://dx.doi.org/](http://dx.doi.org/)" + doi,
+        quote=True,
+    )
+
+    icon\_url = html.escape(
+        EXTERNAL\_ICON,
+        quote=True,
+    )
+
+    doi\_html = (
+        f'\<a href="{doi\_url}" '
+        f'title="View document on publisher site" '
+        f'target="\_blank">[DOI]\</a> '
+        f'(\<img src="{icon\_url}" '
+        f'alt="external link" '
+        f'style="width:12px;height:12px;">) '
+    )
+
+metadata = ""
+
+if journal:
+    metadata += (
+        f"\<em>{journal}\</em>"
+    )
+
+if volume:
+    metadata += (
+        f", vol. {volume}"
+    )
+
+if issue:
+    metadata += (
+        f", iss. {issue}"
+    )
+
+if pages:
+    metadata += (
+        f", {pages}"
+    )
+
+if year:
+    metadata += (
+        f", {year}"
+    )
+
+bib\_id = f"bibtex-{bibtex\_index}"
+
+bibtex = html.escape(
+    pub.get("bibtex", "")
+)
+
+bibtex\_html = (
+    f'\<br>'
+    f'\<a href="#" '
+    f'onclick="var e=document.getElementById(\\'{bib\_id}\\');'
+    f"e.style.display=(e.style.display==='none' "
+    f"? 'block' : 'none');"
+    f'return false;">[Bibtex]\</a>'
+    f'\<pre id="{bib\_id}" '
+    f'style="display\:none; '
+    f'white-space\:pre-wrap;">'
+    f'{bibtex}'
+    f'\</pre>'
+)
+
+return (
+    f'\<p>{doi\_html}'
+    f'{authors}, '
+    f'“{title},” '
+    f'{metadata}.'
+    f'{bibtex\_html}'
+    f'\</p>'
+)
+
+def generate_html(publications):
+grouped = defaultdict(list)
+
+for pub in publications:
+    grouped[
+        pub.get("year", "")
+    ].append(pub)
+
+years = sorted(
+    grouped.keys(),
+    reverse=True,
+)
+
+output = [
+    '\<div class="publications">'
+]
+
+bibtex\_index = 0
+
+for year in years:
+    output.append(
+        f'\<h3>{html.escape(str(year))}\</h3>'
+    )
+
+    publications\_year = sorted(
+        grouped[year],
+        key=lambda p: p.get(
+            "title",
+            ""
+        ).lower(),
+    )
+
+    for pub in publications\_year:
+        output.append(
+            publication\_to\_html(
+                pub,
+                bibtex\_index,
+            )
+        )
+
+        bibtex\_index += 1
+
+output.append("\</div>")
+
+return "\n".join(output)
+
+def generate_bibtex_file(publications):
+entries = []
+
+for pub in publications:
+    bibtex = pub.get(
+        "bibtex",
+        ""
+    ).strip()
+
+    if bibtex:
+        entries.append(bibtex)
+
+if not entries:
+    return ""
+
+return "\n\n".join(entries) + "\n"
+
+def main():
+print(
+"Leyendo researchers.json..."
+)
+
+with open(
+    "researchers.json",
+    "r",
+    encoding="utf-8",
+) as f:
+    data = json.load(f)
+
+researchers = data["researchers"]
+
+all\_publications = []
+
+for researcher in researchers:
+    name = researcher.get(
+        "name",
+        "Unknown",
+    )
+
+    orcid = researcher.get(
+        "orcid",
+        "",
+    )
+
+    if not orcid:
+        print(
+            f"⚠️ Sin ORCID para {name}"
+        )
+        continue
+
+    print(
+        f"Buscando publicaciones de "
+        f"{name} ({orcid})..."
+    )
+
+    try:
+        works = get\_works(orcid)
+
+    except Exception as exc:
+        print(
+            f"❌ Error con {name}: {exc}"
+        )
+        continue
+
+    print(
+        f"   Encontrados: {len(works)}"
+    )
+
+    for work in works:
+        publication = work\_to\_publication(
+            work
+        )
+
+        if publication is not None:
+            all\_publications.append(
+                publication
+            )
+
+all\_publications = (
+    deduplicate\_publications(
+        all\_publications
+    )
+)
+
+all\_publications = (
+    ensure\_unique\_bibtex\_keys(
+        all\_publications
+    )
+)
+
+all\_publications.sort(
+    key=lambda p: (
+        -int(
+            p.get("year", 0)
+        )
+        if str(
+            p.get("year", "")
+        ).isdigit()
+        else 0,
+        p.get(
+            "title",
+            ""
+        ).lower(),
+    )
+)
+
+print(
+    f"Guardando {OUTPUT\_JSON}..."
+)
+
+with open(
+    OUTPUT\_JSON,
+    "w",
+    encoding="utf-8",
+) as f:
+    json.dump(
+        all\_publications,
+        f,
+        ensure\_ascii=False,
+        indent=2,
+    )
+
+print(
+    f"Generando {OUTPUT\_HTML}..."
+)
+
+with open(
+    OUTPUT\_HTML,
+    "w",
+    encoding="utf-8",
+) as f:
+    f.write(
+        generate\_html(
+            all\_publications
+        )
+    )
+
+print(
+    f"Generando {OUTPUT\_BIB}..."
+)
+
+with open(
+    OUTPUT\_BIB,
+    "w",
+    encoding="utf-8",
+) as f:
+    f.write(
+        generate\_bibtex\_file(
+            all\_publications
+        )
+    )
+
+print()
+print(
+    "✅ Proceso terminado"
+)
+print(
+    f"   Publicaciones: "
+    f"{len(all\_publications)}"
+)
+print(
+    f"   JSON: {OUTPUT\_JSON}"
+)
+print(
+    f"   HTML: {OUTPUT\_HTML}"
+)
+print(
+    f"   BibTeX: {OUTPUT\_BIB}"
+)
+
+if __name__ == "__main__":
+main()
