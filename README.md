@@ -1,13 +1,16 @@
-Generación automática de publicaciones en formato BibTeX
+# Generación automática de publicaciones en formato BibTeX
 
-Este repositorio contiene un sistema automatizado para recopilar las publicaciones científicas de un grupo de investigadores y generar un archivo publications.bib, que puede utilizarse en páginas web académicas, repositorios institucionales o documentos LaTeX.
+Este repositorio contiene un sistema automatizado para recopilar las publicaciones científicas de un grupo de investigadores y generar un archivo `publications.bib`.
 
-¿Cómo funciona?
+El archivo generado puede utilizarse en páginas web académicas, repositorios institucionales y documentos escritos con LaTeX.
 
-El sistema utiliza los identificadores ORCID de los investigadores para localizar sus publicaciones en OpenAlex.
+## ¿Cómo funciona?
+
+El sistema utiliza los identificadores **ORCID** de los investigadores para localizar sus publicaciones en **OpenAlex**.
 
 El proceso es el siguiente:
 
+```text
 researchers.json
        │
        ▼
@@ -21,17 +24,19 @@ Recopilación de metadatos bibliográficos
        │
        ▼
 Generación de publications.bib
-Fuentes de información
+```
 
-ORCID: proporciona el identificador único de cada investigador. Este identificador permite distinguir a investigadores con nombres similares.
+## Fuentes de información
 
-OpenAlex: proporciona los datos bibliográficos de las publicaciones, como el título, los autores, el año de publicación, la revista, el volumen, las páginas y el DOI, cuando están disponibles.
+* **ORCID:** proporciona el identificador único de cada investigador y permite distinguir entre investigadores con nombres similares.
+* **OpenAlex:** proporciona los datos bibliográficos de las publicaciones, como el título, los autores, el año de publicación, la revista, el volumen, las páginas y el DOI, cuando están disponibles.
+* **GitHub Actions:** ejecuta automáticamente el script y actualiza el archivo `publications.bib`.
 
-GitHub Actions: ejecuta automáticamente el script y actualiza el archivo publications.bib.
+> **Nota:** Google Scholar no se utiliza en este sistema. Además, OpenAlex puede no incluir todas las publicaciones de un investigador, por lo que el archivo generado podría no ser completamente exhaustivo.
 
-Nota: Google Scholar no se utiliza en este sistema. Además, OpenAlex puede no incluir todas las publicaciones de un investigador, por lo que el archivo generado podría no ser completamente exhaustivo.
+## Estructura del repositorio
 
-Estructura del repositorio
+```text
 aig-publications/
 ├── researchers.json
 ├── generate_bibtex.py
@@ -39,12 +44,17 @@ aig-publications/
 └── .github/
     └── workflows/
         └── publications.yml
-researchers.json
+```
+
+## Archivos principales
+
+### `researchers.json`
 
 Este archivo contiene la lista de investigadores y sus identificadores ORCID.
 
 Ejemplo:
 
+```json
 {
   "researchers": [
     {
@@ -53,65 +63,71 @@ Ejemplo:
     }
   ]
 }
-generate_bibtex.py
+```
+
+### `generate_bibtex.py`
 
 Es el script de Python encargado de:
 
-Leer la lista de investigadores.
+1. Leer la lista de investigadores.
+2. Consultar OpenAlex mediante los identificadores ORCID.
+3. Recuperar los metadatos de las publicaciones.
+4. Eliminar posibles duplicados.
+5. Generar las entradas bibliográficas en formato BibTeX.
+6. Guardar el resultado en `publications.bib`.
 
-Consultar OpenAlex mediante los identificadores ORCID.
+### `publications.bib`
 
-Recuperar los metadatos de las publicaciones.
+Es el archivo de salida que contiene las referencias bibliográficas en formato BibTeX.
 
-Eliminar posibles duplicados.
+Puede importarse en gestores bibliográficos y utilizarse, por ejemplo, en documentos escritos con LaTeX.
 
-Generar las entradas bibliográficas en formato BibTeX.
+### `.github/workflows/publications.yml`
 
-Guardar el resultado en publications.bib.
+Este archivo define el proceso automatizado de **GitHub Actions**.
 
-publications.bib
+Se encarga de instalar las dependencias necesarias, ejecutar el script y guardar los cambios en `publications.bib`.
 
-Es el archivo de salida que contiene las referencias bibliográficas en formato BibTeX. Puede importarse en gestores bibliográficos y utilizarse, por ejemplo, en documentos escritos con LaTeX.
-
-publications.yml
-
-El workflow de GitHub Actions ejecuta el script automáticamente según la configuración establecida.
-
-Ejecución automática
+## Ejecución automática
 
 El workflow puede ejecutarse de tres formas:
 
-Manualmente, desde la pestaña Actions de GitHub.
+* **Manualmente**, desde la pestaña [Actions](../../actions) de GitHub.
+* **Automáticamente**, cuando se modifica `researchers.json`, `generate_bibtex.py` o el propio workflow.
+* **De forma programada**, una vez por semana, cada lunes a las 06:00 UTC.
 
-Cuando se modifica researchers.json o generate_bibtex.py.
+El resultado de la ejecución es la actualización del archivo:
 
-De forma programada, mediante una tarea semanal.
+```text
+publications.bib
+```
 
-El workflow instala las dependencias necesarias, ejecuta el script y guarda los cambios en publications.bib.
+## Requisitos
 
-Requisitos
+Para utilizar este sistema se necesita:
 
-Un repositorio de GitHub.
-
-Python 3.12 o una versión compatible.
-
-Un archivo researchers.json con los identificadores ORCID.
-
-La dependencia de Python requests.
+* Un repositorio de GitHub.
+* Python 3.12 o una versión compatible.
+* Un archivo `researchers.json` con los identificadores ORCID.
+* La dependencia de Python `requests`.
 
 La dependencia se instala automáticamente mediante GitHub Actions:
 
+```bash
 python -m pip install requests
-Limitaciones
+```
+
+## Limitaciones
 
 La información depende de los registros disponibles en OpenAlex. Por este motivo:
 
-Algunas publicaciones pueden no aparecer.
+* Algunas publicaciones pueden no aparecer.
+* Los metadatos pueden estar incompletos.
+* Puede haber errores o duplicados que requieran revisión.
+* Las publicaciones más recientes pueden tardar en estar disponibles.
 
-Puede haber metadatos incompletos.
+Se recomienda revisar periódicamente el archivo `publications.bib` y corregir manualmente las referencias que lo necesiten.
 
-Los datos pueden contener errores o duplicados que requieran revisión.
+## Licencia
 
-Las publicaciones más recientes pueden tardar en estar disponibles.
-
-Se recomienda revisar periódicamente el archivo publications.bib y corregir manualmente las referencias que lo necesiten.
+Añade aquí la licencia de tu proyecto si corresponde.
