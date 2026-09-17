@@ -28,7 +28,8 @@ jobs:
 
       - name: Ejecutar script ORCID
         env:
-          ORCID_ACCESS_TOKEN: ${{ secrets.ORCID_ACCESS_TOKEN }}
+          ORCID_CLIENT_ID: ${{ secrets.ORCID_CLIENT_ID }}
+          ORCID_CLIENT_SECRET: ${{ secrets.ORCID_CLIENT_SECRET }}
         run: |
           python orcid_conferences.py
 
