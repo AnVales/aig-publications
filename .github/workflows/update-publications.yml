@@ -1,49 +1,51 @@
-name: Update publications
+name: Actualizar publicaciones ORCID
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "0 6 * * 1"
-
-permissions:
-  contents: write
 
 jobs:
-  update-publications:
+  actualizar-publicaciones:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Descargar el repositorio
         uses: actions/checkout@v4
 
-      - name: Set up Python
+      - name: Instalar Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.x"
+          python-version: "3.11"
 
-      - name: Install dependencies
+      - name: Instalar dependencias
+        run: pip install requests
+
+      - name: Obtener token de ORCID
+        env:
+          ORCID_CLIENT_ID: ${{ secrets.ORCID_CLIENT_ID }}
+          ORCID_CLIENT_SECRET: ${{ secrets.ORCID_CLIENT_SECRET }}
         run: |
-          python -m pip install --upgrade pip
-          python -m pip install requests
+          python - <<'PY'
+          import os
+          import requests
 
-      - name: Update publications
-        run: python update_publications.py
+          response = requests.post(
+              "https://orcid.org/oauth/token",
+              headers={"Accept": "application/json"},
+              data={
+                  "client_id": os.environ["ORCID_CLIENT_ID"],
+                  "client_secret": os.environ["ORCID_CLIENT_SECRET"],
+                  "grant_type": "client_credentials",
+                  "scope": "/read-public",
+              },
+              timeout=60,
+          )
 
-      - name: Check generated files
-        run: |
-          echo "Archivos generados:"
-          ls -lh publications.json publications.html publications.bib
+          response.raise_for_status()
+          token = response.json()["access_token"]
 
-      - name: Commit changes
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          with open(os.environ["GITHUB_ENV"], "a") as file:
+              file.write(f"ORCID_ACCESS_TOKEN={token}\n")
+          PY
 
-          git add publications.json publications.html publications.bib
-
-          if git diff --cached --quiet; then
-            echo "No changes to commit"
-          else
-            git commit -m "Update publications"
-            git push
-          fi
+      - name: Ejecutar programa
+        run: python orcid_publications.py
