@@ -30,7 +30,6 @@ Generación de publications.bib
 * **OpenAlex:** proporciona los datos bibliográficos de las publicaciones, como el título, los autores, el año de publicación, la revista, el volumen, las páginas y el DOI, cuando están disponibles.
 * **GitHub Actions:** ejecuta automáticamente el script y actualiza el archivo `publications.bib`.
 
-> **Nota:** Google Scholar no se utiliza en este sistema. Además, OpenAlex puede no incluir todas las publicaciones de un investigador, por lo que el archivo generado podría no ser completamente exhaustivo.
 
 ## Estructura del repositorio
 
