@@ -155,10 +155,13 @@ def get_external_id(work, id_type):
 
 
 def get_title(work):
-    title_data = work.get("title", {})
-    title = title_data.get("title", {})
+    title_data = work.get("title") or {}
+    title = title_data.get("title") or {}
 
-    return normalize_text(title.get("content", ""))
+    # ORCID suele utilizar la clave "value" en JSON
+    title_value = title.get("value") or title.get("content") or ""
+
+    return normalize_text(title_value)
 
 
 def get_publication_date(work):
