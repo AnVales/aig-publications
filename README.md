@@ -2,8 +2,6 @@
 
 Este repositorio contiene un sistema automatizado para recopilar las publicaciones científicas de un grupo de investigadores del grupo de inteligencia artificial de la UC3M y generar un archivo `publications.bib`.
 
-El archivo generado puede utilizarse en páginas web académicas, repositorios institucionales y documentos escritos con LaTeX.
-
 ## ¿Cómo funciona?
 
 El sistema utiliza los identificadores **ORCID** de los investigadores para localizar sus publicaciones en **OpenAlex**.
