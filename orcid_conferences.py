@@ -27,29 +27,24 @@ API_BASE = "https://pub.orcid.org/v3.0"
 ROWS_PER_PAGE = 100
 MAX_PAGES = 1000
 REQUEST_TIMEOUT = 30
-BULK_SIZE = 100
 
 
 # ============================================================
-# AUTENTICACIÓN
+# CREDENCIALES DE ORCID
 # ============================================================
 
-TOKEN = os.getenv("ORCID_ACCESS_TOKEN")
+ORCID_CLIENT_ID = os.getenv("ORCID_CLIENT_ID")
+ORCID_CLIENT_SECRET = os.getenv("ORCID_CLIENT_SECRET")
 
-if not TOKEN:
+if not ORCID_CLIENT_ID or not ORCID_CLIENT_SECRET:
     raise RuntimeError(
-        "No se ha encontrado la variable de entorno "
-        "'ORCID_ACCESS_TOKEN'."
+        "No se han encontrado ORCID_CLIENT_ID y/o "
+        "ORCID_CLIENT_SECRET en las variables de entorno."
     )
 
-HEADERS = {
-    "Accept": "application/json",
-    "Authorization": f"Bearer {TOKEN}",
-}
-
 
 # ============================================================
-# SESIÓN HTTP CON REINTENTOS
+# SESIÓN HTTP
 # ============================================================
 
 session = requests.Session()
@@ -58,7 +53,7 @@ retry_strategy = Retry(
     total=5,
     backoff_factor=1,
     status_forcelist=[429, 500, 502, 503, 504],
-    allowed_methods=["GET"],
+    allowed_methods=["GET", "POST"],
 )
 
 adapter = HTTPAdapter(max_retries=retry_strategy)
@@ -68,13 +63,75 @@ session.mount("http://", adapter)
 
 
 # ============================================================
-# FUNCIONES AUXILIARES
+# AUTENTICACIÓN CON ORCID
+# ============================================================
+
+def get_orcid_access_token():
+    """
+    Obtiene un token de acceso público mediante las credenciales
+    de la aplicación ORCID.
+    """
+
+    token_url = "https://orcid.org/oauth/token"
+
+    data = {
+        "client_id": ORCID_CLIENT_ID,
+        "client_secret": ORCID_CLIENT_SECRET,
+        "grant_type": "client_credentials",
+        "scope": "/read-public",
+    }
+
+    try:
+        response = session.post(
+            token_url,
+            data=data,
+            headers={
+                "Accept": "application/json",
+            },
+            timeout=REQUEST_TIMEOUT,
+        )
+
+        response.raise_for_status()
+
+        token_data = response.json()
+
+        access_token = token_data.get("access_token")
+
+        if not access_token:
+            raise RuntimeError(
+                "ORCID no devolvió ningún access_token."
+            )
+
+        print("Token de ORCID obtenido correctamente.")
+
+        return access_token
+
+    except requests.RequestException as error:
+        raise RuntimeError(
+            f"No se pudo obtener el token de ORCID: {error}"
+        ) from error
+
+    except ValueError as error:
+        raise RuntimeError(
+            "La respuesta de ORCID no contiene un JSON válido."
+        ) from error
+
+
+TOKEN = get_orcid_access_token()
+
+HEADERS = {
+    "Accept": "application/json",
+    "Authorization": f"Bearer {TOKEN}",
+}
+
+
+# ============================================================
+# FUNCIONES HTTP
 # ============================================================
 
 def safe_get(url, params=None):
     """
-    Realiza una petición GET controlada.
-    Devuelve un diccionario/lista JSON o None si falla.
+    Realiza una petición GET y devuelve la respuesta JSON.
     """
 
     try:
@@ -101,9 +158,13 @@ def safe_get(url, params=None):
         return None
 
 
+# ============================================================
+# FUNCIONES AUXILIARES
+# ============================================================
+
 def clean_text(value):
     """
-    Limpia espacios y convierte valores a texto.
+    Convierte un valor en texto y elimina espacios innecesarios.
     """
 
     if value is None:
@@ -117,29 +178,47 @@ def clean_text(value):
 
 def normalize_title(title):
     """
-    Normaliza un título para facilitar comparaciones.
+    Normaliza un título para detectar duplicados.
     """
 
     title = clean_text(title).lower()
-
     title = re.sub(r"\s+", " ", title)
-
-    title = re.sub(r"[^\w\s]", "", title, flags=re.UNICODE)
+    title = re.sub(
+        r"[^\w\s]",
+        "",
+        title,
+        flags=re.UNICODE,
+    )
 
     return title.strip()
 
 
 def get_date(date_object):
     """
-    Extrae una fecha ORCID en formato YYYY-MM-DD.
+    Convierte una fecha ORCID en YYYY-MM-DD.
     """
 
     if not date_object:
         return ""
 
-    year = date_object.get("year", {}).get("value")
-    month = date_object.get("month", {}).get("value")
-    day = date_object.get("day", {}).get("value")
+    year_data = date_object.get("year", {})
+    month_data = date_object.get("month", {})
+    day_data = date_object.get("day", {})
+
+    year = year_data.get("value") if isinstance(
+        year_data,
+        dict,
+    ) else year_data
+
+    month = month_data.get("value") if isinstance(
+        month_data,
+        dict,
+    ) else month_data
+
+    day = day_data.get("value") if isinstance(
+        day_data,
+        dict,
+    ) else day_data
 
     if not year:
         return ""
@@ -159,9 +238,12 @@ def get_year(date_object):
     if not date_object:
         return ""
 
-    year = date_object.get("year", {}).get("value")
+    year_data = date_object.get("year", {})
 
-    return clean_text(year)
+    if isinstance(year_data, dict):
+        year_data = year_data.get("value", "")
+
+    return clean_text(year_data)
 
 
 # ============================================================
@@ -170,8 +252,7 @@ def get_year(date_object):
 
 def get_orcid_work_groups(orcid_id):
     """
-    Obtiene todas las obras registradas en ORCID,
-    recorriendo todas las páginas disponibles.
+    Obtiene todas las obras de un investigador mediante paginación.
     """
 
     all_groups = []
@@ -221,7 +302,7 @@ def extract_all_summaries(work_group):
 
 def get_orcid_work(orcid_id, put_code):
     """
-    Obtiene el detalle completo de una obra concreta.
+    Obtiene el detalle completo de una obra.
     """
 
     url = f"{API_BASE}/{orcid_id}/work/{put_code}"
@@ -230,25 +311,33 @@ def get_orcid_work(orcid_id, put_code):
 
 
 # ============================================================
-# EXTRACCIÓN DE INFORMACIÓN
+# EXTRACCIÓN DE DATOS
 # ============================================================
 
 def extract_external_ids(work):
     """
-    Extrae DOI, ISBN, URL y otros identificadores externos.
+    Extrae los identificadores externos de una obra.
     """
 
-    external_ids = work.get("external-ids", {})
+    external_ids_data = work.get("external-ids", {})
 
-    if isinstance(external_ids, dict):
-        external_ids = external_ids.get("external-id", [])
+    if isinstance(external_ids_data, dict):
+        external_ids = external_ids_data.get(
+            "external-id",
+            [],
+        )
+    else:
+        external_ids = []
 
     if not isinstance(external_ids, list):
-        external_ids = []
+        external_ids = [external_ids]
 
     result = {}
 
     for external_id in external_ids:
+        if not isinstance(external_id, dict):
+            continue
+
         id_type = clean_text(
             external_id.get("external-id-type")
         ).lower()
@@ -278,7 +367,7 @@ def extract_external_ids(work):
 
 def extract_title(work):
     """
-    Extrae el título de la publicación.
+    Extrae el título de una obra.
     """
 
     title_data = work.get("title", {})
@@ -299,12 +388,12 @@ def extract_journal(work):
     Extrae el nombre de la revista o publicación.
     """
 
-    journal_title = work.get("journal-title", "")
+    journal_data = work.get("journal-title", "")
 
-    if isinstance(journal_title, dict):
-        journal_title = journal_title.get("value", "")
+    if isinstance(journal_data, dict):
+        journal_data = journal_data.get("value", "")
 
-    return clean_text(journal_title)
+    return clean_text(journal_data)
 
 
 def extract_booktitle(work):
@@ -335,7 +424,7 @@ def extract_booktitle(work):
 
 def extract_url(work, external_ids):
     """
-    Obtiene una URL asociada a la obra.
+    Obtiene la URL asociada a una obra.
     """
 
     if external_ids.get("url"):
@@ -351,65 +440,72 @@ def extract_url(work, external_ids):
 
 def extract_authors(work):
     """
-    Extrae los nombres de los colaboradores de la obra.
+    Extrae los autores de una obra.
     """
 
-    contributors = work.get("contributors", {})
+    contributors_data = work.get(
+        "contributors",
+        {},
+    )
 
-    if not isinstance(contributors, dict):
+    if not isinstance(contributors_data, dict):
         return []
 
-    contributor_list = contributors.get("contributor", [])
+    contributors = contributors_data.get(
+        "contributor",
+        [],
+    )
 
-    if not isinstance(contributor_list, list):
-        contributor_list = [contributor_list]
+    if not isinstance(contributors, list):
+        contributors = [contributors]
 
     authors = []
 
-    for contributor in contributor_list:
+    for contributor in contributors:
         if not isinstance(contributor, dict):
             continue
 
-        contributor_attributes = contributor.get(
+        attributes = contributor.get(
             "contributor-attributes",
             {},
         )
 
-        if isinstance(contributor_attributes, dict):
-            contributor_role = clean_text(
-                contributor_attributes.get(
-                    "contributor-role"
-                )
+        if isinstance(attributes, dict):
+            role = clean_text(
+                attributes.get("contributor-role")
             ).lower()
 
-            if contributor_role and contributor_role not in {
+            allowed_roles = {
+                "",
                 "author",
                 "co-author",
                 "editor",
-                "",
-            }:
+            }
+
+            if role not in allowed_roles:
                 continue
 
-        contributor_name = contributor.get(
+        name = contributor.get(
             "credit-name",
             "",
         )
 
-        if isinstance(contributor_name, dict):
-            contributor_name = contributor_name.get(
-                "value",
-                "",
-            )
+        if isinstance(name, dict):
+            name = name.get("value", "")
 
-        contributor_name = clean_text(contributor_name)
+        name = clean_text(name)
 
-        if contributor_name and contributor_name not in authors:
-            authors.append(contributor_name)
+        if name and name not in authors:
+            authors.append(name)
 
     return authors
 
 
-def work_to_publication(work, researcher_name, researcher_orcid):
+def work_to_publication(
+    work,
+    researcher_name,
+    researcher_orcid,
+):
     """
     Convierte una obra ORCID en un registro simplificado.
     """
@@ -428,21 +524,14 @@ def work_to_publication(work, researcher_name, researcher_orcid):
         work.get("type", "")
     ).lower()
 
-    subtype = clean_text(
+    publication_subtype = clean_text(
         work.get("sub-type", "")
     ).lower()
 
-    publication_date = work.get("publication-date", {})
-
-    year = get_year(publication_date)
-
-    date = get_date(publication_date)
-
-    journal = extract_journal(work)
-
-    booktitle = extract_booktitle(work)
-
-    url = extract_url(work, external_ids)
+    publication_date = work.get(
+        "publication-date",
+        {},
+    )
 
     authors = extract_authors(work)
 
@@ -455,14 +544,14 @@ def work_to_publication(work, researcher_name, researcher_orcid):
         "author": researcher_name,
         "researcher_orcid": researcher_orcid,
         "type": publication_type,
-        "subtype": subtype,
+        "subtype": publication_subtype,
         "raw_type": publication_type,
-        "year": year,
-        "date": date,
-        "journal": journal,
-        "booktitle": booktitle,
+        "year": get_year(publication_date),
+        "date": get_date(publication_date),
+        "journal": extract_journal(work),
+        "booktitle": extract_booktitle(work),
         "doi": external_ids.get("doi", ""),
-        "url": url,
+        "url": extract_url(work, external_ids),
         "put_code": work.get("put-code", ""),
         "source": "ORCID",
     }
@@ -476,8 +565,7 @@ def work_to_publication(work, researcher_name, researcher_orcid):
 
 def looks_like_conference(publication):
     """
-    Determina si una publicación parece ser una comunicación
-    de congreso según su tipo, subtipo o información textual.
+    Determina si una obra corresponde a una comunicación de congreso.
     """
 
     publication_type = clean_text(
@@ -537,7 +625,6 @@ def looks_like_conference(publication):
         "symposium",
         "symposia",
         "workshop",
-        "meeting",
         "proceedings",
         "comunicación de congreso",
         "comunicacion de congreso",
@@ -559,7 +646,7 @@ def looks_like_conference(publication):
 
 def publication_key(publication):
     """
-    Crea una clave para identificar publicaciones duplicadas.
+    Genera una clave para detectar publicaciones duplicadas.
     """
 
     doi = clean_text(
@@ -589,7 +676,7 @@ def publication_key(publication):
 
 def deduplicate_publications(publications):
     """
-    Elimina publicaciones duplicadas.
+    Elimina duplicados conservando la primera aparición.
     """
 
     unique_publications = {}
@@ -609,7 +696,7 @@ def deduplicate_publications(publications):
 
 def bibtex_escape(value):
     """
-    Escapa caracteres habituales para BibTeX.
+    Escapa caracteres especiales habituales de BibTeX.
     """
 
     value = clean_text(value)
@@ -630,7 +717,7 @@ def bibtex_escape(value):
 
 def make_bibtex_key(publication, index):
     """
-    Genera una clave BibTeX.
+    Genera una clave única para una entrada BibTeX.
     """
 
     authors = publication.get("authors", [])
@@ -665,13 +752,19 @@ def publication_to_bibtex(publication, index):
     Convierte una comunicación de congreso a BibTeX.
     """
 
-    key = make_bibtex_key(publication, index)
+    key = make_bibtex_key(
+        publication,
+        index,
+    )
 
     title = bibtex_escape(
         publication.get("title", "")
     )
 
-    authors = publication.get("authors", [])
+    authors = publication.get(
+        "authors",
+        [],
+    )
 
     if authors:
         author_text = " and ".join(
@@ -683,10 +776,16 @@ def publication_to_bibtex(publication, index):
             publication.get("author", "")
         )
 
-    booktitle = publication.get("booktitle", "")
+    booktitle = publication.get(
+        "booktitle",
+        "",
+    )
 
     if not booktitle:
-        booktitle = publication.get("journal", "")
+        booktitle = publication.get(
+            "journal",
+            "",
+        )
 
     booktitle = bibtex_escape(booktitle)
 
@@ -702,40 +801,40 @@ def publication_to_bibtex(publication, index):
         publication.get("url", "")
     )
 
-    entry_lines = [
+    lines = [
         f"@inproceedings{{{key},",
         f"  title = {{{title}}},",
         f"  author = {{{author_text}}},",
     ]
 
     if booktitle:
-        entry_lines.append(
+        lines.append(
             f"  booktitle = {{{booktitle}}},"
         )
 
     if year:
-        entry_lines.append(
+        lines.append(
             f"  year = {{{year}}},"
         )
 
     if doi:
-        entry_lines.append(
+        lines.append(
             f"  doi = {{{doi}}},"
         )
 
     if url:
-        entry_lines.append(
+        lines.append(
             f"  url = {{{url}}},"
         )
 
-    entry_lines.append("}")
+    lines.append("}")
 
-    return "\n".join(entry_lines)
+    return "\n".join(lines)
 
 
 def save_bibtex(publications, filename):
     """
-    Guarda todas las publicaciones en un archivo BibTeX.
+    Guarda las publicaciones en formato BibTeX.
     """
 
     entries = []
@@ -769,7 +868,7 @@ def save_bibtex(publications, filename):
 
 def save_html(publications, filename):
     """
-    Genera una página HTML con las comunicaciones de congresos.
+    Genera una página HTML con las comunicaciones.
     """
 
     rows = []
@@ -781,11 +880,14 @@ def save_html(publications, filename):
 
         authors = html.escape(
             ", ".join(
-                publication.get("authors", [])
+                publication.get(
+                    "authors",
+                    [],
+                )
             )
         )
 
-        booktitle = html.escape(
+        conference = html.escape(
             publication.get("booktitle")
             or publication.get("journal")
             or ""
@@ -811,7 +913,8 @@ def save_html(publications, filename):
 
             doi_html = (
                 f'<a href="{html.escape(doi_url)}" '
-                f'target="_blank">DOI</a>'
+                f'target="_blank" '
+                f'rel="noopener noreferrer">DOI</a>'
             )
         else:
             doi_html = ""
@@ -819,29 +922,32 @@ def save_html(publications, filename):
         if url:
             url_html = (
                 f'<a href="{html.escape(url)}" '
-                f'target="_blank">Enlace</a>'
+                f'target="_blank" '
+                f'rel="noopener noreferrer">Enlace</a>'
             )
         else:
             url_html = ""
 
-        row = f"""
-        <tr>
-            <td>{title}</td>
-            <td>{authors}</td>
-            <td>{booktitle}</td>
-            <td>{year}</td>
-            <td>{doi_html}</td>
-            <td>{url_html}</td>
-        </tr>
-        """
-
-        rows.append(row)
+        rows.append(
+            f"""
+            <tr>
+                <td>{title}</td>
+                <td>{authors}</td>
+                <td>{conference}</td>
+                <td>{year}</td>
+                <td>{doi_html}</td>
+                <td>{url_html}</td>
+            </tr>
+            """
+        )
 
     html_content = f"""<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comunicaciones de congresos</title>
+
     <style>
         body {{
             font-family: Arial, sans-serif;
@@ -878,6 +984,7 @@ def save_html(publications, filename):
         }}
     </style>
 </head>
+
 <body>
     <h1>Comunicaciones de congresos</h1>
 
@@ -897,6 +1004,7 @@ def save_html(publications, filename):
                 <th>URL</th>
             </tr>
         </thead>
+
         <tbody>
             {"".join(rows)}
         </tbody>
@@ -923,7 +1031,7 @@ def save_html(publications, filename):
 
 def load_researchers(filename):
     """
-    Carga el archivo JSON de investigadores.
+    Carga el archivo JSON con los investigadores.
     """
 
     with open(
@@ -1006,7 +1114,7 @@ def get_researcher_orcid(researcher):
 
 def process_researcher(researcher):
     """
-    Procesa un investigador y devuelve sus publicaciones.
+    Procesa un investigador y recupera sus obras.
     """
 
     researcher_name = get_researcher_name(
@@ -1080,7 +1188,7 @@ def process_researcher(researcher):
 
 def save_json(data, filename):
     """
-    Guarda datos en formato JSON.
+    Guarda los datos en formato JSON.
     """
 
     with open(
@@ -1146,9 +1254,8 @@ def main():
         f"{len(unique_publications)}"
     )
 
-    # Separar comunicaciones de congresos
+    # Separar las comunicaciones de congresos
     conference_publications = []
-
     excluded_publications = []
 
     for publication in unique_publications:
@@ -1177,7 +1284,7 @@ def main():
         OUTPUT_EXCLUDED,
     )
 
-    # Guardar únicamente comunicaciones de congresos
+    # Guardar únicamente comunicaciones
     save_json(
         conference_publications,
         OUTPUT_JSON,
