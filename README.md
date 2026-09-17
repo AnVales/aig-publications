@@ -125,6 +125,3 @@ La información depende de los registros disponibles en OpenAlex. Por este motiv
 
 Se recomienda revisar periódicamente el archivo `publications.bib` y corregir manualmente las referencias que lo necesiten.
 
-## Licencia
-
-Añade aquí la licencia de tu proyecto si corresponde.
