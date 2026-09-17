@@ -1,4 +1,4 @@
-```python
+
 import os
 import json
 import re
@@ -919,4 +919,3 @@ print(
 
 if __name__ == "__main__":
     main()
-```
