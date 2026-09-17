@@ -505,12 +505,24 @@ def main():
                 complete_work = summary
 
             publication = work_to_publication(
-                complete_work,
-                researcher
-            )
+    complete_work,
+    researcher
+)
 
-            if publication:
-                publications.append(publication)
+if publication:
+    # Conservar únicamente artículos científicos
+    if publication.get("type", "").lower() == "journal-article":
+        publications.append(publication)
+        print(
+            f"✅ Artículo añadido: {publication['title']}",
+            flush=True
+        )
+    else:
+        print(
+            f"⏭️ Omitido ({publication.get('type', '')}): "
+            f"{publication['title']}",
+            flush=True
+        )
 
     publications = deduplicate_publications(publications)
 
