@@ -1,6 +1,6 @@
 # Generación automática de publicaciones en formato BibTeX
 
-Este repositorio contiene un sistema automatizado para recopilar las publicaciones científicas de un grupo de investigadores y generar un archivo `publications.bib`.
+Este repositorio contiene un sistema automatizado para recopilar las publicaciones científicas de un grupo de investigadores del grupo de inteligencia artificial de la UC3M y generar un archivo `publications.bib`.
 
 El archivo generado puede utilizarse en páginas web académicas, repositorios institucionales y documentos escritos con LaTeX.
 
