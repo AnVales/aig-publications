@@ -1,4 +1,4 @@
-name: Update publications BibTeX
+name: publications
 
 on:
   workflow_dispatch:
