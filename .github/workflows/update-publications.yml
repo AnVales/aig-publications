@@ -1,12 +1,11 @@
-name: Update publications
+name: Update publications BibTeX
 
 on:
   workflow_dispatch:
   push:
     paths:
       - "researchers.json"
-      - "generate_publications.py"
-      - "requirements.txt"
+      - "generate_bibtex.py"
       - ".github/workflows/publications.yml"
   schedule:
     - cron: "0 6 * * 1"
@@ -15,7 +14,7 @@ permissions:
   contents: write
 
 jobs:
-  update-publications:
+  update-bibtex:
     runs-on: ubuntu-latest
 
     steps:
@@ -25,18 +24,16 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.x"
+          python-version: "3.12"
 
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
+      - name: Install requests
+        run: python -m pip install requests
 
-      - name: Generate publication files
-        run: python generate_publications.py
+      - name: Generate BibTeX
+        run: python generate_bibtex.py
 
-      - name: Commit generated files
+      - name: Commit publications.bib
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "Update publications"
-          file_pattern: "publications.json publications.html publications.bib"
+          commit_message: "Update publications.bib"
+          file_pattern: "publications.bib"
