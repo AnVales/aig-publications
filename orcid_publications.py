@@ -1,10 +1,9 @@
+
 import os
 import json
 import re
 import html
 import unicodedata
-from pathlib import Path
-from datetime import datetime
 
 import requests
 
@@ -40,22 +39,17 @@ HEADERS = {
 # ============================================================
 
 def orcid_get(url):
-    """Realiza una petición GET a la API de ORCID."""
-
     response = requests.get(
         url,
         headers=HEADERS,
         timeout=60
     )
-
     response.raise_for_status()
     return response.json()
 
 
 def get_orcid_works(orcid):
-    """
-    Obtiene el listado de obras públicas de un investigador.
-    """
+    """Obtiene las obras públicas de un investigador."""
 
     url = f"{ORCID_API}/{orcid}/works"
     data = orcid_get(url)
@@ -64,19 +58,14 @@ def get_orcid_works(orcid):
 
 
 def get_orcid_work(orcid, put_code):
-    """
-    Obtiene los metadatos completos de una obra concreta.
-    """
+    """Obtiene los datos completos de una obra."""
 
     url = f"{ORCID_API}/{orcid}/work/{put_code}"
 
     try:
         return orcid_get(url)
     except requests.HTTPError as error:
-        print(
-            f"No se pudo recuperar la obra {put_code} "
-            f"del ORCID {orcid}: {error}"
-        )
+        print(f"No se pudo recuperar la obra {put_code}: {error}")
         return None
 
 
@@ -85,8 +74,6 @@ def get_orcid_work(orcid, put_code):
 # ============================================================
 
 def normalize_text(value):
-    """Normaliza espacios y caracteres Unicode."""
-
     if not value:
         return ""
 
@@ -97,11 +84,9 @@ def normalize_text(value):
 
 
 def normalize_title(title):
-    """Normaliza un título para detectar duplicados."""
-
     title = normalize_text(title).lower()
-
     title = unicodedata.normalize("NFKD", title)
+
     title = "".join(
         character
         for character in title
@@ -115,8 +100,6 @@ def normalize_title(title):
 
 
 def clean_doi(doi):
-    """Limpia un DOI procedente de ORCID."""
-
     if not doi:
         return ""
 
@@ -140,17 +123,17 @@ def clean_doi(doi):
 
 
 def get_external_id(work, id_type):
-    """
-    Extrae un identificador externo de una obra ORCID.
-    """
-
     external_ids = (
         work.get("external-ids", {})
         .get("external-id", [])
     )
 
     for external_id in external_ids:
-        if external_id.get("external-id-type", "").lower() == id_type:
+        current_type = external_id.get(
+            "external-id-type", ""
+        ).lower()
+
+        if current_type == id_type:
             return normalize_text(
                 external_id.get("external-id-value", "")
             )
@@ -159,8 +142,6 @@ def get_external_id(work, id_type):
 
 
 def get_title(work):
-    """Obtiene el título de una obra."""
-
     title_data = work.get("title", {})
     title = title_data.get("title", {})
 
@@ -168,8 +149,6 @@ def get_title(work):
 
 
 def get_publication_date(work):
-    """Obtiene la fecha de publicación disponible."""
-
     date_data = work.get("publication-date") or {}
 
     year = (date_data.get("year") or {}).get("value")
@@ -189,8 +168,6 @@ def get_publication_date(work):
 
 
 def get_journal(work):
-    """Obtiene el nombre de la revista o publicación."""
-
     journal_title = (
         work.get("journal-title") or {}
     ).get("content", "")
@@ -199,20 +176,11 @@ def get_journal(work):
 
 
 def get_url(work):
-    """Obtiene una URL asociada a la obra."""
-
     url_data = work.get("url") or {}
-
     return normalize_text(url_data.get("value", ""))
 
 
 def get_authors(work):
-    """
-    Obtiene los autores disponibles en la obra.
-
-    ORCID puede no incluir la lista completa de autores.
-    """
-
     contributors = (
         work.get("contributors") or {}
     ).get("contributor", [])
@@ -240,9 +208,8 @@ def get_year(work):
 
 
 def make_safe_key(text):
-    """Convierte un texto en una clave BibTeX segura."""
-
     text = unicodedata.normalize("NFKD", text)
+
     text = "".join(
         character
         for character in text
@@ -255,13 +222,6 @@ def make_safe_key(text):
 
 
 def make_bibtex_key(publication, used_keys):
-    """
-    Genera una clave BibTeX única.
-
-    Ejemplo:
-    Garcia2024TitleOfTheArticle
-    """
-
     authors = publication.get("authors", [])
     year = publication.get("year", "")
     title = publication.get("title", "")
@@ -273,7 +233,7 @@ def make_bibtex_key(publication, used_keys):
 
     key_base = (
         make_safe_key(first_author)
-        + (year or "n.d.")
+        + (year or "nd")
         + make_safe_key(title)[:40]
     )
 
@@ -290,24 +250,20 @@ def make_bibtex_key(publication, used_keys):
 
 
 # ============================================================
-# CONVERSIÓN DE OBRAS ORCID
+# CONVERSIÓN DE OBRAS
 # ============================================================
 
 def work_to_publication(work, researcher):
-    """Convierte una obra ORCID al formato interno del programa."""
-
     title = get_title(work)
 
     if not title:
         return None
 
-    doi = clean_doi(get_external_id(work, "doi"))
-
     publication = {
         "researcher": researcher.get("name", ""),
         "orcid": researcher.get("orcid", ""),
         "title": title,
-        "doi": doi,
+        "doi": clean_doi(get_external_id(work, "doi")),
         "url": get_url(work),
         "authors": get_authors(work),
         "year": get_year(work),
@@ -321,13 +277,11 @@ def work_to_publication(work, researcher):
 
 
 # ============================================================
-# DEDUPLICACIÓN
+# ELIMINAR DUPLICADOS
 # ============================================================
 
 def deduplicate_publications(publications):
-    """Elimina publicaciones repetidas por DOI o título."""
-
-    unique = {}
+    unique = set()
     result = []
 
     for publication in publications:
@@ -342,7 +296,7 @@ def deduplicate_publications(publications):
         if key in unique:
             continue
 
-        unique[key] = True
+        unique.add(key)
         result.append(publication)
 
     return result
@@ -353,12 +307,8 @@ def deduplicate_publications(publications):
 # ============================================================
 
 def bibtex_escape(value):
-    """Escapa caracteres especiales de BibTeX."""
-
     if not value:
         return ""
-
-    value = str(value)
 
     replacements = {
         "&": r"\&",
@@ -368,27 +318,22 @@ def bibtex_escape(value):
     }
 
     for old, new in replacements.items():
-        value = value.replace(old, new)
+        value = str(value).replace(old, new)
 
     return value
 
 
 def publication_to_bibtex(publication):
-    """Convierte una publicación al formato BibTeX."""
-
     key = publication["bibtex_key"]
-
     authors = publication.get("authors", [])
 
-    if authors:
-        author_text = " and ".join(authors)
-    else:
+    author_text = " and ".join(authors)
+
+    if not author_text:
         author_text = publication.get("researcher", "")
 
-    entry_type = "article"
-
     lines = [
-        f"@{entry_type}{{{key},",
+        f"@article{{{key},",
         f"  title = {{{bibtex_escape(publication['title'])}}},",
     ]
 
@@ -427,14 +372,13 @@ def publication_to_bibtex(publication):
 # ============================================================
 
 def publication_to_html(publication):
-    """Convierte una publicación a una tarjeta HTML."""
-
     title = html.escape(publication.get("title", ""))
     researcher = html.escape(
         publication.get("researcher", "")
     )
     year = html.escape(publication.get("year", ""))
     journal = html.escape(publication.get("journal", ""))
+
     doi = publication.get("doi", "")
     url = publication.get("url", "")
 
@@ -451,8 +395,6 @@ def publication_to_html(publication):
             f'<a href="{html.escape(url)}">Enlace</a>'
         )
 
-    links_html = " | ".join(links)
-
     return f"""
 <article class="publication">
   <h2>{title}</h2>
@@ -461,14 +403,12 @@ def publication_to_html(publication):
     <strong>Año:</strong> {year}<br>
     <strong>Revista:</strong> {journal}
   </p>
-  <p>{links_html}</p>
+  <p>{" | ".join(links)}</p>
 </article>
 """
 
 
 def create_html(publications):
-    """Genera el documento HTML completo."""
-
     items = "\n".join(
         publication_to_html(publication)
         for publication in publications
@@ -528,9 +468,7 @@ def main():
         try:
             work_groups = get_orcid_works(orcid)
         except requests.HTTPError as error:
-            print(
-                f"Error consultando el ORCID de {name}: {error}"
-            )
+            print(f"Error consultando {name}: {error}")
             continue
 
         for group in work_groups:
@@ -595,7 +533,6 @@ def main():
     with open(OUTPUT_BIB, "w", encoding="utf-8") as file:
         file.write(bibtex_entries)
 
-    print()
     print(f"Publicaciones encontradas: {len(publications)}")
     print(f"Generado: {OUTPUT_JSON}")
     print(f"Generado: {OUTPUT_HTML}")
