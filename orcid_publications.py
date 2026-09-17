@@ -4,7 +4,6 @@ import re
 import html
 import unicodedata
 import time
-
 import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
@@ -17,103 +16,70 @@ from urllib3.util.retry import Retry
 INPUT_FILE = "researchers1.json"
 
 OUTPUT_JSON = "publications.json"
-OUTPUT_ALL_JSON = "publications_all_orcid.json"
-OUTPUT_EXCLUDED_JSON = "publications_excluded.json"
+OUTPUT_ALL = "publications_all_orcid.json"
+OUTPUT_EXCLUDED = "publications_excluded.json"
 OUTPUT_HTML = "publications.html"
 OUTPUT_BIB = "publications.bib"
 
-ORCID_API = "https://pub.orcid.org/v3.0"
+API_BASE = "https://pub.orcid.org/v3.0"
 
-ACCESS_TOKEN = os.getenv("ORCID_ACCESS_TOKEN")
+TOKEN = os.getenv("ORCID_ACCESS_TOKEN")
 
-if not ACCESS_TOKEN:
+if not TOKEN:
     raise RuntimeError(
-        "No se ha encontrado ORCID_ACCESS_TOKEN."
+        "No existe la variable de entorno ORCID_ACCESS_TOKEN."
     )
 
-
-# ORCID permite hasta 100 trabajos en una petición bulk.
-BULK_SIZE = 100
-
-# Número de trabajos que pedimos por página de /works.
-ROWS_PER_PAGE = 100
-
-
 HEADERS = {
-    "Authorization": f"Bearer {ACCESS_TOKEN}",
+    "Authorization": f"Bearer {TOKEN}",
     "Accept": "application/vnd.orcid+json",
 }
 
+# IMPORTANTE:
+# 100 es el máximo que queremos pedir por página.
+ROWS_PER_PAGE = 100
 
-# ============================================================
-# SESSION HTTP
-# ============================================================
+# Seguridad absoluta para evitar otro bucle infinito.
+MAX_PAGES = 1000
 
-def create_session():
-    """
-    Crea una sesión HTTP reutilizable.
-
-    Se reutilizan conexiones y se reintentan errores temporales.
-    """
-
-    session = requests.Session()
-
-    retry = Retry(
-        total=5,
-        connect=5,
-        read=5,
-        status=5,
-        backoff_factor=1,
-        status_forcelist=[
-            429,
-            500,
-            502,
-            503,
-            504,
-        ],
-        allowed_methods=[
-            "GET",
-        ],
-        respect_retry_after_header=True,
-    )
-
-    adapter = HTTPAdapter(
-        max_retries=retry,
-        pool_connections=10,
-        pool_maxsize=10,
-    )
-
-    session.mount(
-        "https://",
-        adapter,
-    )
-
-    session.headers.update(
-        HEADERS
-    )
-
-    return session
-
-
-SESSION = create_session()
+# Tiempo máximo de espera por petición.
+REQUEST_TIMEOUT = 30
 
 
 # ============================================================
-# PETICIONES
+# SESIÓN HTTP
 # ============================================================
 
-def orcid_get(
-    url,
-    params=None,
-):
-    """
-    GET a ORCID usando una sesión reutilizable.
-    """
+session = requests.Session()
 
-    response = SESSION.get(
+retry = Retry(
+    total=3,
+    connect=3,
+    read=3,
+    backoff_factor=1,
+    status_forcelist=[429, 500, 502, 503, 504],
+    allowed_methods=["GET"],
+)
+
+adapter = HTTPAdapter(
+    max_retries=retry,
+    pool_connections=10,
+    pool_maxsize=10,
+)
+
+session.mount("https://", adapter)
+
+
+# ============================================================
+# PETICIÓN ORCID
+# ============================================================
+
+def orcid_get(url, params=None):
+    response = session.get(
         url,
+        headers=HEADERS,
         params=params,
-        timeout=60,
+        timeout=REQUEST_TIMEOUT,
     )
 
     response.raise_for_status()
@@ -122,25 +88,23 @@ def orcid_get(
 
 
 # ============================================================
-# UTILIDADES
+# NORMALIZACIÓN
 # ============================================================
 
 def normalize_text(value):
-
-    if value is None:
+    if not value:
         return ""
 
     value = str(value)
 
     value = unicodedata.normalize(
         "NFKD",
-        value,
-    )
-
-    value = "".join(
-        c
-        for c in value
-        if not unicodedata.combining(c)
+        value
+    ).encode(
+        "ascii",
+        "ignore"
+    ).decode(
+        "ascii"
     )
 
     value = value.lower()
@@ -148,106 +112,61 @@ def normalize_text(value):
     value = re.sub(
         r"\s+",
         " ",
-        value,
-    )
-
-    return value.strip()
-
-
-def clean_text(value):
-
-    if value is None:
-        return ""
-
-    return re.sub(
-        r"\s+",
-        " ",
-        str(value),
+        value
     ).strip()
-
-
-def remove_html_tags(value):
-
-    if not value:
-        return ""
-
-    value = re.sub(
-        r"<[^>]+>",
-        " ",
-        str(value),
-    )
-
-    return html.unescape(value)
-
-
-def clean_doi(doi):
-
-    if not doi:
-        return ""
-
-    doi = str(doi).strip()
-
-    doi = re.sub(
-        r"^(https?://)?(dx\.)?doi\.org/",
-        "",
-        doi,
-        flags=re.IGNORECASE,
-    )
-
-    return doi.rstrip(".,;")
-
-
-def safe_bibtex(value):
-
-    if value is None:
-        return ""
-
-    value = str(value)
-
-    value = value.replace(
-        "\\",
-        "\\textbackslash{}",
-    )
-
-    value = value.replace(
-        "&",
-        r"\&",
-    )
-
-    value = value.replace(
-        "%",
-        r"\%",
-    )
-
-    value = value.replace(
-        "#",
-        r"\#",
-    )
-
-    value = value.replace(
-        "_",
-        r"\_",
-    )
 
     return value
 
 
+def clean_doi(value):
+    if not value:
+        return ""
+
+    value = str(value).strip()
+
+    value = re.sub(
+        r"^https?://doi\.org/",
+        "",
+        value,
+        flags=re.I
+    )
+
+    value = re.sub(
+        r"^doi:\s*",
+        "",
+        value,
+        flags=re.I
+    )
+
+    return value.strip().rstrip(".")
+
+
 # ============================================================
-# OBTENER TODOS LOS WORK GROUPS
+# PAGINACIÓN SEGURA DE ORCID
 # ============================================================
 
 def get_orcid_work_groups(orcid):
 
+    url = f"{API_BASE}/{orcid}/works"
+
     all_groups = []
 
     start = 0
+    total = None
+    page_number = 0
+
+    seen_signatures = set()
 
     while True:
 
-        url = (
-            f"{ORCID_API}/"
-            f"{orcid}/works"
-        )
+        page_number += 1
+
+        if page_number > MAX_PAGES:
+            print(
+                f"      SEGURIDAD: se alcanzó MAX_PAGES={MAX_PAGES}. "
+                f"Se detiene la paginación."
+            )
+            break
 
         params = {
             "start": start,
@@ -256,37 +175,100 @@ def get_orcid_work_groups(orcid):
 
         data = orcid_get(
             url,
-            params=params,
+            params=params
         )
 
         groups = data.get(
             "group",
-            [],
+            []
+        )
+
+        # ORCID normalmente devuelve:
+        # num-found
+        # pero no vamos a depender exclusivamente de ello.
+        if total is None:
+            total = data.get("num-found")
+
+            if total is not None:
+                try:
+                    total = int(total)
+                except Exception:
+                    total = None
+
+        print(
+            f"      Página ORCID {start}-{start + ROWS_PER_PAGE} "
+            f"| grupos: {len(groups)}"
+            + (
+                f" | total declarado: {total}"
+                if total is not None
+                else ""
+            )
         )
 
         if not groups:
             break
 
-        all_groups.extend(
-            groups
+        # ----------------------------------------------------
+        # DETECCIÓN DE PÁGINAS REPETIDAS
+        # ----------------------------------------------------
+
+        signature_parts = []
+
+        for group in groups:
+
+            summaries = group.get(
+                "work-summary",
+                []
+            )
+
+            for summary in summaries:
+
+                put_code = summary.get(
+                    "put-code"
+                )
+
+                if put_code is not None:
+                    signature_parts.append(
+                        str(put_code)
+                    )
+
+        signature = "|".join(
+            signature_parts
         )
 
-        print(
-            f"      Página ORCID "
-            f"{start}-{start + len(groups) - 1}"
-            f" | grupos: {len(groups)}"
-        )
+        if signature in seen_signatures:
+            print(
+                "      AVISO: ORCID ha devuelto una página "
+                "repetida. Se detiene la paginación."
+            )
+            break
 
+        seen_signatures.add(signature)
+
+        all_groups.extend(groups)
+
+        # ----------------------------------------------------
+        # CONDICIONES DE FINALIZACIÓN
+        # ----------------------------------------------------
+
+        if total is not None:
+
+            if start + len(groups) >= total:
+                break
+
+        # Si ORCID devuelve menos de lo solicitado,
+        # normalmente hemos llegado al final.
         if len(groups) < ROWS_PER_PAGE:
             break
 
-        start += ROWS_PER_PAGE
+        # Avanzar exactamente el número real recibido.
+        start += len(groups)
 
     return all_groups
 
 
 # ============================================================
-# EXTRAER TODOS LOS SUMMARIES
+# EXTRAER TODOS LOS SUMMARY
 # ============================================================
 
 def extract_all_summaries(groups):
@@ -297,22 +279,22 @@ def extract_all_summaries(groups):
 
     for group in groups:
 
-        group_summaries = group.get(
+        for summary in group.get(
             "work-summary",
-            [],
-        )
-
-        for summary in group_summaries:
+            []
+        ):
 
             put_code = summary.get(
                 "put-code"
             )
 
-            if not put_code:
+            if put_code is None:
                 continue
 
-            # Evitamos repetir exactamente
-            # el mismo put-code.
+            put_code = str(
+                put_code
+            )
+
             if put_code in seen_put_codes:
                 continue
 
@@ -328,399 +310,184 @@ def extract_all_summaries(groups):
 
 
 # ============================================================
-# RECUPERACIÓN BULK
+# RECUPERAR UNA OBRA COMPLETA
 # ============================================================
 
-def get_orcid_works_bulk(
-    orcid,
-    put_codes,
-):
-    """
-    Recupera trabajos completos en bloques de hasta 100.
+def get_orcid_work(orcid, put_code):
 
-    En lugar de:
-
-        /work/1
-        /work/2
-        /work/3
-        ...
-
-    hacemos:
-
-        /works/1,2,3,...,100
-
-    """
-
-    works_by_put_code = {}
-
-    put_codes = [
-        str(x)
-        for x in put_codes
-        if x
-    ]
-
-    total = len(put_codes)
-
-    for start in range(
-        0,
-        total,
-        BULK_SIZE,
-    ):
-
-        batch = put_codes[
-            start:start + BULK_SIZE
-        ]
-
-        codes = ",".join(
-            batch
-        )
-
-        url = (
-            f"{ORCID_API}/"
-            f"{orcid}/works/"
-            f"{codes}"
-        )
-
-        try:
-
-            data = orcid_get(
-                url
-            )
-
-        except Exception as exc:
-
-            print(
-                f"      ERROR bulk "
-                f"{start + 1}-{start + len(batch)}: "
-                f"{exc}"
-            )
-
-            continue
-
-        # ORCID puede devolver diferentes
-        # envoltorios dependiendo del endpoint.
-        #
-        # Intentamos localizar la lista
-        # de trabajos de forma robusta.
-
-        works = []
-
-        if isinstance(data, dict):
-
-            if isinstance(
-                data.get("work"),
-                list,
-            ):
-                works = data["work"]
-
-            elif isinstance(
-                data.get("works"),
-                dict,
-            ):
-
-                works = data[
-                    "works"
-                ].get(
-                    "work",
-                    [],
-                )
-
-            elif isinstance(
-                data.get("works"),
-                list,
-            ):
-
-                works = data["works"]
-
-        # En algunos casos podría venir
-        # un único objeto.
-        if isinstance(
-            works,
-            dict,
-        ):
-            works = [works]
-
-        for work in works:
-
-            if not isinstance(
-                work,
-                dict,
-            ):
-                continue
-
-            put_code = work.get(
-                "put-code"
-            )
-
-            if put_code is None:
-
-                # Intentar obtenerlo desde path.
-                path = work.get(
-                    "path",
-                    "",
-                )
-
-                match = re.search(
-                    r"/work/(\d+)",
-                    str(path),
-                )
-
-                if match:
-                    put_code = match.group(1)
-
-            if put_code is None:
-                continue
-
-            works_by_put_code[
-                str(put_code)
-            ] = work
-
-        print(
-            f"      Bulk "
-            f"{start + 1}-{start + len(batch)}"
-            f"/{total}"
-            f" -> {len(works)} trabajos"
-        )
-
-    return works_by_put_code
-
-
-# ============================================================
-# EXTERNAL IDS
-# ============================================================
-
-def extract_external_ids(work):
-
-    result = {}
-
-    external_ids_obj = work.get(
-        "external-ids",
-        {},
+    url = (
+        f"{API_BASE}/{orcid}/work/{put_code}"
     )
 
-    if isinstance(
-        external_ids_obj,
-        dict,
-    ):
+    return orcid_get(url)
 
-        external_ids = (
-            external_ids_obj.get(
-                "external-id",
-                []
-            )
+
+# ============================================================
+# TEXTO
+# ============================================================
+
+def get_title(work):
+
+    title_obj = work.get(
+        "title",
+        {}
+    )
+
+    return (
+        title_obj.get(
+            "title",
+            {}
+        ).get(
+            "value"
         )
-
-    else:
-
-        external_ids = []
-
-    if isinstance(
-        external_ids,
-        dict,
-    ):
-        external_ids = [
-            external_ids
-        ]
-
-    for ext in external_ids:
-
-        ext_type = clean_text(
-            ext.get(
-                "external-id-type",
-                "",
-            )
-        ).lower()
-
-        ext_value = clean_text(
-            ext.get(
-                "external-id-value",
-                "",
-            )
-        )
-
-        if not ext_type or not ext_value:
-            continue
-
-        result.setdefault(
-            ext_type,
-            [],
-        ).append(
-            ext_value
-        )
-
-    return result
+        or ""
+    )
 
 
-def get_first_external_id(
-    external_ids,
-    names,
-):
+def get_journal(work):
 
-    for name in names:
+    journal_title = (
+        work
+        .get("journal-title", {})
+        .get("value")
+    )
 
-        values = external_ids.get(
-            name,
-            [],
-        )
-
-        if values:
-            return values[0]
+    if journal_title:
+        return journal_title.strip()
 
     return ""
 
 
 # ============================================================
-# TÍTULO
+# DOI / IDENTIFICADORES
 # ============================================================
 
-def extract_title(work):
+def get_external_ids(work):
 
-    title_obj = work.get(
-        "title",
-        {},
+    result = {}
+
+    external_ids = (
+        work
+        .get("external-ids", {})
+        .get("external-id", [])
     )
 
-    if not title_obj:
-        return ""
+    for item in external_ids:
 
-    title = title_obj.get(
-        "title",
-        "",
-    )
+        id_type = (
+            item.get("external-id-type")
+            or ""
+        ).lower()
 
-    if isinstance(
-        title,
-        dict,
+        value = (
+            item.get("external-id-value")
+            or ""
+        ).strip()
+
+        if not value:
+            continue
+
+        result[id_type] = value
+
+    return result
+
+
+def get_doi(work):
+
+    ids = get_external_ids(work)
+
+    for key in (
+        "doi",
+        "DOI",
     ):
-        title = title.get(
-            "value",
-            "",
-        )
 
-    return clean_text(
-        remove_html_tags(
-            title
-        )
-    )
+        if key in ids:
+            return clean_doi(
+                ids[key]
+            )
+
+    return ""
 
 
 # ============================================================
 # FECHA
 # ============================================================
 
-def extract_date(work):
+def get_date(work):
 
-    publication_date = work.get(
-        "publication-date",
-        {},
+    date_obj = work.get(
+        "publication-date"
     )
 
-    if not publication_date:
-        return {
-            "year": "",
-            "month": "",
-            "day": "",
-        }
+    if not date_obj:
+        return ""
 
-    def get_value(obj):
-
-        if isinstance(
-            obj,
-            dict,
-        ):
-            return obj.get(
-                "value",
-                "",
-            )
-
-        return obj or ""
-
-    return {
-        "year": str(
-            get_value(
-                publication_date.get(
-                    "year",
-                    "",
-                )
-            )
-        ),
-        "month": str(
-            get_value(
-                publication_date.get(
-                    "month",
-                    "",
-                )
-            )
-        ),
-        "day": str(
-            get_value(
-                publication_date.get(
-                    "day",
-                    "",
-                )
-            )
-        ),
-    }
-
-
-# ============================================================
-# REVISTA
-# ============================================================
-
-def extract_journal(work):
-
-    journal = work.get(
-        "journal-title",
-        "",
+    year = (
+        date_obj
+        .get("year", {})
+        .get("value")
     )
 
-    if isinstance(
-        journal,
-        dict,
-    ):
-        journal = journal.get(
-            "value",
-            "",
-        )
-
-    return clean_text(
-        journal
+    month = (
+        date_obj
+        .get("month", {})
+        .get("value")
     )
+
+    day = (
+        date_obj
+        .get("day", {})
+        .get("value")
+    )
+
+    if year and month and day:
+        return f"{year}-{month}-{day}"
+
+    if year and month:
+        return f"{year}-{month}"
+
+    if year:
+        return str(year)
+
+    return ""
+
+
+def get_year(work):
+
+    date_obj = work.get(
+        "publication-date"
+    )
+
+    if not date_obj:
+        return ""
+
+    year = (
+        date_obj
+        .get("year", {})
+        .get("value")
+    )
+
+    return str(year) if year else ""
 
 
 # ============================================================
 # URL
 # ============================================================
 
-def extract_url(
-    work,
-    doi,
-):
+def get_url(work):
 
     url_obj = work.get(
-        "url",
-        "",
+        "url"
     )
 
     if isinstance(
         url_obj,
-        dict,
+        dict
     ):
-        url_obj = url_obj.get(
-            "value",
-            "",
-        )
-
-    url = clean_text(
-        url_obj
-    )
-
-    if url:
-        return url
-
-    if doi:
         return (
-            f"https://doi.org/{doi}"
+            url_obj
+            .get("value")
+            or ""
         )
 
     return ""
@@ -730,629 +497,310 @@ def extract_url(
 # AUTORES
 # ============================================================
 
-def extract_authors(work):
-
-    contributors_obj = work.get(
-        "contributors",
-        {},
-    )
-
-    if not isinstance(
-        contributors_obj,
-        dict,
-    ):
-        return []
-
-    contributors = (
-        contributors_obj.get(
-            "contributor",
-            [],
-        )
-    )
-
-    if isinstance(
-        contributors,
-        dict,
-    ):
-        contributors = [
-            contributors
-        ]
+def get_authors(work):
 
     authors = []
+
+    contributors = (
+        work
+        .get("contributors", {})
+        .get("contributor", [])
+    )
 
     for contributor in contributors:
 
         credit_name = (
-            contributor.get(
-                "credit-name",
-                {},
-            )
+            contributor
+            .get("credit-name", {})
+            .get("value")
         )
 
-        if isinstance(
-            credit_name,
-            dict,
-        ):
-            name = credit_name.get(
-                "value",
-                "",
-            )
-        else:
-            name = credit_name
-
-        name = clean_text(
-            name
-        )
-
-        if name:
+        if credit_name:
             authors.append(
-                name
+                credit_name.strip()
             )
 
     return authors
 
 
 # ============================================================
-# TIPO
+# CONVERTIR WORK A PUBLICACIÓN
 # ============================================================
 
-def extract_type(work):
-
-    return clean_text(
-        work.get(
-            "type",
-            "",
-        )
-    ).lower()
-
-
-# ============================================================
-# DETECTAR ARTÍCULO
-# ============================================================
-
-ARTICLE_TYPES = {
-    "journal-article",
-}
-
-
-def looks_like_article(
-    publication
+def work_to_publication(
+    work,
+    researcher,
+    orcid,
+    put_code=None
 ):
 
-    publication_type = (
-        publication.get(
-            "type",
-            "",
-        )
+    title = get_title(work)
+
+    if not title:
+        return None
+
+    work_type = (
+        work.get("type")
+        or ""
+    ).lower()
+
+    journal = get_journal(
+        work
+    )
+
+    publication = {
+        "researcher": researcher,
+        "orcid": orcid,
+        "title": title,
+        "doi": get_doi(work),
+        "url": get_url(work),
+        "authors": get_authors(work),
+        "year": get_year(work),
+        "date": get_date(work),
+        "journal": journal,
+        "type": work_type,
+        "put_code": put_code,
+    }
+
+    return publication
+
+
+# ============================================================
+# ¿ES ARTÍCULO?
+# ============================================================
+
+def looks_like_article(publication):
+
+    work_type = (
+        publication
+        .get("type", "")
         .lower()
         .strip()
     )
 
-    journal = clean_text(
-        publication.get(
-            "journal",
-            "",
-        )
+    journal = (
+        publication
+        .get("journal", "")
+        .strip()
     )
 
-    # Clasificación explícita de ORCID.
-    if publication_type in ARTICLE_TYPES:
+    # Artículo explícitamente declarado por ORCID
+    if work_type == "journal-article":
         return True
 
-    # Algunos registros pueden estar
-    # clasificados como "other" pero tener
-    # claramente una revista.
-    if (
-        publication_type == "other"
-        and journal
-    ):
+    # Algunos artículos aparecen con otro tipo
+    # pero tienen revista.
+    if work_type == "other" and journal:
         return True
 
     return False
 
 
 # ============================================================
-# WORK -> PUBLICATION
+# DEDUPLICACIÓN
 # ============================================================
-
-def work_to_publication(
-    researcher,
-    orcid,
-    work,
-    put_code,
-):
-
-    if not work:
-        return None
-
-    title = extract_title(
-        work
-    )
-
-    if not title:
-        return None
-
-    external_ids = (
-        extract_external_ids(
-            work
-        )
-    )
-
-    doi = clean_doi(
-        get_first_external_id(
-            external_ids,
-            [
-                "doi",
-            ],
-        )
-    )
-
-    pmid = get_first_external_id(
-        external_ids,
-        [
-            "pmid",
-            "pubmed",
-        ],
-    )
-
-    pmcid = get_first_external_id(
-        external_ids,
-        [
-            "pmcid",
-        ],
-    )
-
-    issn = get_first_external_id(
-        external_ids,
-        [
-            "issn",
-            "issn-print",
-            "issn-electronic",
-        ],
-    )
-
-    date = extract_date(
-        work
-    )
-
-    year = date["year"]
-    month = date["month"]
-    day = date["day"]
-
-    publication_date = "-".join(
-        x
-        for x in [
-            year,
-            month,
-            day,
-        ]
-        if x
-    )
-
-    journal = extract_journal(
-        work
-    )
-
-    authors = extract_authors(
-        work
-    )
-
-    publication_type = extract_type(
-        work
-    )
-
-    url = extract_url(
-        work,
-        doi,
-    )
-
-    return {
-        "researcher": researcher,
-        "orcid": orcid,
-        "title": title,
-        "doi": doi,
-        "pmid": pmid,
-        "pmcid": pmcid,
-        "issn": issn,
-        "url": url,
-        "authors": authors,
-        "year": year,
-        "month": month,
-        "day": day,
-        "date": publication_date,
-        "journal": journal,
-        "type": publication_type,
-        "put_code": str(
-            put_code
-        ),
-    }
-
-
-# ============================================================
-# CLAVES DE DUPLICACIÓN
-# ============================================================
-
-def publication_keys(
-    publication
-):
-
-    keys = []
-
-    doi = clean_doi(
-        publication.get(
-            "doi",
-            "",
-        )
-    )
-
-    if doi:
-
-        keys.append(
-            (
-                "doi",
-                normalize_text(
-                    doi
-                ),
-            )
-        )
-
-    pmid = clean_text(
-        publication.get(
-            "pmid",
-            "",
-        )
-    )
-
-    if pmid:
-
-        keys.append(
-            (
-                "pmid",
-                normalize_text(
-                    pmid
-                ),
-            )
-        )
-
-    pmcid = clean_text(
-        publication.get(
-            "pmcid",
-            "",
-        )
-    )
-
-    if pmcid:
-
-        keys.append(
-            (
-                "pmcid",
-                normalize_text(
-                    pmcid
-                ),
-            )
-        )
-
-    title = normalize_text(
-        publication.get(
-            "title",
-            "",
-        )
-    )
-
-    if title:
-
-        keys.append(
-            (
-                "title",
-                title,
-            )
-        )
-
-    return keys
-
-
-def completeness_score(
-    publication
-):
-
-    fields = [
-        "title",
-        "doi",
-        "pmid",
-        "pmcid",
-        "issn",
-        "url",
-        "journal",
-        "year",
-        "month",
-        "day",
-        "type",
-    ]
-
-    score = sum(
-        1
-        for field in fields
-        if publication.get(field)
-    )
-
-    score += len(
-        publication.get(
-            "authors",
-            [],
-        )
-    )
-
-    return score
-
 
 def deduplicate_publications(
     publications
 ):
 
-    registry = {}
-
-    for publication in publications:
-
-        keys = publication_keys(
-            publication
-        )
-
-        if not keys:
-            continue
-
-        existing = None
-
-        for key in keys:
-
-            if key in registry:
-
-                existing = registry[
-                    key
-                ]
-
-                break
-
-        if existing is None:
-
-            for key in keys:
-                registry[
-                    key
-                ] = publication
-
-        else:
-
-            old_score = (
-                completeness_score(
-                    existing
-                )
-            )
-
-            new_score = (
-                completeness_score(
-                    publication
-                )
-            )
-
-            if new_score > old_score:
-
-                for key in keys:
-
-                    registry[
-                        key
-                    ] = publication
-
-    unique = []
+    result = []
 
     seen = set()
 
-    for publication in registry.values():
+    for pub in publications:
 
-        marker = id(
-            publication
+        doi = clean_doi(
+            pub.get("doi", "")
         )
 
-        if marker in seen:
+        title_key = normalize_text(
+            pub.get("title", "")
+        )
+
+        if doi:
+            key = f"doi:{doi.lower()}"
+
+        else:
+            key = f"title:{title_key}"
+
+        if not title_key:
             continue
 
-        seen.add(
-            marker
+        if key in seen:
+            continue
+
+        seen.add(key)
+
+        result.append(
+            pub
         )
 
-        unique.append(
-            publication
-        )
-
-    return unique
+    return result
 
 
 # ============================================================
 # BIBTEX
 # ============================================================
 
-def make_bibtex_key(
-    publication,
-    existing_keys,
-):
+def bibtex_escape(value):
 
-    authors = publication.get(
+    if not value:
+        return ""
+
+    value = str(value)
+
+    value = value.replace(
+        "\\",
+        "\\textbackslash{}"
+    )
+
+    value = value.replace(
+        "{",
+        "\\{"
+    )
+
+    value = value.replace(
+        "}",
+        "\\}"
+    )
+
+    return value
+
+
+def make_bib_key(pub, index):
+
+    authors = pub.get(
         "authors",
-        [],
+        []
     )
 
     if authors:
 
-        surname = authors[0].split()[-1]
+        surname = (
+            authors[0]
+            .split()[-1]
+        )
 
     else:
 
         surname = (
-            publication.get(
-                "researcher",
-                "Unknown",
-            )
-            .split()[-1]
+            pub
+            .get("researcher", "author")
+            .split()[0]
         )
+
+    year = (
+        pub.get("year")
+        or "nd"
+    )
 
     surname = re.sub(
         r"[^A-Za-z0-9]",
         "",
-        surname,
+        surname
     )
 
-    year = publication.get(
-        "year",
-        "",
-    )
-
-    title = normalize_text(
-        publication.get(
-            "title",
-            "",
-        )
-    )
-
-    words = re.findall(
-        r"[a-z0-9]+",
-        title,
-    )
-
-    title_part = (
-        words[0]
-        if words
-        else "article"
-    )
-
-    base = (
+    return (
         f"{surname}"
         f"{year}"
-        f"{title_part}"
+        f"_{index}"
     )
 
-    base = re.sub(
-        r"[^A-Za-z0-9]",
-        "",
-        base,
-    )
 
-    if not base:
-        base = "article"
-
-    key = base
-    counter = 2
-
-    while key in existing_keys:
-
-        key = (
-            f"{base}"
-            f"{counter}"
-        )
-
-        counter += 1
-
-    existing_keys.add(
-        key
-    )
-
-    return key
-
-
-def publication_to_bibtex(
-    publication
+def make_bibtex(
+    publications
 ):
 
-    key = publication[
-        "bibtex_key"
-    ]
+    entries = []
 
-    authors = publication.get(
-        "authors",
-        [],
-    )
+    for index, pub in enumerate(
+        publications,
+        start=1
+    ):
 
-    title = safe_bibtex(
-        publication.get(
-            "title",
-            "",
+        key = make_bib_key(
+            pub,
+            index
         )
-    )
 
-    journal = safe_bibtex(
-        publication.get(
-            "journal",
-            "",
+        title = bibtex_escape(
+            pub.get("title", "")
         )
-    )
 
-    year = publication.get(
-        "year",
-        "",
-    )
-
-    doi = clean_doi(
-        publication.get(
-            "doi",
-            "",
+        journal = bibtex_escape(
+            pub.get("journal", "")
         )
-    )
 
-    url = publication.get(
-        "url",
-        "",
-    )
+        year = (
+            pub.get("year")
+            or ""
+        )
 
-    lines = [
-        f"@article{{{key},",
-    ]
+        doi = (
+            pub.get("doi")
+            or ""
+        )
 
-    if authors:
+        url = (
+            pub.get("url")
+            or ""
+        )
 
-        author_text = (
-            " and ".join(
-                safe_bibtex(
-                    author
-                )
-                for author in authors
+        authors = pub.get(
+            "authors",
+            []
+        )
+
+        if authors:
+
+            author_text = " and ".join(
+                bibtex_escape(a)
+                for a in authors
             )
+
+        else:
+
+            author_text = ""
+
+        lines = [
+            f"@article{{{key},",
+            f"  title = {{{title}}},",
+        ]
+
+        if author_text:
+            lines.append(
+                f"  author = {{{author_text}}},"
+            )
+
+        if journal:
+            lines.append(
+                f"  journal = {{{journal}}},"
+            )
+
+        if year:
+            lines.append(
+                f"  year = {{{year}}},"
+            )
+
+        if doi:
+            lines.append(
+                f"  doi = {{{doi}}},"
+            )
+
+        if url:
+            lines.append(
+                f"  url = {{{url}}},"
+            )
+
+        lines.append("}")
+
+        entries.append(
+            "\n".join(lines)
         )
 
-        lines.append(
-            f"  author = {{{author_text}}},"
-        )
-
-    lines.append(
-        f"  title = {{{title}}},"
-    )
-
-    if journal:
-
-        lines.append(
-            f"  journal = {{{journal}}},"
-        )
-
-    if year:
-
-        lines.append(
-            f"  year = {{{year}}},"
-        )
-
-    if doi:
-
-        lines.append(
-            f"  doi = {{{doi}}},"
-        )
-
-    if url:
-
-        lines.append(
-            f"  url = {{{url}}},"
-        )
-
-    lines.append(
-        "}"
-    )
-
-    return "\n".join(
-        lines
+    return "\n\n".join(
+        entries
     )
 
 
@@ -1360,266 +808,109 @@ def publication_to_bibtex(
 # HTML
 # ============================================================
 
-def publications_to_html(
+def make_html(
     publications
 ):
 
     items = []
 
-    for publication in publications:
+    for pub in publications:
 
         title = html.escape(
-            publication.get(
-                "title",
-                "",
-            )
+            pub.get("title", "")
         )
 
         researcher = html.escape(
-            publication.get(
-                "researcher",
-                "",
-            )
+            pub.get("researcher", "")
         )
 
         year = html.escape(
-            publication.get(
-                "year",
-                "",
-            )
+            pub.get("year", "")
         )
 
         journal = html.escape(
-            publication.get(
-                "journal",
-                "",
-            )
+            pub.get("journal", "")
         )
 
-        doi = clean_doi(
-            publication.get(
-                "doi",
-                "",
-            )
+        doi = pub.get(
+            "doi",
+            ""
         )
 
-        url = publication.get(
+        url = pub.get(
             "url",
-            "",
+            ""
         )
 
-        item = "<li>"
-
-        item += (
-            f"<strong>{title}</strong>"
-        )
-
-        if researcher:
-
-            item += (
-                f"<br>Investigador: "
-                f"{researcher}"
-            )
-
-        if year:
-
-            item += (
-                f"<br>Año: {year}"
-            )
-
-        if journal:
-
-            item += (
-                f"<br>Revista: {journal}"
-            )
+        block = f"""
+        <li>
+            <strong>{title}</strong><br>
+            Investigador: {researcher}<br>
+            Año: {year}<br>
+            Revista: {journal}<br>
+        """
 
         if doi:
-
-            doi_url = (
-                f"https://doi.org/{doi}"
+            safe_doi = html.escape(
+                doi,
+                quote=True
             )
 
-            item += (
-                "<br>DOI: "
-                f'<a href="{html.escape(doi_url)}">'
-                f"{html.escape(doi)}"
-                "</a>"
+            block += (
+                f'DOI: '
+                f'<a href="https://doi.org/{safe_doi}" '
+                f'target="_blank">'
+                f'{safe_doi}'
+                f'</a><br>'
             )
 
-        elif url:
-
-            item += (
-                '<br><a href="'
-                f'{html.escape(url)}'
-                '">Enlace</a>'
+        if url:
+            safe_url = html.escape(
+                url,
+                quote=True
             )
 
-        item += "</li>"
+            block += (
+                f'<a href="{safe_url}" '
+                f'target="_blank">'
+                f'Enlace'
+                f'</a>'
+            )
+
+        block += "</li>"
 
         items.append(
-            item
+            block
         )
 
     return f"""<!DOCTYPE html>
 <html lang="es">
-
 <head>
-
 <meta charset="UTF-8">
-
-<title>Publicaciones ORCID</title>
-
+<title>Publicaciones</title>
 <style>
-
 body {{
     font-family: Arial, sans-serif;
     margin: 40px;
-    line-height: 1.5;
 }}
 
 li {{
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }}
-
 </style>
-
 </head>
 
 <body>
 
-<h1>Publicaciones ORCID</h1>
-
-<p>
-Total de artículos: {len(publications)}
-</p>
+<h1>Publicaciones</h1>
 
 <ol>
-{"".join(items)}
+{''.join(items)}
 </ol>
 
 </body>
-
 </html>
 """
-
-
-# ============================================================
-# JSON
-# ============================================================
-
-def save_json(
-    filename,
-    data
-):
-
-    with open(
-        filename,
-        "w",
-        encoding="utf-8",
-    ) as file:
-
-        json.dump(
-            data,
-            file,
-            ensure_ascii=False,
-            indent=2,
-        )
-
-
-# ============================================================
-# INVESTIGADORES
-# ============================================================
-
-def load_researchers():
-
-    with open(
-        INPUT_FILE,
-        "r",
-        encoding="utf-8",
-    ) as file:
-
-        data = json.load(
-            file
-        )
-
-    if isinstance(
-        data,
-        list,
-    ):
-        return data
-
-    if isinstance(
-        data,
-        dict,
-    ):
-
-        researchers = data.get(
-            "researchers"
-        )
-
-        if isinstance(
-            researchers,
-            list,
-        ):
-            return researchers
-
-    raise ValueError(
-        "Formato incorrecto en "
-        "researchers1.json."
-    )
-
-
-def get_researcher_orcid(
-    researcher
-):
-
-    fields = [
-        "orcid",
-        "ORCID",
-        "orcid_id",
-        "orcidId",
-        "ORCID_ID",
-    ]
-
-    for field in fields:
-
-        value = researcher.get(
-            field
-        )
-
-        if value:
-            return clean_text(
-                value
-            )
-
-    return ""
-
-
-def get_researcher_name(
-    researcher
-):
-
-    fields = [
-        "name",
-        "nombre",
-        "researcher",
-        "researcher_name",
-        "full_name",
-        "author",
-    ]
-
-    for field in fields:
-
-        value = researcher.get(
-            field
-        )
-
-        if value:
-            return clean_text(
-                value
-            )
-
-    return "Unknown researcher"
 
 
 # ============================================================
@@ -1630,99 +921,100 @@ def main():
 
     start_time = time.time()
 
-    researchers = load_researchers()
+    with open(
+        INPUT_FILE,
+        "r",
+        encoding="utf-8"
+    ) as f:
+
+        researchers = json.load(f)
 
     all_publications = []
+
     excluded = []
 
     total_groups = 0
     total_summaries = 0
-    total_full_works = 0
-    total_fallbacks = 0
+    total_full = 0
     total_errors = 0
 
     print()
     print("=" * 70)
-    print(
-        "ORCID -> BIBTEX"
-    )
-    print(
-        "MODO OPTIMIZADO"
-    )
+    print(" ORCID → BIBTEX")
     print("=" * 70)
     print()
 
-    for researcher_index, researcher in enumerate(
+    for researcher_index, researcher_data in enumerate(
         researchers,
-        start=1,
+        start=1
     ):
 
-        name = get_researcher_name(
-            researcher
+        researcher = (
+            researcher_data.get(
+                "name"
+            )
+            or researcher_data.get(
+                "researcher"
+            )
+            or ""
         )
 
-        orcid = get_researcher_orcid(
-            researcher
-        )
-
-        print()
-        print(
-            "-" * 70
-        )
-
-        print(
-            f"[{researcher_index}/"
-            f"{len(researchers)}] "
-            f"{name}"
-        )
+        orcid = (
+            researcher_data.get(
+                "orcid"
+            )
+            or ""
+        ).strip()
 
         if not orcid:
-
             print(
-                "  AVISO: no tiene ORCID."
+                f"[{researcher_index}/{len(researchers)}] "
+                f"{researcher}: SIN ORCID"
             )
-
             continue
 
         print(
-            f"  ORCID: {orcid}"
+            f"[{researcher_index}/{len(researchers)}] "
+            f"{researcher}"
+        )
+
+        print(
+            f"      ORCID: {orcid}"
         )
 
         # ----------------------------------------------------
-        # 1. Obtener todos los grupos
+        # 1. OBTENER GRUPOS
         # ----------------------------------------------------
 
         try:
 
-            groups = (
-                get_orcid_work_groups(
-                    orcid
-                )
+            groups = get_orcid_work_groups(
+                orcid
             )
 
-        except Exception as exc:
-
-            print(
-                f"  ERROR obteniendo works: "
-                f"{exc}"
-            )
+        except Exception as e:
 
             total_errors += 1
 
+            print(
+                f"      ERROR obteniendo obras: {e}"
+            )
+
             continue
 
-        total_groups += len(
-            groups
+        total_groups += len(groups)
+
+        print(
+            f"      Grupos obtenidos: "
+            f"{len(groups)}"
         )
 
         # ----------------------------------------------------
-        # 2. Extraer TODOS los summaries
+        # 2. OBTENER TODOS LOS SUMMARIES
         # ----------------------------------------------------
 
-        summaries = (
-            extract_all_summaries(
-                groups
-            )
+        summaries = extract_all_summaries(
+            groups
         )
 
         total_summaries += len(
@@ -1730,282 +1022,203 @@ def main():
         )
 
         print(
-            f"  Grupos ORCID: "
-            f"{len(groups)}"
-        )
-
-        print(
-            f"  Work summaries: "
+            f"      Work summaries: "
             f"{len(summaries)}"
         )
 
-        if not summaries:
-            continue
-
         # ----------------------------------------------------
-        # 3. Obtener put-codes
+        # 3. OBTENER OBRAS COMPLETAS
         # ----------------------------------------------------
 
-        put_codes = [
-            str(
-                summary.get(
-                    "put-code"
-                )
-            )
-            for summary in summaries
-            if summary.get(
+        full_works = []
+
+        for i, summary in enumerate(
+            summaries,
+            start=1
+        ):
+
+            put_code = summary.get(
                 "put-code"
             )
-        ]
 
-        # ----------------------------------------------------
-        # 4. RECUPERACIÓN BULK
-        #
-        # Hasta 100 trabajos por petición.
-        # ----------------------------------------------------
+            if i == 1 or i % 25 == 0 or i == len(summaries):
 
-        works_by_put_code = (
-            get_orcid_works_bulk(
-                orcid,
-                put_codes,
-            )
-        )
-
-        total_full_works += len(
-            works_by_put_code
-        )
-
-        print(
-            f"  Works completos: "
-            f"{len(works_by_put_code)}"
-            f"/{len(put_codes)}"
-        )
-
-        # ----------------------------------------------------
-        # 5. Convertir TODOS los trabajos
-        # ----------------------------------------------------
-
-        for summary in summaries:
-
-            put_code = str(
-                summary.get(
-                    "put-code"
+                print(
+                    f"      Obras: "
+                    f"{i}/{len(summaries)}"
                 )
-            )
 
-            # Preferimos el work completo.
-            work = (
-                works_by_put_code.get(
+            try:
+
+                work = get_orcid_work(
+                    orcid,
                     put_code
                 )
-            )
 
-            # Si el bulk no lo devolvió,
-            # usamos el summary como respaldo.
-            if work is None:
-
-                work = summary
-
-                total_fallbacks += 1
-
-            publication = (
-                work_to_publication(
-                    name,
-                    orcid,
-                    work,
-                    put_code,
+                full_works.append(
+                    (
+                        work,
+                        put_code
+                    )
                 )
+
+                total_full += 1
+
+            except Exception as e:
+
+                total_errors += 1
+
+                # Aunque falle la obra completa,
+                # NO la perdemos.
+                # Usamos el summary disponible.
+
+                full_works.append(
+                    (
+                        summary,
+                        put_code
+                    )
+                )
+
+        print(
+            f"      Obras recuperadas: "
+            f"{len(full_works)}"
+        )
+
+        # ----------------------------------------------------
+        # 4. CONVERTIR A PUBLICACIONES
+        # ----------------------------------------------------
+
+        for work, put_code in full_works:
+
+            publication = work_to_publication(
+                work,
+                researcher,
+                orcid,
+                put_code
             )
 
             if publication is None:
-
-                excluded.append({
-                    "researcher": name,
-                    "orcid": orcid,
-                    "put_code": put_code,
-                    "reason": (
-                        "No se pudo obtener "
-                        "un título válido."
-                    ),
-                })
-
                 continue
-
-            # ------------------------------------------------
-            # GUARDAMOS TODO LO RECUPERADO
-            # ------------------------------------------------
-
-            publication[
-                "included_as_article"
-            ] = looks_like_article(
-                publication
-            )
 
             all_publications.append(
                 publication
             )
 
-            if not publication[
-                "included_as_article"
-            ]:
+    # ========================================================
+    # GUARDAR TODO LO QUE ORCID DEVOLVIÓ
+    # ========================================================
 
-                excluded.append({
-                    **publication,
-                    "reason": (
-                        "Tipo ORCID no "
-                        "identificado como "
-                        "artículo de revista."
-                    ),
-                })
+    with open(
+        OUTPUT_ALL,
+        "w",
+        encoding="utf-8"
+    ) as f:
 
-        print(
-            f"  Inventario acumulado: "
-            f"{len(all_publications)}"
+        json.dump(
+            all_publications,
+            f,
+            ensure_ascii=False,
+            indent=2
         )
 
     # ========================================================
-    # CANDIDATOS
+    # FILTRAR ARTÍCULOS
     # ========================================================
 
-    candidate_articles = [
-        p
-        for p in all_publications
-        if p.get(
-            "included_as_article"
-        )
-    ]
+    article_candidates = []
 
-    # ========================================================
-    # DEDUPLICACIÓN
-    # ========================================================
+    excluded = []
 
-    publications = (
-        deduplicate_publications(
-            candidate_articles
-        )
-    )
+    for pub in all_publications:
 
-    # ========================================================
-    # BIBTEX KEYS
-    # ========================================================
+        if looks_like_article(pub):
 
-    existing_keys = set()
-
-    for publication in publications:
-
-        publication[
-            "bibtex_key"
-        ] = make_bibtex_key(
-            publication,
-            existing_keys,
-        )
-
-    # ========================================================
-    # ORDEN
-    # ========================================================
-
-    def sort_key(
-        publication
-    ):
-
-        year = publication.get(
-            "year",
-            "",
-        )
-
-        if str(year).isdigit():
-            year_value = int(
-                year
+            article_candidates.append(
+                pub
             )
+
         else:
-            year_value = 0
 
-        return (
-            -year_value,
-            normalize_text(
-                publication.get(
-                    "title",
-                    "",
-                )
-            ),
-        )
+            excluded.append(
+                pub
+            )
 
-    all_publications.sort(
-        key=sort_key
-    )
+    # ========================================================
+    # DEDUPLICAR
+    # ========================================================
 
-    publications.sort(
-        key=sort_key
+    publications = deduplicate_publications(
+        article_candidates
     )
 
     # ========================================================
     # GUARDAR JSON PRINCIPAL
     # ========================================================
 
-    save_json(
+    with open(
         OUTPUT_JSON,
-        publications
-    )
+        "w",
+        encoding="utf-8"
+    ) as f:
 
-    # ========================================================
-    # GUARDAR TODO ORCID
-    # ========================================================
-
-    save_json(
-        OUTPUT_ALL_JSON,
-        all_publications
-    )
+        json.dump(
+            publications,
+            f,
+            ensure_ascii=False,
+            indent=2
+        )
 
     # ========================================================
     # GUARDAR EXCLUIDOS
     # ========================================================
 
-    save_json(
-        OUTPUT_EXCLUDED_JSON,
-        excluded
-    )
-
-    # ========================================================
-    # HTML
-    # ========================================================
-
     with open(
-        OUTPUT_HTML,
+        OUTPUT_EXCLUDED,
         "w",
-        encoding="utf-8",
-    ) as file:
+        encoding="utf-8"
+    ) as f:
 
-        file.write(
-            publications_to_html(
-                publications
-            )
+        json.dump(
+            excluded,
+            f,
+            ensure_ascii=False,
+            indent=2
         )
 
     # ========================================================
     # BIBTEX
     # ========================================================
 
-    bib_entries = [
-        publication_to_bibtex(
-            publication
-        )
-        for publication in publications
-    ]
+    bibtex = make_bibtex(
+        publications
+    )
 
     with open(
         OUTPUT_BIB,
         "w",
-        encoding="utf-8",
-    ) as file:
+        encoding="utf-8"
+    ) as f:
 
-        file.write(
-            "\n\n".join(
-                bib_entries
-            )
+        f.write(
+            bibtex
         )
 
-        file.write(
-            "\n"
+    # ========================================================
+    # HTML
+    # ========================================================
+
+    html_content = make_html(
+        publications
+    )
+
+    with open(
+        OUTPUT_HTML,
+        "w",
+        encoding="utf-8"
+    ) as f:
+
+        f.write(
+            html_content
         )
 
     # ========================================================
@@ -2018,11 +1231,8 @@ def main():
     )
 
     print()
-    print()
     print("=" * 70)
-    print(
-        "RESULTADO FINAL"
-    )
+    print(" RESULTADO")
     print("=" * 70)
 
     print(
@@ -2041,33 +1251,22 @@ def main():
     )
 
     print(
-        f"Works completos: "
-        f"{total_full_works}"
-    )
-
-    print(
-        f"Fallbacks a summary: "
-        f"{total_fallbacks}"
-    )
-
-    print(
-        f"Errores: "
-        f"{total_errors}"
-    )
-
-    print(
         f"Works recuperados: "
+        f"{total_full}"
+    )
+
+    print(
+        f"Total de trabajos guardados: "
         f"{len(all_publications)}"
     )
 
     print(
         f"Candidatos a artículo: "
-        f"{len(candidate_articles)}"
+        f"{len(article_candidates)}"
     )
 
     print(
-        f"Artículos después de "
-        f"deduplicar: "
+        f"Artículos después de deduplicar: "
         f"{len(publications)}"
     )
 
@@ -2076,41 +1275,41 @@ def main():
         f"{len(excluded)}"
     )
 
-    print()
+    print(
+        f"Errores: "
+        f"{total_errors}"
+    )
+
     print(
         f"TIEMPO TOTAL: "
         f"{elapsed:.1f} segundos"
     )
 
     print()
+    print("Archivos generados:")
+
     print(
-        "Archivos:"
+        f"  - {OUTPUT_JSON}"
     )
 
     print(
-        f"  {OUTPUT_JSON}"
+        f"  - {OUTPUT_ALL}"
     )
 
     print(
-        f"  {OUTPUT_ALL_JSON}"
+        f"  - {OUTPUT_EXCLUDED}"
     )
 
     print(
-        f"  {OUTPUT_EXCLUDED_JSON}"
+        f"  - {OUTPUT_HTML}"
     )
 
     print(
-        f"  {OUTPUT_HTML}"
-    )
-
-    print(
-        f"  {OUTPUT_BIB}"
+        f"  - {OUTPUT_BIB}"
     )
 
     print()
-    print(
-        "FIN."
-    )
+    print("FIN")
 
 
 # ============================================================
