@@ -552,5 +552,7 @@ def main():
     print(f"Generado: {OUTPUT_BIB}")
 
 
+print("✅ SE HA INICIADO orcid_publications.py", flush=True)
+
 if __name__ == "__main__":
     main()
