@@ -764,7 +764,20 @@ def main():
                 # SOLO ARTÍCULOS DE REVISTA
                 # ====================================================
 
+                publication_type = publication.get("type", "").lower()
+
+                print( f"OBRA ORCID: título={publication.get('title')} | "
+                      f"tipo={publication_type} | "
+                      f"DOI={publication.get('doi')}",
+                      flush=True)
+
                 if publication_type == "journal-article":
+                    publications.append(publication)
+                else:
+                    print(
+                        f"EXCLUIDA: {publication.get('title')} "
+                        f"(tipo ORCID: {publication_type})",
+                        flush=True)
 
                     publications.append(
                         publication
