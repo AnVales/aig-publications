@@ -3,7 +3,6 @@ name: Test schedule
 on:
   schedule:
     - cron: "*/5 * * * *"
-      timezone: "Europe/Madrid"
   workflow_dispatch:
 
 jobs:
@@ -11,4 +10,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Hola
-        run: echo "HOLA - el schedule funciona"
+        run: echo "HOLA"
