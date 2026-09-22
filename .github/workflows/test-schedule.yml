@@ -1,9 +1,14 @@
 name: Test schedule
 
 on:
+  workflow_dispatch:
+
+  push:
+    paths:
+      - "test-schedule.yml"
+
   schedule:
     - cron: "15 8 * * *"
-  workflow_dispatch:
 
 jobs:
   test:
