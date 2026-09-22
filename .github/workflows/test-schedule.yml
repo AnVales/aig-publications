@@ -4,10 +4,11 @@ on:
   schedule:
     - cron: "15 8 * * *"
   workflow_dispatch:
-  
+
 jobs:
   test:
     runs-on: ubuntu-latest
+
     steps:
       - name: Hola
-        run: echo "HOLA"
+        run: echo "HOLA - el schedule funciona"
