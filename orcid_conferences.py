@@ -23,7 +23,7 @@ OUTPUT_BIB = "conference_publications.bib"
 
 API_BASE = "https://pub.orcid.org/v3.0"
 REQUEST_TIMEOUT = 30
-BULK_SIZE = 50  # Límite recomendado de put-codes por petición en ORCID
+BULK_SIZE = 50  # Límite de put-codes por petición en ORCID
 
 
 # ============================================================
@@ -53,13 +53,105 @@ session.mount("http://", adapter)
 
 
 # ============================================================
-# AUXILIARES DE LIMPIEZA Y FORMATEO DE AUTORES
+# ALIAS Y NORMALIZACIÓN AVANZADA DE AUTORES
 # ============================================================
+
+# Mapeo de variantes conocidas a una forma canónica única
+AUTHOR_ALIASES = {
+    # Fernando Díaz-de-María
+    "diaz de maria f": "Díaz de María, F.",
+    "diaz de maria fernando": "Díaz de María, F.",
+    "diaz de maria, f.": "Díaz de María, F.",
+    "diaz de maria, fernando": "Díaz de María, F.",
+    "díaz de maría, f.": "Díaz de María, F.",
+    "díaz de maría, fernando": "Díaz de María, F.",
+    "díaz de maría f": "Díaz de María, F.",
+    "fernando diaz de maria": "Díaz de María, F.",
+    "fernando díaz de maría": "Díaz de María, F.",
+    
+    # Carmen Peláez-Moreno
+    "pelaez moreno c": "Peláez Moreno, C.",
+    "pelaez moreno carmen": "Peláez Moreno, C.",
+    "pelaez moreno, c.": "Peláez Moreno, C.",
+    "peláez moreno, c.": "Peláez Moreno, C.",
+    "carmen pelaez moreno": "Peláez Moreno, C.",
+    "carmen peláez moreno": "Peláez Moreno, C.",
+    
+    # Ascensión Gallardo-Antolín
+    "gallardo antolin a": "Gallardo Antolín, A.",
+    "gallardo antolín a": "Gallardo Antolín, A.",
+    "gallardo antolin, a.": "Gallardo Antolín, A.",
+    "gallardo antolín, a.": "Gallardo Antolín, A.",
+    "ascension gallardo antolin": "Gallardo Antolín, A.",
+    "ascensión gallardo antolín": "Gallardo Antolín, A.",
+
+    # Iván González Díaz
+    "gonzalez diaz i": "González Díaz, I.",
+    "gonzalez diaz, i.": "González Díaz, I.",
+    "gonzález díaz, i.": "González Díaz, I.",
+    "ivan gonzalez": "González Díaz, I.",
+    "iván gonzález": "González Díaz, I.",
+    
+    # Miguel Ángel Fernández Torres
+    "fernandez torres m a": "Fernández Torres, M. A.",
+    "fernandez torres, m. a.": "Fernández Torres, M. A.",
+    "fernández torres, m. a.": "Fernández Torres, M. A.",
+    "miguel angel fernandez torres": "Fernández Torres, M. A.",
+    "miguel ángel fernández torres": "Fernández Torres, M. A.",
+}
+
+
+def strip_diacritics(text):
+    """Elimina tildes y marcas diacríticas para comparación uniforme."""
+    normalized = unicodedata.normalize("NFKD", text)
+    return "".join(c for c in normalized if not unicodedata.combining(c))
+
+
+def normalize_author_name(name_raw):
+    """
+    Normaliza el nombre de un autor:
+    1. Elimina guiones y caracteres extraños.
+    2. Convierte a Title Case para evitar inconsistencias de MAYÚSCULAS/minúsculas.
+    3. Mapea contra la lista de alias canónicos.
+    """
+    if not name_raw:
+        return ""
+
+    # Limpieza inicial
+    name = str(name_raw).replace("-", " ")
+    name = re.sub(r"\s+", " ", name).strip()
+    
+    # Clave de búsqueda (sin tildes, minúsculas, sin puntuación)
+    key = strip_diacritics(name).lower()
+    key = re.sub(r"[^\w\s]", "", key).strip()
+
+    # Si coincide con un alias registrado, devolver el nombre canónico
+    if key in AUTHOR_ALIASES:
+        return AUTHOR_ALIASES[key]
+
+    # Si no está en el mapa de alias, aplicar formato Title Case estándar
+    parts = name.split(",")
+    cleaned_parts = []
+    for part in parts:
+        part_clean = part.strip()
+        # Si son iniciales pequeñas (ej. "f." o "m. a.")
+        if re.fullmatch(r"([a-zA-Z]\.?\s*)+", part_clean):
+            initials = re.findall(r"[a-zA-Z]", part_clean)
+            cleaned_parts.append(" ".join(f"{i.upper()}." for i in initials))
+        else:
+            # Capitalizar cada palabra (Title Case)
+            words = part_clean.split()
+            words_cap = [w.capitalize() if w.lower() not in ("de", "del", "la", "las", "los", "y") else w.lower() for w in words]
+            cleaned_parts.append(" ".join(words_cap))
+
+    return ", ".join(cleaned_parts) if len(cleaned_parts) > 1 else cleaned_parts[0]
+
 
 def clean_text(value):
     if value is None:
         return ""
     return str(value).strip()
+
 
 def normalize_orcid(orcid_raw):
     if not orcid_raw:
@@ -69,19 +161,6 @@ def normalize_orcid(orcid_raw):
     val = re.sub(r"[^\dXX-]", "", val, flags=re.IGNORECASE)
     return val.strip()
 
-def normalize_author_name(name_raw):
-    """
-    Normaliza el nombre de un autor eliminando guiones innecesarios
-    y caracteres extraños para dejar un único formato limpio para BibTeX.
-    """
-    if not name_raw:
-        return ""
-    
-    name = str(name_raw).replace("-", " ")
-    name = unicodedata.normalize("NFC", name)
-    name = re.sub(r"[^\w\s,\.]", "", name)
-    name = re.sub(r"\s+", " ", name).strip()
-    return name
 
 def safe_get(url):
     try:
@@ -94,6 +173,7 @@ def safe_get(url):
     except Exception as e:
         print(f"      [ERROR] Excepción de red: {e}")
         return None
+
 
 def extract_orcid_from_item(item):
     for key in ("orcid", "ORCID", "orcid_id", "orcidId", "id"):
@@ -233,16 +313,11 @@ def looks_like_conference(pub):
     title = str(pub.get("title", "") or "").lower()
 
     # 1. SI ES EXPLÍCITAMENTE REVISTA O ARTÍCULO, SE SEPARA Y EXCLUYE
-    journal_indicators = [
-        "journal-article", "journal_article", "journal-issue", "journal", 
-        "transactions", "letters", "magazine", "access", "review"
-    ]
     if any(ji in raw_type for ji in ["journal-article", "journal_article"]):
         return False
     
     # Si la fuente/revista incluye palabras típicas de revistas científicas sin palabras de congreso
     if any(ji in journal for ji in ["journal", "transactions", "letters", "magazine", "access", "review"]):
-        # A no ser que en el mismo título/fuente ponga "proceedings" o "conference"
         if not any(cw in f"{journal} {title}" for cw in ["proceedings", "conference", "symposium", "workshop", "actas"]):
             return False
 
@@ -389,7 +464,8 @@ def main():
     save_bibtex(conferences, OUTPUT_BIB)
     save_html(conferences, OUTPUT_HTML)
 
-    print(f"\n¡Proceso finalizado con éxito! El archivo {OUTPUT_BIB} contiene únicamente @inproceedings.")
+    print(f"\n¡Proceso finalizado con éxito! El archivo {OUTPUT_BIB} contiene únicamente @inproceedings con nombres de autores normalizados.")
+
 
 if __name__ == "__main__":
     main()
