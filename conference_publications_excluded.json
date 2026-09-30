@@ -14,7 +14,7 @@
       "Paola León-Tarife",
       "Francisco Arnalich-Montiel",
       "David Mingo-Botín",
-      "Fernando Díaz de María",
+      "Fernando Díaz-de-María",
       "Martha Stokking",
       "Nerea Saenz-Madrazo",
       "Jaime Etxebarria-Ecenarro",
@@ -40,7 +40,7 @@
     "url": "https://doi.org/10.1109/JSEN.2025.3540415",
     "authors": [
       "Jorge Ortigoso-Narro",
-      "Fernando Diaz-de-Maria",
+      "Fernando Díaz-de-María",
       "Mohammad Mahdi Dehshibi",
       "Ana Tajadura-Jiménez"
     ],
@@ -130,7 +130,7 @@
     "authors": [
       "Mohammad Mahdi Dehshibi",
       "Temitayo Olugbade",
-      "Fernando Diaz-de-Maria",
+      "Fernando Díaz-de-María",
       "Nadia Bianchi-Berthouze",
       "Ana Tajadura-Jiménez"
     ],
@@ -195,8 +195,11 @@
     "url": "https://doi.org/10.1109/ACCESS.2020.3041606",
     "authors": [
       "Javier Martinez-Cebrian",
-      "Miguel-Angel Fernandez-Torres",
-      "Fernando Diaz-De-Maria"
+      "Miguel-Angel Fernández-Torres",
+      "Fernando Díaz-de-María",
+      "Martinez-Cebrian, J.",
+      "Fernández-Torres, M.-A.",
+      "Díaz-de-María, F."
     ],
     "source": "{'value': 'Crossref'}",
     "raw_type": "journal-article",
@@ -239,8 +242,11 @@
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85051661795&partnerID=MN8TOARS",
     "authors": [
       "Molina-Moreno, M.",
-      "Gonzalez-Diaz, I.",
-      "Diaz-De-Maria, F."
+      "González-Díaz, I.",
+      "Díaz-de-María, F.",
+      "Miguel Molina-Moreno",
+      "Ivan González-Díaz",
+      "Fernando Díaz-de-María"
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
     "raw_type": "journal-article",
@@ -262,7 +268,7 @@
       "García-Faura, A.",
       "Hernández-García, A.",
       "Fernández-Martínez, F.",
-      "Díaz-De-María, F.",
+      "Díaz-de-María, F.",
       "San-Segundo, R."
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
@@ -285,7 +291,11 @@
       "Pla-Sacristán, E.",
       "González-Díaz, I.",
       "Martínez-Cortés, T.",
-      "Díaz-de-María, F."
+      "Díaz-de-María, F.",
+      "Eduardo Pla-Sacristán",
+      "Iván González-Díaz",
+      "Tomás Martínez-Cortés",
+      "Fernando Díaz-de-María"
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
     "raw_type": "journal-article",
@@ -308,7 +318,7 @@
       "García-Faura, Á.",
       "Jiménez, C.L.",
       "Montero, J.M.",
-      "Díaz-De-maría, F.",
+      "Díaz-de-María, F.",
       "Fernández-Martínez, F."
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
@@ -327,7 +337,14 @@
     "pmid": "",
     "pmcid": "",
     "url": "http://dx.doi.org/10.1109/tcsvt.2019.2909427",
-    "authors": [],
+    "authors": [
+      "Miguel-Angel Fernández-Torres",
+      "Ivan González-Díaz",
+      "Fernando Díaz-de-María",
+      "Fernández-Torres, M.-A.",
+      "González-Díaz, I.",
+      "Díaz-de-María, F."
+    ],
     "source": "{'value': 'F. Díaz-de-María'}",
     "raw_type": "journal-article",
     "researcher": "Fernando Díaz-de-María",
@@ -344,7 +361,14 @@
     "pmid": "",
     "pmcid": "",
     "url": "http://dx.doi.org/10.1007/s11042-017-5339-9",
-    "authors": [],
+    "authors": [
+      "Fernández-Martínez, F.",
+      "Hernández-García, A.",
+      "Fernández-Torres, M.A.",
+      "González-Díaz, I.",
+      "García-Faura, Á.",
+      "de María, F.D."
+    ],
     "source": "{'value': 'F. Díaz-de-María'}",
     "raw_type": "journal-article",
     "researcher": "Fernando Díaz-de-María",
@@ -362,9 +386,9 @@
     "pmcid": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85043494920&partnerID=MN8TOARS",
     "authors": [
-      "Martinez-Enriquez, E.",
+      "Martínez-Enríquez, E.",
       "Cid-Sueiro, J.",
-      "Diaz-De-Maria, F.",
+      "Díaz-de-María, F.",
       "Ortega, A."
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
@@ -387,7 +411,7 @@
       "López-Labraca, J.",
       "Fernández-Torres, M.Á.",
       "González-Díaz, I.",
-      "Díaz-De-María, F.",
+      "Díaz-de-María, F.",
       "Pizarro, Á."
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
@@ -407,9 +431,9 @@
     "pmcid": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85041525978&partnerID=MN8TOARS",
     "authors": [
-      "Martinez-Enriquez, E.",
+      "Martínez-Enríquez, E.",
       "Cid-Sueiro, J.",
-      "Diaz-De-Maria, F.",
+      "Díaz-de-María, F.",
       "Ortega, A."
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
@@ -473,8 +497,12 @@
     "authors": [
       "González-Díaz, I.",
       "Birinci, M.",
-      "Díaz-De-María, F.",
-      "Delp, E.J."
+      "Díaz-de-María, F.",
+      "Delp, E.J.",
+      "Ivan González-Díaz",
+      "Murat Birinci",
+      "Fernando Díaz-de-María",
+      "Edward J. Delp"
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
     "raw_type": "journal-article",
@@ -515,8 +543,8 @@
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84963813280&partnerID=MN8TOARS",
     "authors": [
       "Jimenez-Moreno, A.",
-      "Martinez-Enriquez, E.",
-      "Diaz-De-Maria, F."
+      "Martínez-Enríquez, E.",
+      "Díaz-de-María, F."
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
     "raw_type": "journal-article",
@@ -537,7 +565,7 @@
     "authors": [
       "Fernández-Martínez, F.",
       "Hernández García, A.",
-      "Díaz De María, F."
+      "Díaz-de-María, F."
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
     "raw_type": "journal-article",
@@ -559,7 +587,7 @@
       "González-Díaz, I.",
       "Martínez-Cortés, T.",
       "Gallardo-Antolín, A.",
-      "Díaz-De-María, F."
+      "Díaz-de-María, F."
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
     "raw_type": "journal-article",
@@ -582,7 +610,7 @@
       "González-De-Suso, J.L.",
       "Sanz-Rodríguez, S.",
       "Peláez-Moreno, C.",
-      "Díaz-De-María, F."
+      "Díaz-de-María, F."
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
     "raw_type": "journal-article",
@@ -601,9 +629,12 @@
     "pmcid": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84890959626&partnerID=MN8TOARS",
     "authors": [
-      "Gonzalez-Diaz, I.",
+      "González-Díaz, I.",
       "Baz-Hormigos, C.E.",
-      "Diaz-De-Maria, F."
+      "Díaz-de-María, F.",
+      "Ivan González-Díaz",
+      "Carlos E. Baz-Hormigos",
+      "Fernando Díaz-de-María"
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
     "raw_type": "journal-article",
@@ -624,8 +655,8 @@
     "authors": [
       "Gonzalez-De-Suso, J.L.",
       "Jimenez-Moreno, A.",
-      "Martinez-Enriquez, E.",
-      "Diaz-De-Maria, F."
+      "Martínez-Enríquez, E.",
+      "Díaz-de-María, F."
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
     "raw_type": "journal-article",
@@ -645,9 +676,9 @@
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84908139516&partnerID=MN8TOARS",
     "authors": [
       "Jimenez-Moreno, A.",
-      "Martinez-Enriquez, E.",
+      "Martínez-Enríquez, E.",
       "Kumar, V.",
-      "Diaz-De-Maria, F."
+      "Díaz-de-María, F."
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
     "raw_type": "journal-article",
@@ -667,7 +698,7 @@
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84876704651&partnerID=MN8TOARS",
     "authors": [
       "González-Díaz, I.",
-      "Díaz-De-María, F."
+      "Díaz-de-María, F."
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
     "raw_type": "journal-article",
@@ -689,7 +720,11 @@
       "Gallardo-Antolín, A.",
       "García-Moral, A.I.",
       "Pereiro-Estevan, Y.",
-      "Díaz-De-María, F."
+      "Díaz-de-María, F.",
+      "Gallardo-Antolín, Ascension",
+      "Garcia-Moral, Ana I.",
+      "Pereiro-Estevan, Yago",
+      "Díaz-de-María, Fernando"
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
     "raw_type": "journal-article",
@@ -710,7 +745,7 @@
     "authors": [
       "Jiménez-Moreno, A.",
       "Martínez-Enríquez, E.",
-      "Díaz-De-María, F."
+      "Díaz-de-María, F."
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
     "raw_type": "journal-article",
@@ -730,7 +765,7 @@
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84864692647&partnerID=MN8TOARS",
     "authors": [
       "Sanz-Rodríguez, S.",
-      "Díaz-De-María, F."
+      "Díaz-de-María, F."
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
     "raw_type": "journal-article",
@@ -753,7 +788,7 @@
       "García-Moral, A.I.",
       "Peláez-Moreno, C.",
       "Martínez-Ramon, M.",
-      "Díaz-De-María, F."
+      "Díaz-de-María, F."
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
     "raw_type": "journal-article",
@@ -773,8 +808,8 @@
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-80052928607&partnerID=MN8TOARS",
     "authors": [
       "Munoz-Mejias, D.",
-      "Gonzalez-Diaz, I.",
-      "Diaz-De-Maria, F."
+      "González-Díaz, I.",
+      "Díaz-de-María, F."
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
     "raw_type": "journal-article",
@@ -796,7 +831,7 @@
       "Martínez-Enríquez, E.",
       "Jiménez-Moreno, A.",
       "Ángel-Pellón, M.",
-      "Díaz-De-María, F."
+      "Díaz-de-María, F."
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
     "raw_type": "journal-article",
@@ -818,7 +853,7 @@
       "García-Moral, A.I.",
       "Solera-Ureña, R.",
       "Peláez-Moreno, C.",
-      "Díaz-De-María, F."
+      "Díaz-de-María, F."
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
     "raw_type": "journal-article",
@@ -837,8 +872,8 @@
     "pmcid": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-80052538639&partnerID=MN8TOARS",
     "authors": [
-      "Sanz-Rodriguez, S.",
-      "Diaz-De-Maria, F."
+      "Sanz-Rodríguez, S.",
+      "Díaz-de-María, F."
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
     "raw_type": "journal-article",
@@ -859,7 +894,7 @@
     "authors": [
       "García-García, D.",
       "Parrado-Hernández, E.",
-      "Diaz-De-Maria, F."
+      "Díaz-de-María, F."
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
     "raw_type": "journal-article",
@@ -880,7 +915,7 @@
     "authors": [
       "Martínez-Enríquez, E.",
       "Jiménez-Moreno, A.",
-      "Diaz-De-Maria, F."
+      "Díaz-de-María, F."
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
     "raw_type": "journal-article",
@@ -902,7 +937,7 @@
       "De-Frutos-López, M.",
       "Orellana-Quirós, D.",
       "Pujol-Alcolado, J.C.",
-      "Díaz-De-María, F."
+      "Díaz-de-María, F."
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
     "raw_type": "journal-article",
@@ -921,10 +956,10 @@
     "pmcid": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-77955620654&partnerID=MN8TOARS",
     "authors": [
-      "Sanz-Rodriguez, S.",
+      "Sanz-Rodríguez, S.",
       "Del-Ama-Esteban, Ó.",
       "De-Frutos-López, M.",
-      "Díaz-De-María, F."
+      "Díaz-de-María, F."
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
     "raw_type": "journal-article",
@@ -986,7 +1021,7 @@
     "authors": [
       "García-García, D.",
       "Parrado Hernández, E.",
-      "Díaz-de María, F."
+      "Díaz-de-María, F."
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
     "raw_type": "journal-article",
@@ -1075,7 +1110,9 @@
       "Martín-Iglesias, D.",
       "Gallardo-Antolín, A.",
       "Peláez-Moreno, C.",
-      "Díaz-de-María, F."
+      "Díaz-de-María, F.",
+      "Solera-Urena, R.",
+      "Martin-Iglesias, D."
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
     "raw_type": "journal-article",
@@ -1121,7 +1158,8 @@
       "Peláez-Moreno, C.",
       "Gallardo-Antolín, A.",
       "Gómez-Cajas, D.F.",
-      "Díaz-de-María, F."
+      "Díaz-de-María, F.",
+      "Gomez-Cajas, DF"
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
     "raw_type": "journal-article",
@@ -1143,7 +1181,8 @@
       "Vicente-Peña, J.",
       "Gallardo-Antolín, A.",
       "Peláez-Moreno, C.",
-      "Díaz-de-María, F."
+      "Díaz-de-María, F.",
+      "Vicente-Pena, J."
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
     "raw_type": "journal-article",
@@ -1209,7 +1248,7 @@
     "authors": [
       "Gallardo-Antolín, A.",
       "Peláez-Moreno, C.",
-      "Díaz-De-María, F."
+      "Díaz-de-María, F."
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
     "raw_type": "journal-article",
@@ -1232,7 +1271,7 @@
       "Parrado-Hernández, E.",
       "Gallardo-Antolín, A.",
       "Zambrano-Miranda, A.",
-      "Díaz-De-María, F."
+      "Díaz-de-María, F."
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
     "raw_type": "book",
@@ -1272,7 +1311,7 @@
     "pmcid": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-0031276546&partnerID=MN8TOARS",
     "authors": [
-      "Díaz-De-María, F.",
+      "Díaz-de-María, F.",
       "Figueiras-Vidal, A.R."
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
@@ -1335,7 +1374,7 @@
     "url": "https://www.mdpi.com/2079-9292/14/11/2248",
     "authors": [
       "Irati Oiza-Zapata",
-      "Ascensión Gallardo-Antolín"
+      "ASCENSIÓN Gallardo-Antolín"
     ],
     "source": "{'value': 'Multidisciplinary Digital Publishing Institute'}",
     "raw_type": "journal-article",
@@ -1397,7 +1436,7 @@
     "url": "https://doi.org/10.2139/ssrn.4903335",
     "authors": [
       "Antonio Castejón-Barrio",
-      "Ascensión Gallardo Antolín"
+      "Ascensión Gallardo-Antolín"
     ],
     "source": "{'value': 'Crossref'}",
     "raw_type": "preprint",
@@ -1416,7 +1455,7 @@
     "pmcid": "",
     "url": "https://www.mdpi.com/2073-8994/13/9/1728",
     "authors": [
-      "Ascensión Gallardo-Antolín",
+      "ASCENSIÓN Gallardo-Antolín",
       "Juan M. Montero"
     ],
     "source": "{'value': 'Multidisciplinary Digital Publishing Institute'}",
@@ -1512,7 +1551,10 @@
     "pmid": "",
     "pmcid": "",
     "url": "https://link.springer.com/chapter/10.1007/978-3-030-31372-2_12",
-    "authors": [],
+    "authors": [
+      "Ascensión Gallardo-Antolín",
+      "Juan M. Montero"
+    ],
     "source": "{'value': 'ASCENSIÓN GALLARDO-ANTOLÍN'}",
     "raw_type": "book-chapter",
     "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
@@ -1533,7 +1575,11 @@
       "Esther Rituerto-González",
       "Alba Mínguez-Sánchez",
       "Ascensión Gallardo-Antolín",
-      "Carmen Peláez-Moreno"
+      "Carmen Peláez-Moreno",
+      "Rituerto-González, E.",
+      "Mínguez-Sánchez, A.",
+      "Gallardo-Antolín, A.",
+      "Peláez-Moreno, C."
     ],
     "source": "{'value': 'Crossref'}",
     "raw_type": "journal-article",
@@ -1554,7 +1600,10 @@
     "authors": [
       "Rodríguez-Hidalgo, A.",
       "Peláez-Moreno, C.",
-      "Gallardo-Antolín, A."
+      "Gallardo-Antolín, A.",
+      "Antonio Rodríguez-Hidalgo",
+      "Carmen Peláez-Moreno",
+      "Ascensión Gallardo-Antolín"
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
     "raw_type": "journal-article",
@@ -1615,7 +1664,14 @@
     "pmid": "",
     "pmcid": "",
     "url": "http://dx.doi.org/10.1109/access.2018.2882055",
-    "authors": [],
+    "authors": [
+      "Antonio Rodriguez-Hidalgo",
+      "Carmen Peláez-Moreno",
+      "Ascension Gallardo-Antolín",
+      "Rodriguez-Hidalgo, A.",
+      "Peláez-Moreno, C.",
+      "Gallardo-Antolín, A."
+    ],
     "source": "{'value': 'ASCENSIÓN GALLARDO-ANTOLÍN'}",
     "raw_type": "journal-article",
     "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
@@ -1698,7 +1754,7 @@
       "Zlotnik, A.",
       "Alfaro, M.C.",
       "Perez, M.C.P.",
-      "Gallardo-Antolin, A.",
+      "Gallardo-Antolín, A.",
       "Martinez, J.M.M."
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
@@ -1806,7 +1862,7 @@
     "authors": [
       "Zlotnik, A.",
       "Montero Martinez, J.M.",
-      "Gallardo-Antolin, A.",
+      "Gallardo-Antolín, A.",
       "Stacey, D.",
       "Sole-Casals, J.",
       "Fred, A.",
@@ -1821,7 +1877,7 @@
     "put_code": "13528558",
     "title": "Auditory-Inspired Morphological Processing of Speech Spectrograms: Applications in Automatic Speech Recognition and Speech Enhancement",
     "type": "journal-article",
-    "journal": "",
+    "journal": "Cognitive Computation",
     "date": "2013-01-01",
     "year": "2013",
     "doi": "10.1007/s12559-012-9196-6",
@@ -1832,7 +1888,11 @@
       "Cadore, J.",
       "Valverde-Albacete, F.J.",
       "Gallardo-Antolín, A.",
-      "Peláez-Moreno, C."
+      "Peláez-Moreno, C.",
+      "Cadore, Joyner",
+      "Valverde-Albacete, Francisco J.",
+      "Gallardo-Antolín, Ascension",
+      "Peláez-Moreno, Carmen"
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
     "raw_type": "journal-article",
@@ -1851,10 +1911,10 @@
     "pmcid": "",
     "url": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcAuth=ORCID&SrcApp=OrcidOrg&DestLinkType=FullRecord&DestApp=WOS_CPL&KeyUT=WOS:000318545800004&KeyUID=WOS:000318545800004",
     "authors": [
-      "Gallardo-Antolin, Ascension",
+      "Gallardo-Antolín, Ascension",
       "Garcia-Moral, Ana I.",
       "Pereiro-Estevan, Yago",
-      "Diaz-de-Maria, Fernando"
+      "Díaz-de-María, Fernando"
     ],
     "source": "{'value': 'ResearcherID'}",
     "raw_type": "journal-article",
@@ -1894,9 +1954,10 @@
     "url": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcAuth=ORCID&SrcApp=OrcidOrg&DestLinkType=FullRecord&DestApp=INSPEC&KeyUT=INSPEC:13692247&KeyUID=INSPEC:13692247",
     "authors": [
       "Ludena-Choez, J.",
-      "Gallardo-Antolin, A.",
+      "Gallardo-Antolín, A.",
       "Drugman, T.",
-      "Dutoit, T."
+      "Dutoit, T.",
+      "Ludeña-Choez, J."
     ],
     "source": "{'value': 'ResearcherID'}",
     "raw_type": "journal-article",
@@ -1907,7 +1968,7 @@
     "put_code": "13528563",
     "title": "Speech denoising using non-negative matrix factorization with Kullback-Leibler divergence and sparseness constraints",
     "type": "book",
-    "journal": "",
+    "journal": "Advances in Speech and Language Technologies For Iberian Languages",
     "date": "2012-01-01",
     "year": "2012",
     "doi": "10.1007/978-3-642-35292-8_22",
@@ -1916,7 +1977,16 @@
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84871512717&partnerID=MN8TOARS",
     "authors": [
       "Ludeña-Choez, J.",
-      "Gallardo-Antolín, A."
+      "Gallardo-Antolín, A.",
+      "Ludena-Choez, Jimmy",
+      "Gallardo-Antolín, Ascension",
+      "Toledano, DT",
+      "Gimenez, AO",
+      "Teixeira, A.",
+      "Rodriguez, JG",
+      "Gomez, LH",
+      "Hernandez, RSS",
+      "Castro, DR"
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
     "raw_type": "book",
@@ -1936,10 +2006,10 @@
     "url": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcAuth=ORCID&SrcApp=OrcidOrg&DestLinkType=FullRecord&DestApp=WOS_CPL&KeyUT=WOS:000316029900022&KeyUID=WOS:000316029900022",
     "authors": [
       "Ludena-Choez, Jimmy",
-      "Gallardo-Antolin, Ascension",
+      "Gallardo-Antolín, Ascension",
       "Toledano, DT",
       "Gimenez, AO",
-      "Teixeira, A",
+      "Teixeira, A.",
       "Rodriguez, JG",
       "Gomez, LH",
       "Hernandez, RSS",
@@ -1963,10 +2033,10 @@
     "url": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcAuth=ORCID&SrcApp=OrcidOrg&DestLinkType=FullRecord&DestApp=WOS_CPL&KeyUT=WOS:000316502200081&KeyUID=WOS:000316502200081",
     "authors": [
       "Mejia-Navarrete, David",
-      "Gallardo-Antolin, Ascension",
-      "Pelaez-Moreno, Carmen",
+      "Gallardo-Antolín, Ascension",
+      "Peláez-Moreno, Carmen",
       "Valverde-Albacete, Francisco J.",
-      "Int  Speech Commun Assoc"
+      "Int Speech Commun Assoc"
     ],
     "source": "{'value': 'ResearcherID'}",
     "raw_type": "journal-article",
@@ -1977,7 +2047,7 @@
     "put_code": "13528565",
     "title": "Morphological processing of spectrograms for speech enhancement",
     "type": "book",
-    "journal": "",
+    "journal": "Advances in Nonlinear Speech Processing",
     "date": "2011-01-01",
     "year": "2011",
     "doi": "10.1007/978-3-642-25020-0_29",
@@ -1987,7 +2057,12 @@
     "authors": [
       "Cadore, J.",
       "Gallardo-Antolín, A.",
-      "Peláez-Moreno, C."
+      "Peláez-Moreno, C.",
+      "Cadore, Joyner",
+      "Gallardo-Antolín, Ascension",
+      "Peláez-Moreno, Carmen",
+      "TraviesoGonzalez, CM",
+      "AlonsoHernandez, JB"
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
     "raw_type": "book",
@@ -2007,8 +2082,8 @@
     "url": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcAuth=ORCID&SrcApp=OrcidOrg&DestLinkType=FullRecord&DestApp=WOS_CPL&KeyUT=WOS:000306444200029&KeyUID=WOS:000306444200029",
     "authors": [
       "Cadore, Joyner",
-      "Gallardo-Antolin, Ascension",
-      "Pelaez-Moreno, Carmen",
+      "Gallardo-Antolín, Ascension",
+      "Peláez-Moreno, Carmen",
       "TraviesoGonzalez, CM",
       "AlonsoHernandez, JB"
     ],
@@ -2021,7 +2096,7 @@
     "put_code": "13528567",
     "title": "Automatic placement of outer volume suppression slices in MR spectroscopic imaging of the human brain",
     "type": "journal-article",
-    "journal": "",
+    "journal": "Magnetic Resonance in Medicine",
     "date": "2010-01-01",
     "year": "2010",
     "doi": "10.1002/mrm.22275",
@@ -2036,7 +2111,15 @@
       "Yung, K.-T.",
       "Zheng, W.",
       "Zhao, C.",
-      "Posse, S."
+      "Posse, S.",
+      "Martinez-Ramon, Manel",
+      "Gallardo-Antolín, Ascension",
+      "Cid-Sueiro, Jesus",
+      "Heileman, Gregory L.",
+      "Yung, Kaung-Ti",
+      "Zheng, Weili",
+      "Zhao, Chenguang",
+      "Posse, Stefan"
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
     "raw_type": "journal-article",
@@ -2047,7 +2130,7 @@
     "put_code": "13528566",
     "title": "Histogram equalization-based features for speech, music, and song discrimination",
     "type": "journal-article",
-    "journal": "",
+    "journal": "IEEE Signal Processing Letters",
     "date": "2010-01-01",
     "year": "2010",
     "doi": "10.1109/lsp.2010.2049877",
@@ -2055,7 +2138,7 @@
     "pmcid": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-77952944068&partnerID=MN8TOARS",
     "authors": [
-      "Gallardo-Antolin, A.",
+      "Gallardo-Antolín, A.",
       "Montero, J.M."
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
@@ -2076,11 +2159,11 @@
     "url": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcAuth=ORCID&SrcApp=OrcidOrg&DestLinkType=FullRecord&DestApp=WOS_CPL&KeyUT=WOS:000266586700082&KeyUID=WOS:000266586700082",
     "authors": [
       "Lutfi, Syaheerah L.",
-      "Montero, J. M.",
+      "Montero, J.M.",
       "Barra-Chicote, R.",
-      "Lucas-Cuesta, J. M.",
-      "Gallardo-Antolin, A.",
-      "Azevedo, L",
+      "Lucas-Cuesta, J.M.",
+      "Gallardo-Antolín, A.",
+      "Azevedo, L.",
       "Londral, AR"
     ],
     "source": "{'value': 'ResearcherID'}",
@@ -2092,7 +2175,7 @@
     "put_code": "13528569",
     "title": "A simulated annealing approach to speaker segmentation in audio databases",
     "type": "journal-article",
-    "journal": "",
+    "journal": "Engineering Applications of Artificial Intelligence",
     "date": "2008-01-01",
     "year": "2008",
     "doi": "10.1016/j.engappai.2007.07.002",
@@ -2103,7 +2186,11 @@
       "Leiva-Murillo, J.M.",
       "Salcedo-Sanz, S.",
       "Gallardo-Antolín, A.",
-      "Artés-Rodríguez, A."
+      "Artés-Rodríguez, A.",
+      "Leiva-Murillo, Jose M.",
+      "Salcedo-Sanz, Sancho",
+      "Gallardo-Antolín, Ascension",
+      "Artes-Rodriguez, Antonio"
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
     "raw_type": "journal-article",
@@ -2122,39 +2209,15 @@
     "pmcid": "",
     "url": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcAuth=ORCID&SrcApp=OrcidOrg&DestLinkType=FullRecord&DestApp=WOS_CPL&KeyUT=WOS:000269998601222&KeyUID=WOS:000269998601222",
     "authors": [
-      "Gallardo-Antolin, A.",
+      "Gallardo-Antolín, A.",
       "Barra, R.",
       "Schroeder, M.",
       "Krstulovic, S.",
-      "Montero, J. M.",
+      "Montero, J.M.",
       "ISCA"
     ],
     "source": "{'value': 'ResearcherID'}",
     "raw_type": "journal-article",
-    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
-    "orcid": "0000-0002-9322-3128"
-  },
-  {
-    "put_code": "13528571",
-    "title": "SVMs for automatic speech recognition: A survey",
-    "type": "book",
-    "journal": "",
-    "date": "2007-01-01",
-    "year": "2007",
-    "doi": "",
-    "pmid": "",
-    "pmcid": "",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-39149093062&partnerID=MN8TOARS",
-    "authors": [
-      "Solera-Ureña, R.",
-      "Padrell-Sendra, J.",
-      "Martín-Iglesias, D.",
-      "Gallardo-Antolín, A.",
-      "Peláez-Moreno, C.",
-      "Díaz-de-María, F."
-    ],
-    "source": "{'value': 'Scopus - Elsevier'}",
-    "raw_type": "book",
     "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
     "orcid": "0000-0002-9322-3128"
   },
@@ -2173,12 +2236,12 @@
       "Solera-Urena, R.",
       "Padrell-Sendra, J.",
       "Martin-Iglesias, D.",
-      "Gallardo-Antolin, A.",
-      "Pelaez-Moreno, C.",
-      "Diaz-de-Maria, F.",
-      "Stylianou, Y",
-      "FaundezZanuy, M",
-      "Esposito, A"
+      "Gallardo-Antolín, A.",
+      "Peláez-Moreno, C.",
+      "Díaz-de-María, F.",
+      "Stylianou, Y.",
+      "FaundezZanuy, M.",
+      "Esposito, A."
     ],
     "source": "{'value': 'ResearcherID'}",
     "raw_type": "book-chapter",
@@ -2197,7 +2260,7 @@
     "pmcid": "",
     "url": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcAuth=ORCID&SrcApp=OrcidOrg&DestLinkType=FullRecord&DestApp=WOS_CPL&KeyUT=WOS:000269965901284&KeyUID=WOS:000269965901284",
     "authors": [
-      "Gallardo-Antolin, Ascension",
+      "Gallardo-Antolín, Ascension",
       "Anguera, Xavier",
       "Wooters, Chuck",
       "ISCA"
@@ -2211,7 +2274,7 @@
     "put_code": "13528576",
     "title": "Offline speaker segmentation using genetic algorithms and mutual information",
     "type": "journal-article",
-    "journal": "",
+    "journal": "Ieee Transactions on Evolutionary Computation",
     "date": "2006-01-01",
     "year": "2006",
     "doi": "10.1109/tevc.2005.857079",
@@ -2222,33 +2285,11 @@
       "Salcedo-Sanz, S.",
       "Gallardo-Antolín, A.",
       "Leiva-Murillo, J.M.",
-      "Bousoño-Calzón, C."
+      "Bousoño-Calzón, C.",
+      "Bousono-Calzon, C."
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
     "raw_type": "journal-article",
-    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
-    "orcid": "0000-0002-9322-3128"
-  },
-  {
-    "put_code": "13528578",
-    "title": "A speech recognizer based on multiclass SVMs with HMM-guided segmentation",
-    "type": "book",
-    "journal": "",
-    "date": "2005-01-01",
-    "year": "2005",
-    "doi": "",
-    "pmid": "",
-    "pmcid": "",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-33745467338&partnerID=MN8TOARS",
-    "authors": [
-      "Martín-Iglesias, D.",
-      "Bernal-Chaves, J.",
-      "Peláez-Moreno, C.",
-      "Gallardo-Antolín, A.",
-      "Díaz-de-María, F."
-    ],
-    "source": "{'value': 'Scopus - Elsevier'}",
-    "raw_type": "book",
     "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
     "orcid": "0000-0002-9322-3128"
   },
@@ -2266,9 +2307,9 @@
     "authors": [
       "Martin-Iglesias, D.",
       "Bernal-Chaves, J.",
-      "Pelaez-Moreno, C.",
-      "Gallardo-Antolin, A.",
-      "Diaz-de-Maria, F.",
+      "Peláez-Moreno, C.",
+      "Gallardo-Antolín, A.",
+      "Díaz-de-María, F.",
       "Faundez-Zanuy, M.",
       "Janer, L.",
       "Esposito, A.",
@@ -2278,29 +2319,6 @@
     ],
     "source": "{'value': 'ResearcherID'}",
     "raw_type": "journal-article",
-    "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
-    "orcid": "0000-0002-9322-3128"
-  },
-  {
-    "put_code": "13528582",
-    "title": "An application of SVM to lost packets reconstruction in voice-enabled services",
-    "type": "book",
-    "journal": "",
-    "date": "2002-01-01",
-    "year": "2002",
-    "doi": "",
-    "pmid": "",
-    "pmcid": "",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84902154256&partnerID=MN8TOARS",
-    "authors": [
-      "Peláez-Moreno, C.",
-      "Parrado-Hernández, E.",
-      "Gallardo-Antolín, A.",
-      "Zambrano-Miranda, A.",
-      "Díaz-De-María, F."
-    ],
-    "source": "{'value': 'Scopus - Elsevier'}",
-    "raw_type": "book",
     "researcher": "ASCENSIÓN GALLARDO-ANTOLÍN",
     "orcid": "0000-0002-9322-3128"
   },
@@ -2316,11 +2334,11 @@
     "pmcid": "",
     "url": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcAuth=ORCID&SrcApp=OrcidOrg&DestLinkType=FullRecord&DestApp=WOS_CPL&KeyUT=WOS:000181441900190&KeyUID=WOS:000181441900190",
     "authors": [
-      "Pelaez-Moreno, C",
-      "Parrado-Hernandez, E",
-      "Gallardo-Antolin, A",
-      "Zambrano-Miranda, A",
-      "Diaz-de-Maria, F",
+      "Peláez-Moreno, C.",
+      "Parrado-Hernandez, E.",
+      "Gallardo-Antolín, A.",
+      "Zambrano-Miranda, A.",
+      "Díaz-de-María, F.",
       "Dorronsoro, JR"
     ],
     "source": "{'value': 'ResearcherID'}",
@@ -2340,8 +2358,8 @@
     "pmcid": "",
     "url": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcAuth=ORCID&SrcApp=OrcidOrg&DestLinkType=FullRecord&DestApp=INSPEC&KeyUT=INSPEC:6352027&KeyUID=INSPEC:6352027",
     "authors": [
-      "Gallardo-Antolin, A.",
-      "Diaz-de-Maria, F.",
+      "Gallardo-Antolín, A.",
+      "Díaz-de-María, F.",
       "Valverde-Albacete, F."
     ],
     "source": "{'value': 'ResearcherID'}",
@@ -2582,7 +2600,7 @@
       "Manuel F. Canabal",
       "Alberto Ramirez Barcenas",
       "Jose M. Lanza-Gutierrez",
-      "Carmen Pelaez-Moreno",
+      "Carmen Peláez-Moreno",
       "Celia Lopez-Ongil"
     ],
     "source": "{'value': 'Crossref'}",
@@ -2645,7 +2663,7 @@
       "Jorge Torres Gomez",
       "Antonio Rodriguez-Hidalgo",
       "Yannelys Virginia Jerez Naranjo",
-      "Carmen Pelaez-Moreno"
+      "Carmen Peláez-Moreno"
     ],
     "source": "{'value': 'Crossref'}",
     "raw_type": "journal-article",
@@ -2665,7 +2683,8 @@
     "url": "https://doi.org/10.3390/math9020173",
     "authors": [
       "Francisco José Valverde-Albacete",
-      "Carmen Peláez-Moreno"
+      "Carmen Peláez-Moreno",
+      "Francisco J. Valverde-Albacete"
     ],
     "source": "{'value': 'Crossref'}",
     "raw_type": "journal-article",
@@ -2685,7 +2704,7 @@
     "url": "https://doi.org/10.1109/TKDE.2019.2915643",
     "authors": [
       "Francisco J. Valverde-Albacete",
-      "Carmen Pelaez-Moreno"
+      "Carmen Peláez-Moreno"
     ],
     "source": "{'value': 'Crossref'}",
     "raw_type": "journal-article",
@@ -2705,7 +2724,8 @@
     "url": "https://doi.org/10.3390/math8091577",
     "authors": [
       "Francisco Valverde-Albacete",
-      "Carmen Peláez-Moreno"
+      "Carmen Peláez-Moreno",
+      "Francisco J. Valverde-Albacete"
     ],
     "source": "{'value': 'Crossref'}",
     "raw_type": "journal-article",
@@ -2749,7 +2769,9 @@
     "url": "https://doi.org/10.3390/e21080780",
     "authors": [
       "Francisco J. Valverde-Albacete",
-      "Carmen Peláez-Moreno"
+      "Carmen Peláez-Moreno",
+      "Valverde-Albacete, F.J.",
+      "Peláez-Moreno, C."
     ],
     "source": "{'value': 'Crossref'}",
     "raw_type": "journal-article",
@@ -2769,7 +2791,9 @@
     "url": "https://doi.org/10.3390/e21010046",
     "authors": [
       "Francisco J. Valverde-Albacete",
-      "Carmen Peláez-Moreno"
+      "Carmen Peláez-Moreno",
+      "Valverde-Albacete, F.J.",
+      "Peláez-Moreno, C."
     ],
     "source": "{'value': 'Crossref'}",
     "raw_type": "journal-article",
@@ -2789,7 +2813,9 @@
     "url": "https://doi.org/10.1016/j.ins.2018.07.067",
     "authors": [
       "Francisco J. Valverde-Albacete",
-      "Carmen Peláez-Moreno"
+      "Carmen Peláez-Moreno",
+      "Valverde-Albacete, F.J.",
+      "Peláez-Moreno, C."
     ],
     "source": "{'value': 'Crossref'}",
     "raw_type": "journal-article",
@@ -2809,7 +2835,9 @@
     "url": "https://doi.org/10.3390/e20070498",
     "authors": [
       "Francisco Valverde-Albacete",
-      "Carmen Peláez-Moreno"
+      "Carmen Peláez-Moreno",
+      "Valverde-Albacete, F.J.",
+      "Peláez-Moreno, C."
     ],
     "source": "{'value': 'Crossref'}",
     "raw_type": "journal-article",
@@ -2820,7 +2848,7 @@
     "put_code": "44817396",
     "title": "Formal Independence Analysis",
     "type": "book-chapter",
-    "journal": "",
+    "journal": "Communications in Computer and Information Science",
     "date": "2018-01-01",
     "year": "2018",
     "doi": "10.1007/978-3-319-91473-2_51",
@@ -2832,7 +2860,12 @@
       "Carmen Peláez-Moreno",
       "Inma P. Cabrera",
       "Pablo Cordero",
-      "Manuel Ojeda-Aciego"
+      "Manuel Ojeda-Aciego",
+      "Valverde-Albacete, F.J.",
+      "Peláez-Moreno, C.",
+      "Cabrera, I.P.",
+      "Cordero, P.",
+      "Ojeda-Aciego, M."
     ],
     "source": "{'value': 'Crossref'}",
     "raw_type": "book-chapter",
@@ -2843,7 +2876,7 @@
     "put_code": "32895335",
     "title": "The Linear Algebra in Extended Formal Concept Analysis Over Idempotent Semifields",
     "type": "book-chapter",
-    "journal": "",
+    "journal": "Lecture Notes in Computer Science (including subseries Lecture Notes in Artificial Intelligence and Lecture Notes in Bioinformatics)",
     "date": "2017-01-01",
     "year": "2017",
     "doi": "10.1007/978-3-319-59271-8_14",
@@ -2852,7 +2885,9 @@
     "url": "https://doi.org/10.1007/978-3-319-59271-8_14",
     "authors": [
       "Francisco José Valverde-Albacete",
-      "Carmen Peláez-Moreno"
+      "Carmen Peláez-Moreno",
+      "Valverde-Albacete, F.J.",
+      "Peláez-Moreno, C."
     ],
     "source": "{'value': 'Crossref'}",
     "raw_type": "book-chapter",
@@ -2893,7 +2928,10 @@
     "authors": [
       "Jose M González-Calabozo",
       "Francisco J Valverde-Albacete",
-      "Carmen Peláez-Moreno"
+      "Carmen Peláez-Moreno",
+      "González-Calabozo, J.M.",
+      "Valverde-Albacete, F.J.",
+      "Peláez-Moreno, C."
     ],
     "source": "{'value': 'Crossref'}",
     "raw_type": "journal-article",
@@ -2910,12 +2948,16 @@
     "doi": "10.1016/j.eswa.2015.09.022",
     "pmid": "",
     "pmcid": "",
-    "url": "",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84945264248&partnerID=MN8TOARS",
     "authors": [
       "Francisco J. Valverde-Albacete",
       "José María González-Calabozo",
       "Anselmo Peñas",
-      "Carmen Peláez-Moreno"
+      "Carmen Peláez-Moreno",
+      "Valverde-Albacete, F.J.",
+      "González-Calabozo, J.M.",
+      "Peñas, A.",
+      "Peláez-Moreno, C."
     ],
     "source": "{'value': 'Crossref'}",
     "raw_type": "journal-article",
@@ -2992,8 +3034,11 @@
     "doi": "10.1016/j.fss.2014.09.022",
     "pmid": "",
     "pmcid": "",
-    "url": "",
-    "authors": [],
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84928208256&partnerID=MN8TOARS",
+    "authors": [
+      "Valverde-Albacete, F.J.",
+      "Peláez-Moreno, C."
+    ],
     "source": "{'value': 'Crossref'}",
     "raw_type": "journal-article",
     "researcher": "Carmen Peláez-Moreno",
@@ -3037,27 +3082,6 @@
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
     "raw_type": "journal-article",
-    "researcher": "Carmen Peláez-Moreno",
-    "orcid": "0000-0003-1425-6763"
-  },
-  {
-    "put_code": "52292394",
-    "title": "Deep maxout networks applied to noise-robust speech recognition",
-    "type": "book",
-    "journal": "Lecture Notes in Computer Science (including subseries Lecture Notes in Artificial Intelligence and Lecture Notes in Bioinformatics)",
-    "date": "2014-01-01",
-    "year": "2014",
-    "doi": "",
-    "pmid": "",
-    "pmcid": "",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84921419279&partnerID=MN8TOARS",
-    "authors": [
-      "de-la-Calle-Silos, F.",
-      "Gallardo-Antolín, A.",
-      "Peláez-Moreno, C."
-    ],
-    "source": "{'value': 'Scopus - Elsevier'}",
-    "raw_type": "book",
     "researcher": "Carmen Peláez-Moreno",
     "orcid": "0000-0003-1425-6763"
   },
@@ -3225,52 +3249,6 @@
     "orcid": "0000-0003-1425-6763"
   },
   {
-    "put_code": "13656873",
-    "title": "Hybrid models for automatic speech recognition: A comparison of classical ANN and kernel based methods",
-    "type": "book",
-    "journal": "",
-    "date": "2007-01-01",
-    "year": "2007",
-    "doi": "",
-    "pmid": "",
-    "pmcid": "",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-38749092659&partnerID=MN8TOARS",
-    "authors": [
-      "García-Moral, A.I.",
-      "Solera-Ureña, R.",
-      "Peláez-Moreno, C.",
-      "Díaz-de-María, F."
-    ],
-    "source": "{'value': 'Scopus - Elsevier'}",
-    "raw_type": "book",
-    "researcher": "Carmen Peláez-Moreno",
-    "orcid": "0000-0003-1425-6763"
-  },
-  {
-    "put_code": "13656874",
-    "title": "SVMs for automatic speech recognition: A survey",
-    "type": "book",
-    "journal": "",
-    "date": "2007-01-01",
-    "year": "2007",
-    "doi": "",
-    "pmid": "",
-    "pmcid": "",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-39149093062&partnerID=MN8TOARS",
-    "authors": [
-      "Solera-Ureña, R.",
-      "Padrell-Sendra, J.",
-      "Martín-Iglesias, D.",
-      "Gallardo-Antolín, A.",
-      "Peláez-Moreno, C.",
-      "Díaz-de-María, F."
-    ],
-    "source": "{'value': 'Scopus - Elsevier'}",
-    "raw_type": "book",
-    "researcher": "Carmen Peláez-Moreno",
-    "orcid": "0000-0003-1425-6763"
-  },
-  {
     "put_code": "13656877",
     "title": "Towards a generalisation of formal concept analysis for data mining purposes",
     "type": "book",
@@ -3284,52 +3262,6 @@
     "authors": [
       "Valverde-Albacete, F.J.",
       "Peláez-Moreno, C."
-    ],
-    "source": "{'value': 'Scopus - Elsevier'}",
-    "raw_type": "book",
-    "researcher": "Carmen Peláez-Moreno",
-    "orcid": "0000-0003-1425-6763"
-  },
-  {
-    "put_code": "13656880",
-    "title": "A speech recognizer based on multiclass SVMs with HMM-guided segmentation",
-    "type": "book",
-    "journal": "",
-    "date": "2005-01-01",
-    "year": "2005",
-    "doi": "",
-    "pmid": "",
-    "pmcid": "",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-33745467338&partnerID=MN8TOARS",
-    "authors": [
-      "Martín-Iglesias, D.",
-      "Bernal-Chaves, J.",
-      "Peláez-Moreno, C.",
-      "Gallardo-Antolín, A.",
-      "Díaz-de-María, F."
-    ],
-    "source": "{'value': 'Scopus - Elsevier'}",
-    "raw_type": "book",
-    "researcher": "Carmen Peláez-Moreno",
-    "orcid": "0000-0003-1425-6763"
-  },
-  {
-    "put_code": "13656883",
-    "title": "An application of SVM to lost packets reconstruction in voice-enabled services",
-    "type": "book",
-    "journal": "",
-    "date": "2002-01-01",
-    "year": "2002",
-    "doi": "",
-    "pmid": "",
-    "pmcid": "",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84902154256&partnerID=MN8TOARS",
-    "authors": [
-      "Peláez-Moreno, C.",
-      "Parrado-Hernández, E.",
-      "Gallardo-Antolín, A.",
-      "Zambrano-Miranda, A.",
-      "Díaz-De-María, F."
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
     "raw_type": "book",
@@ -3427,7 +3359,7 @@
     "pmcid": "",
     "url": "https://doi.org/10.1109/JBHI.2018.2806962",
     "authors": [
-      "Ivan Gonzalez-Diaz"
+      "Ivan González-Díaz"
     ],
     "source": "{'value': 'Crossref'}",
     "raw_type": "journal-article",
@@ -3530,7 +3462,12 @@
     "pmid": "",
     "pmcid": "",
     "url": "http://dx.doi.org/10.1007/978-3-319-05696-8_4",
-    "authors": [],
+    "authors": [
+      "González-Díaz, I.",
+      "Benois-Pineau, J.",
+      "Buso, V.",
+      "Boujut, H."
+    ],
     "source": "{'value': 'IVAN GONZALEZ'}",
     "raw_type": "book-chapter",
     "researcher": "IVAN GONZALEZ",
@@ -3639,7 +3576,7 @@
       "Claudia Bertini",
       "Paolo Bonetti",
       "Gustau Camps‐Valls",
-      "Miguel Ángel Fernández Torres",
+      "Miguel Ángel Fernández-Torres",
       "Andrea Ficchì",
       "Nora Linscheid",
       "Martina Merlo",
@@ -3829,7 +3766,32 @@
       "Sebastian Sippel",
       "Spyros Kondylatos",
       "Tamara Happé",
-      "Tristan Williams"
+      "Tristan Williams",
+      "Camps-Valls, G.",
+      "Fernández-Torres, M.-Á.",
+      "Cohrs, K.-H.",
+      "Höhl, A.",
+      "Castelletti, A.",
+      "Pacal, A.",
+      "Robin, C.",
+      "Martinuzzi, F.",
+      "Papoutsis, I.",
+      "Prapas, I.",
+      "Pérez-Aracil, J.",
+      "Weigel, K.",
+      "Gonzalez-Calabuig, M.",
+      "Reichstein, M.",
+      "Rabel, M.",
+      "Giuliani, M.",
+      "Mahecha, M.D.",
+      "Popescu, O.-I.",
+      "Pellicer-Valero, O.J.",
+      "Ouala, S.",
+      "Salcedo-Sanz, S.",
+      "Sippel, S.",
+      "Kondylatos, S.",
+      "Happé, T.",
+      "Williams, T."
     ],
     "source": "{'value': 'Crossref'}",
     "raw_type": "journal-article",
@@ -3861,7 +3823,21 @@
       "Rudy Venguswamy",
       "Anirudh Koul",
       "Raghavan Muthuregunathan",
-      "Arthur Hrast Essenfelder"
+      "Arthur Hrast Essenfelder",
+      "Dramsch, J.S.",
+      "Kuglitsch, M.M.",
+      "Fernández-Torres, M.-Á.",
+      "Toreti, A.",
+      "Albayrak, R.A.",
+      "Nava, L.",
+      "Ghaffarian, S.",
+      "Cheng, X.",
+      "Ma, J.",
+      "Samek, W.",
+      "Venguswamy, R.",
+      "Koul, A.",
+      "Muthuregunathan, R.",
+      "Hrast Essenfelder, A."
     ],
     "source": "{'value': 'Crossref'}",
     "raw_type": "journal-article",
@@ -3882,7 +3858,10 @@
     "authors": [
       "Maria Gonzalez-Calabuig",
       "Miguel-Ángel Fernández-Torres",
-      "Gustau Camps-Valls"
+      "Gustau Camps-Valls",
+      "Gonzalez-Calabuig, M.",
+      "Fernández-Torres, M.-Á.",
+      "Camps-Valls, G."
     ],
     "source": "{'value': 'Crossref'}",
     "raw_type": "journal-article",
@@ -3915,7 +3894,22 @@
       "Claire Robin",
       "Maximilian Söchting",
       "Mélanie Weynants",
-      "Miguel D. Mahecha"
+      "Miguel D. Mahecha",
+      "Ji, C.",
+      "Fincke, T.",
+      "Benson, V.",
+      "Camps-Valls, G.",
+      "Fernández-Torres, M.-Á.",
+      "Gans, F.",
+      "Kraemer, G.",
+      "Martinuzzi, F.",
+      "Montero, D.",
+      "Mora, K.",
+      "Pellicer-Valero, O.J.",
+      "Robin, C.",
+      "Söchting, M.",
+      "Weynants, M.",
+      "Mahecha, M.D."
     ],
     "source": "{'value': 'Crossref'}",
     "raw_type": "journal-article",
@@ -3964,7 +3958,14 @@
       "Mengxue Zhang",
       "Oscar Jose Pellicer-Valero",
       "Miguel-Ángel Fernández-Torres",
-      "Gustau Camps-Valls"
+      "Gustau Camps-Valls",
+      "Gonzalez-Calabuig, M.",
+      "Cortes-Andres, J.",
+      "Williams, T.K.E.",
+      "Zhang, M.",
+      "Pellicer-Valero, O.J.",
+      "Fernández-Torres, M.-A.",
+      "Camps-Valls, G."
     ],
     "source": "{'value': 'Crossref'}",
     "raw_type": "journal-article",
@@ -4028,7 +4029,10 @@
     "authors": [
       "Jordi Cortés-Andrés",
       "Miguel-Ángel Fernández-Torres",
-      "Gustau Camps-Valls"
+      "Gustau Camps-Valls",
+      "Cortes-Andres, J.",
+      "Fernández-Torres, M.-A.",
+      "Camps-Valls, G."
     ],
     "source": "{'value': 'Crossref'}",
     "raw_type": "journal-article",
@@ -4131,7 +4135,15 @@
       "Dario Augusto Borges Oliveira",
       "Zeynep Akata",
       "Andreas Dengel",
-      "Xiao Xiang Zhu"
+      "Xiao Xiang Zhu",
+      "Hohl, A.",
+      "Obadic, I.",
+      "Fernández-Torres, M.-A.",
+      "Najjar, H.",
+      "Oliveira, D.A.B.",
+      "Akata, Z.",
+      "Dengel, A.",
+      "Zhu, X.X."
     ],
     "source": "{'value': 'Crossref'}",
     "raw_type": "journal-article",
@@ -4231,8 +4243,16 @@
       "Munoz-Mari, J.",
       "Amoros-Lopez, J.",
       "Fernandez-Moran, R.",
-      "Fernandez-Torres, M.-A.",
-      "Adsuara, J.E."
+      "Fernández-Torres, M.-A.",
+      "Adsuara, J.E.",
+      "Valero Laparra",
+      "Adrián Pérez-Suay",
+      "María Piles",
+      "Jordi Muñoz-Marí",
+      "Julia Amorós-López",
+      "Roberto Fernandez-Moran",
+      "Miguel-Ángel Fernández-Torres",
+      "Jose E. Adsuara"
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
     "raw_type": "journal-article",
@@ -4251,7 +4271,7 @@
     "pmcid": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85168642025&partnerID=MN8TOARS",
     "authors": [
-      "Fernández Torres, M.Á."
+      "Fernández-Torres, M.Á."
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
     "raw_type": "other",
@@ -4346,7 +4366,15 @@
       "Camps-Valls, G.",
       "Piles, M.",
       "Fernández-Torres, M.-Á.",
-      "Carvalhais, N."
+      "Carvalhais, N.",
+      "Spyros Kondylatos",
+      "Ioannis Prapas",
+      "Michele Ronco",
+      "Ioannis Papoutsis",
+      "Gustau Camps‐Valls",
+      "María Piles",
+      "Miguel‐Ángel Fernández‐Torres",
+      "Nuno Carvalhais"
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
     "raw_type": "journal-article",
