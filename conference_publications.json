@@ -6,7 +6,12 @@
     "year": "2025",
     "doi": "10.1109/JSEN.2025.3540415",
     "url": "https://doi.org/10.1109/JSEN.2025.3540415",
-    "authors": [],
+    "authors": [
+      "Jorge Ortigoso Narro",
+      "Fernando Diaz de Maria",
+      "Mohammad Mahdi Dehshibi",
+      "Ana Tajadura Jiménez"
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -16,7 +21,13 @@
     "year": "2023",
     "doi": "10.1109/JSTSP.2023.3262358",
     "url": "https://doi.org/10.1109/JSTSP.2023.3262358",
-    "authors": [],
+    "authors": [
+      "Mohammad Mahdi Dehshibi",
+      "Temitayo Olugbade",
+      "Fernando Diaz de Maria",
+      "Nadia Bianchi Berthouze",
+      "Ana Tajadura Jiménez"
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -26,7 +37,11 @@
     "year": "2020",
     "doi": "10.1109/ACCESS.2020.3041606",
     "url": "https://doi.org/10.1109/ACCESS.2020.3041606",
-    "authors": [],
+    "authors": [
+      "Javier Martinez Cebrian",
+      "Miguel Angel Fernandez Torres",
+      "Fernando Diaz De Maria"
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -36,7 +51,11 @@
     "year": "2019",
     "doi": "10.1109/TITS.2018.2859035",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85051661795&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Molina Moreno, M.",
+      "Gonzalez Diaz, I.",
+      "Diaz De Maria, F."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -56,7 +75,11 @@
     "year": "2018",
     "doi": "10.1109/ICIP.2018.8451566",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85062895952&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Martinez Cortes, T.",
+      "Gonzalez Diaz, I.",
+      "Diaz De Maria, F."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -66,7 +89,12 @@
     "year": "2018",
     "doi": "10.1109/TCSVT.2016.2633418",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85043494920&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Martinez Enriquez, E.",
+      "Cid Sueiro, J.",
+      "Diaz De Maria, F.",
+      "Ortega, A."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -76,7 +104,12 @@
     "year": "2018",
     "doi": "10.1109/TSP.2018.2802465",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85041525978&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Martinez Enriquez, E.",
+      "Cid Sueiro, J.",
+      "Diaz De Maria, F.",
+      "Ortega, A."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -86,7 +119,11 @@
     "year": "2017",
     "doi": "10.1145/3106426.3109418",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85030996149&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Hernández García, A.",
+      "Fernández Martínez, F.",
+      "Díaz De maría, F."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -96,7 +133,12 @@
     "year": "2017",
     "doi": "10.1109/TMM.2016.2616298",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85013466531&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "González Díaz, I.",
+      "Birinci, M.",
+      "Díaz De María, F.",
+      "Delp, E.J."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -106,7 +148,11 @@
     "year": "2016",
     "doi": "10.1109/CBMI.2016.7500272",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84978901173&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Fernandez Torres, M. A.",
+      "Gonzalez Diaz, I.",
+      "Diaz De Maria, F."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -116,7 +162,11 @@
     "year": "2016",
     "doi": "10.1109/TMM.2016.2524995",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84963813280&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Jimenez Moreno, A.",
+      "Martinez Enriquez, E.",
+      "Diaz De Maria, F."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -126,7 +176,13 @@
     "year": "2015",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84979879858&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Garcia Cabellos, J.M.",
+      "Pelaez Moreno, C.",
+      "Gallardo Antolin, A.",
+      "Perez Cruz, F.",
+      "Diaz De Maria, F."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -136,7 +192,15 @@
     "year": "2014",
     "doi": "10.1109/ICIP.2014.7025562",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84949928601&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Martínez Cortés, T.",
+      "Fernández Torres, M.A.",
+      "Jiménez Moreno, A.",
+      "González Díaz, I.",
+      "Díaz De María, F.",
+      "Guzmán De Villoria, J.A.",
+      "Fernández, P."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -146,7 +210,11 @@
     "year": "2014",
     "doi": "10.1109/TMM.2013.2286083",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84890959626&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Gonzalez Diaz, I.",
+      "Baz Hormigos, C.E.",
+      "Diaz De Maria, F."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -166,7 +234,12 @@
     "year": "2014",
     "doi": "10.1109/TCSVT.2013.2276857",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84896528947&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Gonzalez De Suso, J.L.",
+      "Jimenez Moreno, A.",
+      "Martinez Enriquez, E.",
+      "Diaz De Maria, F."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -176,7 +249,12 @@
     "year": "2014",
     "doi": "10.1109/TMM.2014.2347257",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84908139516&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Jimenez Moreno, A.",
+      "Martinez Enriquez, E.",
+      "Kumar, V.",
+      "Diaz De Maria, F."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -186,7 +264,12 @@
     "year": "2013",
     "doi": "10.1109/MAES.2013.6477866",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84897749098&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Gallardo Antolín, A.",
+      "García Moral, A.I.",
+      "Pereiro Estevan, Y.",
+      "Díaz De María, F."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -196,7 +279,12 @@
     "year": "2013",
     "doi": "10.1109/ICIP.2013.6738401",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84897749701&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Martínez Enríquez, E.",
+      "Díaz De María, F.",
+      "Cid Sueiro, J.",
+      "Ortega, A."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -206,7 +294,11 @@
     "year": "2013",
     "doi": "10.1109/ICIP.2013.6738824",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84897753114&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "De La Calle Silos, F.",
+      "González Díaz, I.",
+      "Díaz De María, F."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -216,7 +308,11 @@
     "year": "2013",
     "doi": "10.1109/TMM.2013.2241414",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84880833947&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Jiménez Moreno, A.",
+      "Martínez Enríquez, E.",
+      "Díaz De María, F."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -226,7 +322,11 @@
     "year": "2013",
     "doi": "10.1109/ICASSP.2013.6637948",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84890546029&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Jimenez Moreno, A.",
+      "Martinez Enriquez, E.",
+      "Diaz De Maria, F."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -236,7 +336,12 @@
     "year": "2012",
     "doi": "10.1109/CBMI.2012.6269844",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84866667243&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "González Díaz, I.",
+      "Baz Hormigos, C.E.",
+      "Berdonces, M.",
+      "Díaz De María, F."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -246,7 +351,14 @@
     "year": "2012",
     "doi": "10.1109/PCS.2012.6213336",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84864073107&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "De Frutos Lopez, M.",
+      "Mejia Ocana, A.B.",
+      "Sanz Rodriguez, S.",
+      "Pelaez Moreno, C.",
+      "Diaz De Maria, F.",
+      "Pizlo, Z."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -256,7 +368,10 @@
     "year": "2012",
     "doi": "10.1109/TCSVT.2012.2198089",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84864692647&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Sanz Rodríguez, S.",
+      "Díaz De María, F."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -266,7 +381,13 @@
     "year": "2012",
     "doi": "10.1109/PCS.2012.6213258",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84864052566&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "De Frutos Lopez, M.",
+      "Medina Chanca, H.",
+      "Sanz Rodriguez, S.",
+      "Pelaez Moreno, C.",
+      "Diaz De Maria, F."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -276,7 +397,13 @@
     "year": "2012",
     "doi": "10.1109/TASL.2011.2178597",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84857488250&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Solera Ureña, R.",
+      "García Moral, A.I.",
+      "Peláez Moreno, C.",
+      "Martínez Ramon, M.",
+      "Díaz De María, F."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -286,7 +413,11 @@
     "year": "2012",
     "doi": "10.1109/CWCAS.2012.6404082",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84873196261&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Gómez Cajas, D.F.",
+      "Peláez Moreno, C.",
+      "Díaz De María, F."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -296,7 +427,11 @@
     "year": "2011",
     "doi": "10.1109/TCE.2011.6018890",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-80052928607&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Munoz Mejias, D.",
+      "Gonzalez Diaz, I.",
+      "Diaz De Maria, F."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -306,7 +441,13 @@
     "year": "2011",
     "doi": "10.1109/CBMI.2011.5972532",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-80052297725&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Abdollahian, G.",
+      "Birinci, M.",
+      "Diaz De Maria, F.",
+      "Gabbouj, M.",
+      "Delp, E.J."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -316,7 +457,12 @@
     "year": "2011",
     "doi": "10.1109/TCSVT.2011.2134010",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-80455178886&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Martínez Enríquez, E.",
+      "Jiménez Moreno, A.",
+      "Ángel Pellón, M.",
+      "Díaz De María, F."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -326,7 +472,12 @@
     "year": "2011",
     "doi": "10.1109/TASL.2010.2050513",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-78149247542&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "García Moral, A.I.",
+      "Solera Ureña, R.",
+      "Peláez Moreno, C.",
+      "Díaz De María, F."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -336,7 +487,14 @@
     "year": "2011",
     "doi": "10.1109/CONATEL.2011.5958666",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-80052135436&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Mejía Ocaña, A.B.",
+      "De Frutos López, M.",
+      "Sanz Rodríguez, S.",
+      "Del Ama Esteban, Ó.",
+      "Peláez Moreno, C.",
+      "Díaz De María, F."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -346,7 +504,13 @@
     "year": "2011",
     "doi": "10.1109/DSP-SPE.2011.5739204",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-79954478074&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Birinci, M.",
+      "Diaz De Maria, F.",
+      "Abdollahian, G.",
+      "Delp, E.J.",
+      "Gabbouj, M."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -356,7 +520,12 @@
     "year": "2011",
     "doi": "10.1109/CONATEL.2011.5958668",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-80052115374&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Molinero, J.L.",
+      "Jiménez, A.",
+      "Martínez Enríquez, E.",
+      "Díaz De María, F."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -366,7 +535,10 @@
     "year": "2011",
     "doi": "10.1109/TCSVT.2011.2143330",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-80052538639&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Sanz Rodriguez, S.",
+      "Diaz De Maria, F."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -376,7 +548,10 @@
     "year": "2011",
     "doi": "10.1109/ICIP.2011.6116467",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84856250212&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Sanz Rodríguez, S.",
+      "Díaz De María, F."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -386,7 +561,11 @@
     "year": "2011",
     "doi": "10.1109/ICIP.2011.6116471",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84856292988&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Martínez Enríquez, E.",
+      "Díaz De María, F.",
+      "Ortega, A."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -396,7 +575,12 @@
     "year": "2010",
     "doi": "10.1109/ICIP.2010.5651371",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-78651107598&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "De Frutos lópez, M.",
+      "Del Ama esteban, O.",
+      "Sanz Rodríguez, S.",
+      "Díaz De maría, F."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -406,7 +590,11 @@
     "year": "2010",
     "doi": "10.1109/TCE.2010.5506008",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-77954693749&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Martínez Enríquez, E.",
+      "Jiménez Moreno, A.",
+      "Diaz De Maria, F."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -416,7 +604,12 @@
     "year": "2010",
     "doi": "10.1109/TCSVT.2010.2051369",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-77955620654&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Sanz Rodriguez, S.",
+      "Del Ama Esteban, Ó.",
+      "De Frutos López, M.",
+      "Díaz De María, F."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -426,7 +619,12 @@
     "year": "2010",
     "doi": "10.1109/MLSP.2010.5589240",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-78449290166&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "García García, D.",
+      "Arenas García, J.",
+      "Parrado Hernández, E.",
+      "Diaz de Maria, F."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -436,7 +634,10 @@
     "year": "2010",
     "doi": "10.1109/PCS.2010.5702522",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-79951806383&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Sanz Rodríguez, S.",
+      "Díaz de María, F."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -446,7 +647,12 @@
     "year": "2010",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84905180239&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "González Díaz, I.",
+      "Gómez Verdejo, V.",
+      "Díaz de María, F.",
+      "Arenas García, J."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -456,7 +662,10 @@
     "year": "2009",
     "doi": "10.1109/ICME.2009.5202476",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-70449602887&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Martínez Enríquez, E.",
+      "Díaz de María, F."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -466,7 +675,11 @@
     "year": "2009",
     "doi": "10.1109/TPAMI.2008.268",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-67349244757&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "García García, D.",
+      "Parrado Hernández, E.",
+      "Díaz de María, F."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -476,7 +689,11 @@
     "year": "2009",
     "doi": "10.1109/ICIP.2009.5414236",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-77951952721&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "González Díaz, I.",
+      "García García, D.",
+      "Díaz de María, F."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -486,7 +703,14 @@
     "year": "2009",
     "doi": "10.1109/TASL.2009.2016734",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85008035391&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Henríquez, P.",
+      "Alonso, J.B.",
+      "Ferrer, M.A.",
+      "Travieso, C.M.",
+      "Godino Llorente, J.I.",
+      "Díaz de María, F."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -496,7 +720,11 @@
     "year": "2009",
     "doi": "10.1109/PCS.2009.5167439",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-70449658183&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Sergio, S. R.",
+      "Fernando, D. D. M.",
+      "Rezaei, M."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -506,7 +734,11 @@
     "year": "2009",
     "doi": "10.1109/ICMLA.2009.69",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-77950820868&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "García García, D.",
+      "Parrado Hernández, E.",
+      "Diaz De Maria, F."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -516,7 +748,13 @@
     "year": "2009",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84905715489&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "González Díaz, I.",
+      "Gómez Verdejo, V.",
+      "Martínez Ramon, M.",
+      "Díaz de María, F.",
+      "Arenas García, J."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -526,7 +764,10 @@
     "year": "2008",
     "doi": "10.1109/TCSVT.2008.2004917",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-55249095581&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "González Díaz, I.",
+      "Díaz de María, F."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -536,7 +777,13 @@
     "year": "2008",
     "doi": "10.1109/ICIP.2008.4711676",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-69949129491&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "González Díaz, I.",
+      "McGuinness, K.",
+      "Adamek, T.",
+      "OConnor, N.E.",
+      "Díaz De María, F."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -546,7 +793,16 @@
     "year": "2008",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84905186764&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "González Díaz, I.",
+      "García García, D.",
+      "Solera Ureña, R.",
+      "Madrid Sánchez, J.",
+      "Gómez Verdejo, V.",
+      "Martínez Ramón, M.",
+      "Díaz de María, F.",
+      "Arenas García, J."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -556,7 +812,12 @@
     "year": "2007",
     "doi": "10.1109/ICIP.2007.4379831",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-48149098214&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Martínez Enríquez, E.",
+      "De Frutos López, M.",
+      "Pujol Alcolado, J.C.",
+      "Díaz De María, F."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -566,7 +827,12 @@
     "year": "2007",
     "doi": "10.1109/ICASSP.2007.366123",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-34547534157&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "González Díaz, I.",
+      "De Frutos López, M.",
+      "Sanz Rodríguez, S.",
+      "Díaz de María, F."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -576,7 +842,12 @@
     "year": "2007",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-38749092659&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "García Moral, A.I.",
+      "Solera Ureña, R.",
+      "Peláez Moreno, C.",
+      "Díaz de María, F."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -586,7 +857,10 @@
     "year": "2007",
     "doi": "10.1109/ICIP.2007.4379198",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-48149093629&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "González Díaz, I.",
+      "Díaz de María, F."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -596,7 +870,14 @@
     "year": "2007",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-39149093062&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Solera Ureña, R.",
+      "Padrell Sendra, J.",
+      "Martín Iglesias, D.",
+      "Gallardo Antolín, A.",
+      "Peláez Moreno, C.",
+      "Díaz de María, F."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -606,7 +887,11 @@
     "year": "2006",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-44949144177&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Vicente Peña, J.",
+      "Díaz de María, F.",
+      "Kleijn, B."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -616,7 +901,11 @@
     "year": "2006",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84862599566&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Padrell Sendra, J.",
+      "Martín Iglesias, D.",
+      "Díaz De María, F."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -626,7 +915,13 @@
     "year": "2005",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-33745467338&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Martín Iglesias, D.",
+      "Bernal Chaves, J.",
+      "Peláez Moreno, C.",
+      "Gallardo Antolín, A.",
+      "Díaz de María, F."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -636,7 +931,13 @@
     "year": "2005",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-33745207799&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Martín Iglesias, D.",
+      "Pereiro Estevan, Y.",
+      "García Moral, A.I.",
+      "Gallardo Antolín, A.",
+      "Díaz De María, F."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -646,7 +947,12 @@
     "year": "2005",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-32544441293&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Pujol Alcolado, J.C.",
+      "Martín Navas, A.",
+      "De Frutos, M.",
+      "Díaz de María, F."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -656,7 +962,12 @@
     "year": "2005",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-33745470103&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Alonso, J.B.",
+      "Díaz de María, F.",
+      "Travieso, C.M.",
+      "Ferrer, M.A."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -666,7 +977,11 @@
     "year": "2005",
     "doi": "10.1109/TSA.2005.853210",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-27744477310&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Gallardo Antolín, A.",
+      "Peláez Moreno, C.",
+      "Díaz De María, F."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -676,7 +991,12 @@
     "year": "2003",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-0141702073&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Díaz de María, F.",
+      "Vicente Peña, J.",
+      "Gallardo Antolín, A.",
+      "Peláez Moreno, C."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -686,7 +1006,13 @@
     "year": "2002",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84902154256&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Peláez Moreno, C.",
+      "Parrado Hernández, E.",
+      "Gallardo Antolín, A.",
+      "Zambrano Miranda, A.",
+      "Díaz De María, F."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -696,7 +1022,12 @@
     "year": "2002",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85009273508&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Peláez Moreno, C.",
+      "Gallardo Antolín, A.",
+      "Vicente Peña, J.",
+      "Díaz De maría, F."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -706,7 +1037,12 @@
     "year": "2002",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84960921109&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Pelaez Moreno, C.",
+      "Gallardo Antolin, A.",
+      "Parrado Hernandez, E.",
+      "Diaz De Maria, F."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -716,7 +1052,11 @@
     "year": "2001",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-64549102705&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Gallardo Antolín, A.",
+      "Peláez Moreno, C.",
+      "Díaz De María, F."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -726,7 +1066,11 @@
     "year": "2001",
     "doi": "10.1109/6046.923820",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-0035365050&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Peláez Moreno, C.",
+      "Gallardo Antolín, A.",
+      "Díaz de María, F."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -736,7 +1080,11 @@
     "year": "1999",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-0032627262&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Gallardo Antolin, A.",
+      "Diaz de Maria, F.",
+      "Valverde Albacete, F."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -746,7 +1094,12 @@
     "year": "1996",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-0029726541&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Santamaria Caballero, I.",
+      "Pantaleon Prieto, C.",
+      "Diaz de Maria, F.",
+      "Artes Rodriguez, A."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -756,18 +1109,11 @@
     "year": "1995",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-0028997025&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Diaz de Maria, Fernando",
+      "Figueiras Vidal, Anibal R."
+    ],
     "orcid_source": "0000-0002-6437-914X"
-  },
-  {
-    "title": "Leveraging Unlabeled Data for Lung Sound Classification Through Self-Supervised Contrastive Learning",
-    "journal": null,
-    "type": "preprint",
-    "year": "2024",
-    "doi": "10.2139/ssrn.4903335",
-    "url": "https://doi.org/10.2139/ssrn.4903335",
-    "authors": [],
-    "orcid_source": "0000-0002-9322-3128"
   },
   {
     "title": "Variational Mode Decomposition and a Light CNN-LSTM Model for Classification of Heart Sound Signals",
@@ -776,7 +1122,10 @@
     "year": "2023",
     "doi": "10.1109/eurocon56442.2023.10199054",
     "url": "http://dx.doi.org/10.1109/eurocon56442.2023.10199054",
-    "authors": [],
+    "authors": [
+      "Mahmoud Fakhry",
+      "Ascensión Gallardo Antolín"
+    ],
     "orcid_source": "0000-0002-9322-3128"
   },
   {
@@ -786,7 +1135,11 @@
     "year": "2022",
     "doi": "10.1109/ism55400.2022.00021",
     "url": "http://dx.doi.org/10.1109/ism55400.2022.00021",
-    "authors": [],
+    "authors": [
+      "Mahmoud Fakhry",
+      "Abeer FathAllah Brery",
+      "Ascension Gallardo Antolin"
+    ],
     "orcid_source": "0000-0002-9322-3128"
   },
   {
@@ -796,7 +1149,10 @@
     "year": "2022",
     "doi": "10.21437/iberspeech.2022-13",
     "url": "http://dx.doi.org/10.21437/iberspeech.2022-13",
-    "authors": [],
+    "authors": [
+      "Noelia Salor Burdalo",
+      "Ascension Gallardo Antolin"
+    ],
     "orcid_source": "0000-0002-9322-3128"
   },
   {
@@ -830,16 +1186,6 @@
     "orcid_source": "0000-0002-9322-3128"
   },
   {
-    "title": "Prediction of the degree of Parkinson’s condition using recordings of patients’ voices",
-    "journal": "Advances in Intelligent Systems and Computing",
-    "type": "book",
-    "year": "2018",
-    "doi": "10.1007/978-3-319-76357-6_12",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85043977401&partnerID=MN8TOARS",
-    "authors": [],
-    "orcid_source": "0000-0002-9322-3128"
-  },
-  {
     "title": "The Robustness of Echoic Log-Surprise Auditory Saliency Detection",
     "journal": "IEEE Access",
     "type": "journal-article",
@@ -856,7 +1202,11 @@
     "year": "2017",
     "doi": "10.1109/ICCI-CC.2017.8109785",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85040608648&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Rodriguez Hidalgo, A.",
+      "Pelaez Moreno, C.",
+      "Gallardo Antolin, A."
+    ],
     "orcid_source": "0000-0002-9322-3128"
   },
   {
@@ -866,7 +1216,11 @@
     "year": "2016",
     "doi": "10.1007/978-3-319-49169-1_9",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84997525210&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "De La Calle Silos, F.",
+      "Gallardo Antolín, A.",
+      "Peláez Moreno, C."
+    ],
     "orcid_source": "0000-0002-9322-3128"
   },
   {
@@ -876,7 +1230,13 @@
     "year": "2016",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85054971416&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Lorenzo Trueba, J.",
+      "Barra Chicote, R.",
+      "Gallardo Antolin, A.",
+      "Yamagishi, J.",
+      "Montero, J.M."
+    ],
     "orcid_source": "0000-0002-9322-3128"
   },
   {
@@ -886,7 +1246,12 @@
     "year": "2015",
     "doi": "10.1109/TASLP.2015.2464691",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84941096334&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "De La Calle Silos, F.",
+      "Valverde Albacete, F.J.",
+      "Gallardo Antolín, A.",
+      "Peláez Moreno, C."
+    ],
     "orcid_source": "0000-0002-9322-3128"
   },
   {
@@ -896,7 +1261,12 @@
     "year": "2015",
     "doi": "10.1109/IWOBI.2015.7160162",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84943150121&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "De La Calle Silos, F.",
+      "Valverde Albacete, F.J.",
+      "Gallardo Antolin, A.",
+      "Pelaez Moreno, C."
+    ],
     "orcid_source": "0000-0002-9322-3128"
   },
   {
@@ -906,7 +1276,12 @@
     "year": "2015",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84959144048&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Zlotnik, A.",
+      "Montero, J.M.",
+      "San Segundo, R.",
+      "Gallardo Antolín, A."
+    ],
     "orcid_source": "0000-0002-9322-3128"
   },
   {
@@ -916,7 +1291,13 @@
     "year": "2015",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84979879858&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Garcia Cabellos, J.M.",
+      "Pelaez Moreno, C.",
+      "Gallardo Antolin, A.",
+      "Perez Cruz, F.",
+      "Diaz De Maria, F."
+    ],
     "orcid_source": "0000-0002-9322-3128"
   },
   {
@@ -926,7 +1307,11 @@
     "year": "2014",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84910025448&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Gallardo Antolín, A.",
+      "Montero, J.M.",
+      "King, S."
+    ],
     "orcid_source": "0000-0002-9322-3128"
   },
   {
@@ -936,7 +1321,12 @@
     "year": "2014",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84910091401&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "De La Calle Silos, F.",
+      "Valverde Albacete, F.J.",
+      "Gallardo Antolín, A.",
+      "Peláez Moreno, C."
+    ],
     "orcid_source": "0000-0002-9322-3128"
   },
   {
@@ -946,7 +1336,11 @@
     "year": "2014",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84921419279&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "de la Calle Silos, F.",
+      "Gallardo Antolín, A.",
+      "Peláez Moreno, C."
+    ],
     "orcid_source": "0000-0002-9322-3128"
   },
   {
@@ -956,17 +1350,11 @@
     "year": "2013",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84877975832&partnerID=MN8TOARS",
-    "authors": [],
-    "orcid_source": "0000-0002-9322-3128"
-  },
-  {
-    "title": "NMF-based spectral analysis for acoustic event classification tasks",
-    "journal": null,
-    "type": "book",
-    "year": "2013",
-    "doi": "10.1007/978-3-642-38847-7",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84888260920&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Zlotnik, A.",
+      "Martínez, J.M.M.",
+      "Gallardo Antolín, A."
+    ],
     "orcid_source": "0000-0002-9322-3128"
   },
   {
@@ -976,17 +1364,10 @@
     "year": "2013",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84906264286&partnerID=MN8TOARS",
-    "authors": [],
-    "orcid_source": "0000-0002-9322-3128"
-  },
-  {
-    "title": "Speech denoising using non-negative matrix factorization with Kullback-Leibler divergence and sparseness constraints",
-    "journal": null,
-    "type": "book",
-    "year": "2012",
-    "doi": "10.1007/978-3-642-35292-8_22",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84871512717&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Ludeña Choez, J.",
+      "Gallardo Antolín, A."
+    ],
     "orcid_source": "0000-0002-9322-3128"
   },
   {
@@ -996,17 +1377,12 @@
     "year": "2011",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84865714987&partnerID=MN8TOARS",
-    "authors": [],
-    "orcid_source": "0000-0002-9322-3128"
-  },
-  {
-    "title": "Morphological processing of spectrograms for speech enhancement",
-    "journal": null,
-    "type": "book",
-    "year": "2011",
-    "doi": "10.1007/978-3-642-25020-0_29",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-81155133331&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Mejía Navarrete, D.",
+      "Gallardo Antolín, A.",
+      "Peláez Moreno, C.",
+      "Valverde Albacete, F.J."
+    ],
     "orcid_source": "0000-0002-9322-3128"
   },
   {
@@ -1016,7 +1392,13 @@
     "year": "2009",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-70450181058&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Lutfi, S.",
+      "Montero, J.M.",
+      "Barra Chicote, R.",
+      "Lucas Cuesta, J.M.",
+      "Gallardo Antolin, A."
+    ],
     "orcid_source": "0000-0002-9322-3128"
   },
   {
@@ -1026,17 +1408,13 @@
     "year": "2007",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-56149117453&partnerID=MN8TOARS",
-    "authors": [],
-    "orcid_source": "0000-0002-9322-3128"
-  },
-  {
-    "title": "SVMs for automatic speech recognition: A survey",
-    "journal": null,
-    "type": "book",
-    "year": "2007",
-    "doi": "",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-39149093062&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Gallardo Antolín, A.",
+      "Barra, R.",
+      "Schröder, M.",
+      "Krstulovic, S.",
+      "Montero, J.M."
+    ],
     "orcid_source": "0000-0002-9322-3128"
   },
   {
@@ -1046,17 +1424,11 @@
     "year": "2006",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-44949173184&partnerID=MN8TOARS",
-    "authors": [],
-    "orcid_source": "0000-0002-9322-3128"
-  },
-  {
-    "title": "A speech recognizer based on multiclass SVMs with HMM-guided segmentation",
-    "journal": null,
-    "type": "book",
-    "year": "2005",
-    "doi": "",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-33745467338&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Gallardo Antolín, A.",
+      "Anguera, X.",
+      "Wooters, C."
+    ],
     "orcid_source": "0000-0002-9322-3128"
   },
   {
@@ -1066,7 +1438,13 @@
     "year": "2005",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-33745207799&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Martín Iglesias, D.",
+      "Pereiro Estevan, Y.",
+      "García Moral, A.I.",
+      "Gallardo Antolín, A.",
+      "Díaz De María, F."
+    ],
     "orcid_source": "0000-0002-9322-3128"
   },
   {
@@ -1076,17 +1454,12 @@
     "year": "2003",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-0141702073&partnerID=MN8TOARS",
-    "authors": [],
-    "orcid_source": "0000-0002-9322-3128"
-  },
-  {
-    "title": "An application of SVM to lost packets reconstruction in voice-enabled services",
-    "journal": null,
-    "type": "book",
-    "year": "2002",
-    "doi": "",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84902154256&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Díaz de María, F.",
+      "Vicente Peña, J.",
+      "Gallardo Antolín, A.",
+      "Peláez Moreno, C."
+    ],
     "orcid_source": "0000-0002-9322-3128"
   },
   {
@@ -1096,7 +1469,12 @@
     "year": "2002",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85009273508&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Peláez Moreno, C.",
+      "Gallardo Antolín, A.",
+      "Vicente Peña, J.",
+      "Díaz De maría, F."
+    ],
     "orcid_source": "0000-0002-9322-3128"
   },
   {
@@ -1106,7 +1484,18 @@
     "year": "2002",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-0345046503&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Gallardo Antolín, A.",
+      "Navia Vázquez, A.",
+      "Molina Bulla, H.Y.",
+      "Rodríguez González, A.B.",
+      "Valverde Albacete, F.J.",
+      "Cid Sueiro, J.",
+      "Figueiras Vidal, A.R.",
+      "Koutris, T.",
+      "Xirouhaki, C.",
+      "Koubarakis, M."
+    ],
     "orcid_source": "0000-0002-9322-3128"
   },
   {
@@ -1116,7 +1505,12 @@
     "year": "2002",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84960921109&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Pelaez Moreno, C.",
+      "Gallardo Antolin, A.",
+      "Parrado Hernandez, E.",
+      "Diaz De Maria, F."
+    ],
     "orcid_source": "0000-0002-9322-3128"
   },
   {
@@ -1126,7 +1520,11 @@
     "year": "2001",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-64549102705&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Gallardo Antolín, A.",
+      "Peláez Moreno, C.",
+      "Díaz De María, F."
+    ],
     "orcid_source": "0000-0002-9322-3128"
   },
   {
@@ -1136,7 +1534,13 @@
     "year": "2000",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85009154271&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Macías Guarasa, J.",
+      "Ferreiros, J.",
+      "Colás, J.",
+      "Gallardo Antolín, A.",
+      "Pardo, J.M."
+    ],
     "orcid_source": "0000-0002-9322-3128"
   },
   {
@@ -1146,7 +1550,13 @@
     "year": "2000",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85009152934&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Gallardo Antolín, A.",
+      "Ferreiros, J.",
+      "Macías Guarasa, J.",
+      "De Córdoba, R.",
+      "Pardo, J.M."
+    ],
     "orcid_source": "0000-0002-9322-3128"
   },
   {
@@ -1156,7 +1566,11 @@
     "year": "1999",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-0032627262&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Gallardo Antolin, A.",
+      "Diaz de Maria, F.",
+      "Valverde Albacete, F."
+    ],
     "orcid_source": "0000-0002-9322-3128"
   },
   {
@@ -1166,18 +1580,16 @@
     "year": "1996",
     "doi": "10.1109/ICSLP.1996.607017",
     "url": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcAuth=ORCID&SrcApp=OrcidOrg&DestLinkType=FullRecord&DestApp=INSPEC&KeyUT=INSPEC:5677781&KeyUID=INSPEC:5677781",
-    "authors": [],
+    "authors": [
+      "Macias Guarasa, J.",
+      "Gallardo, A.",
+      "Ferreiros, J.",
+      "Pardo, J.M.",
+      "Villarrubia, L.",
+      "Bunnell, H.T.",
+      "Idsardi, W."
+    ],
     "orcid_source": "0000-0002-9322-3128"
-  },
-  {
-    "title": "On the Limits of Information Transmission in Concept Lattices",
-    "journal": null,
-    "type": "book-chapter",
-    "year": "2027",
-    "doi": "10.1007/978-3-032-34742-8_13",
-    "url": "https://doi.org/10.1007/978-3-032-34742-8_13",
-    "authors": [],
-    "orcid_source": "0000-0003-1425-6763"
   },
   {
     "title": "An AI Tool for Gender Bias Analysis in News Publications",
@@ -1186,27 +1598,14 @@
     "year": "2026",
     "doi": "10.1145/3811427.3811473",
     "url": "https://doi.org/10.1145/3811427.3811473",
-    "authors": [],
-    "orcid_source": "0000-0003-1425-6763"
-  },
-  {
-    "title": "Qualitative and Quantitative Analyses of C. elegans’ Perception with Concept Lattices as Information Channels",
-    "journal": null,
-    "type": "book-chapter",
-    "year": "2025",
-    "doi": "10.1007/978-3-032-03364-2_17",
-    "url": "https://doi.org/10.1007/978-3-032-03364-2_17",
-    "authors": [],
-    "orcid_source": "0000-0003-1425-6763"
-  },
-  {
-    "title": "Discovering the Structure of Odorants in Caenorhabditis Elegans using Formal Concept Analysis",
-    "journal": null,
-    "type": "book-chapter",
-    "year": "2024",
-    "doi": "10.1007/978-3-031-67868-4_17",
-    "url": "https://doi.org/10.1007/978-3-031-67868-4_17",
-    "authors": [],
+    "authors": [
+      "Jorge Garcelán",
+      "Teresa Onorati",
+      "Carmen Peláez Moreno",
+      "Clara Sainz de Baranda Andújar",
+      "Paloma Díaz",
+      "Ignacio Aedo"
+    ],
     "orcid_source": "0000-0003-1425-6763"
   },
   {
@@ -1216,17 +1615,16 @@
     "year": "2022",
     "doi": "10.1109/JIOT.2022.3177256",
     "url": "https://doi.org/10.1109/JIOT.2022.3177256",
-    "authors": [],
-    "orcid_source": "0000-0003-1425-6763"
-  },
-  {
-    "title": "Encoding Non-global Time Representations into the Lattice of Divisibility",
-    "journal": null,
-    "type": "book-chapter",
-    "year": "2022",
-    "doi": "10.1007/978-3-031-08971-8_11",
-    "url": "https://doi.org/10.1007/978-3-031-08971-8_11",
-    "authors": [],
+    "authors": [
+      "Jose A. Miranda Calero",
+      "Esther Rituerto Gonzalez",
+      "Clara Luis Mingueza",
+      "Manuel F. Canabal",
+      "Alberto Ramirez Barcenas",
+      "Jose M. Lanza Gutierrez",
+      "Carmen Pelaez Moreno",
+      "Celia Lopez Ongil"
+    ],
     "orcid_source": "0000-0003-1425-6763"
   },
   {
@@ -1236,7 +1634,12 @@
     "year": "2021",
     "doi": "10.1109/MSP.2021.3053218",
     "url": "https://doi.org/10.1109/MSP.2021.3053218",
-    "authors": [],
+    "authors": [
+      "Jorge Torres Gomez",
+      "Antonio Rodriguez Hidalgo",
+      "Yannelys Virginia Jerez Naranjo",
+      "Carmen Pelaez Moreno"
+    ],
     "orcid_source": "0000-0003-1425-6763"
   },
   {
@@ -1246,17 +1649,10 @@
     "year": "2020",
     "doi": "10.1109/TKDE.2019.2915643",
     "url": "https://doi.org/10.1109/TKDE.2019.2915643",
-    "authors": [],
-    "orcid_source": "0000-0003-1425-6763"
-  },
-  {
-    "title": "A Hybrid Data Fusion Architecture for BINDI: A Wearable Solution to Combat Gender-Based Violence",
-    "journal": null,
-    "type": "book-chapter",
-    "year": "2020",
-    "doi": "10.1007/978-3-030-59000-0_17",
-    "url": "https://doi.org/10.1007/978-3-030-59000-0_17",
-    "authors": [],
+    "authors": [
+      "Francisco J. Valverde Albacete",
+      "Carmen Pelaez Moreno"
+    ],
     "orcid_source": "0000-0003-1425-6763"
   },
   {
@@ -1266,17 +1662,13 @@
     "year": "2018",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85052915418&partnerID=MN8TOARS",
-    "authors": [],
-    "orcid_source": "0000-0003-1425-6763"
-  },
-  {
-    "title": "Formal Independence Analysis",
-    "journal": null,
-    "type": "book-chapter",
-    "year": "2018",
-    "doi": "10.1007/978-3-319-91473-2_51",
-    "url": "https://doi.org/10.1007/978-3-319-91473-2_51",
-    "authors": [],
+    "authors": [
+      "Valverde Albacete, F.J.",
+      "Peláez Moreno, C.",
+      "Cabrera, I.P.",
+      "Cordero, P.",
+      "Ojeda Aciego, M."
+    ],
     "orcid_source": "0000-0003-1425-6763"
   },
   {
@@ -1286,7 +1678,10 @@
     "year": "2018",
     "doi": "10.1109/FUZZ-IEEE.2018.8491644",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85060459574&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Valverde Albacete, F.J.",
+      "Peláez Moreno, C."
+    ],
     "orcid_source": "0000-0003-1425-6763"
   },
   {
@@ -1296,17 +1691,11 @@
     "year": "2018",
     "doi": "10.1109/ACCESS.2018.2882055",
     "url": "https://doi.org/10.1109/ACCESS.2018.2882055",
-    "authors": [],
-    "orcid_source": "0000-0003-1425-6763"
-  },
-  {
-    "title": "The Linear Algebra in Extended Formal Concept Analysis Over Idempotent Semifields",
-    "journal": null,
-    "type": "book-chapter",
-    "year": "2017",
-    "doi": "10.1007/978-3-319-59271-8_14",
-    "url": "https://doi.org/10.1007/978-3-319-59271-8_14",
-    "authors": [],
+    "authors": [
+      "Antonio Rodriguez Hidalgo",
+      "Carmen Pelaez Moreno",
+      "Ascension Gallardo Antolin"
+    ],
     "orcid_source": "0000-0003-1425-6763"
   },
   {
@@ -1316,7 +1705,11 @@
     "year": "2017",
     "doi": "10.1109/ICCI-CC.2017.8109785",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85040608648&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Rodriguez Hidalgo, A.",
+      "Pelaez Moreno, C.",
+      "Gallardo Antolin, A."
+    ],
     "orcid_source": "0000-0003-1425-6763"
   },
   {
@@ -1326,7 +1719,11 @@
     "year": "2016",
     "doi": "10.1007/978-3-319-49169-1_9",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84997525210&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "De La Calle Silos, F.",
+      "Gallardo Antolín, A.",
+      "Peláez Moreno, C."
+    ],
     "orcid_source": "0000-0003-1425-6763"
   },
   {
@@ -1336,27 +1733,10 @@
     "year": "2016",
     "doi": "10.1007/978-3-319-32034-2_54",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84964045866&partnerID=MN8TOARS",
-    "authors": [],
-    "orcid_source": "0000-0003-1425-6763"
-  },
-  {
-    "title": "Towards galois connections over positive semifields",
-    "journal": "Communications in Computer and Information Science",
-    "type": "book",
-    "year": "2016",
-    "doi": "10.1007/978-3-319-40581-0_8",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84977150488&partnerID=MN8TOARS",
-    "authors": [],
-    "orcid_source": "0000-0003-1425-6763"
-  },
-  {
-    "title": "Activating generalized fuzzy implications from galois connections",
-    "journal": "Studies in Fuzziness and Soft Computing",
-    "type": "book",
-    "year": "2015",
-    "doi": "10.1007/978-3-319-16235-5_15",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84926667953&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Valverde Albacete, F.J.",
+      "Peláez Moreno, C."
+    ],
     "orcid_source": "0000-0003-1425-6763"
   },
   {
@@ -1366,7 +1746,10 @@
     "year": "2015",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84962295568&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Valverde Albacete, F.J.",
+      "Peláez Moreno, C."
+    ],
     "orcid_source": "0000-0003-1425-6763"
   },
   {
@@ -1376,7 +1759,12 @@
     "year": "2015",
     "doi": "10.1109/TASLP.2015.2464691",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84941096334&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "De La Calle Silos, F.",
+      "Valverde Albacete, F.J.",
+      "Gallardo Antolín, A.",
+      "Peláez Moreno, C."
+    ],
     "orcid_source": "0000-0003-1425-6763"
   },
   {
@@ -1386,7 +1774,12 @@
     "year": "2015",
     "doi": "10.1109/IWOBI.2015.7160162",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84943150121&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "De La Calle Silos, F.",
+      "Valverde Albacete, F.J.",
+      "Gallardo Antolin, A.",
+      "Pelaez Moreno, C."
+    ],
     "orcid_source": "0000-0003-1425-6763"
   },
   {
@@ -1396,7 +1789,13 @@
     "year": "2015",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84979879858&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Garcia Cabellos, J.M.",
+      "Pelaez Moreno, C.",
+      "Gallardo Antolin, A.",
+      "Perez Cruz, F.",
+      "Diaz De Maria, F."
+    ],
     "orcid_source": "0000-0003-1425-6763"
   },
   {
@@ -1406,7 +1805,10 @@
     "year": "2015",
     "doi": "10.1007/978-3-319-19545-2_6",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84958533332&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Valverde Albacete, F.J.",
+      "Peláez Moreno, C."
+    ],
     "orcid_source": "0000-0003-1425-6763"
   },
   {
@@ -1416,7 +1818,12 @@
     "year": "2014",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84910091401&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "De La Calle Silos, F.",
+      "Valverde Albacete, F.J.",
+      "Gallardo Antolín, A.",
+      "Peláez Moreno, C."
+    ],
     "orcid_source": "0000-0003-1425-6763"
   },
   {
@@ -1426,7 +1833,11 @@
     "year": "2014",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84921419279&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "de la Calle Silos, F.",
+      "Gallardo Antolín, A.",
+      "Peláez Moreno, C."
+    ],
     "orcid_source": "0000-0003-1425-6763"
   },
   {
@@ -1436,17 +1847,11 @@
     "year": "2014",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84922161867&partnerID=MN8TOARS",
-    "authors": [],
-    "orcid_source": "0000-0003-1425-6763"
-  },
-  {
-    "title": "A proposal for new evaluation metrics and result visualization technique for sentiment analysis tasks",
-    "journal": null,
-    "type": "book",
-    "year": "2013",
-    "doi": "10.1007/978-3-642-40802-1_5",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84886418866&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Valverde Albacete, F.J.",
+      "Peláez Moreno, C.",
+      "Peñas, A."
+    ],
     "orcid_source": "0000-0003-1425-6763"
   },
   {
@@ -1456,7 +1861,10 @@
     "year": "2013",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84924371055&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Valverde Albacete, F.J.",
+      "Peláez Moreno, C."
+    ],
     "orcid_source": "0000-0003-1425-6763"
   },
   {
@@ -1466,7 +1874,10 @@
     "year": "2013",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84922572809&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Valverde Albacete, F.J.",
+      "Peláez Moreno, C."
+    ],
     "orcid_source": "0000-0003-1425-6763"
   },
   {
@@ -1476,7 +1887,14 @@
     "year": "2012",
     "doi": "10.1109/PCS.2012.6213336",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84864073107&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "De Frutos Lopez, M.",
+      "Mejia Ocana, A.B.",
+      "Sanz Rodriguez, S.",
+      "Pelaez Moreno, C.",
+      "Diaz De Maria, F.",
+      "Pizlo, Z."
+    ],
     "orcid_source": "0000-0003-1425-6763"
   },
   {
@@ -1486,7 +1904,13 @@
     "year": "2012",
     "doi": "10.1109/PCS.2012.6213258",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84864052566&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "De Frutos Lopez, M.",
+      "Medina Chanca, H.",
+      "Sanz Rodriguez, S.",
+      "Pelaez Moreno, C.",
+      "Diaz De Maria, F."
+    ],
     "orcid_source": "0000-0003-1425-6763"
   },
   {
@@ -1496,7 +1920,11 @@
     "year": "2012",
     "doi": "10.1109/CWCAS.2012.6404082",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84873196261&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Gómez Cajas, D.F.",
+      "Peláez Moreno, C.",
+      "Díaz De María, F."
+    ],
     "orcid_source": "0000-0003-1425-6763"
   },
   {
@@ -1506,7 +1934,11 @@
     "year": "2012",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84922712575&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Fernández Calabozo, J.M.",
+      "Peláez Moreno, C.",
+      "Valverde Albacete, F.J."
+    ],
     "orcid_source": "0000-0003-1425-6763"
   },
   {
@@ -1516,17 +1948,12 @@
     "year": "2011",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84865714987&partnerID=MN8TOARS",
-    "authors": [],
-    "orcid_source": "0000-0003-1425-6763"
-  },
-  {
-    "title": "Gene expression array exploration using script K-formal concept analysis",
-    "journal": null,
-    "type": "book",
-    "year": "2011",
-    "doi": "10.1007/978-3-642-20514-9_11",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-79955749909&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Mejía Navarrete, D.",
+      "Gallardo Antolín, A.",
+      "Peláez Moreno, C.",
+      "Valverde Albacete, F.J."
+    ],
     "orcid_source": "0000-0003-1425-6763"
   },
   {
@@ -1536,27 +1963,14 @@
     "year": "2011",
     "doi": "10.1109/CONATEL.2011.5958666",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-80052135436&partnerID=MN8TOARS",
-    "authors": [],
-    "orcid_source": "0000-0003-1425-6763"
-  },
-  {
-    "title": "Morphological processing of spectrograms for speech enhancement",
-    "journal": null,
-    "type": "book",
-    "year": "2011",
-    "doi": "10.1007/978-3-642-25020-0_29",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-81155133331&partnerID=MN8TOARS",
-    "authors": [],
-    "orcid_source": "0000-0003-1425-6763"
-  },
-  {
-    "title": "Detecting features from confusion matrices using generalized formal concept analysis",
-    "journal": null,
-    "type": "book",
-    "year": "2010",
-    "doi": "10.1007/978-3-642-13803-4_47",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-77954610453&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Mejía Ocaña, A.B.",
+      "De Frutos López, M.",
+      "Sanz Rodríguez, S.",
+      "Del Ama Esteban, Ó.",
+      "Peláez Moreno, C.",
+      "Díaz De María, F."
+    ],
     "orcid_source": "0000-0003-1425-6763"
   },
   {
@@ -1566,17 +1980,11 @@
     "year": "2009",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-70450177444&partnerID=MN8TOARS",
-    "authors": [],
-    "orcid_source": "0000-0003-1425-6763"
-  },
-  {
-    "title": "Spectral lattices of ℝ̄,+-formal contexts",
-    "journal": null,
-    "type": "book",
-    "year": "2008",
-    "doi": "10.1007/978-3-540-78137-0_9",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-49949114006&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Peláez Moreno, C.",
+      "García Moral, A.I.",
+      "Valverde Albacete, F.J."
+    ],
     "orcid_source": "0000-0003-1425-6763"
   },
   {
@@ -1586,57 +1994,10 @@
     "year": "2007",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84885234086&partnerID=MN8TOARS",
-    "authors": [],
-    "orcid_source": "0000-0003-1425-6763"
-  },
-  {
-    "title": "Galois connections between semimodules and applications in data mining",
-    "journal": null,
-    "type": "book",
-    "year": "2007",
-    "doi": "",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-38049086664&partnerID=MN8TOARS",
-    "authors": [],
-    "orcid_source": "0000-0003-1425-6763"
-  },
-  {
-    "title": "Hybrid models for automatic speech recognition: A comparison of classical ANN and kernel based methods",
-    "journal": null,
-    "type": "book",
-    "year": "2007",
-    "doi": "",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-38749092659&partnerID=MN8TOARS",
-    "authors": [],
-    "orcid_source": "0000-0003-1425-6763"
-  },
-  {
-    "title": "SVMs for automatic speech recognition: A survey",
-    "journal": null,
-    "type": "book",
-    "year": "2007",
-    "doi": "",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-39149093062&partnerID=MN8TOARS",
-    "authors": [],
-    "orcid_source": "0000-0003-1425-6763"
-  },
-  {
-    "title": "Towards a generalisation of formal concept analysis for data mining purposes",
-    "journal": null,
-    "type": "book",
-    "year": "2006",
-    "doi": "10.1007/11671404_11",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-33745533977&partnerID=MN8TOARS",
-    "authors": [],
-    "orcid_source": "0000-0003-1425-6763"
-  },
-  {
-    "title": "A speech recognizer based on multiclass SVMs with HMM-guided segmentation",
-    "journal": null,
-    "type": "book",
-    "year": "2005",
-    "doi": "",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-33745467338&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Valverde Albacete, F.J.",
+      "Peláez Moreno, C."
+    ],
     "orcid_source": "0000-0003-1425-6763"
   },
   {
@@ -1646,7 +2007,12 @@
     "year": "2005",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-33745209928&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Peláez Moreno, C.",
+      "Zhu, Q.",
+      "Chen, B.",
+      "Morgan, N."
+    ],
     "orcid_source": "0000-0003-1425-6763"
   },
   {
@@ -1656,17 +2022,12 @@
     "year": "2003",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-0141702073&partnerID=MN8TOARS",
-    "authors": [],
-    "orcid_source": "0000-0003-1425-6763"
-  },
-  {
-    "title": "An application of SVM to lost packets reconstruction in voice-enabled services",
-    "journal": null,
-    "type": "book",
-    "year": "2002",
-    "doi": "",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84902154256&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Díaz de María, F.",
+      "Vicente Peña, J.",
+      "Gallardo Antolín, A.",
+      "Peláez Moreno, C."
+    ],
     "orcid_source": "0000-0003-1425-6763"
   },
   {
@@ -1676,7 +2037,12 @@
     "year": "2002",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85009273508&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Peláez Moreno, C.",
+      "Gallardo Antolín, A.",
+      "Vicente Peña, J.",
+      "Díaz De maría, F."
+    ],
     "orcid_source": "0000-0003-1425-6763"
   },
   {
@@ -1686,7 +2052,12 @@
     "year": "2002",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84960921109&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Pelaez Moreno, C.",
+      "Gallardo Antolin, A.",
+      "Parrado Hernandez, E.",
+      "Diaz De Maria, F."
+    ],
     "orcid_source": "0000-0003-1425-6763"
   },
   {
@@ -1696,7 +2067,11 @@
     "year": "2001",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-64549102705&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Gallardo Antolín, A.",
+      "Peláez Moreno, C.",
+      "Díaz De María, F."
+    ],
     "orcid_source": "0000-0003-1425-6763"
   },
   {
@@ -1706,7 +2081,12 @@
     "year": "2024",
     "doi": "10.1109/JBHI.2024.3430810",
     "url": "https://doi.org/10.1109/JBHI.2024.3430810",
-    "authors": [],
+    "authors": [
+      "Iván González Díaz",
+      "Miguel Molina Moreno",
+      "Jenny Benois Pineau",
+      "Aymar de Rugy"
+    ],
     "orcid_source": "0000-0003-4644-8479"
   },
   {
@@ -1726,7 +2106,11 @@
     "year": "2020",
     "doi": "10.1109/TCSVT.2019.2909427",
     "url": "https://doi.org/10.1109/TCSVT.2019.2909427",
-    "authors": [],
+    "authors": [
+      "Miguel Angel Fernandez Torres",
+      "Ivan Gonzalez Diaz",
+      "Fernando Diaz de Maria"
+    ],
     "orcid_source": "0000-0003-4644-8479"
   },
   {
@@ -1736,7 +2120,11 @@
     "year": "2019",
     "doi": "10.1109/TITS.2018.2859035",
     "url": "https://doi.org/10.1109/TITS.2018.2859035",
-    "authors": [],
+    "authors": [
+      "Miguel Molina Moreno",
+      "Ivan Gonzalez Diaz",
+      "Fernando Diaz de Maria"
+    ],
     "orcid_source": "0000-0003-4644-8479"
   },
   {
@@ -1746,7 +2134,9 @@
     "year": "2019",
     "doi": "10.1109/JBHI.2018.2806962",
     "url": "https://doi.org/10.1109/JBHI.2018.2806962",
-    "authors": [],
+    "authors": [
+      "Ivan Gonzalez Diaz"
+    ],
     "orcid_source": "0000-0003-4644-8479"
   },
   {
@@ -1770,23 +2160,17 @@
     "orcid_source": "0000-0003-4644-8479"
   },
   {
-    "title": "Incorporating the Knowledge of Dermatologists to Convolutional Neural Networks for the Diagnosis of Skin Lesions",
-    "journal": null,
-    "type": "preprint",
-    "year": "2017",
-    "doi": "",
-    "url": null,
-    "authors": [],
-    "orcid_source": "0000-0003-4644-8479"
-  },
-  {
     "title": "A probabilistic topic approach for context-aware visual attention modeling",
     "journal": "Proceedings - International Workshop on Content-Based Multimedia Indexing",
     "type": "conference-paper",
     "year": "2016",
     "doi": "10.1109/CBMI.2016.7500272",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84978901173&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Fernandez Torres, M. A.",
+      "Gonzalez Diaz, I.",
+      "Diaz De Maria, F."
+    ],
     "orcid_source": "0000-0003-4644-8479"
   },
   {
@@ -1796,7 +2180,12 @@
     "year": "2016",
     "doi": "10.1109/TMM.2016.2616298",
     "url": null,
-    "authors": [],
+    "authors": [
+      "Ivan Gonzalez Diaz",
+      "Murat Birinci",
+      "Fernando Diaz de Maria",
+      "Edward J. Delp"
+    ],
     "orcid_source": "0000-0003-4644-8479"
   },
   {
@@ -1806,17 +2195,11 @@
     "year": "2015",
     "doi": "10.1109/ICIP.2015.7351644",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84956678085&partnerID=MN8TOARS",
-    "authors": [],
-    "orcid_source": "0000-0003-4644-8479"
-  },
-  {
-    "title": "Recognition of instrumental activities of daily living in egocentric video for activity monitoring of patients with dementia",
-    "journal": "Health Monitoring and Personalized Feedback using Multimedia Data",
-    "type": "book",
-    "year": "2015",
-    "doi": "10.1007/978-3-319-17963-6_9",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84943654956&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Buso, V.",
+      "Gonzalez Diaz, I.",
+      "Benois Pineau, J."
+    ],
     "orcid_source": "0000-0003-4644-8479"
   },
   {
@@ -1826,17 +2209,15 @@
     "year": "2014",
     "doi": "10.1109/ICIP.2014.7025562",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84949928601&partnerID=MN8TOARS",
-    "authors": [],
-    "orcid_source": "0000-0003-4644-8479"
-  },
-  {
-    "title": "Fusion of Multiple Visual Cues for Object Recognition in Videos",
-    "journal": "Fusion in Computer Vision",
-    "type": "book-chapter",
-    "year": "2014",
-    "doi": "10.1007/978-3-319-05696-8_4",
-    "url": "http://dx.doi.org/10.1007/978-3-319-05696-8_4",
-    "authors": [],
+    "authors": [
+      "Martínez Cortés, T.",
+      "Fernández Torres, M.A.",
+      "Jiménez Moreno, A.",
+      "González Díaz, I.",
+      "Díaz De María, F.",
+      "Guzmán De Villoria, J.A.",
+      "Fernández, P."
+    ],
     "orcid_source": "0000-0003-4644-8479"
   },
   {
@@ -1846,7 +2227,11 @@
     "year": "2013",
     "doi": "10.1109/ICIP.2013.6738824",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84897753114&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "De La Calle Silos, F.",
+      "González Díaz, I.",
+      "Díaz De María, F."
+    ],
     "orcid_source": "0000-0003-4644-8479"
   },
   {
@@ -1856,7 +2241,13 @@
     "year": "2013",
     "doi": "10.1145/2505323.2505328",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84887163723&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "González Díaz, I.",
+      "Buso, V.",
+      "Benois Pineau, J.",
+      "Bourmaud, G.",
+      "Megret, R."
+    ],
     "orcid_source": "0000-0003-4644-8479"
   },
   {
@@ -1866,7 +2257,12 @@
     "year": "2012",
     "doi": "10.1109/CBMI.2012.6269844",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84866667243&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "González Díaz, I.",
+      "Baz Hormigos, C.E.",
+      "Berdonces, M.",
+      "Díaz De María, F."
+    ],
     "orcid_source": "0000-0003-4644-8479"
   },
   {
@@ -1876,7 +2272,12 @@
     "year": "2010",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84905180239&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "González Díaz, I.",
+      "Gómez Verdejo, V.",
+      "Díaz de María, F.",
+      "Arenas García, J."
+    ],
     "orcid_source": "0000-0003-4644-8479"
   },
   {
@@ -1886,7 +2287,11 @@
     "year": "2009",
     "doi": "10.1109/ICIP.2009.5414236",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-77951952721&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "González Díaz, I.",
+      "García García, D.",
+      "Díaz de María, F."
+    ],
     "orcid_source": "0000-0003-4644-8479"
   },
   {
@@ -1896,7 +2301,13 @@
     "year": "2009",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84905715489&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "González Díaz, I.",
+      "Gómez Verdejo, V.",
+      "Martínez Ramon, M.",
+      "Díaz de María, F.",
+      "Arenas García, J."
+    ],
     "orcid_source": "0000-0003-4644-8479"
   },
   {
@@ -1906,7 +2317,13 @@
     "year": "2008",
     "doi": "10.1109/ICIP.2008.4711676",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-69949129491&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "González Díaz, I.",
+      "McGuinness, K.",
+      "Adamek, T.",
+      "OConnor, N.E.",
+      "Díaz De María, F."
+    ],
     "orcid_source": "0000-0003-4644-8479"
   },
   {
@@ -1916,7 +2333,16 @@
     "year": "2008",
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84905186764&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "González Díaz, I.",
+      "García García, D.",
+      "Solera Ureña, R.",
+      "Madrid Sánchez, J.",
+      "Gómez Verdejo, V.",
+      "Martínez Ramón, M.",
+      "Díaz de María, F.",
+      "Arenas García, J."
+    ],
     "orcid_source": "0000-0003-4644-8479"
   },
   {
@@ -1926,7 +2352,12 @@
     "year": "2007",
     "doi": "10.1109/ICASSP.2007.366117",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-34547534765&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Sanz Rodríguez, S.",
+      "De Frutos López, M.",
+      "González Díaz, I.",
+      "Cid Sueiro, J."
+    ],
     "orcid_source": "0000-0003-4644-8479"
   },
   {
@@ -1936,7 +2367,12 @@
     "year": "2007",
     "doi": "10.1109/ICASSP.2007.366123",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-34547534157&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "González Díaz, I.",
+      "De Frutos López, M.",
+      "Sanz Rodríguez, S.",
+      "Díaz de María, F."
+    ],
     "orcid_source": "0000-0003-4644-8479"
   },
   {
@@ -1946,48 +2382,11 @@
     "year": "2007",
     "doi": "10.1109/ICIP.2007.4379198",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-48149093629&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "González Díaz, I.",
+      "Díaz de María, F."
+    ],
     "orcid_source": "0000-0003-4644-8479"
-  },
-  {
-    "title": "Identifying the Restructuring of Forced Responses and Internal Variability in Soil Moisture–Precipitation Coupling Mechanisms",
-    "journal": null,
-    "type": "preprint",
-    "year": "2026",
-    "doi": "10.5194/egusphere-egu26-8630",
-    "url": "https://doi.org/10.5194/egusphere-egu26-8630",
-    "authors": [],
-    "orcid_source": "0000-0002-0801-199X"
-  },
-  {
-    "title": "Towards Sub-Seasonal Flash Drought Prediction Using a Vision Transformer Approach",
-    "journal": null,
-    "type": "preprint",
-    "year": "2026",
-    "doi": "10.5194/egusphere-egu26-3518",
-    "url": "https://doi.org/10.5194/egusphere-egu26-3518",
-    "authors": [],
-    "orcid_source": "0000-0002-0801-199X"
-  },
-  {
-    "title": "Understanding European Heatwaves with Variational Autoencoders",
-    "journal": null,
-    "type": "preprint",
-    "year": "2025",
-    "doi": "10.5194/egusphere-2025-2460",
-    "url": "https://doi.org/10.5194/egusphere-2025-2460",
-    "authors": [],
-    "orcid_source": "0000-0002-0801-199X"
-  },
-  {
-    "title": "Detecting spatio-temporal dynamics of western European heatwaves using deep learning",
-    "journal": null,
-    "type": "preprint",
-    "year": "2025",
-    "doi": "10.5194/egusphere-egu24-6655",
-    "url": "https://doi.org/10.5194/egusphere-egu24-6655",
-    "authors": [],
-    "orcid_source": "0000-0002-0801-199X"
   },
   {
     "title": "The AIDE Toolbox: Artificial intelligence for disentangling extreme events [Software and Data Sets]",
@@ -1996,17 +2395,15 @@
     "year": "2024",
     "doi": "10.1109/MGRS.2024.3382544",
     "url": "https://doi.org/10.1109/MGRS.2024.3382544",
-    "authors": [],
-    "orcid_source": "0000-0002-0801-199X"
-  },
-  {
-    "title": "AI for Extreme Event Modeling and Understanding: Methodologies and Challenges",
-    "journal": "arXiv",
-    "type": "other",
-    "year": "2024",
-    "doi": "10.48550/arXiv.2406.20080",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85199594590&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Maria Gonzalez Calabuig",
+      "Jordi Cortés Andrés",
+      "Tristan Keith Ellis Williams",
+      "Mengxue Zhang",
+      "Oscar Jose Pellicer Valero",
+      "Miguel Ángel Fernández Torres",
+      "Gustau Camps Valls"
+    ],
     "orcid_source": "0000-0002-0801-199X"
   },
   {
@@ -2016,27 +2413,11 @@
     "year": "2024",
     "doi": "10.1109/TGRS.2024.3504340",
     "url": "https://doi.org/10.1109/TGRS.2024.3504340",
-    "authors": [],
-    "orcid_source": "0000-0002-0801-199X"
-  },
-  {
-    "title": "DeepExtremeCubes: Integrating Earth system spatio-temporal data for impact assessment of climate extremes",
-    "journal": "arXiv",
-    "type": "other",
-    "year": "2024",
-    "doi": "10.48550/arXiv.2406.18179",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85198062677&partnerID=MN8TOARS",
-    "authors": [],
-    "orcid_source": "0000-0002-0801-199X"
-  },
-  {
-    "title": "Explainable Earth Surface Forecasting under Extreme Events",
-    "journal": "arXiv",
-    "type": "other",
-    "year": "2024",
-    "doi": "10.48550/arXiv.2410.01770",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85208954186&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Jordi Cortés Andrés",
+      "Miguel Ángel Fernández Torres",
+      "Gustau Camps Valls"
+    ],
     "orcid_source": "0000-0002-0801-199X"
   },
   {
@@ -2046,77 +2427,16 @@
     "year": "2024",
     "doi": "10.1109/MGRS.2024.3467001",
     "url": "https://doi.org/10.1109/MGRS.2024.3467001",
-    "authors": [],
-    "orcid_source": "0000-0002-0801-199X"
-  },
-  {
-    "title": "Opening the Black-Box: A Systematic Review on Explainable AI in Remote Sensing",
-    "journal": "arXiv",
-    "type": "other",
-    "year": "2024",
-    "doi": "10.48550/arXiv.2402.13791",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85186360840&partnerID=MN8TOARS",
-    "authors": [],
-    "orcid_source": "0000-0002-0801-199X"
-  },
-  {
-    "title": "USCC: A Benchmark Dataset for Crop Yield Prediction under Climate Extremes",
-    "journal": null,
-    "type": "preprint",
-    "year": "2023",
-    "doi": "10.5194/egusphere-egu23-15540",
-    "url": "https://doi.org/10.5194/egusphere-egu23-15540",
-    "authors": [],
-    "orcid_source": "0000-0002-0801-199X"
-  },
-  {
-    "title": "XAIDA4Detection: A Toolbox for the Detection and Characterization of Spatio-Temporal Extreme Events",
-    "journal": null,
-    "type": "preprint",
-    "year": "2023",
-    "doi": "10.5194/egusphere-egu23-4816",
-    "url": "https://doi.org/10.5194/egusphere-egu23-4816",
-    "authors": [],
-    "orcid_source": "0000-0002-0801-199X"
-  },
-  {
-    "title": "HIERARCHICAL REPRESENTATIONS FOR SPATIO-TEMPORAL VISUAL ATTENTION MODELING AND UNDERSTANDING",
-    "journal": "arXiv",
-    "type": "other",
-    "year": "2023",
-    "doi": "10.48550/arXiv.2308.05189",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85168642025&partnerID=MN8TOARS",
-    "authors": [],
-    "orcid_source": "0000-0002-0801-199X"
-  },
-  {
-    "title": "Explainable deep learning for wildfire danger estimation",
-    "journal": null,
-    "type": "preprint",
-    "year": "2022",
-    "doi": "10.5194/egusphere-egu22-11787",
-    "url": "https://doi.org/10.5194/egusphere-egu22-11787",
-    "authors": [],
-    "orcid_source": "0000-0002-0801-199X"
-  },
-  {
-    "title": "Learning ENSO-related Principal Modes of Vegetation via a Granger-Causal Variational Autoencoder",
-    "journal": null,
-    "type": "preprint",
-    "year": "2022",
-    "doi": "10.5194/egusphere-egu22-11388",
-    "url": "https://doi.org/10.5194/egusphere-egu22-11388",
-    "authors": [],
-    "orcid_source": "0000-0002-0801-199X"
-  },
-  {
-    "title": "Recent Advances in Deep Learning for Spatio-Temporal Drought Monitoring, Forecasting and Model Understanding",
-    "journal": null,
-    "type": "preprint",
-    "year": "2022",
-    "doi": "10.5194/egusphere-egu22-11872",
-    "url": "https://doi.org/10.5194/egusphere-egu22-11872",
-    "authors": [],
+    "authors": [
+      "Adrian Höhl",
+      "Ivica Obadic",
+      "Miguel Ángel Fernández Torres",
+      "Hiba Najjar",
+      "Dario Augusto Borges Oliveira",
+      "Zeynep Akata",
+      "Andreas Dengel",
+      "Xiao Xiang Zhu"
+    ],
     "orcid_source": "0000-0002-0801-199X"
   },
   {
@@ -2126,7 +2446,16 @@
     "year": "2022",
     "doi": "10.1109/JICV56113.2022.9934757",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85143079730&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Laparra, V.",
+      "Piles, M.",
+      "Perez Suay, A.",
+      "Munoz Mari, J.",
+      "Amoros, J.",
+      "Fernandez Moran, R.",
+      "Fernandez Torres, M. A.",
+      "Adsuara, J.E."
+    ],
     "orcid_source": "0000-0002-0801-199X"
   },
   {
@@ -2136,27 +2465,21 @@
     "year": "2022",
     "doi": "10.1109/JICV56113.2022.9934413",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85143049177&partnerID=MN8TOARS",
-    "authors": [],
-    "orcid_source": "0000-0002-0801-199X"
-  },
-  {
-    "title": "Spatio-Temporal Gaussianization Flows for Extreme Event Detection",
-    "journal": null,
-    "type": "other",
-    "year": "2021",
-    "doi": "10.5194/egusphere-egu21-15729",
-    "url": "https://doi.org/10.5194/egusphere-egu21-15729",
-    "authors": [],
-    "orcid_source": "0000-0002-0801-199X"
-  },
-  {
-    "title": "Deep learning methods for daily wildfire danger forecasting",
-    "journal": "arXiv",
-    "type": "other",
-    "year": "2021",
-    "doi": "10.48550/arxiv.2111.02736",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85169994163&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Suay, A.P.",
+      "Vaerenbergh, S.V.",
+      "Piles, M.",
+      "Laparra, V.",
+      "Pascual Venteo, A.B.",
+      "Ruescas, A.B.",
+      "Fernandez Moran, R.",
+      "Martinez Garcia, M.",
+      "Adsuara, J.E.",
+      "Amoros, J.",
+      "Munoz Mari, J.",
+      "Epifanio, I.",
+      "Fernandez Torres, M. A."
+    ],
     "orcid_source": "0000-0002-0801-199X"
   },
   {
@@ -2166,7 +2489,11 @@
     "year": "2020",
     "doi": "10.1109/ACCESS.2020.3041606",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85097448514&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Martinez Cebrian, J.",
+      "Fernandez Torres, M. A.",
+      "Diaz De Maria, F."
+    ],
     "orcid_source": "0000-0002-0801-199X"
   },
   {
@@ -2176,7 +2503,11 @@
     "year": "2020",
     "doi": "10.1109/TCSVT.2019.2909427",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85086304038&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Fernández Torres, M. A.",
+      "González DÍaz, I.",
+      "DÍaz De María, F."
+    ],
     "orcid_source": "0000-0002-0801-199X"
   },
   {
@@ -2186,7 +2517,11 @@
     "year": "2016",
     "doi": "10.1109/CBMI.2016.7500272",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84978901173&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Fernandez Torres, M. A.",
+      "Gonzalez Diaz, I.",
+      "Diaz De Maria, F."
+    ],
     "orcid_source": "0000-0002-0801-199X"
   },
   {
@@ -2196,7 +2531,15 @@
     "year": "2014",
     "doi": "10.1109/ICIP.2014.7025562",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84949928601&partnerID=MN8TOARS",
-    "authors": [],
+    "authors": [
+      "Martínez Cortés, T.",
+      "Fernández Torres, M.A.",
+      "Jiménez Moreno, A.",
+      "González Díaz, I.",
+      "Díaz De María, F.",
+      "Guzmán De Villoria, J.A.",
+      "Fernández, P."
+    ],
     "orcid_source": "0000-0002-0801-199X"
   }
 ]
