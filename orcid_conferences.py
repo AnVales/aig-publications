@@ -1,8 +1,8 @@
 import json
 import os
 import re
-import time
 import html
+import unicodedata
 
 import requests
 from requests.adapters import HTTPAdapter
@@ -23,6 +23,7 @@ OUTPUT_BIB = "conference_publications.bib"
 
 API_BASE = "https://pub.orcid.org/v3.0"
 REQUEST_TIMEOUT = 30
+BULK_SIZE = 50  # Límite recomendado de put-codes por petición en ORCID
 
 
 # ============================================================
@@ -52,7 +53,7 @@ session.mount("http://", adapter)
 
 
 # ============================================================
-# AUXILIARES DE LIMPIEZA
+# AUXILIARES DE LIMPIEZA Y FORMATEO DE AUTORES
 # ============================================================
 
 def clean_text(value):
@@ -68,11 +69,32 @@ def normalize_orcid(orcid_raw):
     val = re.sub(r"[^\dXX-]", "", val, flags=re.IGNORECASE)
     return val.strip()
 
+def normalize_author_name(name_raw):
+    """
+    Normaliza el nombre de un autor eliminando guiones innecesarios,
+    espacios dobles y caracteres extraños para dejar un único formato limpio.
+    """
+    if not name_raw:
+        return ""
+    
+    # 1. Quitar guiones y reemplazar por espacios simples
+    name = str(name_raw).replace("-", " ")
+    
+    # 2. Normalizar caracteres Unicode (por si hay inconsistencias de codificación)
+    name = unicodedata.normalize("NFC", name)
+    
+    # 3. Eliminar caracteres no deseados y espacios múltiples
+    name = re.sub(r"[^\w\s,\.]", "", name)
+    name = re.sub(r"\s+", " ", name).strip()
+    
+    return name
+
 def safe_get(url):
     try:
         response = session.get(url, headers=HEADERS, timeout=REQUEST_TIMEOUT)
         if response.status_code == 200:
-            return response.json()
+            res_json = response.json()
+            return res_json if isinstance(res_json, dict) else None
         print(f"      [WARN] HTTP {response.status_code} al consultar: {url}")
         return None
     except Exception as e:
@@ -87,45 +109,82 @@ def extract_orcid_from_item(item):
 
 
 # ============================================================
-# EXTRACCIÓN DE DETALLES Y AUTORES DE PUBLICACIONES
+# EXTRACCIÓN DE OBRAS (CON BATCHING BULK PARA DETALLES)
 # ============================================================
 
-def get_authors_from_work_detail(orcid, put_code):
-    """Consulta el detalle del trabajo para extraer la lista de autores."""
-    if not put_code:
-        return []
-    
-    url = f"{API_BASE}/{orcid}/work/{put_code}"
-    detail = safe_get(url)
-    if not detail:
-        return []
+def get_works_bulk_details(orcid, put_codes):
+    """
+    Consulta en bloque (bulk) los detalles de los trabajos indicados
+    para extraer sus autores sin hacer cientos de peticiones.
+    """
+    if not put_codes:
+        return {}
 
-    authors = []
-    contributors = detail.get("contributors", {}).get("contributor", []) or []
-    for c in contributors:
-        credit_name = c.get("credit-name", {})
-        if isinstance(credit_name, dict):
-            name_val = credit_name.get("value")
-            if name_val:
-                authors.append(clean_text(name_val))
-    return authors
+    details_map = {}
+    
+    for i in range(0, len(put_codes), BULK_SIZE):
+        chunk = put_codes[i:i + BULK_SIZE]
+        codes_str = ",".join(str(code) for code in chunk)
+        url = f"{API_BASE}/{orcid}/works/{codes_str}"
+        
+        data = safe_get(url)
+        if not data or not isinstance(data, dict):
+            continue
+
+        bulk_works = data.get("bulk", []) or []
+        for item in bulk_works:
+            work = item.get("work")
+            if not work or not isinstance(work, dict):
+                continue
+            
+            put_code = work.get("put-code")
+            authors = []
+            contributors = work.get("contributors", {})
+            if isinstance(contributors, dict):
+                contrib_list = contributors.get("contributor", []) or []
+                for c in contrib_list:
+                    if isinstance(c, dict):
+                        credit_name = c.get("credit-name")
+                        if isinstance(credit_name, dict):
+                            name_val = credit_name.get("value")
+                            if name_val:
+                                authors.append(normalize_author_name(name_val))
+
+            if put_code:
+                details_map[put_code] = authors
+
+    return details_map
 
 
 def get_works_from_orcid(orcid):
     url = f"{API_BASE}/{orcid}/works"
     data = safe_get(url)
-    if not data:
+    if not data or not isinstance(data, dict):
         return []
 
     groups = data.get("group") or []
-    publications = []
+    summaries_data = []
+    put_codes = []
 
     for group in groups:
+        if not isinstance(group, dict):
+            continue
         summaries = group.get("work-summary") or []
         if not summaries:
             continue
         
         summary = summaries[0]
+        if isinstance(summary, dict):
+            put_code = summary.get("put-code")
+            if put_code:
+                put_codes.append(put_code)
+                summaries_data.append(summary)
+
+    # Obtener los detalles de los autores en bloques (evita el error AttributeError)
+    authors_map = get_works_bulk_details(orcid, put_codes)
+
+    publications = []
+    for summary in summaries_data:
         put_code = summary.get("put-code")
         
         title_obj = summary.get("title") or {}
@@ -140,23 +199,25 @@ def get_works_from_orcid(orcid):
         work_type = clean_text(summary.get("type"))
         
         pub_date = summary.get("publication-date") or {}
-        year_obj = pub_date.get("year") or {}
-        year = year_obj.get("value") if isinstance(year_obj, dict) else ""
+        year = ""
+        if isinstance(pub_date, dict):
+            year_obj = pub_date.get("year") or {}
+            year = year_obj.get("value") if isinstance(year_obj, dict) else ""
 
         doi = ""
         ext_ids = summary.get("external-ids") or {}
-        ext_list = ext_ids.get("external-id") or []
-        for ext in ext_list:
-            if isinstance(ext, dict) and str(ext.get("external-id-type")).lower() == "doi":
-                doi = clean_text(ext.get("external-id-value"))
-                doi = re.sub(r"^https?://doi\.org/", "", doi, flags=re.IGNORECASE)
-                break
+        if isinstance(ext_ids, dict):
+            ext_list = ext_ids.get("external-id") or []
+            for ext in ext_list:
+                if isinstance(ext, dict) and str(ext.get("external-id-type")).lower() == "doi":
+                    doi = clean_text(ext.get("external-id-value"))
+                    doi = re.sub(r"^https?://doi\.org/", "", doi, flags=re.IGNORECASE)
+                    break
 
         url_obj = summary.get("url") or {}
         url_val = url_obj.get("value") if isinstance(url_obj, dict) else str(url_obj)
 
-        # Obtener autores detallados de cada publicación
-        authors = get_authors_from_work_detail(orcid, put_code)
+        authors = authors_map.get(put_code, [])
 
         if title:
             publications.append({
@@ -174,7 +235,7 @@ def get_works_from_orcid(orcid):
 
 
 # ============================================================
-# CLASIFICACIÓN DE CONGRESOS
+# CLASIFICACIÓN EXCLUSIVA DE CONGRESOS
 # ============================================================
 
 def looks_like_conference(pub):
@@ -196,14 +257,11 @@ def looks_like_conference(pub):
     if any(kw in target_text for kw in keywords):
         return True
 
-    if raw_type and "journal-article" not in raw_type and "journalarticle" not in raw_type:
-        return True
-
     return False
 
 
 # ============================================================
-# GUARDADO DE ARCHIVOS CON AUTORES
+# EXPORTACIÓN
 # ============================================================
 
 def save_json(data, filename):
@@ -227,6 +285,7 @@ def save_bibtex(publications, filename=OUTPUT_BIB):
 
         entry = f"@inproceedings{{{key},\n"
         if authors_list:
+            # Formato estándar de autores en BibTeX unidos por 'and'
             authors_str = " and ".join(authors_list)
             entry += f"  author = {{{authors_str}}},\n"
         entry += f"  title = {{{title}}},\n"
@@ -249,10 +308,10 @@ def save_html(publications, filename=OUTPUT_HTML):
     html_content = [
         "<!DOCTYPE html>",
         "<html lang='es'>",
-        "<head><meta charset='utf-8'><title>Publicaciones de Congreso</title>",
+        "<head><meta charset='utf-8'><title>Comunicaciones a Congresos</title>",
         "<style>body{font-family:sans-serif;margin:20px;} .pub{margin-bottom:15px;padding:10px;border-left:3px solid #0056b3;background:#f9f9f9;} .title{font-weight:bold;} .authors{color:#333;font-style:italic;margin-top:2px;} .meta{font-size:0.9em;color:#777;margin-top:2px;}</style>",
         "</head><body>",
-        f"<h1>Publicaciones de Congreso ({len(publications)})</h1>",
+        f"<h1>Comunicaciones a Congresos ({len(publications)})</h1>",
     ]
 
     for pub in publications:
@@ -315,28 +374,17 @@ def main():
 
     save_json(all_publications, OUTPUT_ALL)
 
-    conferences = []
-    excluded = []
+    conferences = [pub for pub in all_publications if looks_like_conference(pub)]
+    excluded = [pub for pub in all_publications if not looks_like_conference(pub)]
 
-    for pub in all_publications:
-        if looks_like_conference(pub):
-            conferences.append(pub)
-        else:
-            excluded.append(pub)
+    print(f"Comunicaciones a congresos filtradas: {len(conferences)}")
 
-    target_list = conferences
-    if len(conferences) == 0 and len(all_publications) > 0:
-        print("[AVISO] El filtro específico de congresos arrojó 0 resultados. Exportando TODAS las publicaciones.")
-        target_list = all_publications
-
-    print(f"Publicaciones seleccionadas para guardar: {len(target_list)}")
-
-    save_json(target_list, OUTPUT_JSON)
+    save_json(conferences, OUTPUT_JSON)
     save_json(excluded, OUTPUT_EXCLUDED)
-    save_bibtex(target_list, OUTPUT_BIB)
-    save_html(target_list, OUTPUT_HTML)
+    save_bibtex(conferences, OUTPUT_BIB)
+    save_html(conferences, OUTPUT_HTML)
 
-    print("\n¡Proceso finalizado con éxito! Archivos y autores actualizados.")
+    print(f"\n¡Proceso finalizado con éxito! Archivo {OUTPUT_BIB} generado con autores normalizados.")
 
 if __name__ == "__main__":
     main()
