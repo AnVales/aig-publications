@@ -107,18 +107,23 @@ def strip_diacritics(text):
 
 
 def format_name_segment(segment):
-    """Convierte un segmento de texto en Title Case respetando partículas y palabras completas."""
+    """Convierte un segmento en Title Case y arregla iniciales pegadas como 'J.m.' -> 'J. M.'."""
     words = segment.split()
     formatted = []
     for w in words:
         w_clean = re.sub(r"[^\w]", "", w)
-        # Si es una sola letra, la tratamos como inicial
         if len(w_clean) == 1:
             formatted.append(f"{w_clean.upper()}.")
+        elif len(w_clean) == 2 and w_clean.isupper():
+            formatted.append(f"{w_clean[0]}. {w_clean[1]}.")
         elif w.lower() in ("de", "del", "la", "las", "los", "y"):
             formatted.append(w.lower())
         else:
-            formatted.append(w.capitalize())
+            if re.match(r"^[A-Za-z]\.[a-z]\.?$", w):
+                parts = w.replace(".", "")
+                formatted.append(f"{parts[0].upper()}. {parts[1].upper()}.")
+            else:
+                formatted.append(w.capitalize())
     return " ".join(formatted)
 
 
@@ -131,25 +136,21 @@ def normalize_author_name(name_raw):
     if not name_raw:
         return ""
 
-    # Limpieza básica
     name = str(name_raw).replace("-", " ")
     name = re.sub(r"\s+", " ", name).strip()
     
-    # Búsqueda en alias (sin tildes, minúsculas, sin puntuación)
     key = strip_diacritics(name).lower()
     key = re.sub(r"[^\w\s]", "", key).strip()
 
     if key in AUTHOR_ALIASES:
         return AUTHOR_ALIASES[key]
 
-    # Si viene con formato "APELLIDOS, NOMBRE"
     if "," in name:
         parts = name.split(",", 1)
         surname = format_name_segment(parts[0])
         first_name = format_name_segment(parts[1])
         return f"{surname}, {first_name}"
 
-    # Si viene sin coma "NOMBRE APELLIDOS"
     return format_name_segment(name)
 
 
@@ -186,6 +187,35 @@ def extract_orcid_from_item(item):
         if key in item and item[key]:
             return normalize_orcid(item[key])
     return ""
+
+
+# ============================================================
+# RECUPERACIÓN DE AUTORES VÍA CROSSREF (RESPALDO POR DOI)
+# ============================================================
+
+def get_authors_from_crossref(doi):
+    """Recupera los autores desde CrossRef cuando ORCID los devuelve vacíos."""
+    if not doi:
+        return []
+    
+    url = f"https://api.crossref.org/works/{doi}"
+    try:
+        response = requests.get(url, timeout=10)
+        if response.status_code == 200:
+            data = response.json()
+            authors_raw = data.get("message", {}).get("author", []) or []
+            authors = []
+            for a in authors_raw:
+                given = a.get("given", "")
+                family = a.get("family", "")
+                if family:
+                    full_name = f"{family}, {given}".strip(", ")
+                    authors.append(normalize_author_name(full_name))
+            return authors
+    except Exception as e:
+        print(f"      [WARN] No se pudieron obtener autores de CrossRef para DOI {doi}: {e}")
+    
+    return []
 
 
 # ============================================================
@@ -232,7 +262,7 @@ def get_works_bulk_details(orcid, put_codes):
     return details_map
 
 
-def get_works_from_orcid(orcid):
+def get_works_from_orcid(orcid, researcher_name=""):
     url = f"{API_BASE}/{orcid}/works"
     data = safe_get(url)
     if not data or not isinstance(data, dict):
@@ -292,7 +322,16 @@ def get_works_from_orcid(orcid):
         url_obj = summary.get("url") or {}
         url_val = url_obj.get("value") if isinstance(url_obj, dict) else str(url_obj)
 
+        # 1. Intentamos obtener autores de ORCID
         authors = authors_map.get(put_code, [])
+
+        # 2. Respaldo CrossRef si no hay autores en ORCID
+        if not authors and doi:
+            authors = get_authors_from_crossref(doi)
+
+        # 3. Respaldo secundario: asignar al investigador si sigue vacío
+        if not authors and researcher_name:
+            authors = [normalize_author_name(researcher_name)]
 
         if title:
             publications.append({
@@ -445,7 +484,7 @@ def main():
             continue
 
         print(f"\nConsultando: {name} (ORCID: {orcid}) ...")
-        pubs = get_works_from_orcid(orcid)
+        pubs = get_works_from_orcid(orcid, researcher_name=name)
         print(f"  -> {len(pubs)} publicaciones encontradas para {name}.")
         all_publications.extend(pubs)
 
@@ -466,7 +505,7 @@ def main():
     save_bibtex(conferences, OUTPUT_BIB)
     save_html(conferences, OUTPUT_HTML)
 
-    print(f"\n¡Proceso finalizado con éxito! El archivo {OUTPUT_BIB} contiene nombres legibles y sin fragmentar.")
+    print(f"\n¡Proceso finalizado con éxito! El archivo {OUTPUT_BIB} contiene únicamente @inproceedings con autores completos.")
 
 
 if __name__ == "__main__":
