@@ -1,0 +1,41 @@
+name: Normalizar Autores en BIB
+
+on:
+  push:
+    paths:
+      - '**.bib'          # Se ejecuta automáticamente cada vez que subes un archivo .bib
+  workflow_dispatch:      # Permite ejecutarlo manualmente desde el botón de GitHub
+
+jobs:
+  normalize-bib:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Ejecutar script de normalización (Sobreescribe el .bib)
+        run: |
+          # Si ejecutas el script pasándole el mismo nombre de archivo como entrada y salida, lo sobreescribe.
+          # Cambia 'conferencias.bib' por el nombre exacto de tu archivo .bib principal si es distinto.
+          python normalize_bib.py conferencias.bib conferencias.bib
+
+      - name: Guardar y sobreescribir en GitHub (Commit & Push)
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          git add *.bib
+          
+          # Solo hace commit si hubo cambios en los archivos
+          if git diff --staged --quiet; then
+            echo "No se detectaron cambios en los autores."
+          else
+            git commit -m "auto: normalización estricta de autores en .bib"
+            git push
+          fi
