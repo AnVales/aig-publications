@@ -2,6 +2,7 @@ import json
 import os
 import re
 import time
+import unicodedata
 import html
 from urllib.parse import quote
 
@@ -22,6 +23,7 @@ OUTPUT_EXCLUDED = "conference_publications_excluded.json"
 OUTPUT_HTML = "conference_publications.html"
 OUTPUT_BIB = "conference_publications.bib"
 OUTPUT_AUTHOR_VARIANTS = "author_variants.json"
+OUTPUT_AUTHOR_REVIEW = "author_review.json"
 
 API_BASE = "https://pub.orcid.org/v3.0"
 
@@ -83,6 +85,9 @@ AUTHOR_REGISTRY = {}
 
 # Forma normalizada -> variantes originales observadas
 AUTHOR_VARIANTS = {}
+
+# Nombres que requieren revisión manual por tener una estructura inesperada.
+AUTHOR_REVIEW = {}
 
 
 # ============================================================
@@ -356,40 +361,119 @@ def safe_get(url, params=None):
 # NOMBRES DE AUTORES
 # ============================================================
 
+def _strip_diacritics(value):
+    """Elimina diacríticos SOLO para comparar claves internas."""
+
+    normalized = unicodedata.normalize("NFKD", value)
+    return "".join(
+        char
+        for char in normalized
+        if not unicodedata.combining(char)
+    )
+
+
 def author_alias_key(name):
     """
-    Crea una clave muy flexible para buscar alias.
+    Crea una clave estable y tolerante para buscar alias.
 
-    No se utiliza para mostrar el nombre.
+    La clave NO se escribe en el BibTeX. Solo sirve para que
+    variantes como:
+
+        Garcia-Cabellos, J.M.
+        García-Cabellos, JM
+        garcía cabellos, j. m.
+
+    puedan resolverse al mismo nombre canónico cuando existe
+    un alias explícito.
     """
 
     if not name:
         return ""
 
     value = clean_text(name).lower()
+    value = _strip_diacritics(value)
 
-    value = re.sub(r"\s+", " ", value)
-    value = value.replace(" ", "")
+    # Normalizar guiones Unicode y separadores equivalentes.
+    value = value.replace("‐", "-")
+    value = value.replace("‑", "-")
+    value = value.replace("‒", "-")
+    value = value.replace("–", "-")
+    value = value.replace("—", "-")
+
+    # Los espacios y la puntuación irrelevante no distinguen alias.
+    value = re.sub(r"[^a-z0-9]+", "", value)
+
+    return value
+
+
+def _build_author_alias_index():
+    """Construye una tabla de alias con claves normalizadas."""
+
+    index = {}
+
+    for alias, canonical in AUTHOR_ALIASES.items():
+        key = author_alias_key(alias)
+
+        if not key:
+            continue
+
+        previous = index.get(key)
+
+        # Si dos alias distintos colisionasen, no elegimos uno
+        # silenciosamente: dejamos el primero y avisamos al ejecutar.
+        if previous and previous != canonical:
+            print(
+                "AVISO: colisión de alias de autor: "
+                f"{alias!r} -> {canonical!r}; "
+                f"ya existía -> {previous!r}"
+            )
+            continue
+
+        index[key] = canonical
+
+    return index
+
+
+AUTHOR_ALIAS_INDEX = _build_author_alias_index()
+
+
+def _normalize_initials(value):
+    """Normaliza iniciales sin tocar nombres completos."""
+
+    value = clean_text(value)
+
+    if not value:
+        return ""
+
+    # A.R. / A. R. / A R -> A.R.
+    if re.fullmatch(
+        r"(?:[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]\.?\s*)+",
+        value,
+    ):
+        letters = re.findall(
+            r"[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]",
+            value,
+        )
+        if letters and len(letters) <= 4:
+            return "".join(letter.upper() + "." for letter in letters)
+
+    # Caso habitual: una única inicial sin punto.
+    if re.fullmatch(
+        r"[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]",
+        value,
+    ):
+        return value.upper() + "."
 
     return value
 
 
 def normalize_author_name(name):
     """
-    Normaliza un nombre de autor.
+    Normaliza un nombre de autor de forma determinista.
 
-    Objetivo:
-
-        Diaz-De-Maria, F.
-        Díaz-De-María, F.
-        Díaz-de-María, F
-
-    ->
-
-        Díaz-de-María, F.
-
-    No intenta reconstruir nombres completos que no estén
-    presentes en ORCID.
+    Las reglas son generales: espacios, coma, guiones equivalentes,
+    iniciales y alias canónicos. No se reconstruyen nombres que no
+    estén respaldados por los datos de entrada.
     """
 
     if not name:
@@ -400,186 +484,36 @@ def normalize_author_name(name):
     if not original:
         return ""
 
-    # Espacios repetidos
     value = re.sub(r"\s+", " ", original)
 
-    # Espacios alrededor de la coma
-    value = re.sub(r"\s*,\s*", ", ", value)
+    # Guiones Unicode -> guion ASCII.
+    value = re.sub(r"[‐‑‒–—]", "-", value)
 
-    # --------------------------------------------------------
-    # Si está en formato "Apellido, Iniciales"
-    # --------------------------------------------------------
+    # Espacios alrededor de la coma.
+    value = re.sub(r"\s*,\s*", ", ", value)
 
     if "," in value:
         surname, initials = value.split(",", 1)
-
         surname = surname.strip()
-        initials = initials.strip()
+        initials = _normalize_initials(initials)
+        value = f"{surname}, {initials}" if initials else surname
 
-        # Normalizar espacios entre iniciales.
-        # F. J. -> F.J.
-        initials = re.sub(
-            r"\s*\.\s*",
-            ".",
-            initials,
-        )
-
-        # Si termina en una letra de inicial y no tiene punto,
-        # añadimos punto solo si es claramente una inicial.
-        if re.fullmatch(
-            r"[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]",
-            initials,
-        ):
-            initials += "."
-
-        value = f"{surname}, {initials}"
-
-    # --------------------------------------------------------
-    # Normalización de partículas/apellidos concretos
-    # --------------------------------------------------------
-
-    replacements = [
-        (
-            r"(?i)\bDíaz[- ]De[- ]María\b",
-            "Díaz-de-María",
-        ),
-        (
-            r"(?i)\bDiaz[- ]De[- ]Maria\b",
-            "Díaz-de-María",
-        ),
-        (
-            r"(?i)\bDíaz[- ]De[- ]maria\b",
-            "Díaz-de-María",
-        ),
-        (
-            r"(?i)\bDiaz[- ]De[- ]maria\b",
-            "Díaz-de-María",
-        ),
-        (
-            r"(?i)\bPelaez[- ]Moreno\b",
-            "Peláez-Moreno",
-        ),
-        (
-            r"(?i)\bPeláez[- ]Moreno\b",
-            "Peláez-Moreno",
-        ),
-        (
-            r"(?i)\bGallardo[- ]Antolin\b",
-            "Gallardo-Antolín",
-        ),
-        (
-            r"(?i)\bGallardo[- ]Antolín\b",
-            "Gallardo-Antolín",
-        ),
-        (
-            r"(?i)\bGonzalez[- ]Diaz\b",
-            "González-Díaz",
-        ),
-        (
-            r"(?i)\bGonzález[- ]Diaz\b",
-            "González-Díaz",
-        ),
-        (
-            r"(?i)\bGonzalez[- ]Díaz\b",
-            "González-Díaz",
-        ),
-        (
-            r"(?i)\bGonzález[- ]Díaz\b",
-            "González-Díaz",
-        ),
-        (
-            r"(?i)\bGonzález Díaz\b",
-            "González-Díaz",
-        ),
-        (
-            r"(?i)\bGonzalez Diaz\b",
-            "González-Díaz",
-        ),
-        (
-            r"(?i)\bMartinez[- ]Enriquez\b",
-            "Martínez-Enríquez",
-        ),
-        (
-            r"(?i)\bMartínez[- ]Enriquez\b",
-            "Martínez-Enríquez",
-        ),
-        (
-            r"(?i)\bMartinez[- ]Enríquez\b",
-            "Martínez-Enríquez",
-        ),
-        (
-            r"(?i)\bDe[- ]Frutos[- ]Lopez\b",
-            "De-Frutos-López",
-        ),
-        (
-            r"(?i)\bDe[- ]Frutos[- ]López\b",
-            "De-Frutos-López",
-        ),
-        (
-            r"(?i)\bDel[- ]Ama[- ]Esteban\b",
-            "Del-Ama-Esteban",
-        ),
-        (
-            r"(?i)\bSanz[- ]Rodriguez\b",
-            "Sanz-Rodríguez",
-        ),
-        (
-            r"(?i)\bSanz[- ]Rodríguez\b",
-            "Sanz-Rodríguez",
-        ),
-        (
-            r"(?i)\bGarcia[- ]Garcia\b",
-            "García-García",
-        ),
-        (
-            r"(?i)\bGarcia[- ]García\b",
-            "García-García",
-        ),
-        (
-            r"(?i)\bGarcía[- ]Garcia\b",
-            "García-García",
-        ),
-        (
-            r"(?i)\bFernandez[- ]Torres\b",
-            "Fernández-Torres",
-        ),
-        (
-            r"(?i)\bFernández[- ]Torres\b",
-            "Fernández-Torres",
-        ),
-    ]
-
-    for pattern, replacement in replacements:
-        value = re.sub(
-            pattern,
-            replacement,
-            value,
-        )
-
-    # --------------------------------------------------------
-    # Alias explícitos
-    # --------------------------------------------------------
-
-    alias = AUTHOR_ALIASES.get(
-        author_alias_key(value)
-    )
+    # Alias: primero sobre la forma original normalizada y después
+    # sobre la forma ya limpiada. Esto permite que las publicaciones
+    # nuevas lleguen con pequeñas diferencias de formato.
+    alias = AUTHOR_ALIAS_INDEX.get(author_alias_key(value))
 
     if alias:
-        value = alias
+        return alias
 
-    # --------------------------------------------------------
-    # Casos sin formato "Apellido, inicial"
-    # --------------------------------------------------------
+    alias = AUTHOR_ALIAS_INDEX.get(author_alias_key(original))
 
-    no_comma_alias = AUTHOR_ALIASES.get(
-        author_alias_key(original)
-    )
+    if alias:
+        return alias
 
-    if no_comma_alias:
-        value = no_comma_alias
-
+    # Para nombres no incluidos en aliases no inventamos una forma
+    # distinta del nombre: solo devolvemos el formato limpiado.
     return value.strip()
-
 
 def normalize_author_for_match(name):
     """
@@ -624,6 +558,21 @@ def register_author_variant(original_name, canonical_name):
 
     if canonical_name:
         AUTHOR_VARIANTS[key].add(canonical_name)
+
+    # No bloqueamos la publicación: solo dejamos constancia de
+    # nombres que podrían requerir revisión manual.
+    if (
+        "," not in original_name
+        and len(original_name.split()) > 2
+    ) or ";" in original_name:
+        AUTHOR_REVIEW.setdefault(
+            key,
+            {
+                "name": original_name,
+                "canonical": canonical_name,
+                "reason": "formato de nombre poco habitual",
+            },
+        )
 
 
 # ============================================================
@@ -2051,6 +2000,29 @@ def save_bibtex(
 # INFORME DE VARIANTES DE AUTORES
 # ============================================================
 
+def save_author_review():
+    """Guarda casos de nombres con formato potencialmente ambiguo."""
+
+    data = sorted(
+        AUTHOR_REVIEW.values(),
+        key=lambda item: item.get("name", "").lower(),
+    )
+
+    with open(
+        OUTPUT_AUTHOR_REVIEW,
+        "w",
+        encoding="utf-8",
+    ) as file:  # noqa: PTH123
+        json.dump(
+            data,
+            file,
+            ensure_ascii=False,
+            indent=2,
+        )
+
+    return data
+
+
 def save_author_variants(
     filename
 ):
@@ -2693,6 +2665,11 @@ def main():
     )
 
     print(
+        f"Revisiones de autores:  "
+        f"{len(author_review)}"
+    )
+
+    print(
         f"Tiempo total:          "
         f"{elapsed:.1f} segundos"
     )
@@ -2726,6 +2703,10 @@ def main():
         f"  - {OUTPUT_AUTHOR_VARIANTS}"
     )
 
+    print(
+        f"  - {OUTPUT_AUTHOR_REVIEW}"
+    )
+
     print()
     print(
         "IMPORTANTE:"
@@ -2749,6 +2730,14 @@ def main():
         f"{OUTPUT_AUTHOR_VARIANTS} "
         "contiene las variantes de nombres "
         "detectadas durante la ejecución."
+    )
+
+    print(
+        "El archivo "
+        f"{OUTPUT_AUTHOR_REVIEW} "
+        "contiene únicamente nombres con formato "
+        "potencialmente ambiguo para revisión manual; "
+        "el script no los modifica por suposiciones."
     )
 
 
