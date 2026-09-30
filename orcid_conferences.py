@@ -1,137 +1,86 @@
 import json
-import os
 import re
-import html
 import unicodedata
-
 import requests
-from requests.adapters import HTTPAdapter
-from urllib3.util.retry import Retry
 
-
-# ============================================================
+# ==========================================
 # CONFIGURACIÓN
-# ============================================================
-
-INPUT_FILE = "researchers1.json"
-
-OUTPUT_JSON = "conference_publications.json"
-OUTPUT_ALL = "conference_publications_all_orcid.json"
-OUTPUT_EXCLUDED = "conference_publications_excluded.json"
-OUTPUT_HTML = "conference_publications.html"
-OUTPUT_BIB = "conference_publications.bib"
-
-API_BASE = "https://pub.orcid.org/v3.0"
-REQUEST_TIMEOUT = 30
-BULK_SIZE = 50  # Límite de put-codes por petición en ORCID
-
-
-# ============================================================
-# TOKEN Y SESIÓN ORCID
-# ============================================================
-
-TOKEN = os.getenv("ORCID_ACCESS_TOKEN")
-
-if not TOKEN:
-    raise RuntimeError("No se ha encontrado ORCID_ACCESS_TOKEN en las variables de entorno.")
+# ==========================================
+ORCID_ID = "0000-0001-9238-6923"  # Cambia por tu ORCID si es diferente
+OUTPUT_BIB = "conferencias_orcid.bib"
 
 HEADERS = {
-    "Authorization": f"Bearer {TOKEN}",
-    "Accept": "application/vnd.orcid+json",
+    "Accept": "application/json",
+    "User-Agent": "orcid-script/2.0 (mailto:tu-email@uc3m.es)"
 }
 
-session = requests.Session()
-retry = Retry(
-    total=3,
-    backoff_factor=1,
-    status_forcelist=[429, 500, 502, 503, 504],
-    allowed_methods=["GET"],
-)
-adapter = HTTPAdapter(max_retries=retry)
-session.mount("https://", adapter)
-session.mount("http://", adapter)
-
-
-# ============================================================
-# ALIAS Y NORMALIZACIÓN CORREGIDA DE AUTORES
-# ============================================================
-
+# Aliases de normalización manual si fuera necesario forzar un formato
 AUTHOR_ALIASES = {
-    # Fernando Díaz-de-María
-    "diaz de maria f": "Díaz de María, F.",
-    "diaz de maria fernando": "Díaz de María, F.",
-    "diaz de maria, f.": "Díaz de María, F.",
-    "diaz de maria, fernando": "Díaz de María, F.",
-    "díaz de maría, f.": "Díaz de María, F.",
-    "díaz de maría, fernando": "Díaz de María, F.",
-    "díaz de maría f": "Díaz de María, F.",
-    "fernando diaz de maria": "Díaz de María, F.",
-    "fernando díaz de maría": "Díaz de María, F.",
-    
-    # Carmen Peláez-Moreno
-    "pelaez moreno c": "Peláez Moreno, C.",
-    "pelaez moreno carmen": "Peláez Moreno, C.",
-    "pelaez moreno, c.": "Peláez Moreno, C.",
-    "peláez moreno, c.": "Peláez Moreno, C.",
-    "carmen pelaez moreno": "Peláez Moreno, C.",
-    "carmen peláez moreno": "Peláez Moreno, C.",
-    
-    # Ascensión Gallardo-Antolín
     "gallardo antolin a": "Gallardo Antolín, A.",
-    "gallardo antolín a": "Gallardo Antolín, A.",
-    "gallardo antolin, a.": "Gallardo Antolín, A.",
-    "gallardo antolín, a.": "Gallardo Antolín, A.",
-    "ascension gallardo antolin": "Gallardo Antolín, A.",
-    "ascensión gallardo antolín": "Gallardo Antolín, A.",
-
-    # Iván González Díaz
-    "gonzalez diaz i": "González Díaz, I.",
-    "gonzalez diaz, i.": "González Díaz, I.",
-    "gonzález díaz, i.": "González Díaz, I.",
-    "ivan gonzalez": "González Díaz, I.",
-    "iván gonzález": "González Díaz, I.",
-    
-    # Miguel Ángel Fernández Torres
-    "fernandez torres m a": "Fernández Torres, M. A.",
-    "fernandez torres, m. a.": "Fernández Torres, M. A.",
-    "fernández torres, m. a.": "Fernández Torres, M. A.",
-    "miguel angel fernandez torres": "Fernández Torres, M. A.",
-    "miguel ángel fernández torres": "Fernández Torres, M. A.",
+    "gallardo antolin ascension": "Gallardo Antolín, A.",
+    "gallardoantolin a": "Gallardo Antolín, A.",
+    "diaz de maria f": "Díaz de María, F.",
+    "pelaez moreno c": "Peláez Moreno, C.",
 }
 
-
+# ==========================================
+# FUNCIONES AUXILIARES DE TEXTO
+# ==========================================
 def strip_diacritics(text):
-    """Elimina tildes y marcas diacríticas para comparación uniforme."""
-    normalized = unicodedata.normalize("NFKD", text)
-    return "".join(c for c in normalized if not unicodedata.combining(c))
-
+    """ Elimina acentos y tildes para normalizar claves de búsqueda. """
+    return "".join(
+        c for c in unicodedata.normalize("NFD", text)
+        if unicodedata.category(c) != "Mn"
+    )
 
 def format_name_segment(segment):
-    """Convierte un segmento en Title Case y arregla iniciales pegadas como 'J.m.' -> 'J. M.'."""
-    words = segment.split()
-    formatted = []
-    for w in words:
-        w_clean = re.sub(r"[^\w]", "", w)
-        if len(w_clean) == 1:
-            formatted.append(f"{w_clean.upper()}.")
-        elif len(w_clean) == 2 and w_clean.isupper():
-            formatted.append(f"{w_clean[0]}. {w_clean[1]}.")
-        elif w.lower() in ("de", "del", "la", "las", "los", "y"):
-            formatted.append(w.lower())
+    """
+    Capitaliza correctamente apellidos o partes del nombre
+    respetando partículas como 'de', 'del', 'la', 'van', etc.
+    """
+    if not segment:
+        return ""
+    words = segment.strip().split()
+    lowercase_particles = {"de", "del", "la", "las", "los", "y", "von", "van", "di", "da"}
+    
+    formatted_words = []
+    for i, w in enumerate(words):
+        w_lower = w.lower()
+        if i > 0 and w_lower in lowercase_particles:
+            formatted_words.append(w_lower)
         else:
-            if re.match(r"^[A-Za-z]\.[a-z]\.?$", w):
-                parts = w.replace(".", "")
-                formatted.append(f"{parts[0].upper()}. {parts[1].upper()}.")
-            else:
-                formatted.append(w.capitalize())
-    return " ".join(formatted)
+            formatted_words.append(w.capitalize())
+            
+    return " ".join(formatted_words)
 
+def format_first_name_to_initials(first_name_raw):
+    """
+    Convierte cualquier nombre de pila ('Jorge', 'Juan Manuel', 'J.m.m.', 'J. A.')
+    en sus iniciales limpias en mayúscula separadas por espacio ('J.', 'J. M.', 'J. M. M.').
+    """
+    if not first_name_raw:
+        return ""
+    
+    # Expandir iniciales pegadas tipo "J.m.m." o "J.M." a "J. m. m."
+    cleaned = re.sub(r"([A-Za-z])\.", r"\1 ", str(first_name_raw))
+    # Separar letras mayúsculas pegadas tipo "JM" -> "J M"
+    cleaned = re.sub(r"([A-Z])(?=[A-Z])", r"\1 ", cleaned)
+    
+    tokens = re.findall(r"\w+", cleaned)
+    initials = []
+    
+    for token in tokens:
+        if token:
+            initials.append(f"{token[0].upper()}.")
+            
+    return " ".join(initials)
 
 def normalize_author_name(name_raw):
     """
-    Normaliza el nombre de un autor evitando fragmentar apellidos en iniciales:
-    1. Si coincide con un alias, asigna la forma canónica.
-    2. Si no, limpia el formato manteniendo las palabras completas intactas.
+    Normaliza un nombre de autor a 'Apellido, I.' o 'Apellido, I. J.':
+    - Convierte siempre el nombre de pila a iniciales en mayúscula.
+    - Maneja 'APELLIDOS, NOMBRE' y 'NOMBRE APELLIDOS'.
+    - Corrige iniciales juntas o minúsculas.
     """
     if not name_raw:
         return ""
@@ -145,261 +94,142 @@ def normalize_author_name(name_raw):
     if key in AUTHOR_ALIASES:
         return AUTHOR_ALIASES[key]
 
+    # CASO A: Viene con coma ("APELLIDOS, NOMBRE")
     if "," in name:
         parts = name.split(",", 1)
         surname = format_name_segment(parts[0])
-        first_name = format_name_segment(parts[1])
-        return f"{surname}, {first_name}"
+        initials = format_first_name_to_initials(parts[1])
+        return f"{surname}, {initials}".strip(", ")
 
-    return format_name_segment(name)
-
-
-def clean_text(value):
-    if value is None:
-        return ""
-    return str(value).strip()
-
-
-def normalize_orcid(orcid_raw):
-    if not orcid_raw:
-        return ""
-    val = clean_text(orcid_raw)
-    val = re.sub(r"^https?://[^/]+/", "", val, flags=re.IGNORECASE)
-    val = re.sub(r"[^\dXX-]", "", val, flags=re.IGNORECASE)
-    return val.strip()
-
-
-def safe_get(url):
-    try:
-        response = session.get(url, headers=HEADERS, timeout=REQUEST_TIMEOUT)
-        if response.status_code == 200:
-            res_json = response.json()
-            return res_json if isinstance(res_json, dict) else None
-        print(f"      [WARN] HTTP {response.status_code} al consultar: {url}")
-        return None
-    except Exception as e:
-        print(f"      [ERROR] Excepción de red: {e}")
-        return None
-
-
-def extract_orcid_from_item(item):
-    for key in ("orcid", "ORCID", "orcid_id", "orcidId", "id"):
-        if key in item and item[key]:
-            return normalize_orcid(item[key])
-    return ""
-
-
-# ============================================================
-# RECUPERACIÓN DE AUTORES VÍA CROSSREF (RESPALDO POR DOI)
-# ============================================================
-
-def get_authors_from_crossref(doi):
-    """Recupera los autores desde CrossRef cuando ORCID los devuelve vacíos."""
-    if not doi:
-        return []
+    # CASO B: Viene sin coma ("NOMBRE APELLIDOS")
+    words = name.split()
+    if len(words) == 1:
+        return format_name_segment(words[0])
     
+    # Identificar si las dos últimas palabras forman un apellido compuesto con partícula
+    if len(words) > 2 and words[-2].lower() in ("de", "del", "la", "las", "los"):
+        surname = format_name_segment(" ".join(words[-2:]))
+        first_names = " ".join(words[:-2])
+    else:
+        surname = format_name_segment(words[-1])
+        first_names = " ".join(words[:-1])
+
+    initials = format_first_name_to_initials(first_names)
+    return f"{surname}, {initials}".strip(", ")
+
+# ==========================================
+# EXTRACCIÓN Y CROSSREF
+# ==========================================
+def fetch_crossref_metadata(doi):
+    """ Recupera metadatos detallados de la API de CrossRef a través del DOI. """
     url = f"https://api.crossref.org/works/{doi}"
     try:
-        response = requests.get(url, timeout=10)
-        if response.status_code == 200:
-            data = response.json()
-            authors_raw = data.get("message", {}).get("author", []) or []
-            authors = []
-            for a in authors_raw:
-                given = a.get("given", "")
-                family = a.get("family", "")
-                if family:
-                    full_name = f"{family}, {given}".strip(", ")
-                    authors.append(normalize_author_name(full_name))
-            return authors
+        res = requests.get(url, headers=HEADERS, timeout=10)
+        if res.status_code == 200:
+            return res.json().get("message", {})
     except Exception as e:
-        print(f"      [WARN] No se pudieron obtener autores de CrossRef para DOI {doi}: {e}")
+        print(f"  [!] Error al consultar CrossRef para DOI {doi}: {e}")
+    return {}
+
+def fetch_orcid_conferences(orcid_id):
+    """ Obtiene todas las obras de tipo 'conference' o 'inproceedings' desde ORCID. """
+    url = f"https://pub.orcid.org/v3.0/{orcid_id}/works"
+    print(f"Consultando ORCID API para {orcid_id}...")
     
-    return []
-
-
-# ============================================================
-# EXTRACCIÓN DE OBRAS CON BATCHING BULK (AUTORES)
-# ============================================================
-
-def get_works_bulk_details(orcid, put_codes):
-    if not put_codes:
-        return {}
-
-    details_map = {}
-    
-    for i in range(0, len(put_codes), BULK_SIZE):
-        chunk = put_codes[i:i + BULK_SIZE]
-        codes_str = ",".join(str(code) for code in chunk)
-        url = f"{API_BASE}/{orcid}/works/{codes_str}"
-        
-        data = safe_get(url)
-        if not data or not isinstance(data, dict):
-            continue
-
-        bulk_works = data.get("bulk", []) or []
-        for item in bulk_works:
-            work = item.get("work")
-            if not work or not isinstance(work, dict):
-                continue
-            
-            put_code = work.get("put-code")
-            authors = []
-            contributors = work.get("contributors", {})
-            if isinstance(contributors, dict):
-                contrib_list = contributors.get("contributor", []) or []
-                for c in contrib_list:
-                    if isinstance(c, dict):
-                        credit_name = c.get("credit-name")
-                        if isinstance(credit_name, dict):
-                            name_val = credit_name.get("value")
-                            if name_val:
-                                authors.append(normalize_author_name(name_val))
-
-            if put_code:
-                details_map[put_code] = authors
-
-    return details_map
-
-
-def get_works_from_orcid(orcid, researcher_name=""):
-    url = f"{API_BASE}/{orcid}/works"
-    data = safe_get(url)
-    if not data or not isinstance(data, dict):
+    res = requests.get(url, headers=HEADERS, timeout=15)
+    if res.status_code != 200:
+        print(f"Error al conectar con ORCID: Status {res.status_code}")
         return []
 
-    groups = data.get("group") or []
-    summaries_data = []
-    put_codes = []
-
-    for group in groups:
-        if not isinstance(group, dict):
-            continue
-        summaries = group.get("work-summary") or []
-        if not summaries:
-            continue
-        
-        summary = summaries[0]
-        if isinstance(summary, dict):
-            put_code = summary.get("put-code")
-            if put_code:
-                put_codes.append(put_code)
-                summaries_data.append(summary)
-
-    authors_map = get_works_bulk_details(orcid, put_codes)
-
+    data = res.json()
+    group = data.get("group", [])
     publications = []
-    for summary in summaries_data:
-        put_code = summary.get("put-code")
+
+    for item in group:
+        work_summaries = item.get("work-summary", [])
+        if not work_summaries:
+            continue
         
-        title_obj = summary.get("title") or {}
-        title = ""
-        if isinstance(title_obj, dict):
-            t_val = title_obj.get("title") or {}
-            title = t_val.get("value") if isinstance(t_val, dict) else str(t_val)
+        summary = work_summaries[0]
+        work_type = (summary.get("type") or "").lower()
+
+        # Filtrar únicamente conferencias / actas
+        if "conference" not in work_type and "proceeding" not in work_type:
+            continue
+
+        title = summary.get("title", {}).get("title", {}).get("value", "")
+        year = summary.get("publication-date", {}).get("year", {}).get("value", "")
         
-        journal_obj = summary.get("journal-title") or {}
-        journal = journal_obj.get("value") if isinstance(journal_obj, dict) else str(journal_obj)
+        # Extraer DOI y URL
+        doi = None
+        url_val = summary.get("url", {}).get("value", "")
+        ext_ids = summary.get("external-ids", {}).get("external-id", [])
+        for eid in ext_ids:
+            if eid.get("external-id-type") == "doi":
+                doi = eid.get("external-id-value")
+                break
 
-        work_type = clean_text(summary.get("type"))
-        
-        pub_date = summary.get("publication-date") or {}
-        year = ""
-        if isinstance(pub_date, dict):
-            year_obj = pub_date.get("year") or {}
-            year = year_obj.get("value") if isinstance(year_obj, dict) else ""
+        authors = []
+        journal = ""
 
-        doi = ""
-        ext_ids = summary.get("external-ids") or {}
-        if isinstance(ext_ids, dict):
-            ext_list = ext_ids.get("external-id") or []
-            for ext in ext_list:
-                if isinstance(ext, dict) and str(ext.get("external-id-type")).lower() == "doi":
-                    doi = clean_text(ext.get("external-id-value"))
-                    doi = re.sub(r"^https?://doi\.org/", "", doi, flags=re.IGNORECASE)
-                    break
+        # Enriquecer datos con CrossRef si tenemos DOI
+        if doi:
+            cr_meta = fetch_crossref_metadata(doi)
+            if cr_meta:
+                if not title and "title" in cr_meta:
+                    title = cr_meta["title"][0]
+                
+                # Nombre del congreso / actas
+                if "container-title" in cr_meta and cr_meta["container-title"]:
+                    journal = cr_meta["container-title"][0]
+                
+                # Autores desde CrossRef
+                cr_authors = cr_meta.get("author", [])
+                for ca in cr_authors:
+                    given = ca.get("given", "")
+                    family = ca.get("family", "")
+                    if family and given:
+                        authors.append(normalize_author_name(f"{family}, {given}"))
+                    elif family:
+                        authors.append(normalize_author_name(family))
+                    elif given:
+                        authors.append(normalize_author_name(given))
 
-        url_obj = summary.get("url") or {}
-        url_val = url_obj.get("value") if isinstance(url_obj, dict) else str(url_obj)
+        # Normalizar la lista de autores
+        authors = [a for a in authors if a]
 
-        # 1. Intentamos obtener autores de ORCID
-        authors = authors_map.get(put_code, [])
-
-        # 2. Respaldo CrossRef si no hay autores en ORCID
-        if not authors and doi:
-            authors = get_authors_from_crossref(doi)
-
-        # 3. Respaldo secundario: asignar al investigador si sigue vacío
-        if not authors and researcher_name:
-            authors = [normalize_author_name(researcher_name)]
-
-        if title:
-            publications.append({
-                "title": title,
-                "journal": journal,
-                "type": work_type,
-                "year": year,
-                "doi": doi,
-                "url": url_val,
-                "authors": authors,
-                "orcid_source": orcid
-            })
+        publications.append({
+            "title": title,
+            "year": year,
+            "journal": journal,
+            "doi": doi,
+            "url": url_val,
+            "authors": authors
+        })
 
     return publications
 
-
-# ============================================================
-# FILTRADO EXCLUSIVO DE CONGRESOS (DESCARTA REVISTAS Y ARTICLES)
-# ============================================================
-
-def looks_like_conference(pub):
-    raw_type = str(pub.get("type", "") or "").lower().replace("_", "-")
-    journal = str(pub.get("journal", "") or "").lower()
-    title = str(pub.get("title", "") or "").lower()
-
-    if any(ji in raw_type for ji in ["journal-article", "journal_article"]):
-        return False
-    
-    if any(ji in journal for ji in ["journal", "transactions", "letters", "magazine", "access", "review"]):
-        if not any(cw in f"{journal} {title}" for cw in ["proceedings", "conference", "symposium", "workshop", "actas"]):
-            return False
-
-    conf_types = ["conference", "proceeding", "poster", "abstract", "symposium", "workshop"]
-    if any(ct in raw_type for ct in conf_types):
-        return True
-
-    keywords = [
-        "proceedings", "conference", "symposium", "workshop", "congress", 
-        "congreso", "jornadas", "encuentro", "lncs", "lecture notes", 
-        "int. conf.", "international conference", "actas", "icip", "icassp", "iberspeech", "interspeech"
-    ]
-    
-    target_text = f"{journal} {title}"
-    if any(kw in target_text for kw in keywords):
-        return True
-
-    return False
-
-
-# ============================================================
-# EXPORTACIÓN (EXCLUSIVAMENTE @inproceedings PARA BIBTEX)
-# ============================================================
-
-def save_json(data, filename):
-    with open(filename, "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
-
-
+# ==========================================
+# GENERACIÓN Y GUARDADO DE BIBTEX
+# ==========================================
 def save_bibtex(publications, filename=OUTPUT_BIB):
+    """ Genera y guarda el archivo .bib con sintaxis válida y limpia. """
     entries = []
+    
     for i, pub in enumerate(publications, 1):
         first_word = re.findall(r"\w+", str(pub.get("title") or "").lower())
         kw = first_word[0] if first_word else "work"
         year = str(pub.get("year") or "nodate")
         key = f"pub_{year}_{kw}_{i}"
 
+        # Escapar caracteres conflictivos en el título
         title = str(pub.get("title") or "").replace("{", "\\{").replace("}", "\\}")
-        booktitle = str(pub.get("journal") or "")
+        
+        # FIX PARA BOOKTITLE: Garantizar un booktitle por defecto en @inproceedings
+        booktitle = str(pub.get("journal") or "").strip()
+        if not booktitle:
+            booktitle = "Proceedings"
+
         doi = str(pub.get("doi") or "")
         url = str(pub.get("url") or "")
         authors_list = pub.get("authors") or []
@@ -409,129 +239,29 @@ def save_bibtex(publications, filename=OUTPUT_BIB):
             authors_str = " and ".join(authors_list)
             entry += f"  author = {{{authors_str}}},\n"
         entry += f"  title = {{{title}}},\n"
-        if booktitle:
-            entry += f"  booktitle = {{{booktitle}}},\n"
-        if year:
+        entry += f"  booktitle = {{{booktitle}}},\n"
+        if year != "nodate":
             entry += f"  year = {{{year}}},\n"
         if doi:
             entry += f"  doi = {{{doi}}},\n"
         if url:
             entry += f"  url = {{{url}}}\n"
-        entry += "}\n"
+            
+        # Limpiar la última coma sobrante si existiera antes del cierre
+        entry = entry.rstrip(",\n") + "\n}\n"
         entries.append(entry)
 
     with open(filename, "w", encoding="utf-8") as f:
         f.write("\n".join(entries))
 
+    print(f"\n¡Éxito! Se han guardado {len(publications)} entradas en '{filename}'.")
 
-def save_html(publications, filename=OUTPUT_HTML):
-    html_content = [
-        "<!DOCTYPE html>",
-        "<html lang='es'>",
-        "<head><meta charset='utf-8'><title>Comunicaciones a Congresos</title>",
-        "<style>body{font-family:sans-serif;margin:20px;} .pub{margin-bottom:15px;padding:10px;border-left:3px solid #0056b3;background:#f9f9f9;} .title{font-weight:bold;} .authors{color:#333;font-style:italic;margin-top:2px;} .meta{font-size:0.9em;color:#777;margin-top:2px;}</style>",
-        "</head><body>",
-        f"<h1>Comunicaciones a Congresos ({len(publications)})</h1>",
-    ]
-
-    for pub in publications:
-        title = html.escape(str(pub.get("title") or "Sin título"))
-        journal = html.escape(str(pub.get("journal") or ""))
-        year = html.escape(str(pub.get("year") or ""))
-        doi = str(pub.get("doi") or "")
-        doi_link = f' | <a href="https://doi.org/{html.escape(doi)}" target="_blank">DOI</a>' if doi else ""
-        
-        authors_list = pub.get("authors") or []
-        authors_str = html.escape(", ".join(authors_list)) if authors_list else ""
-        authors_div = f'<div class="authors">{authors_str}</div>' if authors_str else ""
-
-        html_content.append(
-            f'<div class="pub">'
-            f'<div class="title">{title}</div>'
-            f'{authors_div}'
-            f'<div class="meta">{journal} ({year}){doi_link}</div>'
-            f'</div>'
-        )
-
-    html_content.append("</body></html>")
-
-    with open(filename, "w", encoding="utf-8") as f:
-        f.write("\n".join(html_content))
-
-
-# ============================================================
-# FLUJO PRINCIPAL
-# ============================================================
-
-def main():
-    if not os.path.exists(INPUT_FILE):
-        print(f"[ERROR CRÍTICO] No se encuentra el archivo {INPUT_FILE}")
-        return
-
-    with open(INPUT_FILE, "r", encoding="utf-8") as f:
-        researchers = json.load(f)
-
-    print(f"Investigadores cargados desde {INPUT_FILE}: {len(researchers)}")
-
-    all_publications = []
-
-    for item in researchers:
-        name = item.get("name", "Investigador sin nombre")
-        orcid = extract_orcid_from_item(item)
-
-        if not orcid:
-            print(f"  [OMITIDO] {name}: No se detectó un ORCID válido.")
-            continue
-
-        print(f"\nConsultando: {name} (ORCID: {orcid}) ...")
-        pubs = get_works_from_orcid(orcid, researcher_name=name)
-        print(f"  -> {len(pubs)} publicaciones encontradas para {name}.")
-        all_publications.extend(pubs)
-
-    print(f"\n==================================================")
-    print(f"Total publicaciones obtenidas inicialmente: {len(all_publications)}")
-    print(f"==================================================")
-
-    # ------------------------------------------------------------
-    # DEDUPLICACIÓN AUTOMÁTICA POR DOI Y TÍTULO
-    # ------------------------------------------------------------
-    unique_publications = []
-    seen_dois = set()
-    seen_titles = set()
-
-    for pub in all_publications:
-        doi = pub.get("doi", "").strip().lower()
-        title_clean = re.sub(r"[^\w]", "", pub.get("title", "").strip().lower())
-
-        if doi and doi in seen_dois:
-            continue
-        if title_clean in seen_titles:
-            continue
-
-        if doi:
-            seen_dois.add(doi)
-        if title_clean:
-            seen_titles.add(title_clean)
-
-        unique_publications.append(pub)
-
-    print(f"Total publicaciones únicas tras eliminar duplicados: {len(unique_publications)}")
-
-    save_json(unique_publications, OUTPUT_ALL)
-
-    conferences = [pub for pub in unique_publications if looks_like_conference(pub)]
-    excluded = [pub for pub in unique_publications if not looks_like_conference(pub)]
-
-    print(f"Comunicaciones a congresos filtradas: {len(conferences)}")
-    print(f"Artículos de revista u otros excluidos: {len(excluded)}")
-
-    save_json(conferences, OUTPUT_JSON)
-    save_json(excluded, OUTPUT_EXCLUDED)
-    save_bibtex(conferences, OUTPUT_BIB)
-    save_html(conferences, OUTPUT_HTML)
-
-    print(f"\n¡Proceso finalizado con éxito! El archivo {OUTPUT_BIB} es único, completo y está libre de duplicados.")
-
-
+# ==========================================
+# EJECUCIÓN
+# ==========================================
 if __name__ == "__main__":
-    main()
+    pubs = fetch_orcid_conferences(ORCID_ID)
+    if pubs:
+        save_bibtex(pubs, OUTPUT_BIB)
+    else:
+        print("No se encontraron publicaciones de congresos.")
