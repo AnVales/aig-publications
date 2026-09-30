@@ -21,6 +21,21 @@
     "orcid_source": "0000-0002-6437-914X"
   },
   {
+    "title": "L-SFAN: Lightweight Spatially Focused Attention Network for Pain Behavior Detection",
+    "journal": "IEEE Sensors Journal",
+    "type": "journal-article",
+    "year": "2025",
+    "doi": "10.1109/JSEN.2025.3540415",
+    "url": "https://doi.org/10.1109/JSEN.2025.3540415",
+    "authors": [
+      "Jorge Ortigoso Narro",
+      "Fernando Diaz de Maria",
+      "Mohammad Mahdi Dehshibi",
+      "Ana Tajadura Jiménez"
+    ],
+    "orcid_source": "0000-0002-6437-914X"
+  },
+  {
     "title": "A self-supervised embedding of cell migration features for behavior discovery over cell populations",
     "journal": "Computer Methods and Programs in Biomedicine",
     "type": "journal-article",
@@ -67,6 +82,22 @@
     "orcid_source": "0000-0002-6437-914X"
   },
   {
+    "title": "Pain Level and Pain-Related Behaviour Classification Using GRU-Based Sparsely-Connected RNNs",
+    "journal": "IEEE Journal of Selected Topics in Signal Processing",
+    "type": "journal-article",
+    "year": "2023",
+    "doi": "10.1109/JSTSP.2023.3262358",
+    "url": "https://doi.org/10.1109/JSTSP.2023.3262358",
+    "authors": [
+      "Mohammad Mahdi Dehshibi",
+      "Temitayo Olugbade",
+      "Fernando Diaz de Maria",
+      "Nadia Bianchi Berthouze",
+      "Ana Tajadura Jiménez"
+    ],
+    "orcid_source": "0000-0002-6437-914X"
+  },
+  {
     "title": "An interpretable CNN-based CAD system for skin lesion diagnosis",
     "journal": "Artificial Intelligence in Medicine",
     "type": "journal-article",
@@ -96,6 +127,20 @@
     "orcid_source": "0000-0002-6437-914X"
   },
   {
+    "title": "Interpretable Global-Local Dynamics for the Prediction of Eye Fixations in Autonomous Driving Scenarios",
+    "journal": "IEEE Access",
+    "type": "journal-article",
+    "year": "2020",
+    "doi": "10.1109/ACCESS.2020.3041606",
+    "url": "https://doi.org/10.1109/ACCESS.2020.3041606",
+    "authors": [
+      "Javier Martinez Cebrian",
+      "Miguel Angel Fernandez Torres",
+      "Fernando Diaz De Maria"
+    ],
+    "orcid_source": "0000-0002-6437-914X"
+  },
+  {
     "title": "A multi-threshold approach and a realistic error measure for vanishing point detection in natural landscapes",
     "journal": "Engineering Applications of Artificial Intelligence",
     "type": "journal-article",
@@ -108,6 +153,20 @@
       "Kleinlein, R.",
       "San Segundo, R.",
       "Díaz de María, F."
+    ],
+    "orcid_source": "0000-0002-6437-914X"
+  },
+  {
+    "title": "Efficient Scale-Adaptive License Plate Detection System",
+    "journal": "IEEE Transactions on Intelligent Transportation Systems",
+    "type": "journal-article",
+    "year": "2019",
+    "doi": "10.1109/TITS.2018.2859035",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85051661795&partnerID=MN8TOARS",
+    "authors": [
+      "Molina Moreno, M.",
+      "Gonzalez Diaz, I.",
+      "Diaz De Maria, F."
     ],
     "orcid_source": "0000-0002-6437-914X"
   },
@@ -160,6 +219,16 @@
     "orcid_source": "0000-0002-6437-914X"
   },
   {
+    "title": "Probabilistic Topic Model for Context-Driven Visual Attention Understanding",
+    "journal": "IEEE Transactions on Circuits and Systems for Video Technology",
+    "type": "journal-article",
+    "year": "2019",
+    "doi": "10.1109/tcsvt.2019.2909427",
+    "url": "http://dx.doi.org/10.1109/tcsvt.2019.2909427",
+    "authors": [],
+    "orcid_source": "0000-0002-6437-914X"
+  },
+  {
     "title": "Exploiting visual saliency for assessing the impact of car commercials upon viewers",
     "journal": "Multimedia Tools and Applications",
     "type": "journal-article",
@@ -167,6 +236,21 @@
     "doi": "10.1007/s11042-017-5339-9",
     "url": "http://dx.doi.org/10.1007/s11042-017-5339-9",
     "authors": [],
+    "orcid_source": "0000-0002-6437-914X"
+  },
+  {
+    "title": "Directional Transforms for Video Coding Based on Lifting on Graphs",
+    "journal": "IEEE Transactions on Circuits and Systems for Video Technology",
+    "type": "journal-article",
+    "year": "2018",
+    "doi": "10.1109/TCSVT.2016.2633418",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85043494920&partnerID=MN8TOARS",
+    "authors": [
+      "Martinez Enriquez, E.",
+      "Cid Sueiro, J.",
+      "Diaz De Maria, F.",
+      "Ortega, A."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -182,6 +266,21 @@
       "González Díaz, I.",
       "Díaz De María, F.",
       "Pizarro, Á."
+    ],
+    "orcid_source": "0000-0002-6437-914X"
+  },
+  {
+    "title": "Optimized update/prediction assignment for lifting transforms on graphs",
+    "journal": "IEEE Transactions on Signal Processing",
+    "type": "journal-article",
+    "year": "2018",
+    "doi": "10.1109/TSP.2018.2802465",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85041525978&partnerID=MN8TOARS",
+    "authors": [
+      "Martinez Enriquez, E.",
+      "Cid Sueiro, J.",
+      "Diaz De Maria, F.",
+      "Ortega, A."
     ],
     "orcid_source": "0000-0002-6437-914X"
   },
@@ -214,6 +313,21 @@
     "orcid_source": "0000-0002-6437-914X"
   },
   {
+    "title": "Neighborhood Matching for Image Retrieval",
+    "journal": "IEEE Transactions on Multimedia",
+    "type": "journal-article",
+    "year": "2017",
+    "doi": "10.1109/TMM.2016.2616298",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85013466531&partnerID=MN8TOARS",
+    "authors": [
+      "González Díaz, I.",
+      "Birinci, M.",
+      "Díaz De María, F.",
+      "Delp, E.J."
+    ],
+    "orcid_source": "0000-0002-6437-914X"
+  },
+  {
     "title": "Comparing visual descriptors and automatic rating strategies for video aesthetics prediction",
     "journal": "Signal Processing: Image Communication",
     "type": "journal-article",
@@ -224,6 +338,20 @@
       "Hernández García, A.",
       "Fernández Martínez, F.",
       "Díaz de María, F."
+    ],
+    "orcid_source": "0000-0002-6437-914X"
+  },
+  {
+    "title": "Complexity Control Based on a Fast Coding Unit Decision Method in the HEVC Video Coding Standard",
+    "journal": "IEEE Transactions on Multimedia",
+    "type": "journal-article",
+    "year": "2016",
+    "doi": "10.1109/TMM.2016.2524995",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84963813280&partnerID=MN8TOARS",
+    "authors": [
+      "Jimenez Moreno, A.",
+      "Martinez Enriquez, E.",
+      "Diaz De Maria, F."
     ],
     "orcid_source": "0000-0002-6437-914X"
   },
@@ -273,6 +401,50 @@
     "orcid_source": "0000-0002-6437-914X"
   },
   {
+    "title": "A generative model for concurrent image retrieval and ROI segmentation",
+    "journal": "IEEE Transactions on Multimedia",
+    "type": "journal-article",
+    "year": "2014",
+    "doi": "10.1109/TMM.2013.2286083",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84890959626&partnerID=MN8TOARS",
+    "authors": [
+      "Gonzalez Diaz, I.",
+      "Baz Hormigos, C.E.",
+      "Diaz De Maria, F."
+    ],
+    "orcid_source": "0000-0002-6437-914X"
+  },
+  {
+    "title": "Improved method to select the lagrange multiplier for rate-distortion based motion estimation in video coding",
+    "journal": "IEEE Transactions on Circuits and Systems for Video Technology",
+    "type": "journal-article",
+    "year": "2014",
+    "doi": "10.1109/TCSVT.2013.2276857",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84896528947&partnerID=MN8TOARS",
+    "authors": [
+      "Gonzalez De Suso, J.L.",
+      "Jimenez Moreno, A.",
+      "Martinez Enriquez, E.",
+      "Diaz De Maria, F."
+    ],
+    "orcid_source": "0000-0002-6437-914X"
+  },
+  {
+    "title": "Standard-compliant low-pass temporal filter to reduce the perceived flicker artifact",
+    "journal": "IEEE Transactions on Multimedia",
+    "type": "journal-article",
+    "year": "2014",
+    "doi": "10.1109/TMM.2014.2347257",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84908139516&partnerID=MN8TOARS",
+    "authors": [
+      "Jimenez Moreno, A.",
+      "Martinez Enriquez, E.",
+      "Kumar, V.",
+      "Diaz De Maria, F."
+    ],
+    "orcid_source": "0000-0002-6437-914X"
+  },
+  {
     "title": "A region-centered topic model for object discovery and category-based image segmentation",
     "journal": "Pattern Recognition",
     "type": "journal-article",
@@ -282,6 +454,121 @@
     "authors": [
       "González Díaz, I.",
       "Díaz De María, F."
+    ],
+    "orcid_source": "0000-0002-6437-914X"
+  },
+  {
+    "title": "Design of an embedded speech-centric interface for applications in handheld terminals",
+    "journal": "IEEE Aerospace and Electronic Systems Magazine",
+    "type": "journal-article",
+    "year": "2013",
+    "doi": "10.1109/MAES.2013.6477866",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84897749098&partnerID=MN8TOARS",
+    "authors": [
+      "Gallardo Antolín, A.",
+      "García Moral, A.I.",
+      "Pereiro Estevan, Y.",
+      "Díaz De María, F."
+    ],
+    "orcid_source": "0000-0002-6437-914X"
+  },
+  {
+    "title": "Mode decision-based algorithm for complexity control in H.264/AVC",
+    "journal": "IEEE Transactions on Multimedia",
+    "type": "journal-article",
+    "year": "2013",
+    "doi": "10.1109/TMM.2013.2241414",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84880833947&partnerID=MN8TOARS",
+    "authors": [
+      "Jiménez Moreno, A.",
+      "Martínez Enríquez, E.",
+      "Díaz De María, F."
+    ],
+    "orcid_source": "0000-0002-6437-914X"
+  },
+  {
+    "title": "In-layer multibuffer framework for rate-controlled scalable video coding",
+    "journal": "IEEE Transactions on Circuits and Systems for Video Technology",
+    "type": "journal-article",
+    "year": "2012",
+    "doi": "10.1109/TCSVT.2012.2198089",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84864692647&partnerID=MN8TOARS",
+    "authors": [
+      "Sanz Rodríguez, S.",
+      "Díaz De María, F."
+    ],
+    "orcid_source": "0000-0002-6437-914X"
+  },
+  {
+    "title": "Real-time robust automatic speech recognition using compact support vector machines",
+    "journal": "IEEE Transactions on Audio, Speech and Language Processing",
+    "type": "journal-article",
+    "year": "2012",
+    "doi": "10.1109/TASL.2011.2178597",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84857488250&partnerID=MN8TOARS",
+    "authors": [
+      "Solera Ureña, R.",
+      "García Moral, A.I.",
+      "Peláez Moreno, C.",
+      "Martínez Ramon, M.",
+      "Díaz De María, F."
+    ],
+    "orcid_source": "0000-0002-6437-914X"
+  },
+  {
+    "title": "A low-complexity pre-processing system for restoring low-quality QR code images",
+    "journal": "IEEE Transactions on Consumer Electronics",
+    "type": "journal-article",
+    "year": "2011",
+    "doi": "10.1109/TCE.2011.6018890",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-80052928607&partnerID=MN8TOARS",
+    "authors": [
+      "Munoz Mejias, D.",
+      "Gonzalez Diaz, I.",
+      "Diaz De Maria, F."
+    ],
+    "orcid_source": "0000-0002-6437-914X"
+  },
+  {
+    "title": "A two-level classification-based approach to inter mode decision in H.264/AVC",
+    "journal": "IEEE Transactions on Circuits and Systems for Video Technology",
+    "type": "journal-article",
+    "year": "2011",
+    "doi": "10.1109/TCSVT.2011.2134010",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-80455178886&partnerID=MN8TOARS",
+    "authors": [
+      "Martínez Enríquez, E.",
+      "Jiménez Moreno, A.",
+      "Ángel Pellón, M.",
+      "Díaz De María, F."
+    ],
+    "orcid_source": "0000-0002-6437-914X"
+  },
+  {
+    "title": "Data balancing for efficient training of hybrid ANN/HMM automatic speech recognition systems",
+    "journal": "IEEE Transactions on Audio, Speech and Language Processing",
+    "type": "journal-article",
+    "year": "2011",
+    "doi": "10.1109/TASL.2010.2050513",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-78149247542&partnerID=MN8TOARS",
+    "authors": [
+      "García Moral, A.I.",
+      "Solera Ureña, R.",
+      "Peláez Moreno, C.",
+      "Díaz De María, F."
+    ],
+    "orcid_source": "0000-0002-6437-914X"
+  },
+  {
+    "title": "RBF-based QP estimation model for VBR control in H.264/SVC",
+    "journal": "IEEE Transactions on Circuits and Systems for Video Technology",
+    "type": "journal-article",
+    "year": "2011",
+    "doi": "10.1109/TCSVT.2011.2143330",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-80052538639&partnerID=MN8TOARS",
+    "authors": [
+      "Sanz Rodriguez, S.",
+      "Diaz De Maria, F."
     ],
     "orcid_source": "0000-0002-6437-914X"
   },
@@ -300,6 +587,20 @@
     "orcid_source": "0000-0002-6437-914X"
   },
   {
+    "title": "An adaptive algorithm for fast inter mode decision in the H.264/AVC video coding standard",
+    "journal": "IEEE Transactions on Consumer Electronics",
+    "type": "journal-article",
+    "year": "2010",
+    "doi": "10.1109/TCE.2010.5506008",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-77954693749&partnerID=MN8TOARS",
+    "authors": [
+      "Martínez Enríquez, E.",
+      "Jiménez Moreno, A.",
+      "Diaz De Maria, F."
+    ],
+    "orcid_source": "0000-0002-6437-914X"
+  },
+  {
     "title": "An improved fast mode decision algorithm for intraprediction in H.264/AVC video coding",
     "journal": "Signal Processing: Image Communication",
     "type": "journal-article",
@@ -310,6 +611,21 @@
       "De Frutos López, M.",
       "Orellana Quirós, D.",
       "Pujol Alcolado, J.C.",
+      "Díaz De María, F."
+    ],
+    "orcid_source": "0000-0002-6437-914X"
+  },
+  {
+    "title": "Cauchy-density-based basic unit layer rate controller for H.264/AVC",
+    "journal": "IEEE Transactions on Circuits and Systems for Video Technology",
+    "type": "journal-article",
+    "year": "2010",
+    "doi": "10.1109/TCSVT.2010.2051369",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-77955620654&partnerID=MN8TOARS",
+    "authors": [
+      "Sanz Rodriguez, S.",
+      "Del Ama Esteban, Ó.",
+      "De Frutos López, M.",
       "Díaz De María, F."
     ],
     "orcid_source": "0000-0002-6437-914X"
@@ -337,6 +653,50 @@
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-77949914685&partnerID=MN8TOARS",
     "authors": [
       "Vicente Peña, J.",
+      "Díaz de María, F."
+    ],
+    "orcid_source": "0000-0002-6437-914X"
+  },
+  {
+    "title": "A new distance measure for model-based sequence clustering",
+    "journal": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
+    "type": "journal-article",
+    "year": "2009",
+    "doi": "10.1109/TPAMI.2008.268",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-67349244757&partnerID=MN8TOARS",
+    "authors": [
+      "García García, D.",
+      "Parrado Hernández, E.",
+      "Díaz de María, F."
+    ],
+    "orcid_source": "0000-0002-6437-914X"
+  },
+  {
+    "title": "Characterization of Healthy and Pathological Voice Through Measures Based on Nonlinear Dynamics",
+    "journal": "IEEE Transactions on Audio, Speech and Language Processing",
+    "type": "journal-article",
+    "year": "2009",
+    "doi": "10.1109/TASL.2009.2016734",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85008035391&partnerID=MN8TOARS",
+    "authors": [
+      "Henríquez, P.",
+      "Alonso, J.B.",
+      "Ferrer, M.A.",
+      "Travieso, C.M.",
+      "Godino Llorente, J.I.",
+      "Díaz de María, F."
+    ],
+    "orcid_source": "0000-0002-6437-914X"
+  },
+  {
+    "title": "Adaptive multipattern fast block-matching algorithm based on motion classification techniques",
+    "journal": "IEEE Transactions on Circuits and Systems for Video Technology",
+    "type": "journal-article",
+    "year": "2008",
+    "doi": "10.1109/TCSVT.2008.2004917",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-55249095581&partnerID=MN8TOARS",
+    "authors": [
+      "González Díaz, I.",
       "Díaz de María, F."
     ],
     "orcid_source": "0000-0002-6437-914X"
@@ -383,6 +743,34 @@
       "Vicente Peña, J.",
       "Gallardo Antolín, A.",
       "Peláez Moreno, C.",
+      "Díaz de María, F."
+    ],
+    "orcid_source": "0000-0002-6437-914X"
+  },
+  {
+    "title": "Recognizing GSM digital speech",
+    "journal": "IEEE Transactions on Speech and Audio Processing",
+    "type": "journal-article",
+    "year": "2005",
+    "doi": "10.1109/TSA.2005.853210",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-27744477310&partnerID=MN8TOARS",
+    "authors": [
+      "Gallardo Antolín, A.",
+      "Peláez Moreno, C.",
+      "Díaz De María, F."
+    ],
+    "orcid_source": "0000-0002-6437-914X"
+  },
+  {
+    "title": "Recognizing voice over IP: A robust front-end for speech recognition on the World Wide Web",
+    "journal": "IEEE Transactions on Multimedia",
+    "type": "journal-article",
+    "year": "2001",
+    "doi": "10.1109/6046.923820",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-0035365050&partnerID=MN8TOARS",
+    "authors": [
+      "Peláez Moreno, C.",
+      "Gallardo Antolín, A.",
       "Díaz de María, F."
     ],
     "orcid_source": "0000-0002-6437-914X"
@@ -603,6 +991,16 @@
     "orcid_source": "0000-0002-9322-3128"
   },
   {
+    "title": "The Robustness of Echoic Log-Surprise Auditory Saliency Detection",
+    "journal": "IEEE Access",
+    "type": "journal-article",
+    "year": "2018",
+    "doi": "10.1109/access.2018.2882055",
+    "url": "http://dx.doi.org/10.1109/access.2018.2882055",
+    "authors": [],
+    "orcid_source": "0000-0002-9322-3128"
+  },
+  {
     "title": "Bird sound spectrogram decomposition through Non-Negative Matrix Factorization for the acoustic classification of bird species",
     "journal": "PLoS ONE",
     "type": "journal-article",
@@ -671,6 +1069,21 @@
     "authors": [
       "Ludeña Choez, J.",
       "Gallardo Antolín, A."
+    ],
+    "orcid_source": "0000-0002-9322-3128"
+  },
+  {
+    "title": "Morphologically filtered power-normalized cochleograms as robust, biologically inspired features for ASR",
+    "journal": "IEEE/ACM Transactions on Audio Speech and Language Processing",
+    "type": "journal-article",
+    "year": "2015",
+    "doi": "10.1109/TASLP.2015.2464691",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84941096334&partnerID=MN8TOARS",
+    "authors": [
+      "De La Calle Silos, F.",
+      "Valverde Albacete, F.J.",
+      "Gallardo Antolín, A.",
+      "Peláez Moreno, C."
     ],
     "orcid_source": "0000-0002-9322-3128"
   },
@@ -945,6 +1358,24 @@
     "orcid_source": "0000-0002-9322-3128"
   },
   {
+    "title": "Initial evaluation of a preselection module for a flexible large vocabulary speech recognition system in telephone environment",
+    "journal": "Proceedings ICSLP 96. Fourth International Conference on Spoken Language Processing (Cat. No.96TH8206)",
+    "type": "journal-article",
+    "year": "1996",
+    "doi": "10.1109/ICSLP.1996.607017",
+    "url": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcAuth=ORCID&SrcApp=OrcidOrg&DestLinkType=FullRecord&DestApp=INSPEC&KeyUT=INSPEC:5677781&KeyUID=INSPEC:5677781",
+    "authors": [
+      "Macias Guarasa, J.",
+      "Gallardo, A.",
+      "Ferreiros, J.",
+      "Pardo, J.M.",
+      "Villarrubia, L.",
+      "Bunnell, H.T.",
+      "Idsardi, W."
+    ],
+    "orcid_source": "0000-0002-9322-3128"
+  },
+  {
     "title": "Lattice representations suggest novel organizing principles for odorant and neural spaces",
     "journal": "Neural Networks",
     "type": "journal-article",
@@ -1072,6 +1503,25 @@
     "orcid_source": "0000-0003-1425-6763"
   },
   {
+    "title": "Bindi: Affective Internet of Things to Combat Gender-Based Violence",
+    "journal": "IEEE Internet of Things Journal",
+    "type": "journal-article",
+    "year": "2022",
+    "doi": "10.1109/JIOT.2022.3177256",
+    "url": "https://doi.org/10.1109/JIOT.2022.3177256",
+    "authors": [
+      "Jose A. Miranda Calero",
+      "Esther Rituerto Gonzalez",
+      "Clara Luis Mingueza",
+      "Manuel F. Canabal",
+      "Alberto Ramirez Barcenas",
+      "Jose M. Lanza Gutierrez",
+      "Carmen Pelaez Moreno",
+      "Celia Lopez Ongil"
+    ],
+    "orcid_source": "0000-0003-1425-6763"
+  },
+  {
     "title": "Encoding Non-global Time Representations into the Lattice of Divisibility",
     "journal": null,
     "type": "book-chapter",
@@ -1098,6 +1548,21 @@
     "orcid_source": "0000-0003-1425-6763"
   },
   {
+    "title": "Teaching Differently: The Digital Signal Processing of Multimedia Content Through the Use of Liberal Arts",
+    "journal": "IEEE Signal Processing Magazine",
+    "type": "journal-article",
+    "year": "2021",
+    "doi": "10.1109/MSP.2021.3053218",
+    "url": "https://doi.org/10.1109/MSP.2021.3053218",
+    "authors": [
+      "Jorge Torres Gomez",
+      "Antonio Rodriguez Hidalgo",
+      "Yannelys Virginia Jerez Naranjo",
+      "Carmen Pelaez Moreno"
+    ],
+    "orcid_source": "0000-0003-1425-6763"
+  },
+  {
     "title": "Four-Fold Formal Concept Analysis Based on Complete Idempotent Semifields",
     "journal": "Mathematics",
     "type": "journal-article",
@@ -1107,6 +1572,19 @@
     "authors": [
       "Francisco José Valverde Albacete",
       "Carmen Peláez Moreno"
+    ],
+    "orcid_source": "0000-0003-1425-6763"
+  },
+  {
+    "title": "A Framework for Supervised Classification Performance Analysis with Information-Theoretic Methods",
+    "journal": "IEEE Transactions on Knowledge and Data Engineering",
+    "type": "journal-article",
+    "year": "2020",
+    "doi": "10.1109/TKDE.2019.2915643",
+    "url": "https://doi.org/10.1109/TKDE.2019.2915643",
+    "authors": [
+      "Francisco J. Valverde Albacete",
+      "Carmen Pelaez Moreno"
     ],
     "orcid_source": "0000-0003-1425-6763"
   },
@@ -1238,6 +1716,20 @@
     "orcid_source": "0000-0003-1425-6763"
   },
   {
+    "title": "The Robustness of Echoic Log-Surprise Auditory Saliency Detection",
+    "journal": "IEEE Access",
+    "type": "journal-article",
+    "year": "2018",
+    "doi": "10.1109/ACCESS.2018.2882055",
+    "url": "https://doi.org/10.1109/ACCESS.2018.2882055",
+    "authors": [
+      "Antonio Rodriguez Hidalgo",
+      "Carmen Pelaez Moreno",
+      "Ascension Gallardo Antolin"
+    ],
+    "orcid_source": "0000-0003-1425-6763"
+  },
+  {
     "title": "The Linear Algebra in Extended Formal Concept Analysis Over Idempotent Semifields",
     "journal": null,
     "type": "book-chapter",
@@ -1339,6 +1831,21 @@
       "Valverde Albacete, F.J.",
       "Peláez Moreno, C.",
       "del Campo, C."
+    ],
+    "orcid_source": "0000-0003-1425-6763"
+  },
+  {
+    "title": "Morphologically filtered power-normalized cochleograms as robust, biologically inspired features for ASR",
+    "journal": "IEEE/ACM Transactions on Audio Speech and Language Processing",
+    "type": "journal-article",
+    "year": "2015",
+    "doi": "10.1109/TASLP.2015.2464691",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84941096334&partnerID=MN8TOARS",
+    "authors": [
+      "De La Calle Silos, F.",
+      "Valverde Albacete, F.J.",
+      "Gallardo Antolín, A.",
+      "Peláez Moreno, C."
     ],
     "orcid_source": "0000-0003-1425-6763"
   },
@@ -1711,6 +2218,21 @@
     "orcid_source": "0000-0003-4644-8479"
   },
   {
+    "title": "Asymmetric Multi-Task Learning for Interpretable Gaze-Driven Grasping Action Forecasting",
+    "journal": "IEEE Journal of Biomedical and Health Informatics",
+    "type": "journal-article",
+    "year": "2024",
+    "doi": "10.1109/JBHI.2024.3430810",
+    "url": "https://doi.org/10.1109/JBHI.2024.3430810",
+    "authors": [
+      "Iván González Díaz",
+      "Miguel Molina Moreno",
+      "Jenny Benois Pineau",
+      "Aymar de Rugy"
+    ],
+    "orcid_source": "0000-0003-4644-8479"
+  },
+  {
     "title": "A self-supervised embedding of cell migration features for behavior discovery over cell populations",
     "journal": "Computer Methods and Programs in Biomedicine",
     "type": "journal-article",
@@ -1757,6 +2279,16 @@
     "orcid_source": "0000-0003-4644-8479"
   },
   {
+    "title": "ACME: Automatic feature extraction for cell migration examination through intravital microscopy imaging",
+    "journal": "Medical Image Analysis",
+    "type": "journal-article",
+    "year": "2022",
+    "doi": "10.1016/j.media.2022.102358",
+    "url": "http://dx.doi.org/10.1016/j.media.2022.102358",
+    "authors": [],
+    "orcid_source": "0000-0003-4644-8479"
+  },
+  {
     "title": "Behavioural immune landscapes of inflammation",
     "journal": "Nature",
     "type": "journal-article",
@@ -1777,6 +2309,34 @@
       "Tomás Martínez Cortés",
       "Iván González Díaz",
       "Fernando Díaz de María"
+    ],
+    "orcid_source": "0000-0003-4644-8479"
+  },
+  {
+    "title": "Probabilistic Topic Model for Context-Driven Visual Attention Understanding",
+    "journal": "IEEE Transactions on Circuits and Systems for Video Technology",
+    "type": "journal-article",
+    "year": "2020",
+    "doi": "10.1109/TCSVT.2019.2909427",
+    "url": "https://doi.org/10.1109/TCSVT.2019.2909427",
+    "authors": [
+      "Miguel Angel Fernandez Torres",
+      "Ivan Gonzalez Diaz",
+      "Fernando Diaz de Maria"
+    ],
+    "orcid_source": "0000-0003-4644-8479"
+  },
+  {
+    "title": "Efficient Scale-Adaptive License Plate Detection System",
+    "journal": "IEEE Transactions on Intelligent Transportation Systems",
+    "type": "journal-article",
+    "year": "2019",
+    "doi": "10.1109/TITS.2018.2859035",
+    "url": "https://doi.org/10.1109/TITS.2018.2859035",
+    "authors": [
+      "Miguel Molina Moreno",
+      "Ivan Gonzalez Diaz",
+      "Fernando Diaz de Maria"
     ],
     "orcid_source": "0000-0003-4644-8479"
   },
@@ -1808,6 +2368,18 @@
       "Jean Philippe Domenger",
       "Daniel Cattaert",
       "Aymar de Rugy"
+    ],
+    "orcid_source": "0000-0003-4644-8479"
+  },
+  {
+    "title": "DermaKNet: Incorporating the Knowledge of Dermatologists to Convolutional Neural Networks for Skin Lesion Diagnosis",
+    "journal": "IEEE Journal of Biomedical and Health Informatics",
+    "type": "journal-article",
+    "year": "2019",
+    "doi": "10.1109/JBHI.2018.2806962",
+    "url": "https://doi.org/10.1109/JBHI.2018.2806962",
+    "authors": [
+      "Ivan Gonzalez Diaz"
     ],
     "orcid_source": "0000-0003-4644-8479"
   },
@@ -1865,6 +2437,21 @@
       "Iván González Díaz",
       "Vincent Buso",
       "Jenny Benois Pineau"
+    ],
+    "orcid_source": "0000-0003-4644-8479"
+  },
+  {
+    "title": "Neighborhood Matching for Image Retrieval",
+    "journal": "IEEE Transactions on Multimedia",
+    "type": "journal-article",
+    "year": "2016",
+    "doi": "10.1109/TMM.2016.2616298",
+    "url": null,
+    "authors": [
+      "Ivan Gonzalez Diaz",
+      "Murat Birinci",
+      "Fernando Diaz de Maria",
+      "Edward J. Delp"
     ],
     "orcid_source": "0000-0003-4644-8479"
   },
@@ -2286,6 +2873,24 @@
     "orcid_source": "0000-0002-0801-199X"
   },
   {
+    "title": "The AIDE Toolbox: Artificial intelligence for disentangling extreme events [Software and Data Sets]",
+    "journal": "IEEE Geoscience and Remote Sensing Magazine",
+    "type": "journal-article",
+    "year": "2024",
+    "doi": "10.1109/MGRS.2024.3382544",
+    "url": "https://doi.org/10.1109/MGRS.2024.3382544",
+    "authors": [
+      "Maria Gonzalez Calabuig",
+      "Jordi Cortés Andrés",
+      "Tristan Keith Ellis Williams",
+      "Mengxue Zhang",
+      "Oscar Jose Pellicer Valero",
+      "Miguel Ángel Fernández Torres",
+      "Gustau Camps Valls"
+    ],
+    "orcid_source": "0000-0002-0801-199X"
+  },
+  {
     "title": "AI for Extreme Event Modeling and Understanding: Methodologies and Challenges",
     "journal": "arXiv",
     "type": "other",
@@ -2318,6 +2923,20 @@
       "Kondylatos, S.",
       "Happé, T.",
       "Williams, T."
+    ],
+    "orcid_source": "0000-0002-0801-199X"
+  },
+  {
+    "title": "Deep Learning With Noisy Labels for Spatiotemporal Drought Detection",
+    "journal": "IEEE Transactions on Geoscience and Remote Sensing",
+    "type": "journal-article",
+    "year": "2024",
+    "doi": "10.1109/TGRS.2024.3504340",
+    "url": "https://doi.org/10.1109/TGRS.2024.3504340",
+    "authors": [
+      "Jordi Cortés Andrés",
+      "Miguel Ángel Fernández Torres",
+      "Gustau Camps Valls"
     ],
     "orcid_source": "0000-0002-0801-199X"
   },
@@ -2374,6 +2993,25 @@
       "Ji, C.",
       "Mahecha, M.D.",
       "Camps Valls, G."
+    ],
+    "orcid_source": "0000-0002-0801-199X"
+  },
+  {
+    "title": "Opening the Black Box: A systematic review on explainable artificial intelligence in remote sensing",
+    "journal": "IEEE Geoscience and Remote Sensing Magazine",
+    "type": "journal-article",
+    "year": "2024",
+    "doi": "10.1109/MGRS.2024.3467001",
+    "url": "https://doi.org/10.1109/MGRS.2024.3467001",
+    "authors": [
+      "Adrian Höhl",
+      "Ivica Obadic",
+      "Miguel Ángel Fernández Torres",
+      "Hiba Najjar",
+      "Dario Augusto Borges Oliveira",
+      "Zeynep Akata",
+      "Andreas Dengel",
+      "Xiao Xiang Zhu"
     ],
     "orcid_source": "0000-0002-0801-199X"
   },
@@ -2560,6 +3198,34 @@
       "Fernández Torres, M. Á.",
       "Guillem, M.P.",
       "Carvalhais, N."
+    ],
+    "orcid_source": "0000-0002-0801-199X"
+  },
+  {
+    "title": "Interpretable Global-Local Dynamics for the Prediction of Eye Fixations in Autonomous Driving Scenarios",
+    "journal": "IEEE Access",
+    "type": "journal-article",
+    "year": "2020",
+    "doi": "10.1109/ACCESS.2020.3041606",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85097448514&partnerID=MN8TOARS",
+    "authors": [
+      "Martinez Cebrian, J.",
+      "Fernandez Torres, M. A.",
+      "Diaz De Maria, F."
+    ],
+    "orcid_source": "0000-0002-0801-199X"
+  },
+  {
+    "title": "Probabilistic Topic Model for Context-Driven Visual Attention Understanding",
+    "journal": "IEEE Transactions on Circuits and Systems for Video Technology",
+    "type": "journal-article",
+    "year": "2020",
+    "doi": "10.1109/TCSVT.2019.2909427",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85086304038&partnerID=MN8TOARS",
+    "authors": [
+      "Fernández Torres, M. A.",
+      "González DÍaz, I.",
+      "DÍaz De María, F."
     ],
     "orcid_source": "0000-0002-0801-199X"
   },
