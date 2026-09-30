@@ -211,8 +211,8 @@
     "authors": [
       "Kleinlein, R.",
       "García Faura, Á.",
-      "Jiménez, C.l.",
-      "Montero, J.m.",
+      "Jiménez, C. L.",
+      "Montero, J. M.",
       "Díaz de María, F.",
       "Fernández Martínez, F."
     ],
@@ -225,7 +225,11 @@
     "year": "2019",
     "doi": "10.1109/tcsvt.2019.2909427",
     "url": "http://dx.doi.org/10.1109/tcsvt.2019.2909427",
-    "authors": [],
+    "authors": [
+      "Fernandez Torres, Miguel Angel",
+      "Gonzalez Diaz, Ivan",
+      "Díaz de María, F."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -235,7 +239,14 @@
     "year": "2018",
     "doi": "10.1007/s11042-017-5339-9",
     "url": "http://dx.doi.org/10.1007/s11042-017-5339-9",
-    "authors": [],
+    "authors": [
+      "Fernández Martínez, F.",
+      "Hernández García, A.",
+      "Fernández Torres, M. A.",
+      "González Díaz, I.",
+      "García Faura, Á.",
+      "de María, F. Díaz"
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -276,7 +287,7 @@
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85020743290&partnerID=MN8TOARS",
     "authors": [
       "López Labraca, J.",
-      "Fernández Torres, M.á.",
+      "Fernández Torres, M. Á.",
       "González Díaz, I.",
       "Díaz de María, F.",
       "Pizarro, Á."
@@ -306,7 +317,7 @@
     "doi": "10.1016/j.image.2017.04.010",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85018432171&partnerID=MN8TOARS",
     "authors": [
-      "González de Suso, J.l.",
+      "González de Suso, J. L.",
       "Martínez Enríquez, E.",
       "Díaz de María, F."
     ],
@@ -351,7 +362,7 @@
       "González Díaz, I.",
       "Birinci, M.",
       "Díaz de María, F.",
-      "Delp, E.j."
+      "Delp, E. J."
     ],
     "orcid_source": "0000-0002-6437-914X"
   },
@@ -405,7 +416,7 @@
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84979879858&partnerID=MN8TOARS",
     "authors": [
-      "Garcia Cabellos, J.m.",
+      "Garcia Cabellos, J. M.",
       "Peláez Moreno, C.",
       "Gallardo Antolín, A.",
       "Perez Cruz, F.",
@@ -451,7 +462,7 @@
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84939247038&partnerID=MN8TOARS",
     "authors": [
       "de Frutos López, M.",
-      "González de Suso, J.l.",
+      "González de Suso, J. L.",
       "Sanz Rodríguez, S.",
       "Peláez Moreno, C.",
       "Díaz de María, F."
@@ -467,11 +478,11 @@
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84949928601&partnerID=MN8TOARS",
     "authors": [
       "Martínez Cortés, T.",
-      "Fernández Torres, M.a.",
+      "Fernández Torres, M. A.",
       "Jiménez Moreno, A.",
       "González Díaz, I.",
       "Díaz de María, F.",
-      "Guzmán de Villoria, J.a.",
+      "Guzmán de Villoria, J. A.",
       "Fernández, P."
     ],
     "orcid_source": "0000-0002-6437-914X"
@@ -485,7 +496,7 @@
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84890959626&partnerID=MN8TOARS",
     "authors": [
       "González Díaz, I.",
-      "Baz Hormigos, C.e.",
+      "Baz Hormigos, C. E.",
       "Díaz de María, F."
     ],
     "orcid_source": "0000-0002-6437-914X"
@@ -497,7 +508,9 @@
     "year": "2014",
     "doi": "10.13140/2.1.2304.3203",
     "url": "http://rgdoi.net/10.13140/2.1.2304.3203",
-    "authors": [],
+    "authors": [
+      "Díaz de María, F."
+    ],
     "orcid_source": "0000-0002-6437-914X"
   },
   {
@@ -508,7 +521,7 @@
     "doi": "10.1109/TCSVT.2013.2276857",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84896528947&partnerID=MN8TOARS",
     "authors": [
-      "Gonzalez de Suso, J.l.",
+      "Gonzalez de Suso, J. L.",
       "Jimenez Moreno, A.",
       "Martinez Enriquez, E.",
       "Díaz de María, F."
@@ -552,7 +565,7 @@
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84897749098&partnerID=MN8TOARS",
     "authors": [
       "Gallardo Antolín, A.",
-      "García Moral, A.i.",
+      "García Moral, A. I.",
       "Pereiro Estevan, Y.",
       "Díaz de María, F."
     ],
@@ -624,7 +637,7 @@
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84866667243&partnerID=MN8TOARS",
     "authors": [
       "González Díaz, I.",
-      "Baz Hormigos, C.e.",
+      "Baz Hormigos, C. E.",
       "Berdonces, M.",
       "Díaz de María, F."
     ],
@@ -639,7 +652,7 @@
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84864073107&partnerID=MN8TOARS",
     "authors": [
       "de Frutos Lopez, M.",
-      "Mejia Ocana, A.b.",
+      "Mejia Ocana, A. B.",
       "Sanz Rodriguez, S.",
       "Peláez Moreno, C.",
       "Díaz de María, F.",
@@ -685,7 +698,7 @@
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84857488250&partnerID=MN8TOARS",
     "authors": [
       "Solera Ureña, R.",
-      "García Moral, A.i.",
+      "García Moral, A. I.",
       "Peláez Moreno, C.",
       "Martínez Ramon, M.",
       "Díaz de María, F."
@@ -700,7 +713,7 @@
     "doi": "10.1109/CWCAS.2012.6404082",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84873196261&partnerID=MN8TOARS",
     "authors": [
-      "Gómez Cajas, D.f.",
+      "Gómez Cajas, D. F.",
       "Peláez Moreno, C.",
       "Díaz de María, F."
     ],
@@ -732,7 +745,7 @@
       "Birinci, M.",
       "Díaz de María, F.",
       "Gabbouj, M.",
-      "Delp, E.j."
+      "Delp, E. J."
     ],
     "orcid_source": "0000-0002-6437-914X"
   },
@@ -759,7 +772,7 @@
     "doi": "10.1109/TASL.2010.2050513",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-78149247542&partnerID=MN8TOARS",
     "authors": [
-      "García Moral, A.i.",
+      "García Moral, A. I.",
       "Solera Ureña, R.",
       "Peláez Moreno, C.",
       "Díaz de María, F."
@@ -774,7 +787,7 @@
     "doi": "10.1109/CONATEL.2011.5958666",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-80052135436&partnerID=MN8TOARS",
     "authors": [
-      "Mejía Ocaña, A.b.",
+      "Mejía Ocaña, A. B.",
       "de Frutos López, M.",
       "Sanz Rodríguez, S.",
       "del Ama Esteban, Ó.",
@@ -794,7 +807,7 @@
       "Birinci, M.",
       "Díaz de María, F.",
       "Abdollahian, G.",
-      "Delp, E.j.",
+      "Delp, E. J.",
       "Gabbouj, M."
     ],
     "orcid_source": "0000-0002-6437-914X"
@@ -807,7 +820,7 @@
     "doi": "10.1109/CONATEL.2011.5958668",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-80052115374&partnerID=MN8TOARS",
     "authors": [
-      "Molinero, J.l.",
+      "Molinero, J. L.",
       "Jiménez, A.",
       "Martínez Enríquez, E.",
       "Díaz de María, F."
@@ -907,7 +920,7 @@
     "authors": [
       "de Frutos López, M.",
       "Orellana Quirós, D.",
-      "Pujol Alcolado, J.c.",
+      "Pujol Alcolado, J. C.",
       "Díaz de María, F."
     ],
     "orcid_source": "0000-0002-6437-914X"
@@ -965,7 +978,7 @@
     "authors": [
       "Vicente Peña, J.",
       "Díaz de María, F.",
-      "Kleijn, W.b."
+      "Kleijn, W. B."
     ],
     "orcid_source": "0000-0002-6437-914X"
   },
@@ -1047,10 +1060,10 @@
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85008035391&partnerID=MN8TOARS",
     "authors": [
       "Henríquez, P.",
-      "Alonso, J.b.",
-      "Ferrer, M.a.",
-      "Travieso, C.m.",
-      "Godino Llorente, J.i.",
+      "Alonso, J. B.",
+      "Ferrer, M. A.",
+      "Travieso, C. M.",
+      "Godino Llorente, J. I.",
       "Díaz de María, F."
     ],
     "orcid_source": "0000-0002-6437-914X"
@@ -1123,7 +1136,7 @@
       "González Díaz, I.",
       "Mcguinness, K.",
       "Adamek, T.",
-      "O'connor, N.e.",
+      "O'connor, N. E.",
       "Díaz de María, F."
     ],
     "orcid_source": "0000-0002-6437-914X"
@@ -1157,7 +1170,7 @@
     "authors": [
       "Martínez Enríquez, E.",
       "de Frutos López, M.",
-      "Pujol Alcolado, J.c.",
+      "Pujol Alcolado, J. C.",
       "Díaz de María, F."
     ],
     "orcid_source": "0000-0002-6437-914X"
@@ -1185,7 +1198,7 @@
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-38749092659&partnerID=MN8TOARS",
     "authors": [
-      "García Moral, A.i.",
+      "García Moral, A. I.",
       "Solera Ureña, R.",
       "Peláez Moreno, C.",
       "Díaz de María, F."
@@ -1248,7 +1261,7 @@
     "authors": [
       "Peláez Moreno, C.",
       "Gallardo Antolín, A.",
-      "Gómez Cajas, D.f.",
+      "Gómez Cajas, D. F.",
       "Díaz de María, F."
     ],
     "orcid_source": "0000-0002-6437-914X"
@@ -1322,7 +1335,7 @@
     "authors": [
       "Martín Iglesias, D.",
       "Pereiro Estevan, Y.",
-      "García Moral, A.i.",
+      "García Moral, A. I.",
       "Gallardo Antolín, A.",
       "Díaz de María, F."
     ],
@@ -1336,7 +1349,7 @@
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-32544441293&partnerID=MN8TOARS",
     "authors": [
-      "Pujol Alcolado, J.c.",
+      "Pujol Alcolado, J. C.",
       "Martín Navas, A.",
       "de Frutos, M.",
       "Díaz de María, F."
@@ -1351,10 +1364,10 @@
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-33745470103&partnerID=MN8TOARS",
     "authors": [
-      "Alonso, J.b.",
+      "Alonso, J. B.",
       "Díaz de María, F.",
-      "Travieso, C.m.",
-      "Ferrer, M.a."
+      "Travieso, C. M.",
+      "Ferrer, M. A."
     ],
     "orcid_source": "0000-0002-6437-914X"
   },
@@ -1484,7 +1497,7 @@
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-0031276546&partnerID=MN8TOARS",
     "authors": [
       "Díaz de María, F.",
-      "Figueiras Vidal, A.r."
+      "Figueiras Vidal, A. R."
     ],
     "orcid_source": "0000-0002-6437-914X"
   },
@@ -1697,7 +1710,10 @@
     "year": "2020",
     "doi": "10.1016/j.engappai.2020.103976",
     "url": "https://www.sciencedirect.com/science/article/pii/S0952197620302827",
-    "authors": [],
+    "authors": [
+      "Fernández Díaz, Miguel",
+      "Gallardo Antolín, Ascensión"
+    ],
     "orcid_source": "0000-0002-9322-3128"
   },
   {
@@ -1707,7 +1723,10 @@
     "year": "2019",
     "doi": "10.1007/978-3-030-31372-2_12",
     "url": "https://link.springer.com/chapter/10.1007/978-3-030-31372-2_12",
-    "authors": [],
+    "authors": [
+      "Gallardo Antolín, Ascensión",
+      "Montero, Juan M."
+    ],
     "orcid_source": "0000-0002-9322-3128"
   },
   {
@@ -1717,7 +1736,10 @@
     "year": "2019",
     "doi": "10.21437/interspeech.2019-1603",
     "url": "http://dx.doi.org/10.21437/interspeech.2019-1603",
-    "authors": [],
+    "authors": [
+      "Gallardo Antolín, Ascensión",
+      "Montero, Juan Manuel"
+    ],
     "orcid_source": "0000-0002-9322-3128"
   },
   {
@@ -1742,7 +1764,11 @@
     "year": "2018",
     "doi": "10.21437/iberspeech.2018-4",
     "url": "http://dx.doi.org/10.21437/iberspeech.2018-4",
-    "authors": [],
+    "authors": [
+      "Rituerto González, Esther",
+      "Gallardo Antolín, Ascensión",
+      "Peláez Moreno, C."
+    ],
     "orcid_source": "0000-0002-9322-3128"
   },
   {
@@ -1767,7 +1793,7 @@
     "doi": "10.1007/s00521-016-2470-x",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84978872996&partnerID=MN8TOARS",
     "authors": [
-      "Abdalmalak, K.a.",
+      "Abdalmalak, K. A.",
       "Gallardo Antolín, A."
     ],
     "orcid_source": "0000-0002-9322-3128"
@@ -1783,8 +1809,8 @@
       "Jiménez Recio, C.",
       "Zlotnik, A.",
       "Gallardo Antolín, A.",
-      "Montero, J.m.",
-      "Martínez Castrillo, J.c."
+      "Montero, J. M.",
+      "Martínez Castrillo, J. C."
     ],
     "orcid_source": "0000-0002-9322-3128"
   },
@@ -1795,7 +1821,11 @@
     "year": "2018",
     "doi": "10.1109/access.2018.2882055",
     "url": "http://dx.doi.org/10.1109/access.2018.2882055",
-    "authors": [],
+    "authors": [
+      "Rodriguez Hidalgo, Antonio",
+      "Peláez Moreno, C.",
+      "Gallardo Antolin, Ascension"
+    ],
     "orcid_source": "0000-0002-9322-3128"
   },
   {
@@ -1862,7 +1892,7 @@
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84961221583&partnerID=MN8TOARS",
     "authors": [
       "Zlotnik, A.",
-      "Alfaro, M.c.",
+      "Alfaro, M. C.",
       "Perez, M.c.p.",
       "Gallardo Antolín, A.",
       "Martinez, J.m.m."
@@ -1881,7 +1911,7 @@
       "Barra Chicote, R.",
       "Gallardo Antolín, A.",
       "Yamagishi, J.",
-      "Montero, J.m."
+      "Montero, J. M."
     ],
     "orcid_source": "0000-0002-9322-3128"
   },
@@ -1895,7 +1925,7 @@
     "authors": [
       "Zlotnik, A.",
       "Gallardo Antolín, A.",
-      "Alfaro, M.c.",
+      "Alfaro, M. C.",
       "Pérez, M.c.p.",
       "Martínez, J.m.m."
     ],
@@ -1923,7 +1953,7 @@
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84941096334&partnerID=MN8TOARS",
     "authors": [
       "de la Calle Silos, F.",
-      "Valverde Albacete, F.j.",
+      "Valverde Albacete, F. J.",
       "Gallardo Antolín, A.",
       "Peláez Moreno, C."
     ],
@@ -1938,7 +1968,7 @@
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84943150121&partnerID=MN8TOARS",
     "authors": [
       "de la Calle Silos, F.",
-      "Valverde Albacete, F.j.",
+      "Valverde Albacete, F. J.",
       "Gallardo Antolín, A.",
       "Peláez Moreno, C."
     ],
@@ -1953,7 +1983,7 @@
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84959144048&partnerID=MN8TOARS",
     "authors": [
       "Zlotnik, A.",
-      "Montero, J.m.",
+      "Montero, J. M.",
       "San Segundo, R.",
       "Gallardo Antolín, A."
     ],
@@ -1967,7 +1997,7 @@
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84979879858&partnerID=MN8TOARS",
     "authors": [
-      "Garcia Cabellos, J.m.",
+      "Garcia Cabellos, J. M.",
       "Peláez Moreno, C.",
       "Gallardo Antolín, A.",
       "Perez Cruz, F.",
@@ -1999,7 +2029,7 @@
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84910025448&partnerID=MN8TOARS",
     "authors": [
       "Gallardo Antolín, A.",
-      "Montero, J.m.",
+      "Montero, J. M.",
       "King, S."
     ],
     "orcid_source": "0000-0002-9322-3128"
@@ -2013,7 +2043,7 @@
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84910091401&partnerID=MN8TOARS",
     "authors": [
       "de la Calle Silos, F.",
-      "Valverde Albacete, F.j.",
+      "Valverde Albacete, F. J.",
       "Gallardo Antolín, A.",
       "Peláez Moreno, C."
     ],
@@ -2056,7 +2086,7 @@
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84890126800&partnerID=MN8TOARS",
     "authors": [
       "Cadore, J.",
-      "Valverde Albacete, F.j.",
+      "Valverde Albacete, F. J.",
       "Gallardo Antolín, A.",
       "Peláez Moreno, C."
     ],
@@ -2071,7 +2101,7 @@
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84897749098&partnerID=MN8TOARS",
     "authors": [
       "Gallardo Antolín, A.",
-      "García Moral, A.i.",
+      "García Moral, A. I.",
       "Pereiro Estevan, Y.",
       "Díaz de María, F."
     ],
@@ -2127,7 +2157,7 @@
       "Mejía Navarrete, D.",
       "Gallardo Antolín, A.",
       "Peláez Moreno, C.",
-      "Valverde Albacete, F.j."
+      "Valverde Albacete, F. J."
     ],
     "orcid_source": "0000-0002-9322-3128"
   },
@@ -2156,7 +2186,7 @@
       "Martínez Ramón, M.",
       "Gallardo Antolín, A.",
       "Cid Sueiro, J.",
-      "Heileman, G.l.",
+      "Heileman, G. L.",
       "Yung, K. T.",
       "Zheng, W.",
       "Zhao, C.",
@@ -2173,7 +2203,7 @@
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-77952944068&partnerID=MN8TOARS",
     "authors": [
       "Gallardo Antolín, A.",
-      "Montero, J.m."
+      "Montero, J. M."
     ],
     "orcid_source": "0000-0002-9322-3128"
   },
@@ -2186,9 +2216,9 @@
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-70450181058&partnerID=MN8TOARS",
     "authors": [
       "Lutfi, S.",
-      "Montero, J.m.",
+      "Montero, J. M.",
       "Barra Chicote, R.",
-      "Lucas Cuesta, J.m.",
+      "Lucas Cuesta, J. M.",
       "Gallardo Antolín, A."
     ],
     "orcid_source": "0000-0002-9322-3128"
@@ -2201,7 +2231,7 @@
     "doi": "10.1016/j.engappai.2007.07.002",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-43549107972&partnerID=MN8TOARS",
     "authors": [
-      "Leiva Murillo, J.m.",
+      "Leiva Murillo, J. M.",
       "Salcedo Sanz, S.",
       "Gallardo Antolín, A.",
       "Artés Rodríguez, A."
@@ -2220,7 +2250,7 @@
       "Barra, R.",
       "Schröder, M.",
       "Krstulovic, S.",
-      "Montero, J.m."
+      "Montero, J. M."
     ],
     "orcid_source": "0000-0002-9322-3128"
   },
@@ -2267,7 +2297,7 @@
     "authors": [
       "Peláez Moreno, C.",
       "Gallardo Antolín, A.",
-      "Gómez Cajas, D.f.",
+      "Gómez Cajas, D. F.",
       "Díaz de María, F."
     ],
     "orcid_source": "0000-0002-9322-3128"
@@ -2311,7 +2341,7 @@
     "authors": [
       "Salcedo Sanz, S.",
       "Gallardo Antolín, A.",
-      "Leiva Murillo, J.m.",
+      "Leiva Murillo, J. M.",
       "Bousoño Calzón, C."
     ],
     "orcid_source": "0000-0002-9322-3128"
@@ -2342,7 +2372,7 @@
     "authors": [
       "Martín Iglesias, D.",
       "Pereiro Estevan, Y.",
-      "García Moral, A.i.",
+      "García Moral, A. I.",
       "Gallardo Antolín, A.",
       "Díaz de María, F."
     ],
@@ -2418,11 +2448,11 @@
     "authors": [
       "Gallardo Antolín, A.",
       "Navia Vázquez, A.",
-      "Molina Bulla, H.y.",
-      "Rodríguez González, A.b.",
-      "Valverde Albacete, F.j.",
+      "Molina Bulla, H. Y.",
+      "Rodríguez González, A. B.",
+      "Valverde Albacete, F. J.",
       "Cid Sueiro, J.",
-      "Figueiras Vidal, A.r.",
+      "Figueiras Vidal, A. R.",
       "Koutris, T.",
       "Xirouhaki, C.",
       "Koubarakis, M."
@@ -2484,7 +2514,7 @@
       "Ferreiros, J.",
       "Colás, J.",
       "Gallardo Antolín, A.",
-      "Pardo, J.m."
+      "Pardo, J. M."
     ],
     "orcid_source": "0000-0002-9322-3128"
   },
@@ -2500,7 +2530,7 @@
       "Ferreiros, J.",
       "Macías Guarasa, J.",
       "de Córdoba, R.",
-      "Pardo, J.m."
+      "Pardo, J. M."
     ],
     "orcid_source": "0000-0002-9322-3128"
   },
@@ -2529,9 +2559,9 @@
       "Macias Guarasa, J.",
       "Gallardo, A.",
       "Ferreiros, J.",
-      "Pardo, J.m.",
+      "Pardo, J. M.",
       "Villarrubia, L.",
-      "Bunnell, H.t.",
+      "Bunnell, H. T.",
       "Idsardi, W."
     ],
     "orcid_source": "0000-0002-9322-3128"
@@ -2722,7 +2752,10 @@
     "year": "2021",
     "doi": "10.1007/s00521-021-06083-7",
     "url": "http://dx.doi.org/10.1007/s00521-021-06083-7",
-    "authors": [],
+    "authors": [
+      "Rituerto González, Esther",
+      "Peláez Moreno, C."
+    ],
     "orcid_source": "0000-0003-1425-6763"
   },
   {
@@ -2885,9 +2918,9 @@
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85052915418&partnerID=MN8TOARS",
     "authors": [
-      "Valverde Albacete, F.j.",
+      "Valverde Albacete, F. J.",
       "Peláez Moreno, C.",
-      "Cabrera, I.p.",
+      "Cabrera, I. P.",
       "Cordero, P.",
       "Ojeda Aciego, M."
     ],
@@ -2917,7 +2950,7 @@
     "doi": "10.1109/FUZZ-IEEE.2018.8491644",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85060459574&partnerID=MN8TOARS",
     "authors": [
-      "Valverde Albacete, F.j.",
+      "Valverde Albacete, F. J.",
       "Peláez Moreno, C."
     ],
     "orcid_source": "0000-0003-1425-6763"
@@ -2957,7 +2990,7 @@
     "doi": "10.1016/j.eswa.2017.02.010",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85013216653&partnerID=MN8TOARS",
     "authors": [
-      "Valverde Albacete, F.j.",
+      "Valverde Albacete, F. J.",
       "Peláez Moreno, C."
     ],
     "orcid_source": "0000-0003-1425-6763"
@@ -3027,7 +3060,7 @@
     "doi": "10.1007/978-3-319-32034-2_54",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84964045866&partnerID=MN8TOARS",
     "authors": [
-      "Valverde Albacete, F.j.",
+      "Valverde Albacete, F. J.",
       "Peláez Moreno, C."
     ],
     "orcid_source": "0000-0003-1425-6763"
@@ -3040,7 +3073,7 @@
     "doi": "10.1080/03081079.2015.1072923",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84960414542&partnerID=MN8TOARS",
     "authors": [
-      "Valverde Albacete, F.j.",
+      "Valverde Albacete, F. J.",
       "Peláez Moreno, C."
     ],
     "orcid_source": "0000-0003-1425-6763"
@@ -3053,7 +3086,7 @@
     "doi": "10.1007/978-3-319-40581-0_8",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84977150488&partnerID=MN8TOARS",
     "authors": [
-      "Valverde Albacete, F.j.",
+      "Valverde Albacete, F. J.",
       "Peláez Moreno, C."
     ],
     "orcid_source": "0000-0003-1425-6763"
@@ -3065,7 +3098,10 @@
     "year": "2015",
     "doi": "10.1016/j.fss.2014.09.022",
     "url": null,
-    "authors": [],
+    "authors": [
+      "Valverde Albacete, Francisco J.",
+      "Peláez Moreno, C."
+    ],
     "orcid_source": "0000-0003-1425-6763"
   },
   {
@@ -3076,7 +3112,7 @@
     "doi": "10.1007/978-3-319-16235-5_15",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84926667953&partnerID=MN8TOARS",
     "authors": [
-      "Valverde Albacete, F.j.",
+      "Valverde Albacete, F. J.",
       "Peláez Moreno, C.",
       "del Campo, C."
     ],
@@ -3090,7 +3126,7 @@
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84962295568&partnerID=MN8TOARS",
     "authors": [
-      "Valverde Albacete, F.j.",
+      "Valverde Albacete, F. J.",
       "Peláez Moreno, C."
     ],
     "orcid_source": "0000-0003-1425-6763"
@@ -3104,7 +3140,7 @@
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84941096334&partnerID=MN8TOARS",
     "authors": [
       "de la Calle Silos, F.",
-      "Valverde Albacete, F.j.",
+      "Valverde Albacete, F. J.",
       "Gallardo Antolín, A.",
       "Peláez Moreno, C."
     ],
@@ -3119,7 +3155,7 @@
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84943150121&partnerID=MN8TOARS",
     "authors": [
       "de la Calle Silos, F.",
-      "Valverde Albacete, F.j.",
+      "Valverde Albacete, F. J.",
       "Gallardo Antolín, A.",
       "Peláez Moreno, C."
     ],
@@ -3133,7 +3169,7 @@
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84979879858&partnerID=MN8TOARS",
     "authors": [
-      "Garcia Cabellos, J.m.",
+      "Garcia Cabellos, J. M.",
       "Peláez Moreno, C.",
       "Gallardo Antolín, A.",
       "Perez Cruz, F.",
@@ -3149,7 +3185,7 @@
     "doi": "10.1007/978-3-319-19545-2_6",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84958533332&partnerID=MN8TOARS",
     "authors": [
-      "Valverde Albacete, F.j.",
+      "Valverde Albacete, F. J.",
       "Peláez Moreno, C."
     ],
     "orcid_source": "0000-0003-1425-6763"
@@ -3163,7 +3199,7 @@
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84939247038&partnerID=MN8TOARS",
     "authors": [
       "de Frutos López, M.",
-      "González de Suso, J.l.",
+      "González de Suso, J. L.",
       "Sanz Rodríguez, S.",
       "Peláez Moreno, C.",
       "Díaz de María, F."
@@ -3178,7 +3214,7 @@
     "doi": "10.1371/journal.pone.0084217",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84897546403&partnerID=MN8TOARS",
     "authors": [
-      "Valverde Albacete, F.j.",
+      "Valverde Albacete, F. J.",
       "Peláez Moreno, C."
     ],
     "orcid_source": "0000-0003-1425-6763"
@@ -3192,7 +3228,7 @@
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84910091401&partnerID=MN8TOARS",
     "authors": [
       "de la Calle Silos, F.",
-      "Valverde Albacete, F.j.",
+      "Valverde Albacete, F. J.",
       "Gallardo Antolín, A.",
       "Peláez Moreno, C."
     ],
@@ -3220,7 +3256,7 @@
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84922161867&partnerID=MN8TOARS",
     "authors": [
-      "Valverde Albacete, F.j.",
+      "Valverde Albacete, F. J.",
       "Peláez Moreno, C.",
       "Peñas, A."
     ],
@@ -3234,7 +3270,7 @@
     "doi": "10.1007/978-3-642-40802-1_5",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84886418866&partnerID=MN8TOARS",
     "authors": [
-      "Valverde Albacete, F.j.",
+      "Valverde Albacete, F. J.",
       "Carrillo de Albornoz, J.",
       "Peláez Moreno, C."
     ],
@@ -3249,7 +3285,7 @@
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84890126800&partnerID=MN8TOARS",
     "authors": [
       "Cadore, J.",
-      "Valverde Albacete, F.j.",
+      "Valverde Albacete, F. J.",
       "Gallardo Antolín, A.",
       "Peláez Moreno, C."
     ],
@@ -3263,7 +3299,7 @@
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84924371055&partnerID=MN8TOARS",
     "authors": [
-      "Valverde Albacete, F.j.",
+      "Valverde Albacete, F. J.",
       "Peláez Moreno, C."
     ],
     "orcid_source": "0000-0003-1425-6763"
@@ -3276,7 +3312,7 @@
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84922572809&partnerID=MN8TOARS",
     "authors": [
-      "Valverde Albacete, F.j.",
+      "Valverde Albacete, F. J.",
       "Peláez Moreno, C."
     ],
     "orcid_source": "0000-0003-1425-6763"
@@ -3290,7 +3326,7 @@
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84864073107&partnerID=MN8TOARS",
     "authors": [
       "de Frutos Lopez, M.",
-      "Mejia Ocana, A.b.",
+      "Mejia Ocana, A. B.",
       "Sanz Rodriguez, S.",
       "Peláez Moreno, C.",
       "Díaz de María, F.",
@@ -3323,7 +3359,7 @@
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84857488250&partnerID=MN8TOARS",
     "authors": [
       "Solera Ureña, R.",
-      "García Moral, A.i.",
+      "García Moral, A. I.",
       "Peláez Moreno, C.",
       "Martínez Ramon, M.",
       "Díaz de María, F."
@@ -3338,7 +3374,7 @@
     "doi": "10.1109/CWCAS.2012.6404082",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84873196261&partnerID=MN8TOARS",
     "authors": [
-      "Gómez Cajas, D.f.",
+      "Gómez Cajas, D. F.",
       "Peláez Moreno, C.",
       "Díaz de María, F."
     ],
@@ -3352,9 +3388,9 @@
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84922712575&partnerID=MN8TOARS",
     "authors": [
-      "Fernández Calabozo, J.m.",
+      "Fernández Calabozo, J. M.",
       "Peláez Moreno, C.",
-      "Valverde Albacete, F.j."
+      "Valverde Albacete, F. J."
     ],
     "orcid_source": "0000-0003-1425-6763"
   },
@@ -3366,7 +3402,7 @@
     "doi": "10.1109/TASL.2010.2050513",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-78149247542&partnerID=MN8TOARS",
     "authors": [
-      "García Moral, A.i.",
+      "García Moral, A. I.",
       "Solera Ureña, R.",
       "Peláez Moreno, C.",
       "Díaz de María, F."
@@ -3381,7 +3417,7 @@
     "doi": "10.1016/j.ins.2010.04.014",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-79251599435&partnerID=MN8TOARS",
     "authors": [
-      "Valverde Albacete, F.j.",
+      "Valverde Albacete, F. J.",
       "Peláez Moreno, C."
     ],
     "orcid_source": "0000-0003-1425-6763"
@@ -3397,7 +3433,7 @@
       "Mejía Navarrete, D.",
       "Gallardo Antolín, A.",
       "Peláez Moreno, C.",
-      "Valverde Albacete, F.j."
+      "Valverde Albacete, F. J."
     ],
     "orcid_source": "0000-0003-1425-6763"
   },
@@ -3409,9 +3445,9 @@
     "doi": "10.1007/978-3-642-20514-9_11",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-79955749909&partnerID=MN8TOARS",
     "authors": [
-      "González Calabozo, J.m.",
+      "González Calabozo, J. M.",
       "Peláez Moreno, C.",
-      "Valverde Albacete, F.j."
+      "Valverde Albacete, F. J."
     ],
     "orcid_source": "0000-0003-1425-6763"
   },
@@ -3423,7 +3459,7 @@
     "doi": "10.1109/CONATEL.2011.5958666",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-80052135436&partnerID=MN8TOARS",
     "authors": [
-      "Mejía Ocaña, A.b.",
+      "Mejía Ocaña, A. B.",
       "de Frutos López, M.",
       "Sanz Rodríguez, S.",
       "del Ama Esteban, Ó.",
@@ -3455,8 +3491,8 @@
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-77956407956&partnerID=MN8TOARS",
     "authors": [
       "Peláez Moreno, C.",
-      "García Moral, A.i.",
-      "Valverde Albacete, F.j."
+      "García Moral, A. I.",
+      "Valverde Albacete, F. J."
     ],
     "orcid_source": "0000-0003-1425-6763"
   },
@@ -3469,7 +3505,7 @@
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-77954610453&partnerID=MN8TOARS",
     "authors": [
       "Peláez Moreno, C.",
-      "Valverde Albacete, F.j."
+      "Valverde Albacete, F. J."
     ],
     "orcid_source": "0000-0003-1425-6763"
   },
@@ -3481,7 +3517,7 @@
     "doi": "10.1016/j.patrec.2010.05.017",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-77955557676&partnerID=MN8TOARS",
     "authors": [
-      "Valverde Albacete, F.j.",
+      "Valverde Albacete, F. J.",
       "Peláez Moreno, C."
     ],
     "orcid_source": "0000-0003-1425-6763"
@@ -3495,8 +3531,8 @@
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-70450177444&partnerID=MN8TOARS",
     "authors": [
       "Peláez Moreno, C.",
-      "García Moral, A.i.",
-      "Valverde Albacete, F.j."
+      "García Moral, A. I.",
+      "Valverde Albacete, F. J."
     ],
     "orcid_source": "0000-0003-1425-6763"
   },
@@ -3508,7 +3544,7 @@
     "doi": "10.1007/978-3-540-78137-0_9",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-49949114006&partnerID=MN8TOARS",
     "authors": [
-      "Valverde Albacete, F.j.",
+      "Valverde Albacete, F. J.",
       "Peláez Moreno, C."
     ],
     "orcid_source": "0000-0003-1425-6763"
@@ -3521,7 +3557,7 @@
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84885234086&partnerID=MN8TOARS",
     "authors": [
-      "Valverde Albacete, F.j.",
+      "Valverde Albacete, F. J.",
       "Peláez Moreno, C."
     ],
     "orcid_source": "0000-0003-1425-6763"
@@ -3534,7 +3570,7 @@
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-38049086664&partnerID=MN8TOARS",
     "authors": [
-      "Valverde Albacete, F.j.",
+      "Valverde Albacete, F. J.",
       "Peláez Moreno, C."
     ],
     "orcid_source": "0000-0003-1425-6763"
@@ -3547,7 +3583,7 @@
     "doi": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-38749092659&partnerID=MN8TOARS",
     "authors": [
-      "García Moral, A.i.",
+      "García Moral, A. I.",
       "Solera Ureña, R.",
       "Peláez Moreno, C.",
       "Díaz de María, F."
@@ -3597,7 +3633,7 @@
     "authors": [
       "Peláez Moreno, C.",
       "Gallardo Antolín, A.",
-      "Gómez Cajas, D.f.",
+      "Gómez Cajas, D. F.",
       "Díaz de María, F."
     ],
     "orcid_source": "0000-0003-1425-6763"
@@ -3625,7 +3661,7 @@
     "doi": "10.1007/11671404_11",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-33745533977&partnerID=MN8TOARS",
     "authors": [
-      "Valverde Albacete, F.j.",
+      "Valverde Albacete, F. J.",
       "Peláez Moreno, C."
     ],
     "orcid_source": "0000-0003-1425-6763"
@@ -3853,7 +3889,15 @@
     "year": "2022",
     "doi": "10.1016/j.media.2022.102358",
     "url": "http://dx.doi.org/10.1016/j.media.2022.102358",
-    "authors": [],
+    "authors": [
+      "Molina Moreno, Miguel",
+      "González Díaz, Iván",
+      "Sicilia, Jon",
+      "Crainiciuc, Georgiana",
+      "Palomino Segura, Miguel",
+      "Hidalgo, Andrés",
+      "Díaz de María, F."
+    ],
     "orcid_source": "0000-0003-4644-8479"
   },
   {
@@ -3863,7 +3907,36 @@
     "year": "2022",
     "doi": "10.1038/s41586-021-04263-y",
     "url": "http://dx.doi.org/10.1038/s41586-021-04263-y",
-    "authors": [],
+    "authors": [
+      "Crainiciuc, Georgiana",
+      "Palomino Segura, Miguel",
+      "Molina Moreno, Miguel",
+      "Sicilia, Jon",
+      "Aragones, David G.",
+      "Li, Jackson Liang Yao",
+      "Madurga, Rodrigo",
+      "Adrover, José M.",
+      "Aroca Crevillén, Alejandra",
+      "Martin Salamanca, Sandra",
+      "del Valle, Alfonso Serrano",
+      "Castillo, Sandra D.",
+      "Welch, Heidi C. E.",
+      "Soehnlein, Oliver",
+      "Graupera, Mariona",
+      "Sánchez Cabo, Fátima",
+      "Zarbock, Alexander",
+      "Smithgall, Thomas E.",
+      "Di Pilato, Mauro",
+      "Mempel, Thorsten R.",
+      "Tharaux, Pierre Louis",
+      "González, Santiago F.",
+      "Ayuso Sacido, Angel",
+      "Ng, Lai Guan",
+      "Calvo, Gabriel F.",
+      "González Díaz, Iván",
+      "Díaz de María, F.",
+      "Hidalgo, Andrés"
+    ],
     "orcid_source": "0000-0003-4644-8479"
   },
   {
@@ -3958,7 +4031,11 @@
     "year": "2018",
     "doi": "10.1109/icip.2018.8451566",
     "url": "http://dx.doi.org/10.1109/icip.2018.8451566",
-    "authors": [],
+    "authors": [
+      "Martinez Cortes, Tomas",
+      "Gonzalez Diaz, Ivan",
+      "Díaz de María, F."
+    ],
     "orcid_source": "0000-0003-4644-8479"
   },
   {
@@ -3968,7 +4045,12 @@
     "year": "2018",
     "doi": "10.1145/3206025.3206073",
     "url": "http://dx.doi.org/10.1145/3206025.3206073",
-    "authors": [],
+    "authors": [
+      "González Díaz, Iván",
+      "Benois Pineau, Jenny",
+      "Domenger, Jean Philippe",
+      "de Rugy, Aymar"
+    ],
     "orcid_source": "0000-0003-4644-8479"
   },
   {
@@ -3978,7 +4060,9 @@
     "year": "2017",
     "doi": "",
     "url": null,
-    "authors": [],
+    "authors": [
+      "González Díaz, I."
+    ],
     "orcid_source": "0000-0003-4644-8479"
   },
   {
@@ -3990,7 +4074,7 @@
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85020743290&partnerID=MN8TOARS",
     "authors": [
       "López Labraca, J.",
-      "Fernández Torres, M.á.",
+      "Fernández Torres, M. Á.",
       "González Díaz, I.",
       "Díaz de María, F.",
       "Pizarro, Á."
@@ -4007,10 +4091,10 @@
     "authors": [
       "Fernández Martínez, F.",
       "Hernández García, A.",
-      "Fernández Torres, M.a.",
+      "Fernández Torres, M. A.",
       "González Díaz, I.",
       "García Faura, Á.",
-      "de María, F.d."
+      "de María, F. D."
     ],
     "orcid_source": "0000-0003-4644-8479"
   },
@@ -4128,11 +4212,11 @@
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84949928601&partnerID=MN8TOARS",
     "authors": [
       "Martínez Cortés, T.",
-      "Fernández Torres, M.a.",
+      "Fernández Torres, M. A.",
       "Jiménez Moreno, A.",
       "González Díaz, I.",
       "Díaz de María, F.",
-      "Guzmán de Villoria, J.a.",
+      "Guzmán de Villoria, J. A.",
       "Fernández, P."
     ],
     "orcid_source": "0000-0003-4644-8479"
@@ -4146,7 +4230,7 @@
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84890959626&partnerID=MN8TOARS",
     "authors": [
       "González Díaz, I.",
-      "Baz Hormigos, C.e.",
+      "Baz Hormigos, C. E.",
       "Díaz de María, F."
     ],
     "orcid_source": "0000-0003-4644-8479"
@@ -4158,7 +4242,12 @@
     "year": "2014",
     "doi": "10.1007/978-3-319-05696-8_4",
     "url": "http://dx.doi.org/10.1007/978-3-319-05696-8_4",
-    "authors": [],
+    "authors": [
+      "González Díaz, Iván",
+      "Benois Pineau, Jenny",
+      "Buso, Vincent",
+      "Boujut, Hugo"
+    ],
     "orcid_source": "0000-0003-4644-8479"
   },
   {
@@ -4213,7 +4302,7 @@
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84866667243&partnerID=MN8TOARS",
     "authors": [
       "González Díaz, I.",
-      "Baz Hormigos, C.e.",
+      "Baz Hormigos, C. E.",
       "Berdonces, M.",
       "Díaz de María, F."
     ],
@@ -4302,7 +4391,7 @@
       "González Díaz, I.",
       "Mcguinness, K.",
       "Adamek, T.",
-      "O'connor, N.e.",
+      "O'connor, N. E.",
       "Díaz de María, F."
     ],
     "orcid_source": "0000-0003-4644-8479"
@@ -4718,7 +4807,7 @@
       "Giuliani, M.",
       "Mahecha, M.",
       "Popescu, O. I.",
-      "Pellicer Valero, O.j.",
+      "Pellicer Valero, O. J.",
       "Ouala, S.",
       "Salcedo Sanz, S.",
       "Sippel, S.",
@@ -4760,11 +4849,11 @@
       "Martinuzzi, F.",
       "Montero, D.",
       "Mora, K.",
-      "Pellicer Valero, O.j.",
+      "Pellicer Valero, O. J.",
       "Robin, C.",
       "Söchting, M.",
       "Weynants, M.",
-      "Mahecha, M.d."
+      "Mahecha, M. D."
     ],
     "orcid_source": "0000-0002-0801-199X"
   },
@@ -4790,10 +4879,10 @@
     "doi": "10.48550/arXiv.2410.01770",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85208954186&partnerID=MN8TOARS",
     "authors": [
-      "Pellicer Valero, O.j.",
+      "Pellicer Valero, O. J.",
       "Fernández Torres, M. A.",
       "Ji, C.",
-      "Mahecha, M.d.",
+      "Mahecha, M. D.",
       "Camps Valls, G."
     ],
     "orcid_source": "0000-0002-0801-199X"
@@ -4832,7 +4921,7 @@
       "Oliveira, D.",
       "Akata, Z.",
       "Dengel, A.",
-      "Zhu, X.x."
+      "Zhu, X. X."
     ],
     "orcid_source": "0000-0002-0801-199X"
   },
@@ -4886,7 +4975,7 @@
       "Amoros Lopez, J.",
       "Fernandez Moran, R.",
       "Fernández Torres, M. A.",
-      "Adsuara, J.e."
+      "Adsuara, J. E."
     ],
     "orcid_source": "0000-0002-0801-199X"
   },
@@ -4898,7 +4987,7 @@
     "doi": "10.48550/arXiv.2308.05189",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85168642025&partnerID=MN8TOARS",
     "authors": [
-      "Fernández Torres, M.á."
+      "Fernández Torres, M. Á."
     ],
     "orcid_source": "0000-0002-0801-199X"
   },
@@ -4965,7 +5054,7 @@
       "Amoros, J.",
       "Fernandez Moran, R.",
       "Fernández Torres, M. A.",
-      "Adsuara, J.e."
+      "Adsuara, J. E."
     ],
     "orcid_source": "0000-0002-0801-199X"
   },
@@ -4977,15 +5066,15 @@
     "doi": "10.1109/JICV56113.2022.9934413",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85143049177&partnerID=MN8TOARS",
     "authors": [
-      "Suay, A.p.",
-      "Vaerenbergh, S.v.",
+      "Suay, A. P.",
+      "Vaerenbergh, S. V.",
       "Piles, M.",
       "Laparra, V.",
-      "Pascual Venteo, A.b.",
-      "Ruescas, A.b.",
+      "Pascual Venteo, A. B.",
+      "Ruescas, A. B.",
       "Fernandez Moran, R.",
       "Martinez Garcia, M.",
-      "Adsuara, J.e.",
+      "Adsuara, J. E.",
       "Amoros, J.",
       "Munoz Mari, J.",
       "Epifanio, I.",
@@ -5041,7 +5130,7 @@
       "Camps Valls, G.",
       "Ronco, M.",
       "Fernández Torres, M. A.",
-      "Guillem, M.p.",
+      "Guillem, M. P.",
       "Carvalhais, N."
     ],
     "orcid_source": "0000-0002-0801-199X"
@@ -5083,7 +5172,7 @@
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85020743290&partnerID=MN8TOARS",
     "authors": [
       "López Labraca, J.",
-      "Fernández Torres, M.á.",
+      "Fernández Torres, M. Á.",
       "González Díaz, I.",
       "Díaz de María, F.",
       "Pizarro, Á."
@@ -5100,10 +5189,10 @@
     "authors": [
       "Fernández Martínez, F.",
       "Hernández García, A.",
-      "Fernández Torres, M.a.",
+      "Fernández Torres, M. A.",
       "González Díaz, I.",
       "García Faura, Á.",
-      "de María, F.d."
+      "de María, F. D."
     ],
     "orcid_source": "0000-0002-0801-199X"
   },
@@ -5130,11 +5219,11 @@
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84949928601&partnerID=MN8TOARS",
     "authors": [
       "Martínez Cortés, T.",
-      "Fernández Torres, M.a.",
+      "Fernández Torres, M. A.",
       "Jiménez Moreno, A.",
       "González Díaz, I.",
       "Díaz de María, F.",
-      "Guzmán de Villoria, J.a.",
+      "Guzmán de Villoria, J. A.",
       "Fernández, P."
     ],
     "orcid_source": "0000-0002-0801-199X"
