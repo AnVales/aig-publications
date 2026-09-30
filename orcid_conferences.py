@@ -53,10 +53,9 @@ session.mount("http://", adapter)
 
 
 # ============================================================
-# ALIAS Y NORMALIZACIÓN AVANZADA DE AUTORES
+# ALIAS Y NORMALIZACIÓN CORREGIDA DE AUTORES
 # ============================================================
 
-# Mapeo de variantes conocidas a una forma canónica única
 AUTHOR_ALIASES = {
     # Fernando Díaz-de-María
     "diaz de maria f": "Díaz de María, F.",
@@ -109,15 +108,14 @@ def strip_diacritics(text):
 
 def normalize_author_name(name_raw):
     """
-    Normaliza el nombre de un autor:
-    1. Elimina guiones y caracteres extraños.
-    2. Convierte a Title Case para evitar inconsistencias de MAYÚSCULAS/minúsculas.
-    3. Mapea contra la lista de alias canónicos.
+    Normaliza el nombre de un autor sin romper cadenas continuas.
+    1. Si coincide con un alias de la lista, asigna la forma canónica.
+    2. Si no, limpia espacios y aplica Title Case sin fragmentar palabras en iniciales.
     """
     if not name_raw:
         return ""
 
-    # Limpieza inicial
+    # Limpieza básica de guiones y espacios dobles
     name = str(name_raw).replace("-", " ")
     name = re.sub(r"\s+", " ", name).strip()
     
@@ -125,26 +123,24 @@ def normalize_author_name(name_raw):
     key = strip_diacritics(name).lower()
     key = re.sub(r"[^\w\s]", "", key).strip()
 
-    # Si coincide con un alias registrado, devolver el nombre canónico
+    # 1. Comprobar diccionario de alias
     if key in AUTHOR_ALIASES:
         return AUTHOR_ALIASES[key]
 
-    # Si no está en el mapa de alias, aplicar formato Title Case estándar
-    parts = name.split(",")
-    cleaned_parts = []
-    for part in parts:
-        part_clean = part.strip()
-        # Si son iniciales pequeñas (ej. "f." o "m. a.")
-        if re.fullmatch(r"([a-zA-Z]\.?\s*)+", part_clean):
-            initials = re.findall(r"[a-zA-Z]", part_clean)
-            cleaned_parts.append(" ".join(f"{i.upper()}." for i in initials))
+    # 2. Formateo estándar (Title Case) respetando minúsculas en partículas nobiliarias
+    words = name.split()
+    formatted_words = []
+    
+    for word in words:
+        # Mantener iniciales aisladas como "F." o "M."
+        if len(word) <= 2 and word.endswith("."):
+            formatted_words.append(word.upper())
+        elif word.lower() in ("de", "del", "la", "las", "los", "y"):
+            formatted_words.append(word.lower())
         else:
-            # Capitalizar cada palabra (Title Case)
-            words = part_clean.split()
-            words_cap = [w.capitalize() if w.lower() not in ("de", "del", "la", "las", "los", "y") else w.lower() for w in words]
-            cleaned_parts.append(" ".join(words_cap))
+            formatted_words.append(word.capitalize())
 
-    return ", ".join(cleaned_parts) if len(cleaned_parts) > 1 else cleaned_parts[0]
+    return " ".join(formatted_words)
 
 
 def clean_text(value):
@@ -312,16 +308,13 @@ def looks_like_conference(pub):
     journal = str(pub.get("journal", "") or "").lower()
     title = str(pub.get("title", "") or "").lower()
 
-    # 1. SI ES EXPLÍCITAMENTE REVISTA O ARTÍCULO, SE SEPARA Y EXCLUYE
     if any(ji in raw_type for ji in ["journal-article", "journal_article"]):
         return False
     
-    # Si la fuente/revista incluye palabras típicas de revistas científicas sin palabras de congreso
     if any(ji in journal for ji in ["journal", "transactions", "letters", "magazine", "access", "review"]):
         if not any(cw in f"{journal} {title}" for cw in ["proceedings", "conference", "symposium", "workshop", "actas"]):
             return False
 
-    # 2. COMPROBACIÓN DE TIPOS Y PALABRAS CLAVE DE CONGRESO
     conf_types = ["conference", "proceeding", "poster", "abstract", "symposium", "workshop"]
     if any(ct in raw_type for ct in conf_types):
         return True
@@ -362,7 +355,6 @@ def save_bibtex(publications, filename=OUTPUT_BIB):
         url = str(pub.get("url") or "")
         authors_list = pub.get("authors") or []
 
-        # SIEMPRE SE GENERA COMO @inproceedings
         entry = f"@inproceedings{{{key},\n"
         if authors_list:
             authors_str = " and ".join(authors_list)
@@ -464,7 +456,7 @@ def main():
     save_bibtex(conferences, OUTPUT_BIB)
     save_html(conferences, OUTPUT_HTML)
 
-    print(f"\n¡Proceso finalizado con éxito! El archivo {OUTPUT_BIB} contiene únicamente @inproceedings con nombres de autores normalizados.")
+    print(f"\n¡Proceso finalizado con éxito! El archivo {OUTPUT_BIB} contiene nombres legibles y sin fragmentar.")
 
 
 if __name__ == "__main__":
