@@ -489,13 +489,38 @@ def main():
         all_publications.extend(pubs)
 
     print(f"\n==================================================")
-    print(f"Total publicaciones obtenidas en total: {len(all_publications)}")
+    print(f"Total publicaciones obtenidas inicialmente: {len(all_publications)}")
     print(f"==================================================")
 
-    save_json(all_publications, OUTPUT_ALL)
+    # ------------------------------------------------------------
+    # DEDUPLICACIÓN AUTOMÁTICA POR DOI Y TÍTULO
+    # ------------------------------------------------------------
+    unique_publications = []
+    seen_dois = set()
+    seen_titles = set()
 
-    conferences = [pub for pub in all_publications if looks_like_conference(pub)]
-    excluded = [pub for pub in all_publications if not looks_like_conference(pub)]
+    for pub in all_publications:
+        doi = pub.get("doi", "").strip().lower()
+        title_clean = re.sub(r"[^\w]", "", pub.get("title", "").strip().lower())
+
+        if doi and doi in seen_dois:
+            continue
+        if title_clean in seen_titles:
+            continue
+
+        if doi:
+            seen_dois.add(doi)
+        if title_clean:
+            seen_titles.add(title_clean)
+
+        unique_publications.append(pub)
+
+    print(f"Total publicaciones únicas tras eliminar duplicados: {len(unique_publications)}")
+
+    save_json(unique_publications, OUTPUT_ALL)
+
+    conferences = [pub for pub in unique_publications if looks_like_conference(pub)]
+    excluded = [pub for pub in unique_publications if not looks_like_conference(pub)]
 
     print(f"Comunicaciones a congresos filtradas: {len(conferences)}")
     print(f"Artículos de revista u otros excluidos: {len(excluded)}")
@@ -505,7 +530,7 @@ def main():
     save_bibtex(conferences, OUTPUT_BIB)
     save_html(conferences, OUTPUT_HTML)
 
-    print(f"\n¡Proceso finalizado con éxito! El archivo {OUTPUT_BIB} contiene únicamente @inproceedings con autores completos.")
+    print(f"\n¡Proceso finalizado con éxito! El archivo {OUTPUT_BIB} es único, completo y está libre de duplicados.")
 
 
 if __name__ == "__main__":
