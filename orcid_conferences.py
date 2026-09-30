@@ -2552,6 +2552,8 @@ def main():
         OUTPUT_AUTHOR_VARIANTS
     )
 
+    author_review = save_author_review()
+
     print(
         f"Variantes de autores detectadas: "
         f"{len(author_variants)}"
