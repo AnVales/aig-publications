@@ -107,11 +107,6 @@ AUTHOR_ALIASES = {
     "diaz-de-maria,f.": "Díaz-de-María, F.",
     "díaz-de-maría,f.": "Díaz-de-María, F.",
 
-    # Variantes de mayúsculas observadas
-    "diaz-de-maría, f.": "Díaz-de-María, F.",
-    "díaz-de-maría, f.": "Díaz-de-María, F.",
-    "diaz-de-maria, f.": "Díaz-de-María, F.",
-
     # --------------------------------------------------------
     # Peláez-Moreno
     # --------------------------------------------------------
@@ -129,8 +124,6 @@ AUTHOR_ALIASES = {
     "gallardo-antolín, a.": "Gallardo-Antolín, A.",
     "gallardo-antolin, a": "Gallardo-Antolín, A.",
     "gallardo-antolín, a": "Gallardo-Antolín, A.",
-
-    # En algún registro puede venir sin formato apellido, inicial
     "ascension gallardo-antolin": "Gallardo-Antolín, A.",
     "ascensión gallardo-antolín": "Gallardo-Antolín, A.",
 
@@ -143,7 +136,7 @@ AUTHOR_ALIASES = {
     "gonzález-díaz, i.": "González-Díaz, I.",
     "gonzalez-diaz, i": "González-Díaz, I.",
     "gonzález-diaz, i": "González-Díaz, I.",
-    "gonzález-díaz, i": "González-Díaz, I.",
+    "gonzalez díaz, i.": "González-Díaz, I.",
     "gonzález díaz, i.": "González-Díaz, I.",
     "gonzalez diaz, i.": "González-Díaz, I.",
 
@@ -168,8 +161,6 @@ AUTHOR_ALIASES = {
     # --------------------------------------------------------
     # Del-Ama-Esteban
     # --------------------------------------------------------
-    "del-ama-esteban, o.": "Del-Ama-Esteban, O.",
-    "del-ama-esteban, o": "Del-Ama-Esteban, O.",
     "del-ama-esteban, o.": "Del-Ama-Esteban, O.",
     "del-ama-esteban, o": "Del-Ama-Esteban, O.",
 
@@ -200,12 +191,102 @@ AUTHOR_ALIASES = {
 
     # --------------------------------------------------------
     # Fernández-Torres
+    # Unificamos M.A. y M.-A. en M.-A.
     # --------------------------------------------------------
-    "fernandez-torres, m.a.": "Fernández-Torres, M.A.",
-    "fernández-torres, m.a.": "Fernández-Torres, M.A.",
+    "fernandez-torres, m.a.": "Fernández-Torres, M.-A.",
+    "fernández-torres, m.a.": "Fernández-Torres, M.-A.",
     "fernandez-torres, m.-a.": "Fernández-Torres, M.-A.",
     "fernández-torres, m.-a.": "Fernández-Torres, M.-A.",
+
+    # --------------------------------------------------------
+    # Martínez-Cortés
+    # --------------------------------------------------------
+    "martinez-cortes, t.": "Martínez-Cortés, T.",
+    "martínez-cortes, t.": "Martínez-Cortés, T.",
+    "martinez-cortés, t.": "Martínez-Cortés, T.",
+    "martínez-cortés, t": "Martínez-Cortés, T.",
+
+    # --------------------------------------------------------
+    # García-Cabellos
+    # --------------------------------------------------------
+    "garcia-cabellos, j.m.": "García-Cabellos, J.M.",
+    "garcía-cabellos, j.m.": "García-Cabellos, J.M.",
+    "garcia-cabellos, jm": "García-Cabellos, J.M.",
+
+    # --------------------------------------------------------
+    # Pérez-Cruz
+    # --------------------------------------------------------
+    "perez-cruz, f.": "Pérez-Cruz, F.",
+    "pérez-cruz, f.": "Pérez-Cruz, F.",
+    "perez-cruz, f": "Pérez-Cruz, F.",
+
+    # --------------------------------------------------------
+    # Jiménez-Moreno
+    # --------------------------------------------------------
+    "jimenez-moreno, a.": "Jiménez-Moreno, A.",
+    "jiménez-moreno, a.": "Jiménez-Moreno, A.",
+    "jimenez-moreno, a": "Jiménez-Moreno, A.",
+
+    # --------------------------------------------------------
+    # Mejía-Ocaña / Mejía-Navarrete
+    # --------------------------------------------------------
+    "mejia-ocana, a.b.": "Mejía-Ocaña, A.B.",
+    "mejía-ocaña, a.b.": "Mejía-Ocaña, A.B.",
+    "mejia-navarrete, d.": "Mejía-Navarrete, D.",
+    "mejía-navarrete, d.": "Mejía-Navarrete, D.",
+
+    # --------------------------------------------------------
+    # Vicente-Peña
+    # --------------------------------------------------------
+    "vicente-pena, j.": "Vicente-Peña, J.",
+    "vicente-peña, j.": "Vicente-Peña, J.",
+    "vicente-pena, j": "Vicente-Peña, J.",
+
+    # --------------------------------------------------------
+    # Rodríguez-Hidalgo
+    # --------------------------------------------------------
+    "rodriguez-hidalgo, a.": "Rodríguez-Hidalgo, A.",
+    "rodríguez-hidalgo, a.": "Rodríguez-Hidalgo, A.",
+
+    # --------------------------------------------------------
+    # Ludeña-Choez
+    # --------------------------------------------------------
+    "ludena-choez, m.": "Ludeña-Choez, M.",
+    "ludeña-choez, m.": "Ludeña-Choez, M.",
+
+    # --------------------------------------------------------
+    # Macías-Guarasa
+    # --------------------------------------------------------
+    "macias-guarasa, m.": "Macías-Guarasa, M.",
+    "macías-guarasa, m.": "Macías-Guarasa, M.",
+
+    # --------------------------------------------------------
+    # Santamaría-Caballero
+    # --------------------------------------------------------
+    "santamaria-caballero, a.": "Santamaría-Caballero, A.",
+    "santamaría-caballero, a.": "Santamaría-Caballero, A.",
+
+    # --------------------------------------------------------
+    # Artés-Rodríguez
+    # --------------------------------------------------------
+    "artes-rodriguez, j.": "Artés-Rodríguez, J.",
+    "artés-rodríguez, j.": "Artés-Rodríguez, J.",
+
+    # --------------------------------------------------------
+    # Autores de registros recientes
+    # --------------------------------------------------------
+    "perez-suay, a.": "Pérez-Suay, A.",
+    "pérez-suay, a.": "Pérez-Suay, A.",
+    "munoz-mari, j.": "Muñoz-Mari, J.",
+    "muñoz-mari, j.": "Muñoz-Mari, J.",
+    "amoros, j.": "Amorós, J.",
+    "amorós, j.": "Amorós, J.",
+    "fernandez-moran, r.": "Fernández-Morán, R.",
+    "fernández-moran, r.": "Fernández-Morán, R.",
+    "martinez-garcia, m.": "Martínez-García, M.",
+    "martínez-garcia, m.": "Martínez-García, M.",
 }
+
 
 
 # ============================================================
