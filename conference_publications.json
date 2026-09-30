@@ -131,21 +131,6 @@
     "orcid_source": "0000-0002-6437-914X"
   },
   {
-    "title": "A generative model for concurrent image retrieval and ROI segmentation",
-    "journal": "Proceedings - International Workshop on Content-Based Multimedia Indexing",
-    "type": "conference-paper",
-    "year": "2012",
-    "doi": "10.1109/CBMI.2012.6269844",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84866667243&partnerID=MN8TOARS",
-    "authors": [
-      "González Díaz, I.",
-      "Baz Hormigos, C. E.",
-      "Berdonces, M.",
-      "Díaz de María, F."
-    ],
-    "orcid_source": "0000-0002-6437-914X"
-  },
-  {
     "title": "A simplified subjective video quality assessment method based on signal detection theory",
     "journal": "2012 Picture Coding Symposium, PCS 2012, Proceedings",
     "type": "conference-paper",
@@ -458,21 +443,6 @@
       "Martínez Enríquez, E.",
       "de Frutos López, M.",
       "Pujol Alcolado, J. C.",
-      "Díaz de María, F."
-    ],
-    "orcid_source": "0000-0002-6437-914X"
-  },
-  {
-    "title": "Adaptive multi-pattern fast block-matching algorithm based on motion classification techniques",
-    "journal": "ICASSP, IEEE International Conference on Acoustics, Speech and Signal Processing - Proceedings",
-    "type": "conference-paper",
-    "year": "2007",
-    "doi": "10.1109/ICASSP.2007.366123",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-34547534157&partnerID=MN8TOARS",
-    "authors": [
-      "González Díaz, I.",
-      "de Frutos López, M.",
-      "Sanz Rodríguez, S.",
       "Díaz de María, F."
     ],
     "orcid_source": "0000-0002-6437-914X"
@@ -884,22 +854,6 @@
     "orcid_source": "0000-0002-9322-3128"
   },
   {
-    "title": "SVM classifiers for ASR: A discussion about parameterization",
-    "journal": "European Signal Processing Conference",
-    "type": "conference-paper",
-    "year": "2015",
-    "doi": "",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84979879858&partnerID=MN8TOARS",
-    "authors": [
-      "Garcia Cabellos, J. M.",
-      "Peláez Moreno, C.",
-      "Gallardo Antolín, A.",
-      "Perez Cruz, F.",
-      "Díaz de María, F."
-    ],
-    "orcid_source": "0000-0002-9322-3128"
-  },
-  {
     "title": "A comparison of open-source segmentation architectures for dealing with imperfect data from the media in speech synthesis",
     "journal": "Proceedings of the Annual Conference of the International Speech Communication Association, INTERSPEECH",
     "type": "conference-paper",
@@ -1031,52 +985,6 @@
     "orcid_source": "0000-0002-9322-3128"
   },
   {
-    "title": "Design of a voice-enabled interface for real-time access to stock exchange from a PDA through GPRS",
-    "journal": null,
-    "type": "conference-paper",
-    "year": "2005",
-    "doi": "",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-33745207799&partnerID=MN8TOARS",
-    "authors": [
-      "Martín Iglesias, D.",
-      "Pereiro Estevan, Y.",
-      "García Moral, A. I.",
-      "Gallardo Antolín, A.",
-      "Díaz de María, F."
-    ],
-    "orcid_source": "0000-0002-9322-3128"
-  },
-  {
-    "title": "Linear equalization of the modulation spectra: A novel approach for noisy speech recognition",
-    "journal": null,
-    "type": "conference-paper",
-    "year": "2003",
-    "doi": "",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-0141702073&partnerID=MN8TOARS",
-    "authors": [
-      "Díaz de María, F.",
-      "Vicente Peña, J.",
-      "Gallardo Antolín, A.",
-      "Peláez Moreno, C."
-    ],
-    "orcid_source": "0000-0002-9322-3128"
-  },
-  {
-    "title": "Filtering the spectral parameters to mitigate the influence of transmission errors on asr systems",
-    "journal": "7th International Conference on Spoken Language Processing, ICSLP 2002",
-    "type": "conference-paper",
-    "year": "2002",
-    "doi": "",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85009273508&partnerID=MN8TOARS",
-    "authors": [
-      "Peláez Moreno, C.",
-      "Gallardo Antolín, A.",
-      "Vicente Peña, J.",
-      "Díaz de María, F."
-    ],
-    "orcid_source": "0000-0002-9322-3128"
-  },
-  {
     "title": "I-Gaia: An information processing layer for the DIET platform",
     "journal": null,
     "type": "conference-paper",
@@ -1094,35 +1002,6 @@
       "Koutris, T.",
       "Xirouhaki, C.",
       "Koubarakis, M."
-    ],
-    "orcid_source": "0000-0002-9322-3128"
-  },
-  {
-    "title": "SVM-based lost packets concealment for ASR applications over IP",
-    "journal": "European Signal Processing Conference",
-    "type": "conference-paper",
-    "year": "2002",
-    "doi": "",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84960921109&partnerID=MN8TOARS",
-    "authors": [
-      "Peláez Moreno, C.",
-      "Gallardo Antolín, A.",
-      "Parrado Hernandez, E.",
-      "Díaz de María, F."
-    ],
-    "orcid_source": "0000-0002-9322-3128"
-  },
-  {
-    "title": "A robust front-end for ASR over IP and GSM networks: An integrated scenario",
-    "journal": "EUROSPEECH 2001 - SCANDINAVIA - 7th European Conference on Speech Communication and Technology",
-    "type": "conference-paper",
-    "year": "2001",
-    "doi": "",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-64549102705&partnerID=MN8TOARS",
-    "authors": [
-      "Gallardo Antolín, A.",
-      "Peláez Moreno, C.",
-      "Díaz de María, F."
     ],
     "orcid_source": "0000-0002-9322-3128"
   },
@@ -1155,20 +1034,6 @@
       "Macías Guarasa, J.",
       "de Córdoba, R.",
       "Pardo, J. M."
-    ],
-    "orcid_source": "0000-0002-9322-3128"
-  },
-  {
-    "title": "Avoiding distortions due to speech coding and transmission errors in GSM ASR tasks",
-    "journal": null,
-    "type": "conference-paper",
-    "year": "1999",
-    "doi": "",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-0032627262&partnerID=MN8TOARS",
-    "authors": [
-      "Gallardo Antolín, A.",
-      "Díaz de María, F.",
-      "Valverde Albacete, F."
     ],
     "orcid_source": "0000-0002-9322-3128"
   },
@@ -1219,34 +1084,6 @@
     "orcid_source": "0000-0003-1425-6763"
   },
   {
-    "title": "Towards multimodal saliency detection: An enhancement of audio-visual correlation estimation",
-    "journal": "Proceedings of 2017 IEEE 16th International Conference on Cognitive Informatics and Cognitive Computing, ICCI*CC 2017",
-    "type": "conference-paper",
-    "year": "2017",
-    "doi": "10.1109/ICCI-CC.2017.8109785",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85040608648&partnerID=MN8TOARS",
-    "authors": [
-      "Rodriguez Hidalgo, A.",
-      "Peláez Moreno, C.",
-      "Gallardo Antolín, A."
-    ],
-    "orcid_source": "0000-0003-1425-6763"
-  },
-  {
-    "title": "An analysis of deep neural networks in broad phonetic classes for noisy speech recognition",
-    "journal": "Lecture Notes in Computer Science (including subseries Lecture Notes in Artificial Intelligence and Lecture Notes in Bioinformatics)",
-    "type": "book",
-    "year": "2016",
-    "doi": "10.1007/978-3-319-49169-1_9",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84997525210&partnerID=MN8TOARS",
-    "authors": [
-      "de la Calle Silos, F.",
-      "Gallardo Antolín, A.",
-      "Peláez Moreno, C."
-    ],
-    "orcid_source": "0000-0003-1425-6763"
-  },
-  {
     "title": "The multivariate Entropy Triangle and applications",
     "journal": "Lecture Notes in Computer Science (including subseries Lecture Notes in Artificial Intelligence and Lecture Notes in Bioinformatics)",
     "type": "book",
@@ -1273,37 +1110,6 @@
     "orcid_source": "0000-0003-1425-6763"
   },
   {
-    "title": "Preliminary experiments on the robustness of biologically motivated features for DNN-based ASR",
-    "journal": "IWOBI 2015 - 2015 International Work Conference on Bio-Inspired Intelligence: Intelligent Systems for Biodiversity Conservation, Proceedings",
-    "type": "conference-paper",
-    "year": "2015",
-    "doi": "10.1109/IWOBI.2015.7160162",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84943150121&partnerID=MN8TOARS",
-    "authors": [
-      "de la Calle Silos, F.",
-      "Valverde Albacete, F. J.",
-      "Gallardo Antolín, A.",
-      "Peláez Moreno, C."
-    ],
-    "orcid_source": "0000-0003-1425-6763"
-  },
-  {
-    "title": "SVM classifiers for ASR: A discussion about parameterization",
-    "journal": "European Signal Processing Conference",
-    "type": "conference-paper",
-    "year": "2015",
-    "doi": "",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84979879858&partnerID=MN8TOARS",
-    "authors": [
-      "Garcia Cabellos, J. M.",
-      "Peláez Moreno, C.",
-      "Gallardo Antolín, A.",
-      "Perez Cruz, F.",
-      "Díaz de María, F."
-    ],
-    "orcid_source": "0000-0003-1425-6763"
-  },
-  {
     "title": "The linear algebra in formal concept analysis over idempotent semifields",
     "journal": "Lecture Notes in Artificial Intelligence (Subseries of Lecture Notes in Computer Science)",
     "type": "conference-paper",
@@ -1312,35 +1118,6 @@
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84958533332&partnerID=MN8TOARS",
     "authors": [
       "Valverde Albacete, F. J.",
-      "Peláez Moreno, C."
-    ],
-    "orcid_source": "0000-0003-1425-6763"
-  },
-  {
-    "title": "ASR feature extraction with morphologically-filtered power-normalized cochleograms",
-    "journal": "Proceedings of the Annual Conference of the International Speech Communication Association, INTERSPEECH",
-    "type": "conference-paper",
-    "year": "2014",
-    "doi": "",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84910091401&partnerID=MN8TOARS",
-    "authors": [
-      "de la Calle Silos, F.",
-      "Valverde Albacete, F. J.",
-      "Gallardo Antolín, A.",
-      "Peláez Moreno, C."
-    ],
-    "orcid_source": "0000-0003-1425-6763"
-  },
-  {
-    "title": "Deep maxout networks applied to noise-robust speech recognition",
-    "journal": "Lecture Notes in Computer Science (including subseries Lecture Notes in Artificial Intelligence and Lecture Notes in Bioinformatics)",
-    "type": "book",
-    "year": "2014",
-    "doi": "",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84921419279&partnerID=MN8TOARS",
-    "authors": [
-      "de la Calle Silos, F.",
-      "Gallardo Antolín, A.",
       "Peláez Moreno, C."
     ],
     "orcid_source": "0000-0003-1425-6763"
@@ -1386,53 +1163,6 @@
     "orcid_source": "0000-0003-1425-6763"
   },
   {
-    "title": "A simplified subjective video quality assessment method based on signal detection theory",
-    "journal": null,
-    "type": "conference-paper",
-    "year": "2012",
-    "doi": "10.1109/PCS.2012.6213336",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84864073107&partnerID=MN8TOARS",
-    "authors": [
-      "de Frutos Lopez, M.",
-      "Mejia Ocana, A. B.",
-      "Sanz Rodriguez, S.",
-      "Peláez Moreno, C.",
-      "Díaz de María, F.",
-      "Pizlo, Z."
-    ],
-    "orcid_source": "0000-0003-1425-6763"
-  },
-  {
-    "title": "Perceptually-aware bilateral filtering for quality improvement in low bit rate video coding",
-    "journal": null,
-    "type": "conference-paper",
-    "year": "2012",
-    "doi": "10.1109/PCS.2012.6213258",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84864052566&partnerID=MN8TOARS",
-    "authors": [
-      "de Frutos Lopez, M.",
-      "Medina Chanca, H.",
-      "Sanz Rodriguez, S.",
-      "Peláez Moreno, C.",
-      "Díaz de María, F."
-    ],
-    "orcid_source": "0000-0003-1425-6763"
-  },
-  {
-    "title": "UEP-driven extended feature extraction for ASR over 3G speech channels",
-    "journal": null,
-    "type": "conference-paper",
-    "year": "2012",
-    "doi": "10.1109/CWCAS.2012.6404082",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84873196261&partnerID=MN8TOARS",
-    "authors": [
-      "Gómez Cajas, D. F.",
-      "Peláez Moreno, C.",
-      "Díaz de María, F."
-    ],
-    "orcid_source": "0000-0003-1425-6763"
-  },
-  {
     "title": "WebGeneKFCA: An on-line conceptual analysis tool for Genomic Expression data",
     "journal": "CEUR Workshop Proceedings",
     "type": "conference-paper",
@@ -1443,38 +1173,6 @@
       "Fernández Calabozo, J. M.",
       "Peláez Moreno, C.",
       "Valverde Albacete, F. J."
-    ],
-    "orcid_source": "0000-0003-1425-6763"
-  },
-  {
-    "title": "Feature extraction assessment for an acoustic-event classification task using the entropy triangle",
-    "journal": null,
-    "type": "conference-paper",
-    "year": "2011",
-    "doi": "",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84865714987&partnerID=MN8TOARS",
-    "authors": [
-      "Mejía Navarrete, D.",
-      "Gallardo Antolín, A.",
-      "Peláez Moreno, C.",
-      "Valverde Albacete, F. J."
-    ],
-    "orcid_source": "0000-0003-1425-6763"
-  },
-  {
-    "title": "Low-complexity motion-based saliency map estimation for perceptual video coding",
-    "journal": null,
-    "type": "conference-paper",
-    "year": "2011",
-    "doi": "10.1109/CONATEL.2011.5958666",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-80052135436&partnerID=MN8TOARS",
-    "authors": [
-      "Mejía Ocaña, A. B.",
-      "de Frutos López, M.",
-      "Sanz Rodríguez, S.",
-      "del Ama Esteban, Ó.",
-      "Peláez Moreno, C.",
-      "Díaz de María, F."
     ],
     "orcid_source": "0000-0003-1425-6763"
   },
@@ -1521,79 +1219,6 @@
     "orcid_source": "0000-0003-1425-6763"
   },
   {
-    "title": "Linear equalization of the modulation spectra: A novel approach for noisy speech recognition",
-    "journal": null,
-    "type": "conference-paper",
-    "year": "2003",
-    "doi": "",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-0141702073&partnerID=MN8TOARS",
-    "authors": [
-      "Díaz de María, F.",
-      "Vicente Peña, J.",
-      "Gallardo Antolín, A.",
-      "Peláez Moreno, C."
-    ],
-    "orcid_source": "0000-0003-1425-6763"
-  },
-  {
-    "title": "Filtering the spectral parameters to mitigate the influence of transmission errors on asr systems",
-    "journal": "7th International Conference on Spoken Language Processing, ICSLP 2002",
-    "type": "conference-paper",
-    "year": "2002",
-    "doi": "",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85009273508&partnerID=MN8TOARS",
-    "authors": [
-      "Peláez Moreno, C.",
-      "Gallardo Antolín, A.",
-      "Vicente Peña, J.",
-      "Díaz de María, F."
-    ],
-    "orcid_source": "0000-0003-1425-6763"
-  },
-  {
-    "title": "SVM-based lost packets concealment for ASR applications over IP",
-    "journal": "European Signal Processing Conference",
-    "type": "conference-paper",
-    "year": "2002",
-    "doi": "",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84960921109&partnerID=MN8TOARS",
-    "authors": [
-      "Peláez Moreno, C.",
-      "Gallardo Antolín, A.",
-      "Parrado Hernandez, E.",
-      "Díaz de María, F."
-    ],
-    "orcid_source": "0000-0003-1425-6763"
-  },
-  {
-    "title": "A robust front-end for ASR over IP and GSM networks: An integrated scenario",
-    "journal": "EUROSPEECH 2001 - SCANDINAVIA - 7th European Conference on Speech Communication and Technology",
-    "type": "conference-paper",
-    "year": "2001",
-    "doi": "",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-64549102705&partnerID=MN8TOARS",
-    "authors": [
-      "Gallardo Antolín, A.",
-      "Peláez Moreno, C.",
-      "Díaz de María, F."
-    ],
-    "orcid_source": "0000-0003-1425-6763"
-  },
-  {
-    "title": "Automatic Learning of Image Representations Combining Content and Metadata",
-    "journal": "2018 25th IEEE International Conference on Image Processing (ICIP)",
-    "type": "conference-paper",
-    "year": "2018",
-    "doi": "10.1109/icip.2018.8451566",
-    "url": "http://dx.doi.org/10.1109/icip.2018.8451566",
-    "authors": [
-      "Martinez Cortes, Tomas",
-      "Gonzalez Diaz, Ivan",
-      "Díaz de María, F."
-    ],
-    "orcid_source": "0000-0003-4644-8479"
-  },
-  {
     "title": "Perceptually-guided Understanding of Egocentric Video Content",
     "journal": "Proceedings of the 2018 ACM on International Conference on Multimedia Retrieval - ICMR '18",
     "type": "conference-paper",
@@ -1609,20 +1234,6 @@
     "orcid_source": "0000-0003-4644-8479"
   },
   {
-    "title": "A probabilistic topic approach for context-aware visual attention modeling",
-    "journal": "Proceedings - International Workshop on Content-Based Multimedia Indexing",
-    "type": "conference-paper",
-    "year": "2016",
-    "doi": "10.1109/CBMI.2016.7500272",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84978901173&partnerID=MN8TOARS",
-    "authors": [
-      "Fernández Torres, M. A.",
-      "González Díaz, I.",
-      "Díaz de María, F."
-    ],
-    "orcid_source": "0000-0003-4644-8479"
-  },
-  {
     "title": "Object recognition with top-down visual attention modeling for behavioral studies",
     "journal": "Proceedings - International Conference on Image Processing, ICIP",
     "type": "conference-paper",
@@ -1633,38 +1244,6 @@
       "Buso, V.",
       "González Díaz, I.",
       "Benois Pineau, J."
-    ],
-    "orcid_source": "0000-0003-4644-8479"
-  },
-  {
-    "title": "A Bayesian model for brain tumor classification using clinical-based features",
-    "journal": "2014 IEEE International Conference on Image Processing, ICIP 2014",
-    "type": "conference-paper",
-    "year": "2014",
-    "doi": "10.1109/ICIP.2014.7025562",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84949928601&partnerID=MN8TOARS",
-    "authors": [
-      "Martínez Cortés, T.",
-      "Fernández Torres, M. A.",
-      "Jiménez Moreno, A.",
-      "González Díaz, I.",
-      "Díaz de María, F.",
-      "Guzmán de Villoria, J. A.",
-      "Fernández, P."
-    ],
-    "orcid_source": "0000-0003-4644-8479"
-  },
-  {
-    "title": "Mid-level feature set for specific event and anomaly detection in crowded scenes",
-    "journal": null,
-    "type": "conference-paper",
-    "year": "2013",
-    "doi": "10.1109/ICIP.2013.6738824",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84897753114&partnerID=MN8TOARS",
-    "authors": [
-      "de la Calle Silos, F.",
-      "González Díaz, I.",
-      "Díaz de María, F."
     ],
     "orcid_source": "0000-0003-4644-8479"
   },
@@ -1685,101 +1264,6 @@
     "orcid_source": "0000-0003-4644-8479"
   },
   {
-    "title": "A generative model for concurrent image retrieval and ROI segmentation",
-    "journal": null,
-    "type": "conference-paper",
-    "year": "2012",
-    "doi": "10.1109/CBMI.2012.6269844",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84866667243&partnerID=MN8TOARS",
-    "authors": [
-      "González Díaz, I.",
-      "Baz Hormigos, C. E.",
-      "Berdonces, M.",
-      "Díaz de María, F."
-    ],
-    "orcid_source": "0000-0003-4644-8479"
-  },
-  {
-    "title": "UC3M at TRECVID 2010 semantic indexing task",
-    "journal": null,
-    "type": "conference-paper",
-    "year": "2010",
-    "doi": "",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84905180239&partnerID=MN8TOARS",
-    "authors": [
-      "González Díaz, I.",
-      "Gómez Verdejo, V.",
-      "Díaz de María, F.",
-      "Arenas García, J."
-    ],
-    "orcid_source": "0000-0003-4644-8479"
-  },
-  {
-    "title": "A spatially aware generative model for image classification, topic discovery and segmentation",
-    "journal": null,
-    "type": "conference-paper",
-    "year": "2009",
-    "doi": "10.1109/ICIP.2009.5414236",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-77951952721&partnerID=MN8TOARS",
-    "authors": [
-      "González Díaz, I.",
-      "García García, D.",
-      "Díaz de María, F."
-    ],
-    "orcid_source": "0000-0003-4644-8479"
-  },
-  {
-    "title": "UC3M at TRECVID 2009",
-    "journal": null,
-    "type": "conference-paper",
-    "year": "2009",
-    "doi": "",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84905715489&partnerID=MN8TOARS",
-    "authors": [
-      "González Díaz, I.",
-      "Gómez Verdejo, V.",
-      "Martínez Ramon, M.",
-      "Díaz de María, F.",
-      "Arenas García, J."
-    ],
-    "orcid_source": "0000-0003-4644-8479"
-  },
-  {
-    "title": "Incorporating spatio-temporal mid-level features in a region segmentation algorithm for video sequences",
-    "journal": null,
-    "type": "conference-paper",
-    "year": "2008",
-    "doi": "10.1109/ICIP.2008.4711676",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-69949129491&partnerID=MN8TOARS",
-    "authors": [
-      "González Díaz, I.",
-      "Mcguinness, K.",
-      "Adamek, T.",
-      "O'connor, N. E.",
-      "Díaz de María, F."
-    ],
-    "orcid_source": "0000-0003-4644-8479"
-  },
-  {
-    "title": "UC3M high level feature extraction at TRECVID 2008",
-    "journal": null,
-    "type": "conference-paper",
-    "year": "2008",
-    "doi": "",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84905186764&partnerID=MN8TOARS",
-    "authors": [
-      "González Díaz, I.",
-      "García García, D.",
-      "Solera Ureña, R.",
-      "Madrid Sánchez, J.",
-      "Gómez Verdejo, V.",
-      "Martínez Ramón, M.",
-      "Díaz de María, F.",
-      "Arenas García, J."
-    ],
-    "orcid_source": "0000-0003-4644-8479"
-  },
-  {
     "title": "A rate control algorithm for low-delay H.264 video coding with stored-b pictures",
     "journal": null,
     "type": "conference-paper",
@@ -1791,34 +1275,6 @@
       "de Frutos López, M.",
       "González Díaz, I.",
       "Cid Sueiro, J."
-    ],
-    "orcid_source": "0000-0003-4644-8479"
-  },
-  {
-    "title": "Adaptive multi-pattern fast block-matching algorithm based on motion classification techniques",
-    "journal": null,
-    "type": "conference-paper",
-    "year": "2007",
-    "doi": "10.1109/ICASSP.2007.366123",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-34547534157&partnerID=MN8TOARS",
-    "authors": [
-      "González Díaz, I.",
-      "de Frutos López, M.",
-      "Sanz Rodríguez, S.",
-      "Díaz de María, F."
-    ],
-    "orcid_source": "0000-0003-4644-8479"
-  },
-  {
-    "title": "Improved motion classification techniques for adaptive multi-pattern fast block-matching algorithm",
-    "journal": null,
-    "type": "conference-paper",
-    "year": "2007",
-    "doi": "10.1109/ICIP.2007.4379198",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-48149093629&partnerID=MN8TOARS",
-    "authors": [
-      "González Díaz, I.",
-      "Díaz de María, F."
     ],
     "orcid_source": "0000-0003-4644-8479"
   },
@@ -1862,38 +1318,6 @@
       "Munoz Mari, J.",
       "Epifanio, I.",
       "Fernández Torres, M. A."
-    ],
-    "orcid_source": "0000-0002-0801-199X"
-  },
-  {
-    "title": "A probabilistic topic approach for context-aware visual attention modeling",
-    "journal": "Proceedings - International Workshop on Content-Based Multimedia Indexing",
-    "type": "conference-paper",
-    "year": "2016",
-    "doi": "10.1109/CBMI.2016.7500272",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84978901173&partnerID=MN8TOARS",
-    "authors": [
-      "Fernández Torres, M. A.",
-      "González Díaz, I.",
-      "Díaz de María, F."
-    ],
-    "orcid_source": "0000-0002-0801-199X"
-  },
-  {
-    "title": "A Bayesian model for brain tumor classification using clinical-based features",
-    "journal": "2014 IEEE International Conference on Image Processing, ICIP 2014",
-    "type": "conference-paper",
-    "year": "2014",
-    "doi": "10.1109/ICIP.2014.7025562",
-    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84949928601&partnerID=MN8TOARS",
-    "authors": [
-      "Martínez Cortés, T.",
-      "Fernández Torres, M. A.",
-      "Jiménez Moreno, A.",
-      "González Díaz, I.",
-      "Díaz de María, F.",
-      "Guzmán de Villoria, J. A.",
-      "Fernández, P."
     ],
     "orcid_source": "0000-0002-0801-199X"
   }
