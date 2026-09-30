@@ -588,10 +588,12 @@ def deduplicate_publications(publications):
     return unique_pubs
 
 def looks_like_conference(pub):
-    pub_type = str(pub.get("type", "")).lower()
+    # Normalizamos eliminando guiones y espacios para hacer match robusto con ORCID
+    pub_type = str(pub.get("type", "")).lower().replace("-", "_").replace(" ", "_")
     journal = str(pub.get("journal", "")).lower()
     title = str(pub.get("title", "")).lower()
 
+    # 1. Comprobación directa por tipo de documento en ORCID
     conference_types = {
         "conference_paper",
         "conference_abstract",
@@ -602,19 +604,23 @@ def looks_like_conference(pub):
     if any(ctype in pub_type for ctype in conference_types):
         return True
 
+    # 2. Búsqueda por palabras clave en la fuente/revista/libro o título
     keywords = [
         "proceedings",
         "conference",
         "symposium",
         "workshop",
         "congress",
+        "congreso",
+        "jornadas",
+        "encuentro",
         "iain",
         "ieee",
         "acm",
+        "lncs",
+        "lecture notes in computer science",
         "int. conf.",
         "international conference",
-        "encuentro",
-        "jornadas",
     ]
 
     target_text = f"{journal} {title}"
@@ -650,7 +656,8 @@ def save_bibtex(publications, filename=OUTPUT_BIB):
         doi = pub.get("doi", "")
         url = pub.get("url", "")
 
-        entry_type = "inproceedings" if "conference" in pub.get("type", "").lower() else "article"
+        pub_type_raw = str(pub.get("type", "")).lower()
+        entry_type = "inproceedings" if "conference" in pub_type_raw or "proceeding" in pub_type_raw else "article"
 
         entry = f"@{entry_type}{{{key},\n"
         entry += f"  title = {{{title}}},\n"
