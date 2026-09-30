@@ -4,7 +4,11 @@ import re
 
 def find_input_bib_file():
     """Busca el archivo .bib en el directorio actual."""
-    candidates = ["conference_publications.bib", "publications.bib"]
+    candidates = [
+        "publications.bib", 
+        "conference_publications.bib", 
+        "input.bib"
+    ]
     for candidate in candidates:
         if os.path.exists(candidate):
             return candidate
