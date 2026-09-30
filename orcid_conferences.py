@@ -1,19 +1,71 @@
-import json
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+"""
+ORCID Conference Publications Pipeline
+=======================================
+
+Flujo:
+
+    researchers1.json
+          |
+          v
+       ORCID API
+          |
+          v
+   normalización de autores
+          |
+          +----> author_registry.json
+          |
+          +----> author_overrides.json
+          |
+          v
+   normalización publicaciones
+          |
+          v
+   deduplicación publicaciones
+          |
+          +----> publication_review.json
+          |
+          v
+   conference_publications.json
+          |
+          +----> conference_publications.bib
+          +----> conference_publications.html
+          +----> author_variants.json
+          +----> author_review.json
+          +----> conference_publications_excluded.json
+
+La fuente de verdad NO es el .bib.
+La información persistente de autores se guarda en:
+
+    author_registry.json
+    author_overrides.json
+
+Los casos dudosos de publicaciones se guardan en:
+
+    publication_review.json
+"""
+
 import os
 import re
-import time
-import unicodedata
+import json
 import html
-from urllib.parse import quote
+import unicodedata
+import hashlib
+import difflib
+import logging
+from collections import defaultdict
+from datetime import datetime
+from pathlib import Path
+from typing import Any, Dict, List, Optional, Tuple
 
 import requests
-from requests.adapters import HTTPAdapter
-from urllib3.util.retry import Retry
 
 
-# ============================================================
+# ============================================================================
 # CONFIGURACIÓN
-# ============================================================
+# ============================================================================
 
 INPUT_FILE = "researchers1.json"
 
@@ -22,8 +74,13 @@ OUTPUT_ALL = "conference_publications_all_orcid.json"
 OUTPUT_EXCLUDED = "conference_publications_excluded.json"
 OUTPUT_HTML = "conference_publications.html"
 OUTPUT_BIB = "conference_publications.bib"
+
 OUTPUT_AUTHOR_VARIANTS = "author_variants.json"
 OUTPUT_AUTHOR_REVIEW = "author_review.json"
+OUTPUT_AUTHOR_REGISTRY = "author_registry.json"
+OUTPUT_AUTHOR_OVERRIDES = "author_overrides.json"
+
+OUTPUT_PUBLICATION_REVIEW = "publication_review.json"
 
 API_BASE = "https://pub.orcid.org/v3.0"
 
@@ -31,2274 +88,2570 @@ ROWS_PER_PAGE = 100
 MAX_PAGES = 1000
 REQUEST_TIMEOUT = 30
 
+# Deduplicación difusa.
+FUZZY_TITLE_THRESHOLD = 0.96
+MIN_AUTHOR_OVERLAP_FOR_FUZZY = 0.50
 
-# ============================================================
-# TOKEN ORCID
-# ============================================================
-
-TOKEN = os.getenv("ORCID_ACCESS_TOKEN")
-
-if not TOKEN:
-    raise RuntimeError(
-        "No se ha encontrado ORCID_ACCESS_TOKEN.\n"
-        "El workflow debe generar el token antes de ejecutar el script."
-    )
-
-HEADERS = {
-    "Authorization": f"Bearer {TOKEN}",
-    "Accept": "application/vnd.orcid+json",
-}
-
-
-# ============================================================
-# SESIÓN HTTP
-# ============================================================
-
-session = requests.Session()
-
-retry = Retry(
-    total=5,
-    connect=5,
-    read=5,
-    backoff_factor=1,
-    status_forcelist=[429, 500, 502, 503, 504],
-    allowed_methods=["GET"],
-    respect_retry_after_header=True,
-)
-
-adapter = HTTPAdapter(
-    max_retries=retry,
-    pool_connections=20,
-    pool_maxsize=20,
-)
-
-session.mount("https://", adapter)
-session.mount("http://", adapter)
-
-
-# ============================================================
-# REGISTRO GLOBAL DE AUTORES
-# ============================================================
-
-# ORCID del autor -> nombre canónico
-AUTHOR_REGISTRY = {}
-
-# Forma normalizada -> variantes originales observadas
-AUTHOR_VARIANTS = {}
-
-# Nombres que requieren revisión manual por tener una estructura inesperada.
-AUTHOR_REVIEW = {}
-
-
-# ============================================================
-# ALIAS DE AUTORES
-# ============================================================
-
-# Estos alias se utilizan únicamente cuando tenemos suficiente
-# evidencia de que son la misma forma de nombre.
-#
 # IMPORTANTE:
-# No estamos intentando adivinar nombres completos.
-# Se conservan las iniciales cuando son las que proporciona ORCID.
+# False = los duplicados difusos solo se mandan a revisión.
+# True  = además se fusionan automáticamente.
+AUTO_MERGE_FUZZY = False
+
+# Si quieres que la clasificación de congresos sea más/menos restrictiva.
+CONFERENCE_KEYWORDS = [
+    "conference",
+    "proceedings",
+    "symposium",
+    "workshop",
+    "congress",
+    "meeting",
+    "international conference",
+    "annual meeting",
+    "technical meeting",
+    "conference proceedings",
+    "proceedings of",
+    "proc.",
+    "conf.",
+    "european conference",
+    "international symposium",
+]
+
+EXCLUDE_KEYWORDS = [
+    "journal",
+    "review",
+    "editorial",
+    "book",
+    "chapter",
+    "thesis",
+    "dissertation",
+]
+
+# ============================================================================
+# ALIAS CONOCIDOS
+# ============================================================================
+
+# Estas equivalencias son explícitas.
+#
+# Es preferible NO meter aquí equivalencias dudosas.
+# Las variantes no confirmadas aparecerán en author_review.json.
+#
+# La clave se normaliza automáticamente, por lo que no importa si lleva
+# acentos o diferencias de mayúsculas.
 
 AUTHOR_ALIASES = {
-    # --------------------------------------------------------
-    # Díaz-de-María
-    # --------------------------------------------------------
-    "diaz-de-maria, f.": "Díaz-de-María, F.",
-    "díaz-de-maría, f.": "Díaz-de-María, F.",
-    "diaz-de-maria, f": "Díaz-de-María, F.",
-    "díaz-de-maría, f": "Díaz-de-María, F.",
-    "diaz-de-maria,f.": "Díaz-de-María, F.",
-    "díaz-de-maría,f.": "Díaz-de-María, F.",
+    "miguel-angel fernandez-torres":
+        "Fernández-Torres, M.-A.",
 
-    # --------------------------------------------------------
-    # Peláez-Moreno
-    # --------------------------------------------------------
-    "pelaez-moreno, c.": "Peláez-Moreno, C.",
-    "peláez-moreno, c.": "Peláez-Moreno, C.",
-    "pelaez-moreno, c": "Peláez-Moreno, C.",
-    "peláez-moreno, c": "Peláez-Moreno, C.",
-    "pelaez-moreno,c.": "Peláez-Moreno, C.",
-    "peláez-moreno,c.": "Peláez-Moreno, C.",
+    "miguel angel fernandez torres":
+        "Fernández-Torres, M.-A.",
 
-    # --------------------------------------------------------
-    # Gallardo-Antolín
-    # --------------------------------------------------------
-    "gallardo-antolin, a.": "Gallardo-Antolín, A.",
-    "gallardo-antolín, a.": "Gallardo-Antolín, A.",
-    "gallardo-antolin, a": "Gallardo-Antolín, A.",
-    "gallardo-antolín, a": "Gallardo-Antolín, A.",
-    "ascension gallardo-antolin": "Gallardo-Antolín, A.",
-    "ascensión gallardo-antolín": "Gallardo-Antolín, A.",
+    "ivan gonzalez-diaz":
+        "González-Díaz, I.",
 
-    # --------------------------------------------------------
-    # González-Díaz
-    # --------------------------------------------------------
-    "gonzalez-diaz, i.": "González-Díaz, I.",
-    "gonzález-diaz, i.": "González-Díaz, I.",
-    "gonzalez-díaz, i.": "González-Díaz, I.",
-    "gonzález-díaz, i.": "González-Díaz, I.",
-    "gonzalez-diaz, i": "González-Díaz, I.",
-    "gonzález-diaz, i": "González-Díaz, I.",
-    "gonzalez díaz, i.": "González-Díaz, I.",
-    "gonzález díaz, i.": "González-Díaz, I.",
-    "gonzalez diaz, i.": "González-Díaz, I.",
+    "ivan gonzalez diaz":
+        "González-Díaz, I.",
 
-    # --------------------------------------------------------
-    # Martínez-Enríquez
-    # --------------------------------------------------------
-    "martinez-enriquez, e.": "Martínez-Enríquez, E.",
-    "martínez-enriquez, e.": "Martínez-Enríquez, E.",
-    "martinez-enríquez, e.": "Martínez-Enríquez, E.",
-    "martínez-enríquez, e.": "Martínez-Enríquez, E.",
-    "martinez-enriquez, e": "Martínez-Enríquez, E.",
-    "martínez-enríquez, e": "Martínez-Enríquez, E.",
+    "fernando diaz-de-maria":
+        "Díaz-de-María, F.",
 
-    # --------------------------------------------------------
-    # De-Frutos-López
-    # --------------------------------------------------------
-    "de-frutos-lopez, m.": "De-Frutos-López, M.",
-    "de-frutos-lópez, m.": "De-Frutos-López, M.",
-    "de-frutos-lopez, m": "De-Frutos-López, M.",
-    "de-frutos-lópez, m": "De-Frutos-López, M.",
-
-    # --------------------------------------------------------
-    # Del-Ama-Esteban
-    # --------------------------------------------------------
-    "del-ama-esteban, o.": "Del-Ama-Esteban, O.",
-    "del-ama-esteban, o": "Del-Ama-Esteban, O.",
-
-    # --------------------------------------------------------
-    # Sanz-Rodríguez
-    # --------------------------------------------------------
-    "sanz-rodriguez, s.": "Sanz-Rodríguez, S.",
-    "sanz-rodríguez, s.": "Sanz-Rodríguez, S.",
-    "sanz-rodriguez, s": "Sanz-Rodríguez, S.",
-    "sanz-rodríguez, s": "Sanz-Rodríguez, S.",
-
-    # --------------------------------------------------------
-    # García-García
-    # --------------------------------------------------------
-    "garcia-garcia, d.": "García-García, D.",
-    "garcía-garcia, d.": "García-García, D.",
-    "garcia-garcía, d.": "García-García, D.",
-    "garcía-garcía, d.": "García-García, D.",
-    "garcia-garcia, d": "García-García, D.",
-    "garcía-garcía, d": "García-García, D.",
-
-    # --------------------------------------------------------
-    # Figueiras-Vidal
-    # --------------------------------------------------------
-    "figueiras-vidal, a.r.": "Figueiras-Vidal, A.R.",
-    "figueiras-vidal, a. r.": "Figueiras-Vidal, A.R.",
-    "figueiras-vidal, ar": "Figueiras-Vidal, A.R.",
-
-    # --------------------------------------------------------
-    # Fernández-Torres
-    # Unificamos M.A. y M.-A. en M.-A.
-    # --------------------------------------------------------
-    "fernandez-torres, m.a.": "Fernández-Torres, M.-A.",
-    "fernández-torres, m.a.": "Fernández-Torres, M.-A.",
-    "fernandez-torres, m.-a.": "Fernández-Torres, M.-A.",
-    "fernández-torres, m.-a.": "Fernández-Torres, M.-A.",
-
-    # --------------------------------------------------------
-    # Martínez-Cortés
-    # --------------------------------------------------------
-    "martinez-cortes, t.": "Martínez-Cortés, T.",
-    "martínez-cortes, t.": "Martínez-Cortés, T.",
-    "martinez-cortés, t.": "Martínez-Cortés, T.",
-    "martínez-cortés, t": "Martínez-Cortés, T.",
-
-    # --------------------------------------------------------
-    # García-Cabellos
-    # --------------------------------------------------------
-    "garcia-cabellos, j.m.": "García-Cabellos, J.M.",
-    "garcía-cabellos, j.m.": "García-Cabellos, J.M.",
-    "garcia-cabellos, jm": "García-Cabellos, J.M.",
-
-    # --------------------------------------------------------
-    # Pérez-Cruz
-    # --------------------------------------------------------
-    "perez-cruz, f.": "Pérez-Cruz, F.",
-    "pérez-cruz, f.": "Pérez-Cruz, F.",
-    "perez-cruz, f": "Pérez-Cruz, F.",
-
-    # --------------------------------------------------------
-    # Jiménez-Moreno
-    # --------------------------------------------------------
-    "jimenez-moreno, a.": "Jiménez-Moreno, A.",
-    "jiménez-moreno, a.": "Jiménez-Moreno, A.",
-    "jimenez-moreno, a": "Jiménez-Moreno, A.",
-
-    # --------------------------------------------------------
-    # Mejía-Ocaña / Mejía-Navarrete
-    # --------------------------------------------------------
-    "mejia-ocana, a.b.": "Mejía-Ocaña, A.B.",
-    "mejía-ocaña, a.b.": "Mejía-Ocaña, A.B.",
-    "mejia-navarrete, d.": "Mejía-Navarrete, D.",
-    "mejía-navarrete, d.": "Mejía-Navarrete, D.",
-
-    # --------------------------------------------------------
-    # Vicente-Peña
-    # --------------------------------------------------------
-    "vicente-pena, j.": "Vicente-Peña, J.",
-    "vicente-peña, j.": "Vicente-Peña, J.",
-    "vicente-pena, j": "Vicente-Peña, J.",
-
-    # --------------------------------------------------------
-    # Rodríguez-Hidalgo
-    # --------------------------------------------------------
-    "rodriguez-hidalgo, a.": "Rodríguez-Hidalgo, A.",
-    "rodríguez-hidalgo, a.": "Rodríguez-Hidalgo, A.",
-
-    # --------------------------------------------------------
-    # Ludeña-Choez
-    # --------------------------------------------------------
-    "ludena-choez, m.": "Ludeña-Choez, M.",
-    "ludeña-choez, m.": "Ludeña-Choez, M.",
-
-    # --------------------------------------------------------
-    # Macías-Guarasa
-    # --------------------------------------------------------
-    "macias-guarasa, m.": "Macías-Guarasa, M.",
-    "macías-guarasa, m.": "Macías-Guarasa, M.",
-
-    # --------------------------------------------------------
-    # Santamaría-Caballero
-    # --------------------------------------------------------
-    "santamaria-caballero, a.": "Santamaría-Caballero, A.",
-    "santamaría-caballero, a.": "Santamaría-Caballero, A.",
-
-    # --------------------------------------------------------
-    # Artés-Rodríguez
-    # --------------------------------------------------------
-    "artes-rodriguez, j.": "Artés-Rodríguez, J.",
-    "artés-rodríguez, j.": "Artés-Rodríguez, J.",
-
-    # --------------------------------------------------------
-    # Autores de registros recientes
-    # --------------------------------------------------------
-    "perez-suay, a.": "Pérez-Suay, A.",
-    "pérez-suay, a.": "Pérez-Suay, A.",
-    "munoz-mari, j.": "Muñoz-Mari, J.",
-    "muñoz-mari, j.": "Muñoz-Mari, J.",
-    "amoros, j.": "Amorós, J.",
-    "amorós, j.": "Amorós, J.",
-    "fernandez-moran, r.": "Fernández-Morán, R.",
-    "fernández-moran, r.": "Fernández-Morán, R.",
-    "martinez-garcia, m.": "Martínez-García, M.",
-    "martínez-garcia, m.": "Martínez-García, M.",
+    "fernando diaz de maria":
+        "Díaz-de-María, F.",
 }
 
 
+# ============================================================================
+# LOGGING
+# ============================================================================
 
-# ============================================================
-# UTILIDADES
-# ============================================================
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s | %(levelname)s | %(message)s",
+)
 
-def clean_text(value):
+logger = logging.getLogger("orcid_pipeline")
+
+
+# ============================================================================
+# UTILIDADES GENERALES
+# ============================================================================
+
+def clean_text(value: Any) -> str:
+    """Convierte un valor cualquiera a texto limpio."""
     if value is None:
         return ""
 
-    return str(value).strip()
+    text = str(value)
+    text = text.replace("\xa0", " ")
+    text = re.sub(r"\s+", " ", text)
+    return text.strip()
 
 
-def normalize_title(title):
-    if not title:
-        return ""
+def save_json(path: str, data: Any) -> None:
+    """Guarda JSON con UTF-8 y formato legible."""
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(
+            data,
+            f,
+            ensure_ascii=False,
+            indent=2,
+            sort_keys=False,
+        )
 
-    title = str(title).lower()
-    title = re.sub(r"\s+", " ", title)
-    title = re.sub(r"[^\w\s]", "", title)
 
-    return title.strip()
+def load_json(path: str, default: Any) -> Any:
+    """Carga JSON o devuelve default si no existe."""
+    if not os.path.exists(path):
+        return default
+
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception as exc:
+        logger.warning("No se pudo leer %s: %s", path, exc)
+        return default
 
 
-def normalize_orcid(orcid):
+def normalize_unicode(text: str) -> str:
     """
-    Normaliza un ORCID para utilizarlo como identificador.
-    """
+    Normaliza Unicode y elimina diacríticos.
 
+    Ejemplo:
+        Fernández -> Fernandez
+        María     -> Maria
+    """
+    text = unicodedata.normalize("NFKD", text)
+    return "".join(
+        c for c in text
+        if not unicodedata.combining(c)
+    )
+
+
+def normalize_dashes(text: str) -> str:
+    """Convierte diferentes tipos de guion en '-'."""
+    replacements = {
+        "‐": "-",
+        "-": "-",
+        "‒": "-",
+        "–": "-",
+        "—": "-",
+        "―": "-",
+        "﹘": "-",
+        "﹣": "-",
+        "－": "-",
+    }
+
+    for old, new in replacements.items():
+        text = text.replace(old, new)
+
+    return text
+
+
+def normalize_spaces(text: str) -> str:
+    return re.sub(r"\s+", " ", text).strip()
+
+
+def normalize_key_text(text: str) -> str:
+    """
+    Normalización agresiva para comparar cadenas.
+    """
+    text = clean_text(text)
+    text = normalize_dashes(text)
+    text = normalize_unicode(text)
+    text = text.lower()
+
+    text = text.replace("’", "'")
+    text = text.replace("`", "'")
+
+    text = re.sub(r"[^a-z0-9]+", " ", text)
+    text = normalize_spaces(text)
+
+    return text
+
+
+def normalize_title(title: str) -> str:
+    """
+    Normaliza títulos para comparación.
+
+    No se usa para mostrar el título final.
+    """
+    text = normalize_key_text(title)
+
+    # Eliminamos algunos elementos que suelen cambiar entre fuentes.
+    text = re.sub(r"\bdoi\b", " ", text)
+    text = re.sub(r"\s+", " ", text)
+
+    return text.strip()
+
+
+def normalize_orcid(orcid: Any) -> str:
     if not orcid:
         return ""
 
-    value = clean_text(orcid)
+    text = clean_text(orcid)
 
-    value = re.sub(
+    text = re.sub(
         r"^https?://orcid\.org/",
         "",
-        value,
-        flags=re.IGNORECASE,
+        text,
+        flags=re.I,
     )
 
-    return value.strip().lower()
+    text = text.rstrip("/")
+    return text
 
 
-def safe_get(url, params=None):
-    try:
-        response = session.get(
-            url,
-            headers=HEADERS,
-            params=params,
-            timeout=REQUEST_TIMEOUT,
-        )
-
-        response.raise_for_status()
-        return response.json()
-
-    except requests.RequestException as error:
-        print(f"      ERROR HTTP: {error}")
-        return None
-
-    except ValueError as error:
-        print(f"      ERROR JSON: {error}")
-        return None
-
-
-# ============================================================
-# NOMBRES DE AUTORES
-# ============================================================
-
-def _strip_diacritics(value):
-    """Elimina diacríticos SOLO para comparar claves internas."""
-
-    normalized = unicodedata.normalize("NFKD", value)
-    return "".join(
-        char
-        for char in normalized
-        if not unicodedata.combining(char)
-    )
-
-
-def author_alias_key(name):
-    """
-    Crea una clave estable y tolerante para buscar alias.
-
-    La clave NO se escribe en el BibTeX. Solo sirve para que
-    variantes como:
-
-        Garcia-Cabellos, J.M.
-        García-Cabellos, JM
-        garcía cabellos, j. m.
-
-    puedan resolverse al mismo nombre canónico cuando existe
-    un alias explícito.
-    """
-
-    if not name:
+def normalize_doi(doi: Any) -> str:
+    if not doi:
         return ""
 
-    value = clean_text(name).lower()
-    value = _strip_diacritics(value)
+    text = clean_text(doi)
 
-    # Normalizar guiones Unicode y separadores equivalentes.
-    value = value.replace("‐", "-")
-    value = value.replace("‑", "-")
-    value = value.replace("‒", "-")
-    value = value.replace("–", "-")
-    value = value.replace("—", "-")
-
-    # Los espacios y la puntuación irrelevante no distinguen alias.
-    value = re.sub(r"[^a-z0-9]+", "", value)
-
-    return value
-
-
-def _build_author_alias_index():
-    """Construye una tabla de alias con claves normalizadas."""
-
-    index = {}
-
-    for alias, canonical in AUTHOR_ALIASES.items():
-        key = author_alias_key(alias)
-
-        if not key:
-            continue
-
-        previous = index.get(key)
-
-        # Si dos alias distintos colisionasen, no elegimos uno
-        # silenciosamente: dejamos el primero y avisamos al ejecutar.
-        if previous and previous != canonical:
-            print(
-                "AVISO: colisión de alias de autor: "
-                f"{alias!r} -> {canonical!r}; "
-                f"ya existía -> {previous!r}"
-            )
-            continue
-
-        index[key] = canonical
-
-    return index
-
-
-AUTHOR_ALIAS_INDEX = _build_author_alias_index()
-
-
-def _normalize_initials(value):
-    """Normaliza iniciales sin tocar nombres completos."""
-
-    value = clean_text(value)
-
-    if not value:
-        return ""
-
-    # A.R. / A. R. / A R -> A.R.
-    if re.fullmatch(
-        r"(?:[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]\.?\s*)+",
-        value,
-    ):
-        letters = re.findall(
-            r"[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]",
-            value,
-        )
-        if letters and len(letters) <= 4:
-            return "".join(letter.upper() + "." for letter in letters)
-
-    # Caso habitual: una única inicial sin punto.
-    if re.fullmatch(
-        r"[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]",
-        value,
-    ):
-        return value.upper() + "."
-
-    return value
-
-
-def normalize_author_name(name):
-    """
-    Normaliza un nombre de autor de forma determinista.
-
-    Las reglas son generales: espacios, coma, guiones equivalentes,
-    iniciales y alias canónicos. No se reconstruyen nombres que no
-    estén respaldados por los datos de entrada.
-    """
-
-    if not name:
-        return ""
-
-    original = clean_text(name)
-
-    if not original:
-        return ""
-
-    value = re.sub(r"\s+", " ", original)
-
-    # Guiones Unicode -> guion ASCII.
-    value = re.sub(r"[‐‑‒–—]", "-", value)
-
-    # Espacios alrededor de la coma.
-    value = re.sub(r"\s*,\s*", ", ", value)
-
-    if "," in value:
-        surname, initials = value.split(",", 1)
-        surname = surname.strip()
-        initials = _normalize_initials(initials)
-        value = f"{surname}, {initials}" if initials else surname
-
-    # Alias: primero sobre la forma original normalizada y después
-    # sobre la forma ya limpiada. Esto permite que las publicaciones
-    # nuevas lleguen con pequeñas diferencias de formato.
-    alias = AUTHOR_ALIAS_INDEX.get(author_alias_key(value))
-
-    if alias:
-        return alias
-
-    alias = AUTHOR_ALIAS_INDEX.get(author_alias_key(original))
-
-    if alias:
-        return alias
-
-    # Para nombres no incluidos en aliases no inventamos una forma
-    # distinta del nombre: solo devolvemos el formato limpiado.
-    return value.strip()
-
-def normalize_author_for_match(name):
-    """
-    Normalización agresiva SOLO para comparar nombres.
-
-    No utilizar esta función para escribir el BibTeX.
-    """
-
-    if not name:
-        return ""
-
-    value = normalize_author_name(name).lower()
-
-    # Eliminar puntuación/espacios para comparación
-    value = re.sub(
-        r"[^a-záéíóúüñ0-9]",
+    text = re.sub(
+        r"^https?://doi\.org/",
         "",
-        value,
+        text,
+        flags=re.I,
     )
 
-    return value
-
-
-def _initials_from_given_names(value):
-    """Obtiene iniciales de un nombre completo para comparar autores."""
-
-    if not value:
-        return ""
-
-    tokens = re.findall(
-        r"[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+",
-        value,
-    )
-
-    return "".join(
-        token[0].lower()
-        for token in tokens
-        if token
-    )
-
-
-def _surname_key(value):
-    """Normaliza un apellido únicamente para comparación."""
-
-    if not value:
-        return ""
-
-    value = _strip_diacritics(value).lower()
-    return re.sub(r"[^a-z0-9]", "", value)
-
-
-def _initials_key(value):
-    """Compara M.-A., M.A., M A y MA como la misma secuencia."""
-
-    if not value:
-        return ""
-
-    return re.sub(
-        r"[^a-záéíóúüñ]",
+    text = re.sub(
+        r"^doi:\s*",
         "",
-        _strip_diacritics(value).lower(),
+        text,
+        flags=re.I,
     )
 
+    return text.strip().lower().rstrip(".")
 
-def author_identity_key(name):
+
+def normalize_identifier(value: Any) -> str:
+    return clean_text(value).lower()
+
+
+def safe_get(obj: Any, *keys: Any, default: Any = None) -> Any:
     """
-    Crea una identidad conservadora para detectar duplicados de autor
-    dentro de una misma publicación.
-
-    Acepta tanto:
-        Apellido, I.
-    como:
-        Nombre Completo Apellido
-
-    Solo considera equivalentes dos nombres cuando coinciden apellido
-    e iniciales. No se usa para modificar el nombre que sale en BibTeX.
+    Acceso seguro a estructuras JSON anidadas.
     """
+    current = obj
 
-    if not name:
-        return ""
+    for key in keys:
+        if current is None:
+            return default
 
-    value = clean_text(name)
+        if isinstance(current, dict):
+            current = current.get(key, default)
 
-    if not value:
-        return ""
+        elif isinstance(current, list):
+            try:
+                current = current[int(key)]
+            except (ValueError, IndexError, TypeError):
+                return default
 
-    if "," in value:
-        surname, initials = value.split(",", 1)
-        surname_key = _surname_key(surname)
-        initials_key = _initials_key(initials)
+        else:
+            return default
 
-        if surname_key and initials_key:
-            return f"{surname_key}|{initials_key}"
-
-        return normalize_author_for_match(value)
-
-    # Nombre completo sin coma: asumimos que el último bloque es el
-    # apellido. Esto funciona para los casos que ORCID está devolviendo
-    # aquí, incluidos apellidos con guiones.
-    parts = value.split()
-
-    if len(parts) >= 2:
-        surname = parts[-1]
-        given_names = " ".join(parts[:-1])
-
-        surname_key = _surname_key(surname)
-        initials_key = _initials_from_given_names(given_names)
-
-        if surname_key and initials_key:
-            return f"{surname_key}|{initials_key}"
-
-    return normalize_author_for_match(value)
+    return current
 
 
-def register_author_variant(original_name, canonical_name):
-    """
-    Guarda las variantes observadas para poder generar
-    author_variants.json.
-    """
-
-    if not original_name:
-        return
-
-    key = normalize_author_for_match(original_name)
-
-    if not key:
-        return
-
-    AUTHOR_VARIANTS.setdefault(
-        key,
-        set(),
-    ).add(original_name)
-
-    if canonical_name:
-        AUTHOR_VARIANTS[key].add(canonical_name)
-
-    # No bloqueamos la publicación: solo dejamos constancia de
-    # nombres que podrían requerir revisión manual.
-    if (
-        "," not in original_name
-        and len(original_name.split()) > 2
-    ) or ";" in original_name:
-        AUTHOR_REVIEW.setdefault(
-            key,
-            {
-                "name": original_name,
-                "canonical": canonical_name,
-                "reason": "formato de nombre poco habitual",
-            },
-        )
-
-
-# ============================================================
-# ORCID: AUTORES
-# ============================================================
-
-def get_contributor_orcid(contributor):
-    """
-    Obtiene el ORCID de un contribuyente cuando ORCID lo proporciona.
-    """
-
-    if not isinstance(contributor, dict):
-        return ""
-
-    orcid_obj = contributor.get("contributor-orcid")
-
-    if isinstance(orcid_obj, dict):
-        for key in ("uri", "path"):
-            value = orcid_obj.get(key)
-
-            if value:
-                return normalize_orcid(value)
-
-    elif isinstance(orcid_obj, str):
-        return normalize_orcid(orcid_obj)
-
+def first_non_empty(*values: Any) -> str:
+    for value in values:
+        value = clean_text(value)
+        if value:
+            return value
     return ""
 
 
-def extract_authors(work):
-    """
-    Extrae autores del trabajo.
+# ============================================================================
+# AUTORES
+# ============================================================================
 
+def canonicalize_author_display(name: str) -> str:
+    """
+    Limpia un nombre conservando una forma razonablemente legible.
+    """
+    name = clean_text(name)
+
+    if not name:
+        return ""
+
+    name = normalize_dashes(name)
+
+    # Quitamos ciertos prefijos accidentales.
+    name = re.sub(
+        r"^(author|authors)\s*:\s*",
+        "",
+        name,
+        flags=re.I,
+    )
+
+    name = normalize_spaces(name)
+
+    return name.strip(" ;,")
+
+
+def author_alias_key(name: str) -> str:
+    """
+    Clave para buscar alias explícitos.
+    """
+    return normalize_key_text(name)
+
+
+def author_name_parts(name: str) -> Tuple[str, str]:
+    """
     Devuelve:
 
-        [
-            {
-                "name": "...",
-                "orcid": "..."
-            }
-        ]
+        surname, given
+
+    Soporta:
+
+        Pérez, Juan
+        Juan Pérez
+        Pérez, J.
+        J. Pérez
     """
+    name = canonicalize_author_display(name)
 
-    authors = []
+    if not name:
+        return "", ""
 
-    if not isinstance(work, dict):
-        return authors
-
-    contributors = work.get("contributors") or {}
-
-    contributor_list = contributors.get("contributor") or []
-
-    if not isinstance(contributor_list, list):
-        contributor_list = [contributor_list]
-
-    for contributor in contributor_list:
-
-        if not isinstance(contributor, dict):
-            continue
-
-        credit_name = contributor.get(
-            "credit-name"
-        ) or {}
-
-        if isinstance(credit_name, dict):
-            original_name = clean_text(
-                credit_name.get("value")
-            )
-        else:
-            original_name = clean_text(
-                credit_name
-            )
-
-        contributor_orcid = get_contributor_orcid(
-            contributor
+    if "," in name:
+        surname, given = name.split(",", 1)
+        return (
+            clean_text(surname),
+            clean_text(given),
         )
 
-        if not original_name and not contributor_orcid:
-            continue
+    tokens = name.split()
 
-        canonical_name = normalize_author_name(
-            original_name
-        )
+    if len(tokens) == 1:
+        return tokens[0], ""
 
-        register_author_variant(
-            original_name,
-            canonical_name,
-        )
+    # Para nombres tipo:
+    # Fernando Diaz-de-Maria
+    # Miguel-Angel Fernandez-Torres
+    #
+    # el último token suele ser el apellido.
+    surname = tokens[-1]
+    given = " ".join(tokens[:-1])
 
-        authors.append({
-            "name": canonical_name,
-            "orcid": contributor_orcid,
-        })
-
-    return authors
+    return surname, given
 
 
-def register_author(
-    author,
-    researcher_name="",
-    researcher_orcid="",
-):
+def initials_from_given(given: str) -> str:
     """
-    Decide el nombre canónico de un autor.
+    Convierte nombres a iniciales normalizadas.
 
-    Si existe ORCID, se utiliza como identificador.
+    Ejemplos:
+
+        Fernando          -> f
+        Miguel-Angel      -> ma
+        M.-A.             -> ma
+        M A               -> ma
+        Ivan               -> i
     """
+    given = clean_text(given)
 
-    if not isinstance(author, dict):
+    if not given:
         return ""
 
-    original_name = clean_text(
-        author.get("name")
+    given = normalize_dashes(given)
+    given = normalize_unicode(given).lower()
+
+    # Separar por espacios/guiones/puntuación.
+    parts = re.findall(
+        r"[a-z]+",
+        given,
     )
 
-    name = normalize_author_name(
-        original_name
-    )
+    initials = ""
 
-    author_orcid = normalize_orcid(
-        author.get("orcid")
-    )
+    for part in parts:
+        if part:
+            initials += part[0]
 
-    researcher_orcid = normalize_orcid(
-        researcher_orcid
-    )
+    return initials
 
-    # --------------------------------------------------------
-    # Si el autor es el propio investigador que estamos
-    # procesando, utilizamos el nombre definido en
-    # researchers1.json.
-    # --------------------------------------------------------
 
-    if (
-        author_orcid
-        and researcher_orcid
-        and author_orcid == researcher_orcid
-    ):
-        researcher_canonical = normalize_author_name(
-            researcher_name
-        )
-
-        if researcher_canonical:
-            AUTHOR_REGISTRY[
-                author_orcid
-            ] = researcher_canonical
-
-            register_author_variant(
-                original_name,
-                researcher_canonical,
-            )
-
-            return researcher_canonical
-
-    # --------------------------------------------------------
-    # Si tenemos ORCID del autor
-    # --------------------------------------------------------
-
-    if author_orcid:
-
-        if author_orcid in AUTHOR_REGISTRY:
-            canonical = AUTHOR_REGISTRY[
-                author_orcid
-            ]
-
-            register_author_variant(
-                original_name,
-                canonical,
-            )
-
-            return canonical
-
-        if name:
-            AUTHOR_REGISTRY[
-                author_orcid
-            ] = name
-
-            register_author_variant(
-                original_name,
-                name,
-            )
-
-            return name
-
-    # --------------------------------------------------------
-    # Sin ORCID
-    # --------------------------------------------------------
-
-    return name
-
-
-# ============================================================
-# FECHAS
-# ============================================================
-
-def get_date(date_obj):
-    if not isinstance(date_obj, dict):
-        return ""
-
-    year_obj = date_obj.get("year") or {}
-    month_obj = date_obj.get("month") or {}
-    day_obj = date_obj.get("day") or {}
-
-    year = (
-        year_obj.get("value")
-        if isinstance(year_obj, dict)
-        else None
-    )
-
-    month = (
-        month_obj.get("value")
-        if isinstance(month_obj, dict)
-        else None
-    )
-
-    day = (
-        day_obj.get("value")
-        if isinstance(day_obj, dict)
-        else None
-    )
-
-    if not year:
-        return ""
-
-    year = str(year)
-
-    month = (
-        str(month).zfill(2)
-        if month
-        else "01"
-    )
-
-    day = (
-        str(day).zfill(2)
-        if day
-        else "01"
-    )
-
-    return f"{year}-{month}-{day}"
-
-
-def get_year(date_obj):
-    if not isinstance(date_obj, dict):
-        return ""
-
-    year_obj = date_obj.get("year") or {}
-
-    if not isinstance(year_obj, dict):
-        return ""
-
-    return clean_text(
-        year_obj.get("value")
-    )
-
-
-# ============================================================
-# ORCID: OBTENER GRUPOS DE TRABAJOS
-# ============================================================
-
-def get_orcid_work_groups(orcid):
-    all_groups = []
-
-    start = 0
-
-    seen_group_keys = set()
-
-    for page_number in range(MAX_PAGES):
-
-        params = {
-            "start": start,
-            "rows": ROWS_PER_PAGE,
-        }
-
-        print(
-            f"      Página ORCID "
-            f"{start}-{start + ROWS_PER_PAGE}"
-        )
-
-        data = safe_get(
-            f"{API_BASE}/{orcid}/works",
-            params=params,
-        )
-
-        if not data:
-            break
-
-        groups = data.get("group") or []
-
-        if not groups:
-            print(
-                "      No hay más grupos."
-            )
-            break
-
-        print(
-            f"      Grupos recibidos: "
-            f"{len(groups)}"
-        )
-
-        new_groups = []
-
-        for group in groups:
-
-            if not isinstance(group, dict):
-                continue
-
-            summaries = group.get(
-                "work-summary"
-            ) or []
-
-            if not isinstance(
-                summaries,
-                list,
-            ):
-                summaries = [
-                    summaries
-                ]
-
-            put_codes = []
-
-            for summary in summaries:
-
-                if not isinstance(
-                    summary,
-                    dict,
-                ):
-                    continue
-
-                put_code = summary.get(
-                    "put-code"
-                )
-
-                if put_code is not None:
-                    put_codes.append(
-                        str(put_code)
-                    )
-
-            group_key = tuple(
-                sorted(put_codes)
-            )
-
-            if (
-                group_key
-                and group_key in seen_group_keys
-            ):
-                continue
-
-            if group_key:
-                seen_group_keys.add(
-                    group_key
-                )
-
-            new_groups.append(group)
-
-        if not new_groups:
-            print(
-                "      AVISO: no hay grupos nuevos."
-            )
-            break
-
-        all_groups.extend(
-            new_groups
-        )
-
-        if len(groups) < ROWS_PER_PAGE:
-            break
-
-        start += len(groups)
-
-    print(
-        f"      Grupos obtenidos: "
-        f"{len(all_groups)}"
-    )
-
-    return all_groups
-
-
-def extract_all_summaries(groups):
-    summaries = []
-
-    seen_put_codes = set()
-
-    for group in groups:
-
-        if not isinstance(
-            group,
-            dict,
-        ):
-            continue
-
-        group_summaries = group.get(
-            "work-summary"
-        ) or []
-
-        if not isinstance(
-            group_summaries,
-            list,
-        ):
-            group_summaries = [
-                group_summaries
-            ]
-
-        for summary in group_summaries:
-
-            if not isinstance(
-                summary,
-                dict,
-            ):
-                continue
-
-            put_code = summary.get(
-                "put-code"
-            )
-
-            if put_code is None:
-                continue
-
-            put_code = str(
-                put_code
-            )
-
-            if put_code in seen_put_codes:
-                continue
-
-            seen_put_codes.add(
-                put_code
-            )
-
-            summaries.append(
-                summary
-            )
-
-    return summaries
-
-
-def get_orcid_work(
-    orcid,
-    put_code,
-):
-    url = (
-        f"{API_BASE}/"
-        f"{orcid}/work/"
-        f"{put_code}"
-    )
-
-    return safe_get(url)
-
-
-# ============================================================
-# EXTRACCIÓN DE DATOS
-# ============================================================
-
-def extract_external_ids(work):
-    result = {
-        "doi": "",
-        "pmid": "",
-        "pmcid": "",
-        "other_ids": [],
-    }
-
-    if not isinstance(
-        work,
-        dict,
-    ):
-        return result
-
-    external_ids = (
-        work.get(
-            "external-ids"
-        )
-        or {}
-    )
-
-    external_id_list = (
-        external_ids.get(
-            "external-id"
-        )
-        or []
-    )
-
-    if not isinstance(
-        external_id_list,
-        list,
-    ):
-        external_id_list = [
-            external_id_list
-        ]
-
-    for item in external_id_list:
-
-        if not isinstance(
-            item,
-            dict,
-        ):
-            continue
-
-        id_type = clean_text(
-            item.get(
-                "external-id-type"
-            )
-        ).lower()
-
-        value = clean_text(
-            item.get(
-                "external-id-value"
-            )
-        )
-
-        if not value:
-            continue
-
-        if id_type == "doi":
-
-            doi = value.lower()
-
-            doi = re.sub(
-                r"^https?://doi\.org/",
-                "",
-                doi,
-            )
-
-            doi = doi.replace(
-                "doi:",
-                "",
-            ).strip()
-
-            result["doi"] = doi
-
-        elif id_type in (
-            "pmid",
-            "pubmed",
-        ):
-
-            result["pmid"] = value
-
-        elif id_type == "pmcid":
-
-            result["pmcid"] = value
-
-        else:
-
-            result[
-                "other_ids"
-            ].append({
-                "type": id_type,
-                "value": value,
-            })
-
-    return result
-
-
-def extract_title(work):
-    if not isinstance(
-        work,
-        dict,
-    ):
-        return ""
-
-    title_obj = (
-        work.get("title")
-        or {}
-    )
-
-    if not isinstance(
-        title_obj,
-        dict,
-    ):
-        return clean_text(
-            title_obj
-        )
-
-    title = (
-        title_obj.get(
-            "title"
-        )
-        or {}
-    )
-
-    if isinstance(
-        title,
-        dict,
-    ):
-        return clean_text(
-            title.get("value")
-        )
-
-    return clean_text(title)
-
-
-def extract_journal(work):
-    if not isinstance(
-        work,
-        dict,
-    ):
-        return ""
-
-    journal = (
-        work.get(
-            "journal-title"
-        )
-        or {}
-    )
-
-    if isinstance(
-        journal,
-        dict,
-    ):
-        return clean_text(
-            journal.get("value")
-        )
-
-    return clean_text(journal)
-
-
-def extract_url(work):
-    if not isinstance(
-        work,
-        dict,
-    ):
-        return ""
-
-    url_obj = work.get("url")
-
-    if isinstance(
-        url_obj,
-        dict,
-    ):
-        return clean_text(
-            url_obj.get("value")
-        )
-
-    return clean_text(url_obj)
-
-
-def work_to_publication(
-    work,
-    summary=None,
-    researcher_name="",
-    researcher_orcid="",
-):
-
-    if not isinstance(
-        work,
-        dict,
-    ):
-        work = {}
-
-    if not isinstance(
-        summary,
-        dict,
-    ):
-        summary = {}
-
-    title = (
-        extract_title(work)
-        or extract_title(summary)
-    )
-
-    journal = (
-        extract_journal(work)
-        or extract_journal(summary)
-    )
-
-    work_type = (
-        clean_text(
-            work.get("type")
-        )
-        or clean_text(
-            summary.get("type")
-        )
-    )
-
-    publication_date = (
-        work.get(
-            "publication-date"
-        )
-        or summary.get(
-            "publication-date"
-        )
-        or {}
-    )
-
-    date = get_date(
-        publication_date
-    )
-
-    year = get_year(
-        publication_date
-    )
-
-    if not year and date:
-        year = date[:4]
-
-    identifiers = extract_external_ids(
-        work
-    )
-
-    if not identifiers["doi"]:
-
-        summary_ids = (
-            extract_external_ids(
-                summary
-            )
-        )
-
-        for key in (
-            "doi",
-            "pmid",
-            "pmcid",
-        ):
-
-            if (
-                not identifiers[key]
-                and summary_ids[key]
-            ):
-                identifiers[key] = (
-                    summary_ids[key]
-                )
-
-    url = (
-        extract_url(work)
-        or extract_url(summary)
-    )
-
-    authors = extract_authors(
-        work
-    )
-
-    if not authors:
-        authors = extract_authors(
-            summary
-        )
-
-    canonical_authors = []
-
-    for author in authors:
-
-        canonical_name = register_author(
-            author,
-            researcher_name=researcher_name,
-            researcher_orcid=researcher_orcid,
-        )
-
-        if canonical_name:
-            canonical_authors.append(
-                canonical_name
-            )
-
-    # Eliminar autores repetidos dentro de
-    # una misma publicación.
-    unique_authors = []
-
-    seen_authors = set()
-
-    for author in canonical_authors:
-
-        author_key = author_identity_key(
-            author
-        )
-
-        if author_key in seen_authors:
-            continue
-
-        seen_authors.add(
-            author_key
-        )
-
-        unique_authors.append(
-            author
-        )
-
-    put_code = (
-        work.get("put-code")
-        or summary.get("put-code")
-    )
-
-    source = (
-        work.get("source")
-        or summary.get("source")
-        or {}
-    )
-
-    source_name = ""
-
-    if isinstance(
-        source,
-        dict,
-    ):
-        source_name = clean_text(
-            source.get(
-                "source-name"
-            )
-        )
-
-    return {
-        "put_code": (
-            str(put_code)
-            if put_code is not None
-            else ""
-        ),
-        "title": title,
-        "type": work_type,
-        "journal": journal,
-        "date": date,
-        "year": year,
-        "doi": identifiers["doi"],
-        "pmid": identifiers["pmid"],
-        "pmcid": identifiers["pmcid"],
-        "url": url,
-        "authors": unique_authors,
-        "source": source_name,
-        "raw_type": work_type,
-    }
-
-
-# ============================================================
-# CLASIFICACIÓN DE COMUNICACIONES DE CONGRESOS
-# ============================================================
-
-def looks_like_conference(pub):
+def author_identity_key(name: str) -> str:
     """
-    Identifica posibles comunicaciones de congresos.
+    Genera una identidad aproximada basada en:
 
-    Se incluyen:
-    - conference-paper
-    - conference-abstract
-    - conference proceeding
-    - conference presentation
-    - tipos cuyo texto mencione conference/congreso
-    - registros con palabras clave de congreso
-      en título o revista
+        apellido + iniciales
 
-    Se excluyen los artículos de revista claramente
-    identificados.
+    Ejemplos:
+
+        Díaz-de-María, F.
+        Fernando Diaz-de-Maria
+
+    -> diazdemaria|f
+
+    y:
+
+        Fernández-Torres, M.-A.
+        Miguel-Angel Fernandez-Torres
+
+    -> fernandeztorres|ma
     """
+    surname, given = author_name_parts(name)
 
-    if not isinstance(
-        pub,
-        dict,
-    ):
+    surname_key = normalize_key_text(surname)
+    surname_key = surname_key.replace(" ", "")
+
+    initials = initials_from_given(given)
+
+    if not surname_key:
+        return ""
+
+    return f"{surname_key}|{initials}"
+
+
+def author_surname_key(name: str) -> str:
+    surname, _ = author_name_parts(name)
+
+    surname = normalize_key_text(surname)
+    surname = surname.replace(" ", "")
+
+    return surname
+
+
+def names_are_likely_same(name1: str, name2: str) -> bool:
+    """
+    Determina si dos nombres probablemente representan a la misma persona.
+
+    La comparación es conservadora.
+    """
+    a = canonicalize_author_display(name1)
+    b = canonicalize_author_display(name2)
+
+    if not a or not b:
         return False
 
-    title = clean_text(
-        pub.get("title")
-    )
-
-    journal = clean_text(
-        pub.get("journal")
-    )
-
-    work_type = clean_text(
-        pub.get("type")
-    ).lower()
-
-    if not title:
-        return False
-
-    article_types = {
-        "journal-article",
-        "article",
-        "journal article",
-    }
-
-    if work_type in article_types:
-        return False
-
-    conference_types = {
-        "conference-paper",
-        "conference-abstract",
-        "conference-poster",
-        "conference-presentation",
-        "conference-proceedings",
-        "conference proceeding",
-        "conference paper",
-        "conference abstract",
-        "conference poster",
-        "conference presentation",
-        "proceedings",
-    }
-
-    if work_type in conference_types:
+    if normalize_key_text(a) == normalize_key_text(b):
         return True
 
-    combined_type = (
-        work_type
-        .replace("_", "-")
-        .replace(" ", "-")
-    )
+    key_a = author_identity_key(a)
+    key_b = author_identity_key(b)
 
-    if "conference" in combined_type:
-        return True
-
-    if (
-        "congreso" in combined_type
-        or "congress" in combined_type
-    ):
-        return True
-
-    keywords = (
-        "conference",
-        "congress",
-        "congreso",
-        "symposium",
-        "symposio",
-        "workshop",
-        "meeting",
-        "proceedings",
-        "abstract book",
-        "libro de resúmenes",
-        "libro de resumenes",
-        "comunicación oral",
-        "comunicacion oral",
-        "póster",
-        "poster",
-    )
-
-    text_to_check = (
-        f"{title} {journal}"
-        .lower()
-    )
-
-    if any(
-        keyword in text_to_check
-        for keyword in keywords
-    ):
+    if key_a and key_a == key_b:
         return True
 
     return False
 
 
-# ============================================================
-# DEDUPLICACIÓN
-# ============================================================
+def normalize_author_name(
+    name: str,
+    orcid: str = "",
+) -> str:
+    """
+    Aplica alias explícitos y limpieza básica.
+    """
+    name = canonicalize_author_display(name)
 
-def normalize_doi(doi):
-    if not doi:
+    if not name:
         return ""
 
-    value = clean_text(
-        doi
-    ).lower()
-
-    value = re.sub(
-        r"^https?://doi\.org/",
-        "",
-        value,
+    alias = AUTHOR_ALIASES.get(
+        author_alias_key(name)
     )
 
-    value = value.replace(
-        "doi:",
-        "",
+    if alias:
+        return alias
+
+    return name
+
+
+# ============================================================================
+# REGISTRO PERSISTENTE DE AUTORES
+# ============================================================================
+
+def load_author_registry() -> Dict[str, Dict[str, Any]]:
+    registry = load_json(
+        OUTPUT_AUTHOR_REGISTRY,
+        {},
     )
 
-    return value.strip()
+    if not isinstance(registry, dict):
+        return {}
+
+    return registry
 
 
-def publication_key(pub):
+def save_author_registry(
+    registry: Dict[str, Dict[str, Any]]
+) -> None:
+    save_json(
+        OUTPUT_AUTHOR_REGISTRY,
+        registry,
+    )
+
+
+def load_author_overrides() -> Dict[str, Any]:
+    overrides = load_json(
+        OUTPUT_AUTHOR_OVERRIDES,
+        {},
+    )
+
+    if not isinstance(overrides, dict):
+        return {}
+
+    return overrides
+
+
+def save_author_overrides(
+    overrides: Dict[str, Any]
+) -> None:
+    save_json(
+        OUTPUT_AUTHOR_OVERRIDES,
+        overrides,
+    )
+
+
+def next_author_id(
+    registry: Dict[str, Dict[str, Any]]
+) -> str:
+    max_id = 0
+
+    for record in registry.values():
+        author_id = clean_text(
+            record.get("author_id", "")
+        )
+
+        match = re.fullmatch(
+            r"A(\d+)",
+            author_id,
+        )
+
+        if match:
+            max_id = max(
+                max_id,
+                int(match.group(1)),
+            )
+
+    return f"A{max_id + 1:05d}"
+
+
+def override_for_author(
+    name: str,
+    orcid: str,
+    overrides: Dict[str, Any],
+) -> Optional[Dict[str, Any]]:
     """
-    Genera una clave para detectar la misma publicación.
+    Busca una decisión manual.
 
     Prioridad:
 
-    1. DOI
-    2. PMID
-    3. PMCID
-    4. título + año + autores
-
-    IMPORTANTE:
-
-    El ORCID del investigador NO se utiliza aquí.
-
-    Esto evita que una publicación aparezca varias veces
-    simplemente porque está presente en el ORCID de varios
-    investigadores.
+        orcid:<ORCID>
+        name:<normalized name>
     """
+    orcid = normalize_orcid(orcid)
 
+    if orcid:
+        key = f"orcid:{orcid}"
+
+        if key in overrides:
+            value = overrides[key]
+
+            if isinstance(value, str):
+                return {
+                    "canonical_name": value
+                }
+
+            if isinstance(value, dict):
+                return value
+
+    key = f"name:{author_alias_key(name)}"
+
+    if key in overrides:
+        value = overrides[key]
+
+        if isinstance(value, str):
+            return {
+                "canonical_name": value
+            }
+
+        if isinstance(value, dict):
+            return value
+
+    return None
+
+
+def find_registry_author(
+    name: str,
+    orcid: str,
+    registry: Dict[str, Dict[str, Any]],
+) -> Optional[Dict[str, Any]]:
+    """
+    Busca primero por ORCID y luego por identidad de nombre.
+    """
+    orcid = normalize_orcid(orcid)
+
+    if orcid:
+        for record in registry.values():
+            if normalize_orcid(
+                record.get("orcid", "")
+            ) == orcid:
+                return record
+
+    identity_key = author_identity_key(name)
+
+    if identity_key:
+        for record in registry.values():
+            if record.get("identity_key") == identity_key:
+                return record
+
+            for variant in record.get(
+                "variants",
+                []
+            ):
+                if author_identity_key(variant) == identity_key:
+                    return record
+
+    return None
+
+
+def register_author(
+    name: str,
+    orcid: str,
+    researcher_name: str,
+    researcher_orcid: str,
+    registry: Dict[str, Dict[str, Any]],
+    overrides: Dict[str, Any],
+) -> Dict[str, Any]:
+    """
+    Registra un autor y devuelve su representación canónica.
+
+    Orden de prioridad:
+
+        1. override manual
+        2. registro persistente
+        3. nombre del investigador ORCID si coincide
+        4. nombre entrante
+    """
+    raw_name = canonicalize_author_display(name)
+    orcid = normalize_orcid(orcid)
+    researcher_orcid = normalize_orcid(researcher_orcid)
+
+    if not raw_name and researcher_name:
+        raw_name = canonicalize_author_display(
+            researcher_name
+        )
+
+    if not raw_name:
+        return {
+            "name": "",
+            "orcid": orcid,
+            "author_id": "",
+        }
+
+    normalized_incoming = normalize_author_name(
+        raw_name,
+        orcid,
+    )
+
+    override = override_for_author(
+        raw_name,
+        orcid,
+        overrides,
+    )
+
+    existing = find_registry_author(
+        normalized_incoming,
+        orcid,
+        registry,
+    )
+
+    # ------------------------------------------------------------
+    # Determinar nombre canónico.
+    # ------------------------------------------------------------
+
+    canonical_name = ""
+
+    if override:
+        canonical_name = first_non_empty(
+            override.get("canonical_name"),
+            override.get("name"),
+            normalized_incoming,
+        )
+
+    elif existing:
+        canonical_name = first_non_empty(
+            existing.get("canonical_name"),
+            normalized_incoming,
+        )
+
+    elif (
+        researcher_orcid
+        and orcid
+        and researcher_orcid == orcid
+        and researcher_name
+    ):
+        canonical_name = canonicalize_author_display(
+            researcher_name
+        )
+
+    else:
+        canonical_name = normalized_incoming
+
+    canonical_name = canonicalize_author_display(
+        canonical_name
+    )
+
+    # ------------------------------------------------------------
+    # Crear o actualizar registro.
+    # ------------------------------------------------------------
+
+    if existing:
+        author_id = existing["author_id"]
+
+        existing["canonical_name"] = canonical_name
+
+        if orcid:
+            existing["orcid"] = orcid
+
+        identity_key = author_identity_key(
+            canonical_name
+        )
+
+        if identity_key:
+            existing["identity_key"] = identity_key
+
+        variants = existing.setdefault(
+            "variants",
+            []
+        )
+
+        if raw_name and raw_name not in variants:
+            variants.append(raw_name)
+
+        if normalized_incoming:
+            if normalized_incoming not in variants:
+                variants.append(normalized_incoming)
+
+        researchers = existing.setdefault(
+            "researchers",
+            []
+        )
+
+        researcher_info = {
+            "name": clean_text(researcher_name),
+            "orcid": researcher_orcid,
+        }
+
+        if researcher_info not in researchers:
+            researchers.append(
+                researcher_info
+            )
+
+        return {
+            "name": canonical_name,
+            "orcid": existing.get("orcid", orcid),
+            "author_id": author_id,
+        }
+
+    author_id = next_author_id(registry)
+
+    identity_key = author_identity_key(
+        canonical_name
+    )
+
+    record = {
+        "author_id": author_id,
+        "canonical_name": canonical_name,
+        "orcid": orcid,
+        "identity_key": identity_key,
+        "variants": [],
+        "researchers": [],
+    }
+
+    if raw_name:
+        record["variants"].append(raw_name)
+
+    if (
+        normalized_incoming
+        and normalized_incoming != raw_name
+    ):
+        record["variants"].append(
+            normalized_incoming
+        )
+
+    researcher_info = {
+        "name": clean_text(researcher_name),
+        "orcid": researcher_orcid,
+    }
+
+    if researcher_info["name"] or researcher_info["orcid"]:
+        record["researchers"].append(
+            researcher_info
+        )
+
+    registry[author_id] = record
+
+    return {
+        "name": canonical_name,
+        "orcid": orcid,
+        "author_id": author_id,
+    }
+
+
+def deduplicate_authors(
+    author_records: List[Dict[str, Any]]
+) -> List[Dict[str, Any]]:
+    """
+    Elimina autores repetidos dentro de una publicación.
+
+    Primero usa ORCID.
+    Después identity_key.
+    """
+    result = []
+
+    seen_orcids = set()
+    seen_identities = set()
+
+    for record in author_records:
+        name = clean_text(
+            record.get("name", "")
+        )
+        orcid = normalize_orcid(
+            record.get("orcid", "")
+        )
+        author_id = clean_text(
+            record.get("author_id", "")
+        )
+
+        if not name:
+            continue
+
+        if orcid:
+            if orcid in seen_orcids:
+                continue
+
+            seen_orcids.add(orcid)
+
+        identity = author_identity_key(name)
+
+        if identity:
+            if identity in seen_identities:
+                continue
+
+            seen_identities.add(identity)
+
+        result.append({
+            "name": name,
+            "orcid": orcid,
+            "author_id": author_id,
+        })
+
+    return result
+
+
+# ============================================================================
+# AUTORES: EXTRACCIÓN DESDE ORCID
+# ============================================================================
+
+def extract_orcid_author_name(
+    contributor: Dict[str, Any]
+) -> str:
+    """
+    Extrae nombre de contributor de ORCID.
+    """
+    credit = safe_get(
+        contributor,
+        "credit-name",
+        "value",
+        default="",
+    )
+
+    if credit:
+        return clean_text(credit)
+
+    given = safe_get(
+        contributor,
+        "contributor-attributes",
+        "contributor-role",
+        default="",
+    )
+
+    _ = given
+
+    given_names = safe_get(
+        contributor,
+        "contributor-name",
+        "given-names",
+        "value",
+        default="",
+    )
+
+    family_name = safe_get(
+        contributor,
+        "contributor-name",
+        "family-name",
+        "value",
+        default="",
+    )
+
+    if family_name and given_names:
+        return (
+            f"{family_name}, "
+            f"{given_names}"
+        )
+
+    return first_non_empty(
+        family_name,
+        given_names,
+    )
+
+
+def extract_orcid_author_orcid(
+    contributor: Dict[str, Any]
+) -> str:
+    path_candidates = [
+        (
+            "contributor-orcid",
+            "path",
+        ),
+        (
+            "contributor-orcid",
+            "uri",
+        ),
+    ]
+
+    for path in path_candidates:
+        value = safe_get(
+            contributor,
+            *path,
+            default="",
+        )
+
+        if value:
+            return normalize_orcid(value)
+
+    return ""
+
+
+# ============================================================================
+# FECHAS
+# ============================================================================
+
+def extract_date(
+    obj: Dict[str, Any]
+) -> str:
+    """
+    Devuelve YYYY-MM-DD o YYYY.
+    """
+    year = safe_get(
+        obj,
+        "publication-date",
+        "year",
+        "value",
+        default="",
+    )
+
+    month = safe_get(
+        obj,
+        "publication-date",
+        "month",
+        "value",
+        default="",
+    )
+
+    day = safe_get(
+        obj,
+        "publication-date",
+        "day",
+        "value",
+        default="",
+    )
+
+    if not year:
+        year = safe_get(
+            obj,
+            "year",
+            "value",
+            default="",
+        )
+
+    year = clean_text(year)
+    month = clean_text(month)
+    day = clean_text(day)
+
+    if not year:
+        return ""
+
+    if month:
+        try:
+            month_int = int(month)
+        except ValueError:
+            month_int = 0
+    else:
+        month_int = 0
+
+    if day:
+        try:
+            day_int = int(day)
+        except ValueError:
+            day_int = 0
+    else:
+        day_int = 0
+
+    if month_int and day_int:
+        return (
+            f"{year}-"
+            f"{month_int:02d}-"
+            f"{day_int:02d}"
+        )
+
+    if month_int:
+        return (
+            f"{year}-"
+            f"{month_int:02d}"
+        )
+
+    return year
+
+
+def extract_year(date_value: str) -> str:
+    match = re.search(
+        r"\b(19|20)\d{2}\b",
+        clean_text(date_value),
+    )
+
+    if match:
+        return match.group(0)
+
+    return ""
+
+
+# ============================================================================
+# ORCID API
+# ============================================================================
+
+def get_access_token() -> str:
+    token = os.environ.get(
+        "ORCID_ACCESS_TOKEN",
+        "",
+    ).strip()
+
+    if not token:
+        raise RuntimeError(
+            "No existe ORCID_ACCESS_TOKEN. "
+            "Configura la variable de entorno antes de ejecutar el script."
+        )
+
+    return token
+
+
+def orcid_headers(token: str) -> Dict[str, str]:
+    return {
+        "Authorization": f"Bearer {token}",
+        "Accept": "application/json",
+    }
+
+
+def api_get(
+    url: str,
+    token: str,
+    params: Optional[Dict[str, Any]] = None,
+) -> Optional[Dict[str, Any]]:
+    try:
+        response = requests.get(
+            url,
+            headers=orcid_headers(token),
+            params=params,
+            timeout=REQUEST_TIMEOUT,
+        )
+
+        if response.status_code == 404:
+            logger.warning(
+                "ORCID 404: %s",
+                url,
+            )
+            return None
+
+        response.raise_for_status()
+
+        return response.json()
+
+    except requests.RequestException as exc:
+        logger.error(
+            "Error ORCID: %s | %s",
+            url,
+            exc,
+        )
+        return None
+
+    except ValueError as exc:
+        logger.error(
+            "Respuesta no JSON de ORCID: %s",
+            exc,
+        )
+        return None
+
+
+def fetch_orcid_works(
+    orcid: str,
+    token: str,
+) -> List[Dict[str, Any]]:
+    """
+    Obtiene todos los works de un ORCID.
+    """
+    orcid = normalize_orcid(orcid)
+
+    if not orcid:
+        return []
+
+    all_works = []
+
+    for page in range(MAX_PAGES):
+        offset = page * ROWS_PER_PAGE
+
+        url = (
+            f"{API_BASE}/"
+            f"{orcid}/works"
+        )
+
+        params = {
+            "start": offset,
+            "rows": ROWS_PER_PAGE,
+        }
+
+        data = api_get(
+            url,
+            token,
+            params,
+        )
+
+        if not data:
+            break
+
+        groups = safe_get(
+            data,
+            "group",
+            default=[],
+        )
+
+        if not groups:
+            break
+
+        all_works.extend(groups)
+
+        if len(groups) < ROWS_PER_PAGE:
+            break
+
+    return all_works
+
+
+def fetch_orcid_work_detail(
+    orcid: str,
+    put_code: str,
+    token: str,
+) -> Optional[Dict[str, Any]]:
+    url = (
+        f"{API_BASE}/"
+        f"{normalize_orcid(orcid)}/"
+        f"work/{put_code}"
+    )
+
+    return api_get(
+        url,
+        token,
+    )
+
+
+# ============================================================================
+# PUBLICACIONES
+# ============================================================================
+
+def extract_title_from_work(
+    work: Dict[str, Any]
+) -> str:
+    title = safe_get(
+        work,
+        "title",
+        "title",
+        "value",
+        default="",
+    )
+
+    if title:
+        return clean_text(title)
+
+    return clean_text(
+        safe_get(
+            work,
+            "title",
+            "value",
+            default="",
+        )
+    )
+
+
+def extract_journal(
+    work: Dict[str, Any]
+) -> str:
+    return first_non_empty(
+        safe_get(
+            work,
+            "journal-title",
+            "value",
+            default="",
+        ),
+        safe_get(
+            work,
+            "journal-title",
+            default="",
+        ),
+    )
+
+
+def extract_external_ids(
+    work: Dict[str, Any]
+) -> Dict[str, str]:
+    result = {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+    }
+
+    external_ids = safe_get(
+        work,
+        "external-ids",
+        "external-id",
+        default=[],
+    )
+
+    if not isinstance(
+        external_ids,
+        list,
+    ):
+        return result
+
+    for external in external_ids:
+        id_type = clean_text(
+            safe_get(
+                external,
+                "external-id-type",
+                default="",
+            )
+        ).lower()
+
+        value = first_non_empty(
+            safe_get(
+                external,
+                "external-id-value",
+                default="",
+            ),
+            safe_get(
+                external,
+                "external-id-url",
+                "value",
+                default="",
+            ),
+        )
+
+        value = clean_text(value)
+
+        if id_type == "doi":
+            result["doi"] = normalize_doi(value)
+
+        elif id_type == "pmid":
+            result["pmid"] = normalize_identifier(
+                value
+            )
+
+        elif id_type == "pmcid":
+            result["pmcid"] = normalize_identifier(
+                value
+            )
+
+    return result
+
+
+def extract_urls(
+    work: Dict[str, Any]
+) -> List[str]:
+    urls = []
+
+    url_value = safe_get(
+        work,
+        "url",
+        "value",
+        default="",
+    )
+
+    if url_value:
+        urls.append(
+            clean_text(url_value)
+        )
+
+    external_ids = safe_get(
+        work,
+        "external-ids",
+        "external-id",
+        default=[],
+    )
+
+    if isinstance(
+        external_ids,
+        list,
+    ):
+        for external in external_ids:
+            url = safe_get(
+                external,
+                "external-id-url",
+                "value",
+                default="",
+            )
+
+            if url:
+                urls.append(
+                    clean_text(url)
+                )
+
+    return list(
+        dict.fromkeys(urls)
+    )
+
+
+def extract_authors_from_work(
+    work: Dict[str, Any],
+    researcher_name: str,
+    researcher_orcid: str,
+    registry: Dict[str, Dict[str, Any]],
+    overrides: Dict[str, Any],
+) -> List[Dict[str, Any]]:
+    """
+    Extrae contributors y los convierte a autores canónicos.
+    """
+    contributors = safe_get(
+        work,
+        "contributors",
+        "contributor",
+        default=[],
+    )
+
+    if not isinstance(
+        contributors,
+        list,
+    ):
+        contributors = []
+
+    records = []
+
+    for contributor in contributors:
+        raw_name = extract_orcid_author_name(
+            contributor
+        )
+
+        contributor_orcid = extract_orcid_author_orcid(
+            contributor
+        )
+
+        if not raw_name:
+            continue
+
+        # Evitamos que ORCID introduzca literalmente nombres
+        # como "IEEE" como autor salvo que exista una identidad
+        # persistente/ORCID real para ellos.
+        if normalize_key_text(raw_name) in {
+            "ieee",
+            "inc",
+            "publisher",
+            "unknown",
+            "anonymous",
+        }:
+            continue
+
+        record = register_author(
+            name=raw_name,
+            orcid=contributor_orcid,
+            researcher_name=researcher_name,
+            researcher_orcid=researcher_orcid,
+            registry=registry,
+            overrides=overrides,
+        )
+
+        if record["name"]:
+            records.append(record)
+
+    return deduplicate_authors(records)
+
+
+def extract_publication_from_work(
+    work: Dict[str, Any],
+    researcher_name: str,
+    researcher_orcid: str,
+    registry: Dict[str, Dict[str, Any]],
+    overrides: Dict[str, Any],
+    put_code: str = "",
+) -> Dict[str, Any]:
+    title = extract_title_from_work(work)
+
+    publication_date = extract_date(work)
+
+    year = extract_year(
+        publication_date
+    )
+
+    ids = extract_external_ids(work)
+
+    authors = extract_authors_from_work(
+        work=work,
+        researcher_name=researcher_name,
+        researcher_orcid=researcher_orcid,
+        registry=registry,
+        overrides=overrides,
+    )
+
+    author_names = [
+        a["name"]
+        for a in authors
+        if a.get("name")
+    ]
+
+    record = {
+        "title": title,
+        "journal": extract_journal(work),
+        "date": publication_date,
+        "year": year,
+        "doi": ids["doi"],
+        "pmid": ids["pmid"],
+        "pmcid": ids["pmcid"],
+        "url": extract_urls(work),
+        "authors": author_names,
+        "author_records": authors,
+
+        "type": clean_text(
+            safe_get(
+                work,
+                "type",
+                default="",
+            )
+        ),
+
+        "put_code": clean_text(
+            put_code
+            or safe_get(
+                work,
+                "put-code",
+                default="",
+            )
+        ),
+
+        "orcid_sources": [
+            {
+                "orcid": normalize_orcid(
+                    researcher_orcid
+                ),
+                "researcher_name": clean_text(
+                    researcher_name
+                ),
+            }
+        ],
+    }
+
+    return record
+
+
+# ============================================================================
+# CONFERENCIAS
+# ============================================================================
+
+def text_contains_keyword(
+    text: str,
+    keywords: List[str]
+) -> bool:
+    text = normalize_key_text(text)
+
+    for keyword in keywords:
+        keyword_normalized = normalize_key_text(
+            keyword
+        )
+
+        if keyword_normalized in text:
+            return True
+
+    return False
+
+
+def classify_conference_work(
+    publication: Dict[str, Any]
+) -> Tuple[bool, str]:
+    """
+    Clasificación heurística.
+
+    No pretende ser perfecta.
+    Los excluidos se conservan en JSON para poder revisar.
+    """
+    work_type = normalize_key_text(
+        publication.get("type", "")
+    )
+
+    journal = normalize_key_text(
+        publication.get("journal", "")
+    )
+
+    title = normalize_key_text(
+        publication.get("title", "")
+    )
+
+    combined = " ".join(
+        [
+            work_type,
+            journal,
+            title,
+        ]
+    )
+
+    if text_contains_keyword(
+        combined,
+        EXCLUDE_KEYWORDS,
+    ):
+        # Si además hay una señal clara de proceedings,
+        # dejamos que esa señal gane.
+        if not text_contains_keyword(
+            combined,
+            CONFERENCE_KEYWORDS,
+        ):
+            return False, "excluded_keyword"
+
+    if text_contains_keyword(
+        combined,
+        CONFERENCE_KEYWORDS,
+    ):
+        return True, "conference_keyword"
+
+    # Tipos ORCID habituales.
+    conference_types = {
+        "conference-paper",
+        "conference-abstract",
+        "conference-poster",
+        "conference",
+    }
+
+    if work_type in conference_types:
+        return True, "orcid_type"
+
+    return False, "not_detected_as_conference"
+
+
+# ============================================================================
+# IDENTIDAD DE PUBLICACIONES
+# ============================================================================
+
+def publication_strong_key(
+    publication: Dict[str, Any]
+) -> str:
+    """
+    Prioridad:
+
+        DOI
+        PMID
+        PMCID
+    """
     doi = normalize_doi(
-        pub.get("doi")
+        publication.get("doi", "")
     )
 
     if doi:
-        return (
-            "doi",
-            doi,
-        )
+        return f"doi:{doi}"
 
-    pmid = clean_text(
-        pub.get("pmid")
-    ).lower()
+    pmid = normalize_identifier(
+        publication.get("pmid", "")
+    )
 
     if pmid:
-        return (
-            "pmid",
-            pmid,
-        )
+        return f"pmid:{pmid}"
 
-    pmcid = clean_text(
-        pub.get("pmcid")
-    ).lower()
+    pmcid = normalize_identifier(
+        publication.get("pmcid", "")
+    )
 
     if pmcid:
-        return (
-            "pmcid",
-            pmcid,
+        return f"pmcid:{pmcid}"
+
+    return ""
+
+
+def publication_author_keys(
+    publication: Dict[str, Any]
+) -> set:
+    keys = set()
+
+    for author in publication.get(
+        "author_records",
+        [],
+    ):
+        author_id = clean_text(
+            author.get("author_id", "")
         )
 
-    title = normalize_title(
-        pub.get("title")
-    )
-
-    year = clean_text(
-        pub.get("year")
-    )
-
-    authors = pub.get(
-        "authors"
-    ) or []
-
-    normalized_authors = []
-
-    for author in authors:
-        normalized_authors.append(
-            normalize_author_for_match(
-                author
+        if author_id:
+            keys.add(
+                f"id:{author_id}"
             )
+            continue
+
+        name = clean_text(
+            author.get("name", "")
         )
 
-    authors_key = tuple(
-        normalized_authors
+        identity = author_identity_key(
+            name
+        )
+
+        if identity:
+            keys.add(
+                f"name:{identity}"
+            )
+
+    if not keys:
+        for name in publication.get(
+            "authors",
+            [],
+        ):
+            identity = author_identity_key(
+                name
+            )
+
+            if identity:
+                keys.add(
+                    f"name:{identity}"
+                )
+
+    return keys
+
+
+def publication_fallback_key(
+    publication: Dict[str, Any]
+) -> str:
+    title = normalize_title(
+        publication.get("title", "")
+    )
+
+    year = extract_year(
+        publication.get("year", "")
+        or publication.get("date", "")
+    )
+
+    authors = sorted(
+        publication_author_keys(
+            publication
+        )
     )
 
     return (
-        "fallback",
-        title,
-        year,
-        authors_key,
+        f"title:{title}"
+        f"|year:{year}"
+        f"|authors:{'|'.join(authors)}"
     )
 
 
+def title_similarity(
+    title1: str,
+    title2: str
+) -> float:
+    a = normalize_title(title1)
+    b = normalize_title(title2)
+
+    if not a or not b:
+        return 0.0
+
+    return difflib.SequenceMatcher(
+        None,
+        a,
+        b,
+    ).ratio()
+
+
+def author_overlap(
+    publication1: Dict[str, Any],
+    publication2: Dict[str, Any],
+) -> float:
+    a = publication_author_keys(
+        publication1
+    )
+
+    b = publication_author_keys(
+        publication2
+    )
+
+    if not a or not b:
+        return 0.0
+
+    intersection = len(a & b)
+
+    denominator = min(
+        len(a),
+        len(b),
+    )
+
+    if denominator == 0:
+        return 0.0
+
+    return intersection / denominator
+
+
+# ============================================================================
+# FUSIÓN DE PUBLICACIONES
+# ============================================================================
+
+def merge_lists(
+    first: List[Any],
+    second: List[Any],
+) -> List[Any]:
+    result = []
+
+    for value in first + second:
+        if value not in result:
+            result.append(value)
+
+    return result
+
+
 def merge_publications(
-    first,
-    second,
-):
+    first: Dict[str, Any],
+    second: Dict[str, Any],
+) -> Dict[str, Any]:
     """
-    Combina dos registros que hemos identificado
-    como la misma publicación.
-
-    Conserva la información disponible de ambos.
+    Fusiona dos registros considerados como la misma publicación.
     """
+    result = dict(first)
 
-    merged = dict(first)
-
-    fields = (
+    # Campos simples.
+    for field in [
         "title",
-        "type",
         "journal",
         "date",
         "year",
         "doi",
         "pmid",
         "pmcid",
-        "url",
-        "source",
+        "type",
+    ]:
+        current = clean_text(
+            result.get(field, "")
+        )
+
+        incoming = clean_text(
+            second.get(field, "")
+        )
+
+        if not current and incoming:
+            result[field] = incoming
+
+    # URLs.
+    result["url"] = merge_lists(
+        result.get("url", []),
+        second.get("url", []),
     )
 
-    for field in fields:
-
-        if (
-            not merged.get(field)
-            and second.get(field)
-        ):
-            merged[field] = (
-                second[field]
-            )
-
-    # --------------------------------------------------------
-    # Autores
-    # --------------------------------------------------------
-
-    authors = []
-
-    for author in (
-        first.get("authors") or []
-    ) + (
-        second.get("authors") or []
-    ):
-
-        if not author:
-            continue
-
-        canonical = normalize_author_name(
-            author
-        )
-
-        if not canonical:
-            continue
-
-        author_key = (
-            normalize_author_for_match(
-                canonical
-            )
-        )
-
-        already_present = any(
-            normalize_author_for_match(
-                existing
-            ) == author_key
-            for existing in authors
-        )
-
-        if not already_present:
-            authors.append(
-                canonical
-            )
-
-    merged["authors"] = authors
-
-    return merged
-
-
-def deduplicate_publications(
-    publications
-):
-    """
-    Deduplica publicaciones y combina la información
-    disponible en los registros duplicados.
-    """
-
-    seen = {}
-    result = []
-
-    duplicate_count = 0
-
-    for pub in publications:
-
-        key = publication_key(
-            pub
-        )
-
-        if key in seen:
-
-            duplicate_count += 1
-
-            existing_index = seen[
-                key
-            ]
-
-            existing = result[
-                existing_index
-            ]
-
-            result[
-                existing_index
-            ] = merge_publications(
-                existing,
-                pub,
-            )
-
-            continue
-
-        seen[key] = len(result)
-
-        result.append(
-            pub
-        )
-
-    print(
-        f"      Duplicados eliminados: "
-        f"{duplicate_count}"
+    # Autores.
+    author_records = (
+        result.get("author_records", [])
+        + second.get("author_records", [])
     )
+
+    result["author_records"] = deduplicate_authors(
+        author_records
+    )
+
+    result["authors"] = [
+        author["name"]
+        for author in result["author_records"]
+        if author.get("name")
+    ]
+
+    # Fuentes ORCID.
+    result["orcid_sources"] = merge_lists(
+        result.get("orcid_sources", []),
+        second.get("orcid_sources", []),
+    )
+
+    # Put codes.
+    put_codes = []
+
+    for record in [
+        first,
+        second,
+    ]:
+        value = clean_text(
+            record.get("put_code", "")
+        )
+
+        if value and value not in put_codes:
+            put_codes.append(value)
+
+    result["put_codes"] = put_codes
+
+    if put_codes:
+        result["put_code"] = put_codes[0]
 
     return result
 
 
-# ============================================================
+# ============================================================================
+# DEDUPLICACIÓN DE PUBLICACIONES
+# ============================================================================
+
+def deduplicate_publications(
+    publications: List[Dict[str, Any]]
+) -> Tuple[
+    List[Dict[str, Any]],
+    List[Dict[str, Any]]
+]:
+    """
+    Devuelve:
+
+        deduplicadas
+        publication_review
+
+    Duplicados fuertes se fusionan automáticamente.
+
+    Duplicados difusos:
+        AUTO_MERGE_FUZZY=False -> revisión
+        AUTO_MERGE_FUZZY=True  -> fusión
+    """
+    by_strong_key = {}
+    by_fallback_key = {}
+
+    deduplicated = []
+    review = []
+
+    # ------------------------------------------------------------
+    # Primera pasada: DOI / PMID / PMCID.
+    # ------------------------------------------------------------
+
+    for publication in publications:
+        strong_key = publication_strong_key(
+            publication
+        )
+
+        if strong_key:
+            if strong_key in by_strong_key:
+                index = by_strong_key[
+                    strong_key
+                ]
+
+                deduplicated[index] = merge_publications(
+                    deduplicated[index],
+                    publication,
+                )
+
+                continue
+
+            by_strong_key[strong_key] = len(
+                deduplicated
+            )
+
+        deduplicated.append(
+            publication
+        )
+
+    # ------------------------------------------------------------
+    # Segunda pasada: título + año + autores.
+    # ------------------------------------------------------------
+
+    final_publications = []
+
+    for publication in deduplicated:
+        fallback_key = publication_fallback_key(
+            publication
+        )
+
+        if (
+            fallback_key
+            and fallback_key in by_fallback_key
+        ):
+            index = by_fallback_key[
+                fallback_key
+            ]
+
+            final_publications[index] = merge_publications(
+                final_publications[index],
+                publication,
+            )
+
+        else:
+            index = len(final_publications)
+
+            if fallback_key:
+                by_fallback_key[
+                    fallback_key
+                ] = index
+
+            final_publications.append(
+                publication
+            )
+
+    # ------------------------------------------------------------
+    # Tercera pasada: fuzzy.
+    # ------------------------------------------------------------
+
+    if len(final_publications) > 1:
+        merged_indices = set()
+
+        for i in range(
+            len(final_publications)
+        ):
+            if i in merged_indices:
+                continue
+
+            p1 = final_publications[i]
+
+            title1 = p1.get(
+                "title",
+                "",
+            )
+
+            year1 = extract_year(
+                p1.get("year", "")
+                or p1.get("date", "")
+            )
+
+            for j in range(
+                i + 1,
+                len(final_publications)
+            ):
+                if j in merged_indices:
+                    continue
+
+                p2 = final_publications[j]
+
+                title2 = p2.get(
+                    "title",
+                    "",
+                )
+
+                year2 = extract_year(
+                    p2.get("year", "")
+                    or p2.get("date", "")
+                )
+
+                # Si hay año en ambos y no coincide,
+                # no consideramos fuzzy.
+                if (
+                    year1
+                    and year2
+                    and year1 != year2
+                ):
+                    continue
+
+                similarity = title_similarity(
+                    title1,
+                    title2,
+                )
+
+                if (
+                    similarity
+                    < FUZZY_TITLE_THRESHOLD
+                ):
+                    continue
+
+                overlap = author_overlap(
+                    p1,
+                    p2,
+                )
+
+                if (
+                    overlap
+                    < MIN_AUTHOR_OVERLAP_FOR_FUZZY
+                ):
+                    continue
+
+                review_item = {
+                    "reason": "fuzzy_duplicate_candidate",
+                    "similarity": round(
+                        similarity,
+                        4,
+                    ),
+                    "author_overlap": round(
+                        overlap,
+                        4,
+                    ),
+                    "publication_a": {
+                        "title": p1.get(
+                            "title",
+                            "",
+                        ),
+                        "year": year1,
+                        "doi": p1.get(
+                            "doi",
+                            "",
+                        ),
+                        "authors": p1.get(
+                            "authors",
+                            [],
+                        ),
+                    },
+                    "publication_b": {
+                        "title": p2.get(
+                            "title",
+                            "",
+                        ),
+                        "year": year2,
+                        "doi": p2.get(
+                            "doi",
+                            "",
+                        ),
+                        "authors": p2.get(
+                            "authors",
+                            [],
+                        ),
+                    },
+                    "auto_merged": AUTO_MERGE_FUZZY,
+                }
+
+                review.append(
+                    review_item
+                )
+
+                if AUTO_MERGE_FUZZY:
+                    final_publications[i] = merge_publications(
+                        final_publications[i],
+                        final_publications[j],
+                    )
+
+                    merged_indices.add(j)
+
+        if merged_indices:
+            final_publications = [
+                p
+                for index, p in enumerate(
+                    final_publications
+                )
+                if index not in merged_indices
+            ]
+
+    return final_publications, review
+
+
+# ============================================================================
+# AUTOR REVIEW
+# ============================================================================
+
+def build_author_reports(
+    registry: Dict[str, Dict[str, Any]]
+) -> Tuple[
+    Dict[str, Any],
+    List[Dict[str, Any]]
+]:
+    variants = {}
+    review = []
+
+    for author_id, record in registry.items():
+        canonical = record.get(
+            "canonical_name",
+            "",
+        )
+
+        author_variants = record.get(
+            "variants",
+            [],
+        )
+
+        variants[author_id] = {
+            "author_id": author_id,
+            "canonical_name": canonical,
+            "orcid": record.get(
+                "orcid",
+                "",
+            ),
+            "variants": author_variants,
+        }
+
+        identity_keys = defaultdict(
+            list
+        )
+
+        for variant in author_variants:
+            identity_keys[
+                author_identity_key(variant)
+            ].append(
+                variant
+            )
+
+        for identity_key, names in identity_keys.items():
+            if len(names) <= 1:
+                continue
+
+            if not identity_key:
+                continue
+
+            review.append({
+                "author_id": author_id,
+                "canonical_name": canonical,
+                "identity_key": identity_key,
+                "variants": names,
+            })
+
+    return variants, review
+
+
+# ============================================================================
 # BIBTEX
-# ============================================================
+# ============================================================================
 
-def bibtex_escape(text):
-    """
-    Escapa caracteres problemáticos para BibTeX.
-
-    IMPORTANTE:
-    No escapamos las letras acentuadas porque el archivo
-    se guarda como UTF-8.
-    """
-
-    if text is None:
+def bibtex_escape(value: str) -> str:
+    if not value:
         return ""
 
-    text = str(text)
+    value = str(value)
 
     replacements = {
-        "\\": r"\textbackslash{}",
-        "{": r"\{",
-        "}": r"\}",
-        "&": r"\&",
-        "%": r"\%",
-        "#": r"\#",
-        "_": r"\_",
+        "\\": "\\textbackslash{}",
+        "{": "\\{",
+        "}": "\\}",
+        "&": "\\&",
+        "%": "\\%",
+        "#": "\\#",
+        "_": "\\_",
     }
 
-    for old, new in replacements.items():
-        text = text.replace(
+    # Evitar escapar dos veces las llaves generadas.
+    value = value.replace(
+        "\\",
+        "\\textbackslash{}"
+    )
+
+    for old, new in [
+        ("&", "\\&"),
+        ("%", "\\%"),
+        ("#", "\\#"),
+        ("_", "\\_"),
+    ]:
+        value = value.replace(
             old,
             new,
         )
 
-    return text
+    return value
 
 
-def bibtex_key_base(pub):
+def bibtex_author_name(
+    name: str
+) -> str:
     """
-    Genera la parte principal de una clave BibTeX.
+    Para BibTeX preferimos conservar:
+
+        Apellido, Iniciales
+
+    cuando ya viene en ese formato.
     """
-
-    authors = pub.get(
-        "authors"
-    ) or []
-
-    if authors:
-
-        first_author = authors[0]
-
-        if "," in first_author:
-            first_author = (
-                first_author.split(
-                    ",",
-                    1,
-                )[0]
-            )
-
-        first_author = re.sub(
-            r"[^A-Za-z0-9]",
-            "",
-            first_author,
-        )
-
-    else:
-        first_author = "Author"
-
-    year = (
-        pub.get("year")
-        or "nd"
+    name = canonicalize_author_display(
+        name
     )
 
-    doi = normalize_doi(
-        pub.get("doi")
+    if "," in name:
+        return name
+
+    surname, given = author_name_parts(
+        name
     )
 
-    if doi:
+    if surname and given:
+        return f"{surname}, {given}"
 
-        suffix = re.sub(
-            r"[^A-Za-z0-9]",
-            "",
-            doi,
-        )
-
-        suffix = suffix[-12:]
-
-        return (
-            f"{first_author}"
-            f"{year}"
-            f"{suffix}"
-        )
-
-    title = normalize_title(
-        pub.get("title")
-    )
-
-    title_words = re.findall(
-        r"[a-z0-9]+",
-        title,
-    )
-
-    title_suffix = "".join(
-        word[:4]
-        for word in title_words[:3]
-    )
-
-    return (
-        f"{first_author}"
-        f"{year}"
-        f"{title_suffix}"
-    )
+    return name
 
 
 def make_bibtex_key(
-    pub,
-    index,
-    used_keys=None,
-):
-    """
-    Genera una clave BibTeX estable.
-
-    Si ya existe, añade un sufijo numérico para garantizar
-    que nunca haya dos claves iguales dentro del archivo.
-    """
-
-    if used_keys is None:
-        used_keys = set()
-
-    base = bibtex_key_base(
-        pub
+    publication: Dict[str, Any],
+    used_keys: set,
+) -> str:
+    authors = publication.get(
+        "author_records",
+        [],
     )
 
-    key = base
+    first_author = ""
 
+    if authors:
+        first_author = authors[0].get(
+            "name",
+            "",
+        )
+
+    surname, _ = author_name_parts(
+        first_author
+    )
+
+    surname = normalize_unicode(
+        surname
+    )
+
+    surname = re.sub(
+        r"[^A-Za-z0-9]",
+        "",
+        surname,
+    )
+
+    surname = surname or "Unknown"
+
+    year = extract_year(
+        publication.get("year", "")
+        or publication.get("date", "")
+    )
+
+    year = year or "n.d."
+
+    title = normalize_key_text(
+        publication.get(
+            "title",
+            "",
+        )
+    )
+
+    words = title.split()
+
+    title_fragment = "".join(
+        words[:3]
+    )
+
+    title_fragment = re.sub(
+        r"[^a-zA-Z0-9]",
+        "",
+        title_fragment,
+    )
+
+    base = (
+        f"{surname}"
+        f"{year}"
+        f"{title_fragment}"
+    )
+
+    base = base[:70] or "publication"
+
+    key = base
     counter = 2
 
     while key in used_keys:
-
-        key = (
-            f"{base}"
-            f"_{counter}"
-        )
-
+        key = f"{base}_{counter}"
         counter += 1
 
-    used_keys.add(
-        key
-    )
+    used_keys.add(key)
 
     return key
 
 
 def publication_to_bibtex(
-    pub,
-    index,
-    used_keys,
-):
+    publication: Dict[str, Any],
+    used_keys: set,
+) -> str:
     key = make_bibtex_key(
-        pub,
-        index,
+        publication,
         used_keys,
     )
 
-    authors = pub.get(
-        "authors"
-    ) or []
-
-    author_text = " and ".join(
-        bibtex_escape(author)
-        for author in authors
+    authors = publication.get(
+        "author_records",
+        [],
     )
 
-    lines = [
+    author_string = " and ".join(
+        bibtex_author_name(
+            author["name"]
+        )
+        for author in authors
+        if author.get("name")
+    )
+
+    title = publication.get(
+        "title",
+        "",
+    )
+
+    year = extract_year(
+        publication.get("year", "")
+        or publication.get("date", "")
+    )
+
+    journal = publication.get(
+        "journal",
+        "",
+    )
+
+    doi = normalize_doi(
+        publication.get(
+            "doi",
+            "",
+        )
+    )
+
+    url_values = publication.get(
+        "url",
+        [],
+    )
+
+    url = ""
+
+    if isinstance(
+        url_values,
+        list
+    ) and url_values:
+        url = url_values[0]
+
+    fields = []
+
+    if author_string:
+        fields.append(
+            f"  author = {{{bibtex_escape(author_string)}}}"
+        )
+
+    if title:
+        fields.append(
+            f"  title = {{{bibtex_escape(title)}}}"
+        )
+
+    if journal:
+        fields.append(
+            f"  journal = {{{bibtex_escape(journal)}}}"
+        )
+
+    if year:
+        fields.append(
+            f"  year = {{{bibtex_escape(year)}}}"
+        )
+
+    if doi:
+        fields.append(
+            f"  doi = {{{bibtex_escape(doi)}}}"
+        )
+
+    if url:
+        fields.append(
+            f"  url = {{{bibtex_escape(url)}}}"
+        )
+
+    entry = [
         f"@inproceedings{{{key},",
+        *fields,
+        "}",
     ]
 
-    if pub.get("title"):
-        lines.append(
-            "  title = "
-            f"{{{bibtex_escape(pub['title'])}}},"
-        )
-
-    if author_text:
-        lines.append(
-            "  author = "
-            f"{{{author_text}}},"
-        )
-
-    if pub.get("journal"):
-        lines.append(
-            "  booktitle = "
-            f"{{{bibtex_escape(pub['journal'])}}},"
-        )
-
-    if pub.get("year"):
-        lines.append(
-            "  year = "
-            f"{{{bibtex_escape(pub['year'])}}},"
-        )
-
-    if pub.get("doi"):
-        lines.append(
-            "  doi = "
-            f"{{{bibtex_escape(pub['doi'])}}},"
-        )
-
-    if pub.get("url"):
-        lines.append(
-            "  url = "
-            f"{{{bibtex_escape(pub['url'])}}},"
-        )
-
-    lines.append("}")
-
-    return "\n".join(lines)
+    return "\n".join(entry)
 
 
-def save_bibtex(
-    publications,
-    filename,
-):
-    entries = []
-
+def write_bibtex(
+    publications: List[Dict[str, Any]]
+) -> None:
     used_keys = set()
 
-    for index, pub in enumerate(
-        publications,
-        start=1,
-    ):
+    entries = []
 
+    for publication in publications:
         entries.append(
             publication_to_bibtex(
-                pub,
-                index,
+                publication,
                 used_keys,
             )
         )
 
-    with open(
-        filename,
-        "w",
-        encoding="utf-8",
-    ) as file:
-
-        file.write(
-            "\n\n".join(entries)
-        )
-
-
-# ============================================================
-# INFORME DE VARIANTES DE AUTORES
-# ============================================================
-
-def save_author_review():
-    """Guarda casos de nombres con formato potencialmente ambiguo."""
-
-    data = sorted(
-        AUTHOR_REVIEW.values(),
-        key=lambda item: item.get("name", "").lower(),
+    content = (
+        "\n\n".join(entries)
+        + "\n"
     )
 
     with open(
-        OUTPUT_AUTHOR_REVIEW,
+        OUTPUT_BIB,
         "w",
         encoding="utf-8",
-    ) as file:  # noqa: PTH123
-        json.dump(
-            data,
-            file,
-            ensure_ascii=False,
-            indent=2,
-        )
-
-    return data
+    ) as f:
+        f.write(content)
 
 
-def save_author_variants(
-    filename
-):
-    """
-    Guarda únicamente las identidades que han presentado
-    más de una forma textual.
-    """
-
-    result = []
-
-    for normalized, names in AUTHOR_VARIANTS.items():
-
-        unique_names = sorted(
-            set(names)
-        )
-
-        if len(unique_names) <= 1:
-            continue
-
-        result.append({
-            "normalized": normalized,
-            "variants": unique_names,
-        })
-
-    result.sort(
-        key=lambda item:
-        item["normalized"]
-    )
-
-    save_json(
-        result,
-        filename,
-    )
-
-    return result
-
-
-# ============================================================
+# ============================================================================
 # HTML
-# ============================================================
+# ============================================================================
 
-def save_html(
-    publications,
-    filename,
-):
+def html_escape(value: Any) -> str:
+    return html.escape(
+        clean_text(value)
+    )
+
+
+def generate_html(
+    publications: List[Dict[str, Any]],
+    excluded: List[Dict[str, Any]],
+) -> None:
     rows = []
 
-    for pub in publications:
+    sorted_publications = sorted(
+        publications,
+        key=lambda p: (
+            extract_year(
+                p.get(
+                    "year",
+                    "",
+                )
+                or p.get(
+                    "date",
+                    "",
+                )
+            ),
+            normalize_title(
+                p.get(
+                    "title",
+                    "",
+                )
+            ),
+        ),
+        reverse=True,
+    )
 
-        title = html.escape(
-            pub.get("title")
-            or ""
+    for publication in sorted_publications:
+        authors = publication.get(
+            "authors",
+            [],
         )
 
-        journal = html.escape(
-            pub.get("journal")
-            or ""
+        author_text = "; ".join(
+            authors
         )
 
-        year = html.escape(
-            pub.get("year")
-            or ""
+        doi = normalize_doi(
+            publication.get(
+                "doi",
+                "",
+            )
         )
 
-        work_type = html.escape(
-            pub.get("type")
-            or ""
-        )
-
-        researcher = html.escape(
-            pub.get("researcher")
-            or ""
-        )
-
-        doi = pub.get(
-            "doi"
-        ) or ""
-
-        url = pub.get(
-            "url"
-        ) or ""
+        doi_html = ""
 
         if doi:
-
-            doi_url = (
-                "https://doi.org/"
-                + quote(doi)
-            )
-
             doi_html = (
-                f'<a href="'
-                f'{html.escape(doi_url)}" '
-                f'target="_blank" '
-                f'rel="noopener">'
-                f'{html.escape(doi)}'
+                f'<a href="https://doi.org/'
+                f'{html_escape(doi)}">'
+                f'{html_escape(doi)}'
                 f'</a>'
             )
 
-        else:
-            doi_html = ""
+        sources = publication.get(
+            "orcid_sources",
+            [],
+        )
 
-        if url:
-
-            url_html = (
-                f'<a href="'
-                f'{html.escape(url)}" '
-                f'target="_blank" '
-                f'rel="noopener">'
-                "Enlace"
-                "</a>"
+        source_text = "; ".join(
+            clean_text(
+                source.get(
+                    "researcher_name",
+                    "",
+                )
             )
-
-        else:
-            url_html = ""
+            for source in sources
+            if source.get(
+                "researcher_name"
+            )
+        )
 
         rows.append(
             "<tr>"
-            f"<td>{researcher}</td>"
-            f"<td>{title}</td>"
-            f"<td>{journal}</td>"
-            f"<td>{year}</td>"
-            f"<td>{work_type}</td>"
+            f"<td>{html_escape(publication.get('year', ''))}</td>"
+            f"<td>{html_escape(publication.get('title', ''))}</td>"
+            f"<td>{html_escape(author_text)}</td>"
+            f"<td>{html_escape(publication.get('journal', ''))}</td>"
             f"<td>{doi_html}</td>"
-            f"<td>{url_html}</td>"
+            f"<td>{html_escape(source_text)}</td>"
+            "</tr>"
+        )
+
+    excluded_rows = []
+
+    for publication in excluded:
+        excluded_rows.append(
+            "<tr>"
+            f"<td>{html_escape(publication.get('year', ''))}</td>"
+            f"<td>{html_escape(publication.get('title', ''))}</td>"
+            f"<td>{html_escape(publication.get('reason', ''))}</td>"
             "</tr>"
         )
 
     document = f"""<!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport"
-      content="width=device-width, initial-scale=1">
-<title>Comunicaciones de congresos</title>
-
+<meta charset="utf-8">
+<title>Publicaciones de congresos</title>
 <style>
 body {{
     font-family: Arial, sans-serif;
     margin: 30px;
+    color: #222;
+}}
+
+h1, h2 {{
+    margin-top: 30px;
 }}
 
 table {{
     border-collapse: collapse;
     width: 100%;
+    margin-bottom: 40px;
 }}
 
 th, td {{
     border: 1px solid #ccc;
     padding: 8px;
     vertical-align: top;
-    text-align: left;
 }}
 
 th {{
     background: #eee;
 }}
 
-a {{
-    overflow-wrap: anywhere;
+tr:nth-child(even) {{
+    background: #f8f8f8;
+}}
+
+.small {{
+    color: #666;
+    font-size: 0.9em;
 }}
 </style>
 </head>
 
 <body>
 
-<h1>Comunicaciones de congresos</h1>
+<h1>Publicaciones de congresos</h1>
+
+<p class="small">
+Generado automáticamente:
+{html_escape(datetime.now().isoformat())}
+</p>
+
+<p>
+Total publicaciones:
+<strong>{len(publications)}</strong>
+</p>
 
 <table>
-
 <thead>
 <tr>
-<th>Investigador</th>
-<th>Título</th>
-<th>Congreso o publicación</th>
 <th>Año</th>
-<th>Tipo ORCID</th>
+<th>Título</th>
+<th>Autores</th>
+<th>Revista / Proceedings</th>
 <th>DOI</th>
-<th>URL</th>
+<th>Investigador ORCID</th>
 </tr>
 </thead>
 
 <tbody>
-{"".join(rows)}
+{''.join(rows)}
 </tbody>
+</table>
 
+<h2>Publicaciones excluidas</h2>
+
+<table>
+<thead>
+<tr>
+<th>Año</th>
+<th>Título</th>
+<th>Motivo</th>
+</tr>
+</thead>
+
+<tbody>
+{''.join(excluded_rows)}
+</tbody>
 </table>
 
 </body>
@@ -2306,537 +2659,678 @@ a {{
 """
 
     with open(
-        filename,
+        OUTPUT_HTML,
         "w",
         encoding="utf-8",
-    ) as file:
-
-        file.write(
-            document
-        )
+    ) as f:
+        f.write(document)
 
 
-# ============================================================
-# INVESTIGADORES
-# ============================================================
+# ============================================================================
+# CARGA DE INVESTIGADORES
+# ============================================================================
 
 def load_researchers(
-    filename
-):
-    with open(
-        filename,
-        "r",
-        encoding="utf-8",
-    ) as file:
+    path: str
+) -> List[Dict[str, Any]]:
+    data = load_json(
+        path,
+        [],
+    )
 
-        data = json.load(
-            file
-        )
-
-    if isinstance(
-        data,
-        dict,
-    ):
-
-        for key in (
-            "researchers",
-            "investigadores",
-            "people",
+    if isinstance(data, dict):
+        # Soportar formatos:
+        #
+        # {"researchers": [...]}
+        #
+        if isinstance(
+            data.get("researchers"),
+            list,
         ):
-
-            if key in data:
-
-                data = data[
-                    key
-                ]
-
-                break
+            data = data["researchers"]
+        else:
+            data = [data]
 
     if not isinstance(
         data,
         list,
     ):
-
         raise ValueError(
-            "researchers1.json debe contener "
-            "una lista de investigadores."
+            f"{path} no contiene una lista de investigadores."
         )
 
     return data
 
 
-def get_researcher_name(
-    researcher
-):
-    if not isinstance(
-        researcher,
-        dict,
-    ):
-        return "Investigador"
-
-    for key in (
-        "name",
-        "nombre",
-        "full_name",
-        "fullname",
-    ):
-
-        if researcher.get(
-            key
-        ):
-
-            return clean_text(
-                researcher[key]
-            )
-
-    return "Investigador"
+def researcher_name(
+    researcher: Dict[str, Any]
+) -> str:
+    return first_non_empty(
+        researcher.get("name"),
+        researcher.get("full_name"),
+        researcher.get("display_name"),
+    )
 
 
-def get_researcher_orcid(
-    researcher
-):
-    if not isinstance(
-        researcher,
-        dict,
-    ):
-        return ""
-
-    for key in (
-        "orcid",
-        "ORCID",
-        "orcid_id",
-        "orcidId",
-    ):
-
-        value = researcher.get(
-            key
+def researcher_orcid(
+    researcher: Dict[str, Any]
+) -> str:
+    return normalize_orcid(
+        first_non_empty(
+            researcher.get("orcid"),
+            researcher.get("ORCID"),
+            researcher.get("id"),
         )
-
-        if value:
-
-            value = clean_text(
-                value
-            )
-
-            value = re.sub(
-                r"^https?://orcid\.org/",
-                "",
-                value,
-                flags=re.IGNORECASE,
-            )
-
-            return value.strip()
-
-    return ""
+    )
 
 
-# ============================================================
-# PROCESAR INVESTIGADOR
-# ============================================================
+# ============================================================================
+# PROCESAMIENTO
+# ============================================================================
 
 def process_researcher(
-    researcher,
-    position,
-    total,
-):
-
-    name = get_researcher_name(
+    researcher: Dict[str, Any],
+    token: str,
+    registry: Dict[str, Dict[str, Any]],
+    overrides: Dict[str, Any],
+) -> Tuple[
+    List[Dict[str, Any]],
+    List[Dict[str, Any]]
+]:
+    name = researcher_name(
         researcher
     )
 
-    orcid = get_researcher_orcid(
+    orcid = researcher_orcid(
         researcher
-    )
-
-    print()
-    print(
-        f"[{position}/{total}] "
-        f"{name}"
-    )
-
-    print(
-        f"      ORCID: {orcid}"
     )
 
     if not orcid:
-
-        print(
-            "      ERROR: investigador "
-            "sin ORCID."
+        logger.warning(
+            "Investigador sin ORCID: %s",
+            name,
         )
 
-        return []
+        return [], []
 
-    groups = get_orcid_work_groups(
-        orcid
+    logger.info(
+        "Procesando %s (%s)",
+        name,
+        orcid,
     )
 
-    summaries = extract_all_summaries(
-        groups
+    works = fetch_orcid_works(
+        orcid,
+        token,
     )
 
-    print(
-        f"      Work summaries: "
-        f"{len(summaries)}"
+    logger.info(
+        "  Works encontrados: %d",
+        len(works),
     )
 
     publications = []
+    excluded = []
 
-    total_summaries = len(
-        summaries
-    )
-
-    for index, summary in enumerate(
-        summaries,
-        start=1,
-    ):
-
-        put_code = summary.get(
-            "put-code"
+    for group in works:
+        summaries = safe_get(
+            group,
+            "work-summary",
+            default=[],
         )
 
-        if put_code is None:
+        if not isinstance(
+            summaries,
+            list,
+        ):
             continue
 
-        if (
-            index == 1
-            or index % 25 == 0
-            or index == total_summaries
-        ):
-
-            print(
-                f"      Obras: "
-                f"{index}/"
-                f"{total_summaries}"
+        for summary in summaries:
+            put_code = clean_text(
+                safe_get(
+                    summary,
+                    "put-code",
+                    default="",
+                )
             )
 
-        work = get_orcid_work(
-            orcid,
-            put_code,
-        )
+            # Intentamos obtener el detalle completo.
+            detail = None
 
-        if work is None:
-            work = summary
+            if put_code:
+                detail = fetch_orcid_work_detail(
+                    orcid,
+                    put_code,
+                    token,
+                )
 
-        try:
+            work = detail or summary
 
-            pub = work_to_publication(
-                work,
-                summary,
+            publication = extract_publication_from_work(
+                work=work,
                 researcher_name=name,
                 researcher_orcid=orcid,
+                registry=registry,
+                overrides=overrides,
+                put_code=put_code,
             )
 
-            pub["researcher"] = name
-            pub["orcid"] = orcid
-
-            publications.append(
-                pub
+            is_conference, reason = (
+                classify_conference_work(
+                    publication
+                )
             )
 
-        except Exception as error:
-
-            print(
-                f"      AVISO: error "
-                f"procesando put-code "
-                f"{put_code}: {error}"
+            publication["conference_classification"] = (
+                reason
             )
 
-    print(
-        f"      Obras recuperadas: "
-        f"{len(publications)}"
-    )
+            if is_conference:
+                publications.append(
+                    publication
+                )
+            else:
+                excluded_record = dict(
+                    publication
+                )
 
-    return publications
+                excluded_record[
+                    "reason"
+                ] = reason
+
+                excluded.append(
+                    excluded_record
+                )
+
+    return publications, excluded
 
 
-# ============================================================
-# GUARDAR JSON
-# ============================================================
+# ============================================================================
+# NORMALIZACIÓN FINAL
+# ============================================================================
 
-def save_json(
-    data,
-    filename,
-):
-    with open(
-        filename,
-        "w",
-        encoding="utf-8",
-    ) as file:
+def normalize_publication_records(
+    publications: List[Dict[str, Any]]
+) -> List[Dict[str, Any]]:
+    result = []
 
-        json.dump(
-            data,
-            file,
-            ensure_ascii=False,
-            indent=2,
+    for publication in publications:
+        record = dict(publication)
+
+        record["title"] = clean_text(
+            record.get(
+                "title",
+                "",
+            )
         )
 
+        record["journal"] = clean_text(
+            record.get(
+                "journal",
+                "",
+            )
+        )
 
-# ============================================================
+        record["date"] = clean_text(
+            record.get(
+                "date",
+                "",
+            )
+        )
+
+        record["year"] = extract_year(
+            record.get(
+                "year",
+                "",
+            )
+            or record.get(
+                "date",
+                "",
+            )
+        )
+
+        record["doi"] = normalize_doi(
+            record.get(
+                "doi",
+                "",
+            )
+        )
+
+        record["pmid"] = normalize_identifier(
+            record.get(
+                "pmid",
+                "",
+            )
+        )
+
+        record["pmcid"] = normalize_identifier(
+            record.get(
+                "pmcid",
+                "",
+            )
+        )
+
+        # Autores.
+        records = []
+
+        for author in record.get(
+            "author_records",
+            [],
+        ):
+            if isinstance(
+                author,
+                str,
+            ):
+                author = {
+                    "name": author
+                }
+
+            name = clean_text(
+                author.get(
+                    "name",
+                    "",
+                )
+            )
+
+            if not name:
+                continue
+
+            records.append({
+                "name": name,
+                "orcid": normalize_orcid(
+                    author.get(
+                        "orcid",
+                        "",
+                    )
+                ),
+                "author_id": clean_text(
+                    author.get(
+                        "author_id",
+                        "",
+                    )
+                ),
+            })
+
+        records = deduplicate_authors(
+            records
+        )
+
+        record["author_records"] = records
+
+        record["authors"] = [
+            author["name"]
+            for author in records
+            if author.get("name")
+        ]
+
+        # URLs.
+        urls = record.get(
+            "url",
+            [],
+        )
+
+        if isinstance(
+            urls,
+            str,
+        ):
+            urls = [urls]
+
+        record["url"] = list(
+            dict.fromkeys(
+                clean_text(url)
+                for url in urls
+                if clean_text(url)
+            )
+        )
+
+        result.append(record)
+
+    return result
+
+
+# ============================================================================
+# ORDENACIÓN
+# ============================================================================
+
+def sort_publications(
+    publications: List[Dict[str, Any]]
+) -> List[Dict[str, Any]]:
+    return sorted(
+        publications,
+        key=lambda p: (
+            -(int(
+                extract_year(
+                    p.get(
+                        "year",
+                        "",
+                    )
+                    or p.get(
+                        "date",
+                        "",
+                    )
+                )
+                or 0
+            )),
+            normalize_title(
+                p.get(
+                    "title",
+                    "",
+                )
+            ),
+        )
+    )
+
+
+# ============================================================================
+# JSON FINAL
+# ============================================================================
+
+def make_final_json_records(
+    publications: List[Dict[str, Any]]
+) -> List[Dict[str, Any]]:
+    """
+    Prepara la salida pública.
+
+    Conserva:
+        authors
+        author_records
+
+    para que el .json siga siendo cómodo de usar,
+    pero sin perder los IDs persistentes.
+    """
+    result = []
+
+    for publication in publications:
+        record = dict(publication)
+
+        # Normalización de campos internos.
+        record["authors"] = [
+            author["name"]
+            for author in record.get(
+                "author_records",
+                []
+            )
+            if author.get("name")
+        ]
+
+        result.append(record)
+
+    return result
+
+
+# ============================================================================
+# ESTADÍSTICAS
+# ============================================================================
+
+def print_statistics(
+    publications: List[Dict[str, Any]],
+    excluded: List[Dict[str, Any]],
+    registry: Dict[str, Dict[str, Any]],
+    review: List[Dict[str, Any]],
+) -> None:
+    doi_count = sum(
+        bool(
+            normalize_doi(
+                p.get("doi", "")
+            )
+        )
+        for p in publications
+    )
+
+    print()
+    print("=" * 70)
+    print("RESUMEN")
+    print("=" * 70)
+    print(
+        f"Publicaciones de congresos : {len(publications)}"
+    )
+    print(
+        f"Publicaciones excluidas    : {len(excluded)}"
+    )
+    print(
+        f"Autores persistentes       : {len(registry)}"
+    )
+    print(
+        f"Candidatos fuzzy a revisar : {len(review)}"
+    )
+    print(
+        f"Publicaciones con DOI      : {doi_count}"
+    )
+    print("=" * 70)
+    print()
+
+
+# ============================================================================
 # MAIN
-# ============================================================
+# ============================================================================
 
-def main():
+def main() -> None:
+    logger.info(
+        "Iniciando pipeline ORCID..."
+    )
 
-    start_time = time.time()
+    # ------------------------------------------------------------
+    # Token.
+    # ------------------------------------------------------------
+
+    token = get_access_token()
+
+    # ------------------------------------------------------------
+    # Investigadores.
+    # ------------------------------------------------------------
 
     researchers = load_researchers(
         INPUT_FILE
     )
 
-    print(
-        f"Investigadores encontrados: "
-        f"{len(researchers)}"
+    logger.info(
+        "Investigadores cargados: %d",
+        len(researchers),
     )
 
+    # ------------------------------------------------------------
+    # Memoria persistente.
+    # ------------------------------------------------------------
+
+    registry = load_author_registry()
+
+    overrides = load_author_overrides()
+
+    # Creamos el fichero de overrides aunque todavía esté vacío.
+    save_author_overrides(
+        overrides
+    )
+
+    # ------------------------------------------------------------
+    # Procesar investigadores.
+    # ------------------------------------------------------------
+
     all_publications = []
+    all_excluded = []
 
-    # --------------------------------------------------------
-    # Recuperar publicaciones
-    # --------------------------------------------------------
-
-    for position, researcher in enumerate(
-        researchers,
-        start=1,
-    ):
-
-        publications = process_researcher(
-            researcher,
-            position,
-            len(researchers),
+    for researcher in researchers:
+        publications, excluded = (
+            process_researcher(
+                researcher=researcher,
+                token=token,
+                registry=registry,
+                overrides=overrides,
+            )
         )
 
         all_publications.extend(
             publications
         )
 
-    print()
-    print(
-        "=" * 70
-    )
-    print(
-        "PROCESAMIENTO TERMINADO"
-    )
-    print(
-        "=" * 70
+        all_excluded.extend(
+            excluded
+        )
+
+    # ------------------------------------------------------------
+    # Guardar memoria de autores.
+    # ------------------------------------------------------------
+
+    save_author_registry(
+        registry
     )
 
-    print(
-        f"Trabajos recuperados de ORCID: "
-        f"{len(all_publications)}"
+    # ------------------------------------------------------------
+    # Normalizar.
+    # ------------------------------------------------------------
+
+    all_publications = (
+        normalize_publication_records(
+            all_publications
+        )
     )
 
-    # --------------------------------------------------------
-    # Guardar absolutamente todo lo recuperado
-    # --------------------------------------------------------
+    all_excluded = (
+        normalize_publication_records(
+            all_excluded
+        )
+    )
+
+    # ------------------------------------------------------------
+    # Guardar TODAS las publicaciones de ORCID antes de
+    # deduplicar, útil para auditoría.
+    # ------------------------------------------------------------
 
     save_json(
-        all_publications,
         OUTPUT_ALL,
+        all_publications,
     )
 
-    # --------------------------------------------------------
-    # Informe de variantes de autores
-    # --------------------------------------------------------
+    # ------------------------------------------------------------
+    # Deduplicar publicaciones.
+    # ------------------------------------------------------------
 
-    author_variants = save_author_variants(
-        OUTPUT_AUTHOR_VARIANTS
+    logger.info(
+        "Deduplicando publicaciones..."
     )
 
-    author_review = save_author_review()
-
-    print(
-        f"Variantes de autores detectadas: "
-        f"{len(author_variants)}"
-    )
-
-    # --------------------------------------------------------
-    # Deduplicación
-    # --------------------------------------------------------
-
-    unique_publications = (
+    publications, publication_review = (
         deduplicate_publications(
             all_publications
         )
     )
 
-    print(
-        f"Trabajos después de deduplicar: "
-        f"{len(unique_publications)}"
+    publications = sort_publications(
+        publications
     )
 
-    # --------------------------------------------------------
-    # Clasificación
-    # --------------------------------------------------------
-
-    conferences = []
-    excluded = []
-
-    for pub in unique_publications:
-
-        if looks_like_conference(
-            pub
-        ):
-
-            conferences.append(
-                pub
-            )
-
-        else:
-
-            excluded.append(
-                pub
-            )
-
-    # --------------------------------------------------------
-    # Guardar resultados
-    # --------------------------------------------------------
+    # ------------------------------------------------------------
+    # Guardar revisión de publicaciones.
+    # ------------------------------------------------------------
 
     save_json(
-        excluded,
-        OUTPUT_EXCLUDED,
+        OUTPUT_PUBLICATION_REVIEW,
+        publication_review,
+    )
+
+    # ------------------------------------------------------------
+    # JSON principal.
+    # ------------------------------------------------------------
+
+    final_records = (
+        make_final_json_records(
+            publications
+        )
     )
 
     save_json(
-        conferences,
         OUTPUT_JSON,
+        final_records,
     )
 
-    save_bibtex(
-        conferences,
-        OUTPUT_BIB,
+    # ------------------------------------------------------------
+    # JSON de excluidas.
+    # ------------------------------------------------------------
+
+    save_json(
+        OUTPUT_EXCLUDED,
+        all_excluded,
     )
 
-    save_html(
-        conferences,
-        OUTPUT_HTML,
+    # ------------------------------------------------------------
+    # Variantes y revisión de autores.
+    # ------------------------------------------------------------
+
+    author_variants, author_review = (
+        build_author_reports(
+            registry
+        )
     )
 
-    # --------------------------------------------------------
-    # Tiempo
-    # --------------------------------------------------------
-
-    elapsed = (
-        time.time()
-        - start_time
+    save_json(
+        OUTPUT_AUTHOR_VARIANTS,
+        author_variants,
     )
 
-    print()
-    print(
-        "=" * 70
-    )
-    print(
-        "RESULTADOS"
-    )
-    print(
-        "=" * 70
+    save_json(
+        OUTPUT_AUTHOR_REVIEW,
+        author_review,
     )
 
-    print(
-        f"Trabajos ORCID:        "
-        f"{len(all_publications)}"
+    # ------------------------------------------------------------
+    # BibTeX.
+    # ------------------------------------------------------------
+
+    logger.info(
+        "Generando BibTeX..."
     )
 
-    print(
-        f"Tras deduplicación:    "
-        f"{len(unique_publications)}"
+    write_bibtex(
+        publications
     )
 
-    print(
-        f"Congresos incluidos:   "
-        f"{len(conferences)}"
+    # ------------------------------------------------------------
+    # HTML.
+    # ------------------------------------------------------------
+
+    logger.info(
+        "Generando HTML..."
     )
 
-    print(
-        f"Trabajos excluidos:    "
-        f"{len(excluded)}"
+    generate_html(
+        publications,
+        all_excluded,
     )
 
-    print(
-        f"Variantes de autores:  "
-        f"{len(author_variants)}"
+    # ------------------------------------------------------------
+    # Estadísticas.
+    # ------------------------------------------------------------
+
+    print_statistics(
+        publications=publications,
+        excluded=all_excluded,
+        registry=registry,
+        review=publication_review,
     )
 
-    print(
-        f"Revisiones de autores:  "
-        f"{len(author_review)}"
+    logger.info(
+        "Pipeline terminado correctamente."
     )
 
-    print(
-        f"Tiempo total:          "
-        f"{elapsed:.1f} segundos"
-    )
-
-    print()
     print(
         "Archivos generados:"
     )
 
-    print(
-        f"  - {OUTPUT_ALL}"
-    )
+    for path in [
+        OUTPUT_JSON,
+        OUTPUT_ALL,
+        OUTPUT_EXCLUDED,
+        OUTPUT_HTML,
+        OUTPUT_BIB,
+        OUTPUT_AUTHOR_VARIANTS,
+        OUTPUT_AUTHOR_REVIEW,
+        OUTPUT_AUTHOR_REGISTRY,
+        OUTPUT_AUTHOR_OVERRIDES,
+        OUTPUT_PUBLICATION_REVIEW,
+    ]:
+        print(
+            f"  - {path}"
+        )
 
-    print(
-        f"  - {OUTPUT_EXCLUDED}"
-    )
-
-    print(
-        f"  - {OUTPUT_JSON}"
-    )
-
-    print(
-        f"  - {OUTPUT_BIB}"
-    )
-
-    print(
-        f"  - {OUTPUT_HTML}"
-    )
-
-    print(
-        f"  - {OUTPUT_AUTHOR_VARIANTS}"
-    )
-
-    print(
-        f"  - {OUTPUT_AUTHOR_REVIEW}"
-    )
-
-    print()
-    print(
-        "IMPORTANTE:"
-    )
-
-    print(
-        f"Si una publicación aparece en "
-        f"{OUTPUT_ALL} pero no en "
-        f"{OUTPUT_BIB}, ha sido excluida "
-        "por la clasificación."
-    )
-
-    print(
-        f"Si no aparece en "
-        f"{OUTPUT_ALL}, el problema "
-        "está en la recuperación desde ORCID."
-    )
-
-    print(
-        "El archivo "
-        f"{OUTPUT_AUTHOR_VARIANTS} "
-        "contiene las variantes de nombres "
-        "detectadas durante la ejecución."
-    )
-
-    print(
-        "El archivo "
-        f"{OUTPUT_AUTHOR_REVIEW} "
-        "contiene únicamente nombres con formato "
-        "potencialmente ambiguo para revisión manual; "
-        "el script no los modifica por suposiciones."
-    )
-
-
-# ============================================================
-# EJECUCIÓN
-# ============================================================
 
 if __name__ == "__main__":
     main()
