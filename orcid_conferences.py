@@ -108,33 +108,51 @@ def strip_diacritics(text):
 
 def normalize_author_name(name_raw):
     """
-    Normaliza el nombre de un autor sin romper cadenas continuas.
-    1. Si coincide con un alias de la lista, asigna la forma canónica.
-    2. Si no, limpia espacios y aplica Title Case sin fragmentar palabras en iniciales.
+    Normaliza el nombre de un autor sin fragmentar palabras en iniciales:
+    1. Si coincide con un alias, devuelve la forma canónica.
+    2. Si no, aplica Title Case limpio respetando iniciales verdaderas y apellidos.
     """
     if not name_raw:
         return ""
 
-    # Limpieza básica de guiones y espacios dobles
+    # Limpieza básica
     name = str(name_raw).replace("-", " ")
     name = re.sub(r"\s+", " ", name).strip()
     
-    # Clave de búsqueda (sin tildes, minúsculas, sin puntuación)
+    # Búsqueda en alias (sin tildes, minúsculas, sin puntuación)
     key = strip_diacritics(name).lower()
     key = re.sub(r"[^\w\s]", "", key).strip()
 
-    # 1. Comprobar diccionario de alias
     if key in AUTHOR_ALIASES:
         return AUTHOR_ALIASES[key]
 
-    # 2. Formateo estándar (Title Case) respetando minúsculas en partículas nobiliarias
+    # Si viene con coma "APELLIDOS, NOMBRE"
+    if "," in name:
+        parts = name.split(",", 1)
+        surname = parts[0].strip()
+        first_name = parts[1].strip()
+        
+        # Formatear apellido
+        surname_words = [w.capitalize() if w.lower() not in ("de", "del", "la", "las", "los", "y") else w.lower() for w in surname.split()]
+        surname_formatted = " ".join(surname_words)
+        
+        # Formatear nombre/iniciales
+        first_words = []
+        for w in first_name.split():
+            if len(w) == 1 or (len(w) == 2 and w.endswith(".")):
+                first_words.append(w[0].upper() + ".")
+            else:
+                first_words.append(w.capitalize())
+        first_formatted = " ".join(first_words)
+        
+        return f"{surname_formatted}, {first_formatted}"
+
+    # Si viene sin coma "NOMBRE APELLIDOS"
     words = name.split()
     formatted_words = []
-    
     for word in words:
-        # Mantener iniciales aisladas como "F." o "M."
-        if len(word) <= 2 and word.endswith("."):
-            formatted_words.append(word.upper())
+        if len(word) == 1 or (len(word) == 2 and word.endswith(".")):
+            formatted_words.append(word[0].upper() + ".")
         elif word.lower() in ("de", "del", "la", "las", "los", "y"):
             formatted_words.append(word.lower())
         else:
