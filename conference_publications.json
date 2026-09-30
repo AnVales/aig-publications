@@ -11,7 +11,7 @@
     "pmcid": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85062895952&partnerID=MN8TOARS",
     "authors": [
-      "Martinez-Cortes, T.",
+      "Martínez-Cortés, T.",
       "González-Díaz, I.",
       "Díaz-de-María, F."
     ],
@@ -56,9 +56,9 @@
       "Fernández-Torres, M.-A.",
       "González-Díaz, I.",
       "Díaz-de-María, F.",
-      "Miguel-Angel Fernández-Torres",
-      "Ivan González-Díaz",
-      "Fernando Díaz-de-María"
+      "Miguel-Angel Fernandez-Torres",
+      "Ivan Gonzalez-Diaz",
+      "Fernando Diaz-de-Maria"
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
     "raw_type": "conference-paper",
@@ -77,10 +77,10 @@
     "pmcid": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84979879858&partnerID=MN8TOARS",
     "authors": [
-      "Garcia-Cabellos, J.M.",
+      "García-Cabellos, J.M.",
       "Peláez-Moreno, C.",
       "Gallardo-Antolín, A.",
-      "Perez-Cruz, F.",
+      "Pérez-Cruz, F.",
       "Díaz-de-María, F."
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
@@ -101,7 +101,7 @@
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84949928601&partnerID=MN8TOARS",
     "authors": [
       "Martínez-Cortés, T.",
-      "Fernández-Torres, M.A.",
+      "Fernández-Torres, M.-A.",
       "Jiménez-Moreno, A.",
       "González-Díaz, I.",
       "Díaz-de-María, F.",
@@ -168,8 +168,8 @@
       "González-Díaz, I.",
       "Díaz-de-María, F.",
       "E de-la-Calle-Silos",
-      "I. González-Díaz",
-      "E Díaz-de-María"
+      "I. Gonzalez-Diaz",
+      "E Diaz-de-Maria"
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
     "raw_type": "conference-paper",
@@ -188,7 +188,7 @@
     "pmcid": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84890546029&partnerID=MN8TOARS",
     "authors": [
-      "Jimenez-Moreno, A.",
+      "Jiménez-Moreno, A.",
       "Martínez-Enríquez, E.",
       "Díaz-de-María, F."
     ],
@@ -213,10 +213,10 @@
       "Baz-Hormigos, C.E.",
       "Berdonces, M.",
       "Díaz-de-María, F.",
-      "Ivan González-Díaz",
+      "Ivan Gonzalez-Diaz",
       "Carlos E. Baz-Hormigos",
       "Moises Berdonces",
-      "Fernando Díaz-de-María"
+      "Fernando Diaz-de-Maria"
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
     "raw_type": "conference-paper",
@@ -236,7 +236,7 @@
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84864073107&partnerID=MN8TOARS",
     "authors": [
       "De-Frutos-López, M.",
-      "Mejia-Ocana, A.B.",
+      "Mejía-Ocaña, A.B.",
       "Sanz-Rodríguez, S.",
       "Peláez-Moreno, C.",
       "Díaz-de-María, F.",
@@ -329,7 +329,7 @@
       "Mejía-Ocaña, A.B.",
       "De-Frutos-López, M.",
       "Sanz-Rodríguez, S.",
-      "Del-Ama-Esteban, Ó.",
+      "Del-Ama-Esteban, O.",
       "Peláez-Moreno, C.",
       "Díaz-de-María, F."
     ],
@@ -676,11 +676,11 @@
       "Adamek, T.",
       "O'Connor, N.E.",
       "Díaz-de-María, F.",
-      "Ivan González-Díaz",
+      "Ivan Gonzalez-Diaz",
       "Kevin McGuinness",
       "Tomasz Adamek",
       "Noel E. O'Connor",
-      "Fernando Díaz-de-María"
+      "Fernando Diaz-de-Maria"
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
     "raw_type": "conference-paper",
@@ -771,8 +771,8 @@
     "authors": [
       "González-Díaz, I.",
       "Díaz-de-María, F.",
-      "Ivan González-Díaz",
-      "Fernando Díaz-de-María"
+      "Ivan Gonzalez-Diaz",
+      "Fernando Diaz-de-Maria"
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
     "raw_type": "conference-paper",
@@ -1008,7 +1008,7 @@
     "pmcid": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-0028997025&partnerID=MN8TOARS",
     "authors": [
-      "Díaz-de-María, Fernando",
+      "Diaz-de-Maria, Fernando",
       "Figueiras-Vidal, Anibal R."
     ],
     "source": "{'value': 'Scopus - Elsevier'}",
@@ -1029,7 +1029,7 @@
     "url": "http://dx.doi.org/10.1109/eurocon56442.2023.10199054",
     "authors": [
       "Mahmoud Fakhry",
-      "Ascensión Gallardo-Antolín"
+      "Gallardo-Antolín, A."
     ],
     "source": "{'value': 'ASCENSIÓN GALLARDO-ANTOLÍN'}",
     "raw_type": "conference-paper",
@@ -1050,7 +1050,7 @@
     "authors": [
       "Mahmoud Fakhry",
       "Abeer FathAllah Brery",
-      "Ascension Gallardo-Antolín"
+      "Gallardo-Antolín, A."
     ],
     "source": "{'value': 'ASCENSIÓN GALLARDO-ANTOLÍN'}",
     "raw_type": "conference-paper",
@@ -1070,7 +1070,7 @@
     "url": "http://dx.doi.org/10.21437/iberspeech.2022-13",
     "authors": [
       "Noelia Salor-Burdalo",
-      "Ascension Gallardo-Antolín"
+      "Gallardo-Antolín, A."
     ],
     "source": "{'value': 'ASCENSIÓN GALLARDO-ANTOLÍN'}",
     "raw_type": "conference-paper",
@@ -1123,7 +1123,7 @@
     "pmcid": "",
     "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85040608648&partnerID=MN8TOARS",
     "authors": [
-      "Rodriguez-Hidalgo, A.",
+      "Rodríguez-Hidalgo, A.",
       "Peláez-Moreno, C.",
       "Gallardo-Antolín, A."
     ],
@@ -1385,7 +1385,7 @@
     "url": "http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&SrcAuth=ORCID&SrcApp=OrcidOrg&DestLinkType=FullRecord&DestApp=WOS_CPL&KeyUT=WOS:000185328600036&KeyUID=WOS:000185328600036",
     "authors": [
       "Díaz-de-María, F.",
-      "Vicente-Pena, J.",
+      "Vicente-Peña, J.",
       "Gallardo-Antolín, A.",
       "Peláez-Moreno, C.",
       "IEEE"
@@ -1818,10 +1818,10 @@
     "authors": [
       "Laparra, V.",
       "Piles, M.",
-      "Perez-Suay, A.",
-      "Munoz-Mari, J.",
-      "Amoros, J.",
-      "Fernandez-Moran, R.",
+      "Pérez-Suay, A.",
+      "Muñoz-Mari, J.",
+      "Amorós, J.",
+      "Fernández-Morán, R.",
       "Fernández-Torres, M.-A.",
       "Adsuara, J.E."
     ],
@@ -1848,11 +1848,11 @@
       "Laparra, V.",
       "Pascual-Venteo, A.B.",
       "Ruescas, A.B.",
-      "Fernandez-Moran, R.",
-      "Martinez-Garcia, M.",
+      "Fernández-Morán, R.",
+      "Martínez-García, M.",
       "Adsuara, J.E.",
-      "Amoros, J.",
-      "Munoz-Mari, J.",
+      "Amorós, J.",
+      "Muñoz-Mari, J.",
       "Epifanio, I.",
       "Fernández-Torres, M.-A."
     ],
