@@ -537,6 +537,97 @@ def normalize_author_for_match(name):
     return value
 
 
+def _initials_from_given_names(value):
+    """Obtiene iniciales de un nombre completo para comparar autores."""
+
+    if not value:
+        return ""
+
+    tokens = re.findall(
+        r"[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+",
+        value,
+    )
+
+    return "".join(
+        token[0].lower()
+        for token in tokens
+        if token
+    )
+
+
+def _surname_key(value):
+    """Normaliza un apellido únicamente para comparación."""
+
+    if not value:
+        return ""
+
+    value = _strip_diacritics(value).lower()
+    return re.sub(r"[^a-z0-9]", "", value)
+
+
+def _initials_key(value):
+    """Compara M.-A., M.A., M A y MA como la misma secuencia."""
+
+    if not value:
+        return ""
+
+    return re.sub(
+        r"[^a-záéíóúüñ]",
+        "",
+        _strip_diacritics(value).lower(),
+    )
+
+
+def author_identity_key(name):
+    """
+    Crea una identidad conservadora para detectar duplicados de autor
+    dentro de una misma publicación.
+
+    Acepta tanto:
+        Apellido, I.
+    como:
+        Nombre Completo Apellido
+
+    Solo considera equivalentes dos nombres cuando coinciden apellido
+    e iniciales. No se usa para modificar el nombre que sale en BibTeX.
+    """
+
+    if not name:
+        return ""
+
+    value = clean_text(name)
+
+    if not value:
+        return ""
+
+    if "," in value:
+        surname, initials = value.split(",", 1)
+        surname_key = _surname_key(surname)
+        initials_key = _initials_key(initials)
+
+        if surname_key and initials_key:
+            return f"{surname_key}|{initials_key}"
+
+        return normalize_author_for_match(value)
+
+    # Nombre completo sin coma: asumimos que el último bloque es el
+    # apellido. Esto funciona para los casos que ORCID está devolviendo
+    # aquí, incluidos apellidos con guiones.
+    parts = value.split()
+
+    if len(parts) >= 2:
+        surname = parts[-1]
+        given_names = " ".join(parts[:-1])
+
+        surname_key = _surname_key(surname)
+        initials_key = _initials_from_given_names(given_names)
+
+        if surname_key and initials_key:
+            return f"{surname_key}|{initials_key}"
+
+    return normalize_author_for_match(value)
+
+
 def register_author_variant(original_name, canonical_name):
     """
     Guarda las variantes observadas para poder generar
@@ -1329,7 +1420,7 @@ def work_to_publication(
 
     for author in canonical_authors:
 
-        author_key = normalize_author_for_match(
+        author_key = author_identity_key(
             author
         )
 
