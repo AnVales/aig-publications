@@ -1,13 +1,25 @@
+import os
 import sys
 import re
 
-INPUT_FILE = "tu_archivo.bib"       # <--- Pon aquí el nombre de tu archivo .bib original
-OUTPUT_FILE = "conferencias_final.bib"
+def find_input_bib_file():
+    """Busca automáticamente un archivo .bib en el directorio actual."""
+    candidates = ["conferencias.bib", "publicaciones.bib", "orcid_conferences.bib", "input.bib"]
+    for candidate in candidates:
+        if os.path.exists(candidate):
+            return candidate
+            
+    # Si no coincide con los nombres comunes, coge el primer .bib que encuentre
+    bib_files = [f for f in os.listdir('.') if f.endswith('.bib') and not f.endswith('_clean.bib') and not f.endswith('_final.bib')]
+    if bib_files:
+        return bib_files[0]
+        
+    return None
 
 def clean_author_name(author_str):
     """
     Normaliza cualquier cadena de autores al formato: 'Apellidos, I.'
-    Convierte nombres completos (ej. 'Iván', 'Jean Philippe') a iniciales.
+    Convierte nombres completos (ej. 'Iván', 'Jenny', 'Jean Philippe') a iniciales.
     """
     if not author_str:
         return author_str
@@ -31,18 +43,15 @@ def clean_author_name(author_str):
             last_name = tokens[-1]
             first_names = " ".join(tokens[:-1])
             
-        # Extraer palabras del nombre para convertirlas en iniciales
         tokens = first_names.split()
         initials = []
         for tok in tokens:
-            # Si ya es una inicial con punto (ej. "J." o "J.M.")
             if re.match(r'^[A-ZÀ-Ý]\.+$', tok, re.IGNORECASE):
                 initials.append(tok)
             elif '.' in tok:
                 sub_toks = [f"{t.strip('.').upper()}." for t in tok.split('.') if t]
                 initials.extend(sub_toks)
             else:
-                # Caso de nombre completo (ej. "Iván" -> "I.", "Jenny" -> "J.")
                 clean_tok = re.sub(r'[^a-zA-ZáéíóúÁÉÍÓÚñÑüÜàèìòùÀÈÌÒÙ]', '', tok)
                 if clean_tok:
                     initials.append(f"{clean_tok[0].upper()}.")
@@ -56,10 +65,10 @@ def clean_author_name(author_str):
     return " and ".join(cleaned_authors)
 
 def process_bibtex_file(input_filename, output_filename):
+    print(f"Leyendo archivo de entrada: '{input_filename}'...")
     with open(input_filename, 'r', encoding='utf-8') as f:
         content = f.read()
 
-    # Separar por entradas de BibTeX
     raw_entries = content.split('@')
     entries_data = []
 
@@ -69,14 +78,12 @@ def process_bibtex_file(input_filename, output_filename):
             
         full_entry = '@' + raw.strip()
         
-        # Detectar el tipo de entrada
         match_header = re.match(r'@(\w+)\s*\{\s*([^,]+),', full_entry)
         if not match_header:
             continue
             
         entry_type = match_header.group(1).lower()
         
-        # Extraer año para ordenación
         match_year = re.search(r'year\s*=\s*\{?(\d{4})\}?', full_entry, re.IGNORECASE)
         year = int(match_year.group(1)) if match_year else 0
         
@@ -129,13 +136,18 @@ def process_bibtex_file(input_filename, output_filename):
     with open(output_filename, 'w', encoding='utf-8') as f:
         f.write("\n\n".join(final_entries) + "\n")
 
-    print(f"Procesadas {len(final_entries)} entradas correctamente. Guardado en '{output_filename}'.")
+    print(f"Éxito: Procesadas {len(final_entries)} entradas y guardadas en '{output_filename}'.")
 
 if __name__ == "__main__":
-    # Si le pasas el archivo por línea de comandos: python script.py entrada.bib salida.bib
     if len(sys.argv) > 1:
         infile = sys.argv[1]
-        outfile = sys.argv[2] if len(sys.argv) > 2 else "conferencias_final.bib"
-        process_bibtex_file(infile, outfile)
+        outfile = sys.argv[2] if len(sys.argv) > 2 else infile
     else:
-        process_bibtex_file(INPUT_FILE, OUTPUT_FILE)
+        infile = find_input_bib_file()
+        outfile = infile if infile else "orcid_conferences.bib"
+
+    if not infile or not os.path.exists(infile):
+        print("Error: No se encontró ningún archivo .bib en el directorio.")
+        sys.exit(1)
+
+    process_bibtex_file(infile, outfile)
