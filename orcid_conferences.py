@@ -71,22 +71,16 @@ def normalize_orcid(orcid_raw):
 
 def normalize_author_name(name_raw):
     """
-    Normaliza el nombre de un autor eliminando guiones innecesarios,
-    espacios dobles y caracteres extraños para dejar un único formato limpio.
+    Normaliza el nombre de un autor eliminando guiones innecesarios
+    y caracteres extraños para dejar un único formato limpio para BibTeX.
     """
     if not name_raw:
         return ""
     
-    # 1. Quitar guiones y reemplazar por espacios simples
     name = str(name_raw).replace("-", " ")
-    
-    # 2. Normalizar caracteres Unicode (por si hay inconsistencias de codificación)
     name = unicodedata.normalize("NFC", name)
-    
-    # 3. Eliminar caracteres no deseados y espacios múltiples
     name = re.sub(r"[^\w\s,\.]", "", name)
     name = re.sub(r"\s+", " ", name).strip()
-    
     return name
 
 def safe_get(url):
@@ -109,14 +103,10 @@ def extract_orcid_from_item(item):
 
 
 # ============================================================
-# EXTRACCIÓN DE OBRAS (CON BATCHING BULK PARA DETALLES)
+# EXTRACCIÓN DE OBRAS CON BATCHING BULK (AUTORES)
 # ============================================================
 
 def get_works_bulk_details(orcid, put_codes):
-    """
-    Consulta en bloque (bulk) los detalles de los trabajos indicados
-    para extraer sus autores sin hacer cientos de peticiones.
-    """
     if not put_codes:
         return {}
 
@@ -180,7 +170,6 @@ def get_works_from_orcid(orcid):
                 put_codes.append(put_code)
                 summaries_data.append(summary)
 
-    # Obtener los detalles de los autores en bloques (evita el error AttributeError)
     authors_map = get_works_bulk_details(orcid, put_codes)
 
     publications = []
@@ -235,22 +224,37 @@ def get_works_from_orcid(orcid):
 
 
 # ============================================================
-# CLASIFICACIÓN EXCLUSIVA DE CONGRESOS
+# FILTRADO EXCLUSIVO DE CONGRESOS (DESCARTA REVISTAS Y ARTICLES)
 # ============================================================
 
 def looks_like_conference(pub):
-    raw_type = str(pub.get("type", "") or "").lower()
+    raw_type = str(pub.get("type", "") or "").lower().replace("_", "-")
     journal = str(pub.get("journal", "") or "").lower()
     title = str(pub.get("title", "") or "").lower()
 
+    # 1. SI ES EXPLÍCITAMENTE REVISTA O ARTÍCULO, SE SEPARA Y EXCLUYE
+    journal_indicators = [
+        "journal-article", "journal_article", "journal-issue", "journal", 
+        "transactions", "letters", "magazine", "access", "review"
+    ]
+    if any(ji in raw_type for ji in ["journal-article", "journal_article"]):
+        return False
+    
+    # Si la fuente/revista incluye palabras típicas de revistas científicas sin palabras de congreso
+    if any(ji in journal for ji in ["journal", "transactions", "letters", "magazine", "access", "review"]):
+        # A no ser que en el mismo título/fuente ponga "proceedings" o "conference"
+        if not any(cw in f"{journal} {title}" for cw in ["proceedings", "conference", "symposium", "workshop", "actas"]):
+            return False
+
+    # 2. COMPROBACIÓN DE TIPOS Y PALABRAS CLAVE DE CONGRESO
     conf_types = ["conference", "proceeding", "poster", "abstract", "symposium", "workshop"]
     if any(ct in raw_type for ct in conf_types):
         return True
 
     keywords = [
         "proceedings", "conference", "symposium", "workshop", "congress", 
-        "congreso", "jornadas", "encuentro", "ieee", "acm", "lncs", 
-        "lecture notes", "int. conf.", "international conference", "actas"
+        "congreso", "jornadas", "encuentro", "lncs", "lecture notes", 
+        "int. conf.", "international conference", "actas", "icip", "icassp", "iberspeech", "interspeech"
     ]
     
     target_text = f"{journal} {title}"
@@ -261,7 +265,7 @@ def looks_like_conference(pub):
 
 
 # ============================================================
-# EXPORTACIÓN
+# EXPORTACIÓN (EXCLUSIVAMENTE @inproceedings PARA BIBTEX)
 # ============================================================
 
 def save_json(data, filename):
@@ -278,19 +282,19 @@ def save_bibtex(publications, filename=OUTPUT_BIB):
         key = f"pub_{year}_{kw}_{i}"
 
         title = str(pub.get("title") or "").replace("{", "\\{").replace("}", "\\}")
-        journal = str(pub.get("journal") or "")
+        booktitle = str(pub.get("journal") or "")
         doi = str(pub.get("doi") or "")
         url = str(pub.get("url") or "")
         authors_list = pub.get("authors") or []
 
+        # SIEMPRE SE GENERA COMO @inproceedings
         entry = f"@inproceedings{{{key},\n"
         if authors_list:
-            # Formato estándar de autores en BibTeX unidos por 'and'
             authors_str = " and ".join(authors_list)
             entry += f"  author = {{{authors_str}}},\n"
         entry += f"  title = {{{title}}},\n"
-        if journal:
-            entry += f"  booktitle = {{{journal}}},\n"
+        if booktitle:
+            entry += f"  booktitle = {{{booktitle}}},\n"
         if year:
             entry += f"  year = {{{year}}},\n"
         if doi:
@@ -378,13 +382,14 @@ def main():
     excluded = [pub for pub in all_publications if not looks_like_conference(pub)]
 
     print(f"Comunicaciones a congresos filtradas: {len(conferences)}")
+    print(f"Artículos de revista u otros excluidos: {len(excluded)}")
 
     save_json(conferences, OUTPUT_JSON)
     save_json(excluded, OUTPUT_EXCLUDED)
     save_bibtex(conferences, OUTPUT_BIB)
     save_html(conferences, OUTPUT_HTML)
 
-    print(f"\n¡Proceso finalizado con éxito! Archivo {OUTPUT_BIB} generado con autores normalizados.")
+    print(f"\n¡Proceso finalizado con éxito! El archivo {OUTPUT_BIB} contiene únicamente @inproceedings.")
 
 if __name__ == "__main__":
     main()
