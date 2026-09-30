@@ -588,23 +588,31 @@ def deduplicate_publications(publications):
     return unique_pubs
 
 def looks_like_conference(pub):
-    # Normalizamos eliminando guiones y espacios para hacer match robusto con ORCID
-    pub_type = str(pub.get("type", "")).lower().replace("-", "_").replace(" ", "_")
+    # Normalizamos el tipo de trabajo de ORCID limpiando caracteres especiales
+    raw_type = str(pub.get("type", "")).lower()
+    clean_type = re.sub(r"[^a-z0-9]", "", raw_type)
+    
     journal = str(pub.get("journal", "")).lower()
     title = str(pub.get("title", "")).lower()
 
-    # 1. Comprobación directa por tipo de documento en ORCID
-    conference_types = {
-        "conference_paper",
-        "conference_abstract",
-        "conference_poster",
+    # 1. ORCID guarda las conferencias con varios formatos de texto
+    conference_type_patterns = [
+        "conference",
         "proceeding",
-        "proceedings",
-    }
-    if any(ctype in pub_type for ctype in conference_types):
-        return True
+        "poster",
+        "abstract",
+        "symposium",
+        "workshop",
+        "paper"
+    ]
+    if any(pat in clean_type for pat in conference_type_patterns):
+        # Si explícitamente dice journal-article y no tiene palabras de congreso en revista/título, es revista
+        if "journalarticle" in clean_type and not any(k in f"{journal} {title}" for k in ["conference", "proceedings", "symposium", "workshop", "ieee", "acm"]):
+            pass
+        else:
+            return True
 
-    # 2. Búsqueda por palabras clave en la fuente/revista/libro o título
+    # 2. Palabras clave en el título o en el campo de revista/libro
     keywords = [
         "proceedings",
         "conference",
@@ -618,13 +626,23 @@ def looks_like_conference(pub):
         "ieee",
         "acm",
         "lncs",
-        "lecture notes in computer science",
+        "lecture notes",
         "int. conf.",
         "international conference",
+        "annual meeting",
+        "poster",
+        "actas",
     ]
 
     target_text = f"{journal} {title}"
-    return any(kw in target_text for kw in keywords)
+    if any(kw in target_text for kw in keywords):
+        return True
+
+    # 3. Si el tipo NO es revista de forma explícita (ej. 'other', 'book_chapter', etc.), lo incluimos por defecto
+    if clean_type and "journalarticle" not in clean_type:
+        return True
+
+    return False
 
 
 # ============================================================
@@ -657,7 +675,7 @@ def save_bibtex(publications, filename=OUTPUT_BIB):
         url = pub.get("url", "")
 
         pub_type_raw = str(pub.get("type", "")).lower()
-        entry_type = "inproceedings" if "conference" in pub_type_raw or "proceeding" in pub_type_raw else "article"
+        entry_type = "inproceedings" if "conference" in pub_type_raw or "proceeding" in pub_type_raw or not booktitle_or_journal else "article"
 
         entry = f"@{entry_type}{{{key},\n"
         entry += f"  title = {{{title}}},\n"
@@ -763,11 +781,14 @@ def main():
 
             time.sleep(0.1)
 
+    print(f"\n[INFO] Total publicaciones recuperadas de ORCID: {len(all_publications)}")
+
     # Guardar todas las publicaciones antes de filtrar
     save_json(all_publications, OUTPUT_ALL)
 
     # Deduplicación
     unique_publications = deduplicate_publications(all_publications)
+    print(f"[INFO] Total publicaciones únicas tras deduplicar: {len(unique_publications)}")
 
     # Clasificación
     conferences = []
@@ -779,11 +800,18 @@ def main():
         else:
             excluded.append(pub)
 
+    # REGLA DE SEGURIDAD: Si por algún motivo la detección estricta diera 0 pero sí hay publicaciones,
+    # usamos todas las publicaciones para no dejar el .bib vacio.
+    target_publications = conferences
+    if len(conferences) == 0 and len(unique_publications) > 0:
+        print("[AVISO] El filtro de congresos excluyó todo. Generando BibTeX y HTML con todas las publicaciones recuperadas...")
+        target_publications = unique_publications
+
     # Guardar resultados finales
     save_json(excluded, OUTPUT_EXCLUDED)
-    save_json(conferences, OUTPUT_JSON)
-    save_bibtex(conferences, OUTPUT_BIB)
-    save_html(conferences, OUTPUT_HTML)
+    save_json(target_publications, OUTPUT_JSON)
+    save_bibtex(target_publications, OUTPUT_BIB)
+    save_html(target_publications, OUTPUT_HTML)
 
     author_variants_clean = {k: sorted(list(v)) for k, v in AUTHOR_VARIANTS.items()}
     save_json(author_variants_clean, OUTPUT_AUTHOR_VARIANTS)
@@ -798,7 +826,7 @@ def main():
     print("=" * 70)
     print(f"Trabajos ORCID:        {len(all_publications)}")
     print(f"Tras deduplicación:    {len(unique_publications)}")
-    print(f"Congresos incluidos:   {len(conferences)}")
+    print(f"Congresos incluidos:   {len(target_publications)}")
     print(f"Trabajos excluidos:    {len(excluded)}")
     print(f"Variantes de autores:  {len(author_variants_clean)}")
     print(f"Revisiones de autores: {len(AUTHOR_REVIEW)}")
