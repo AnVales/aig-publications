@@ -106,11 +106,27 @@ def strip_diacritics(text):
     return "".join(c for c in normalized if not unicodedata.combining(c))
 
 
+def format_name_segment(segment):
+    """Convierte un segmento de texto en Title Case respetando partículas y palabras completas."""
+    words = segment.split()
+    formatted = []
+    for w in words:
+        w_clean = re.sub(r"[^\w]", "", w)
+        # Si es una sola letra, la tratamos como inicial
+        if len(w_clean) == 1:
+            formatted.append(f"{w_clean.upper()}.")
+        elif w.lower() in ("de", "del", "la", "las", "los", "y"):
+            formatted.append(w.lower())
+        else:
+            formatted.append(w.capitalize())
+    return " ".join(formatted)
+
+
 def normalize_author_name(name_raw):
     """
-    Normaliza el nombre de un autor sin fragmentar palabras en iniciales:
-    1. Si coincide con un alias, devuelve la forma canónica.
-    2. Si no, aplica Title Case limpio respetando iniciales verdaderas y apellidos.
+    Normaliza el nombre de un autor evitando fragmentar apellidos en iniciales:
+    1. Si coincide con un alias, asigna la forma canónica.
+    2. Si no, limpia el formato manteniendo las palabras completas intactas.
     """
     if not name_raw:
         return ""
@@ -126,39 +142,15 @@ def normalize_author_name(name_raw):
     if key in AUTHOR_ALIASES:
         return AUTHOR_ALIASES[key]
 
-    # Si viene con coma "APELLIDOS, NOMBRE"
+    # Si viene con formato "APELLIDOS, NOMBRE"
     if "," in name:
         parts = name.split(",", 1)
-        surname = parts[0].strip()
-        first_name = parts[1].strip()
-        
-        # Formatear apellido
-        surname_words = [w.capitalize() if w.lower() not in ("de", "del", "la", "las", "los", "y") else w.lower() for w in surname.split()]
-        surname_formatted = " ".join(surname_words)
-        
-        # Formatear nombre/iniciales
-        first_words = []
-        for w in first_name.split():
-            if len(w) == 1 or (len(w) == 2 and w.endswith(".")):
-                first_words.append(w[0].upper() + ".")
-            else:
-                first_words.append(w.capitalize())
-        first_formatted = " ".join(first_words)
-        
-        return f"{surname_formatted}, {first_formatted}"
+        surname = format_name_segment(parts[0])
+        first_name = format_name_segment(parts[1])
+        return f"{surname}, {first_name}"
 
     # Si viene sin coma "NOMBRE APELLIDOS"
-    words = name.split()
-    formatted_words = []
-    for word in words:
-        if len(word) == 1 or (len(word) == 2 and word.endswith(".")):
-            formatted_words.append(word[0].upper() + ".")
-        elif word.lower() in ("de", "del", "la", "las", "los", "y"):
-            formatted_words.append(word.lower())
-        else:
-            formatted_words.append(word.capitalize())
-
-    return " ".join(formatted_words)
+    return format_name_segment(name)
 
 
 def clean_text(value):
