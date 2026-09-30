@@ -2,7 +2,6 @@ import json
 import os
 import re
 import time
-import unicodedata
 import html
 
 import requests
@@ -88,8 +87,29 @@ def extract_orcid_from_item(item):
 
 
 # ============================================================
-# EXTRACCIÓN DE TRABAJOS DE ORCID
+# EXTRACCIÓN DE DETALLES Y AUTORES DE PUBLICACIONES
 # ============================================================
+
+def get_authors_from_work_detail(orcid, put_code):
+    """Consulta el detalle del trabajo para extraer la lista de autores."""
+    if not put_code:
+        return []
+    
+    url = f"{API_BASE}/{orcid}/work/{put_code}"
+    detail = safe_get(url)
+    if not detail:
+        return []
+
+    authors = []
+    contributors = detail.get("contributors", {}).get("contributor", []) or []
+    for c in contributors:
+        credit_name = c.get("credit-name", {})
+        if isinstance(credit_name, dict):
+            name_val = credit_name.get("value")
+            if name_val:
+                authors.append(clean_text(name_val))
+    return authors
+
 
 def get_works_from_orcid(orcid):
     url = f"{API_BASE}/{orcid}/works"
@@ -106,6 +126,7 @@ def get_works_from_orcid(orcid):
             continue
         
         summary = summaries[0]
+        put_code = summary.get("put-code")
         
         title_obj = summary.get("title") or {}
         title = ""
@@ -134,6 +155,9 @@ def get_works_from_orcid(orcid):
         url_obj = summary.get("url") or {}
         url_val = url_obj.get("value") if isinstance(url_obj, dict) else str(url_obj)
 
+        # Obtener autores detallados de cada publicación
+        authors = get_authors_from_work_detail(orcid, put_code)
+
         if title:
             publications.append({
                 "title": title,
@@ -142,7 +166,7 @@ def get_works_from_orcid(orcid):
                 "year": year,
                 "doi": doi,
                 "url": url_val,
-                "authors": [],
+                "authors": authors,
                 "orcid_source": orcid
             })
 
@@ -179,12 +203,13 @@ def looks_like_conference(pub):
 
 
 # ============================================================
-# GUARDADO DE ARCHIVOS
+# GUARDADO DE ARCHIVOS CON AUTORES
 # ============================================================
 
 def save_json(data, filename):
     with open(filename, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
+
 
 def save_bibtex(publications, filename=OUTPUT_BIB):
     entries = []
@@ -198,8 +223,12 @@ def save_bibtex(publications, filename=OUTPUT_BIB):
         journal = str(pub.get("journal") or "")
         doi = str(pub.get("doi") or "")
         url = str(pub.get("url") or "")
+        authors_list = pub.get("authors") or []
 
         entry = f"@inproceedings{{{key},\n"
+        if authors_list:
+            authors_str = " and ".join(authors_list)
+            entry += f"  author = {{{authors_str}}},\n"
         entry += f"  title = {{{title}}},\n"
         if journal:
             entry += f"  booktitle = {{{journal}}},\n"
@@ -215,12 +244,13 @@ def save_bibtex(publications, filename=OUTPUT_BIB):
     with open(filename, "w", encoding="utf-8") as f:
         f.write("\n".join(entries))
 
+
 def save_html(publications, filename=OUTPUT_HTML):
     html_content = [
         "<!DOCTYPE html>",
         "<html lang='es'>",
         "<head><meta charset='utf-8'><title>Publicaciones de Congreso</title>",
-        "<style>body{font-family:sans-serif;margin:20px;} .pub{margin-bottom:15px;padding:10px;border-left:3px solid #0056b3;background:#f9f9f9;} .title{font-weight:bold;} .meta{font-size:0.9em;color:#777;}</style>",
+        "<style>body{font-family:sans-serif;margin:20px;} .pub{margin-bottom:15px;padding:10px;border-left:3px solid #0056b3;background:#f9f9f9;} .title{font-weight:bold;} .authors{color:#333;font-style:italic;margin-top:2px;} .meta{font-size:0.9em;color:#777;margin-top:2px;}</style>",
         "</head><body>",
         f"<h1>Publicaciones de Congreso ({len(publications)})</h1>",
     ]
@@ -231,10 +261,15 @@ def save_html(publications, filename=OUTPUT_HTML):
         year = html.escape(str(pub.get("year") or ""))
         doi = str(pub.get("doi") or "")
         doi_link = f' | <a href="https://doi.org/{html.escape(doi)}" target="_blank">DOI</a>' if doi else ""
+        
+        authors_list = pub.get("authors") or []
+        authors_str = html.escape(", ".join(authors_list)) if authors_list else ""
+        authors_div = f'<div class="authors">{authors_str}</div>' if authors_str else ""
 
         html_content.append(
             f'<div class="pub">'
             f'<div class="title">{title}</div>'
+            f'{authors_div}'
             f'<div class="meta">{journal} ({year}){doi_link}</div>'
             f'</div>'
         )
@@ -301,7 +336,7 @@ def main():
     save_bibtex(target_list, OUTPUT_BIB)
     save_html(target_list, OUTPUT_HTML)
 
-    print("\n¡Proceso finalizado con éxito! Archivos actualizados.")
+    print("\n¡Proceso finalizado con éxito! Archivos y autores actualizados.")
 
 if __name__ == "__main__":
     main()
