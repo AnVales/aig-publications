@@ -65,7 +65,6 @@ def normalize_orcid(orcid_raw):
     if not orcid_raw:
         return ""
     val = clean_text(orcid_raw)
-    # Eliminar URLs o prefijos
     val = re.sub(r"^https?://[^/]+/", "", val, flags=re.IGNORECASE)
     val = re.sub(r"[^\dXX-]", "", val, flags=re.IGNORECASE)
     return val.strip()
@@ -82,7 +81,6 @@ def safe_get(url):
         return None
 
 def extract_orcid_from_item(item):
-    """Busca el ORCID en el diccionario sin importar cómo se llame la clave."""
     for key in ("orcid", "ORCID", "orcid_id", "orcidId", "id"):
         if key in item and item[key]:
             return normalize_orcid(item[key])
@@ -107,10 +105,8 @@ def get_works_from_orcid(orcid):
         if not summaries:
             continue
         
-        # Tomamos el primer resumen del grupo
         summary = summaries[0]
         
-        # Extraer información directamente del resumen (es rápido y siempre está disponible)
         title_obj = summary.get("title") or {}
         title = ""
         if isinstance(title_obj, dict):
@@ -122,12 +118,10 @@ def get_works_from_orcid(orcid):
 
         work_type = clean_text(summary.get("type"))
         
-        # Fecha / Año
         pub_date = summary.get("publication-date") or {}
         year_obj = pub_date.get("year") or {}
         year = year_obj.get("value") if isinstance(year_obj, dict) else ""
 
-        # Identificadores externos (DOI, etc.)
         doi = ""
         ext_ids = summary.get("external-ids") or {}
         ext_list = ext_ids.get("external-id") or []
@@ -137,7 +131,6 @@ def get_works_from_orcid(orcid):
                 doi = re.sub(r"^https?://doi\.org/", "", doi, flags=re.IGNORECASE)
                 break
 
-        # URL
         url_obj = summary.get("url") or {}
         url_val = url_obj.get("value") if isinstance(url_obj, dict) else str(url_obj)
 
@@ -161,16 +154,14 @@ def get_works_from_orcid(orcid):
 # ============================================================
 
 def looks_like_conference(pub):
-    raw_type = str(pub.get("type", "")).lower()
-    journal = str(pub.get("journal", "")).lower()
-    title = str(pub.get("title", "")).lower()
+    raw_type = str(pub.get("type", "") or "").lower()
+    journal = str(pub.get("journal", "") or "").lower()
+    title = str(pub.get("title", "") or "").lower()
 
-    # Si la API de ORCID clasifica explícitamente como conferencia/poster/proceedings
     conf_types = ["conference", "proceeding", "poster", "abstract", "symposium", "workshop"]
     if any(ct in raw_type for ct in conf_types):
         return True
 
-    # Palabras clave en título o libro/revista
     keywords = [
         "proceedings", "conference", "symposium", "workshop", "congress", 
         "congreso", "jornadas", "encuentro", "ieee", "acm", "lncs", 
@@ -181,7 +172,6 @@ def looks_like_conference(pub):
     if any(kw in target_text for kw in keywords):
         return True
 
-    # Si NO es explícitamente una revista de revista científica ("journal-article")
     if raw_type and "journal-article" not in raw_type and "journalarticle" not in raw_type:
         return True
 
@@ -199,15 +189,15 @@ def save_json(data, filename):
 def save_bibtex(publications, filename=OUTPUT_BIB):
     entries = []
     for i, pub in enumerate(publications, 1):
-        first_word = re.findall(r"\w+", pub.get("title", "").lower())
+        first_word = re.findall(r"\w+", str(pub.get("title") or "").lower())
         kw = first_word[0] if first_word else "work"
-        year = pub.get("year") or "nodate"
+        year = str(pub.get("year") or "nodate")
         key = f"pub_{year}_{kw}_{i}"
 
-        title = pub.get("title", "").replace("{", "\\{").replace("}", "\\}")
-        journal = pub.get("journal", "")
-        doi = pub.get("doi", "")
-        url = pub.get("url", "")
+        title = str(pub.get("title") or "").replace("{", "\\{").replace("}", "\\}")
+        journal = str(pub.get("journal") or "")
+        doi = str(pub.get("doi") or "")
+        url = str(pub.get("url") or "")
 
         entry = f"@inproceedings{{{key},\n"
         entry += f"  title = {{{title}}},\n"
@@ -236,10 +226,10 @@ def save_html(publications, filename=OUTPUT_HTML):
     ]
 
     for pub in publications:
-        title = html.escape(pub.get("title", "Sin título"))
-        journal = html.escape(pub.get("journal", ""))
-        year = html.escape(str(pub.get("year", "")))
-        doi = pub.get("doi", "")
+        title = html.escape(str(pub.get("title") or "Sin título"))
+        journal = html.escape(str(pub.get("journal") or ""))
+        year = html.escape(str(pub.get("year") or ""))
+        doi = str(pub.get("doi") or "")
         doi_link = f' | <a href="https://doi.org/{html.escape(doi)}" target="_blank">DOI</a>' if doi else ""
 
         html_content.append(
@@ -288,10 +278,8 @@ def main():
     print(f"Total publicaciones obtenidas en total: {len(all_publications)}")
     print(f"==================================================")
 
-    # Guardar copia completa sin filtrar
     save_json(all_publications, OUTPUT_ALL)
 
-    # Filtrar congresos vs excluidos
     conferences = []
     excluded = []
 
@@ -301,8 +289,6 @@ def main():
         else:
             excluded.append(pub)
 
-    # REGLA DE EMERGENCIA: Si el filtro de congresos devuelve 0 pero sí hay publicaciones,
-    # incluir TODAS las publicaciones para garantizar que los archivos no salgan vacíos.
     target_list = conferences
     if len(conferences) == 0 and len(all_publications) > 0:
         print("[AVISO] El filtro específico de congresos arrojó 0 resultados. Exportando TODAS las publicaciones.")
@@ -310,7 +296,6 @@ def main():
 
     print(f"Publicaciones seleccionadas para guardar: {len(target_list)}")
 
-    # Guardar archivos de salida
     save_json(target_list, OUTPUT_JSON)
     save_json(excluded, OUTPUT_EXCLUDED)
     save_bibtex(target_list, OUTPUT_BIB)
