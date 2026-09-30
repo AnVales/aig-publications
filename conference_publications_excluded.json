@@ -1,1 +1,1232 @@
-[]
+[
+  {
+    "title": "Self-supervised learning and hybrid deep models for predicting the progression of Fuchs’ endothelial corneal dystrophy after cataract surgery",
+    "journal": "Computer Methods and Programs in Biomedicine",
+    "type": "journal-article",
+    "year": "2026",
+    "doi": "10.1016/j.cmpb.2025.109100",
+    "url": "https://doi.org/10.1016/j.cmpb.2025.109100",
+    "authors": [],
+    "orcid_source": "0000-0002-6437-914X"
+  },
+  {
+    "title": "A self-supervised embedding of cell migration features for behavior discovery over cell populations",
+    "journal": "Computer Methods and Programs in Biomedicine",
+    "type": "journal-article",
+    "year": "2024",
+    "doi": "10.1016/j.cmpb.2024.108337",
+    "url": "https://doi.org/10.1016/j.cmpb.2024.108337",
+    "authors": [],
+    "orcid_source": "0000-0002-6437-914X"
+  },
+  {
+    "title": "URI-CADS: A Fully Automated Computer-Aided Diagnosis System for Ultrasound Renal Imaging",
+    "journal": "Journal of Imaging Informatics in Medicine",
+    "type": "journal-article",
+    "year": "2024",
+    "doi": "10.1007/s10278-024-01055-4",
+    "url": "https://doi.org/10.1007/s10278-024-01055-4",
+    "authors": [],
+    "orcid_source": "0000-0002-6437-914X"
+  },
+  {
+    "title": "Integrating Egocentric and Robotic Vision for Object Identification Using Siamese Networks and Superquadric Estimations in Partial Occlusion Scenarios",
+    "journal": "Biomimetics",
+    "type": "journal-article",
+    "year": "2024",
+    "doi": "10.3390/biomimetics9020100",
+    "url": "https://doi.org/10.3390/biomimetics9020100",
+    "authors": [],
+    "orcid_source": "0000-0002-6437-914X"
+  },
+  {
+    "title": "An interpretable CNN-based CAD system for skin lesion diagnosis",
+    "journal": "Artificial Intelligence in Medicine",
+    "type": "journal-article",
+    "year": "2022",
+    "doi": "10.1016/j.artmed.2022.102370",
+    "url": "https://doi.org/10.1016/j.artmed.2022.102370",
+    "authors": [],
+    "orcid_source": "0000-0002-6437-914X"
+  },
+  {
+    "title": "Training deep retrieval models with noisy datasets: Bag exponential loss",
+    "journal": "Pattern Recognition",
+    "type": "journal-article",
+    "year": "2021",
+    "doi": "10.1016/j.patcog.2020.107811",
+    "url": "https://doi.org/10.1016/j.patcog.2020.107811",
+    "authors": [],
+    "orcid_source": "0000-0002-6437-914X"
+  },
+  {
+    "title": "A multi-threshold approach and a realistic error measure for vanishing point detection in natural landscapes",
+    "journal": "Engineering Applications of Artificial Intelligence",
+    "type": "journal-article",
+    "year": "2019",
+    "doi": "10.1016/j.engappai.2019.08.001",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85070357782&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0002-6437-914X"
+  },
+  {
+    "title": "Emotion and attention: Audiovisual models for group-level skin response recognition in short movies",
+    "journal": "Web Intelligence",
+    "type": "journal-article",
+    "year": "2019",
+    "doi": "10.3233/WEB-190398",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85062170062&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0002-6437-914X"
+  },
+  {
+    "title": "Finding landmarks within settled areas using hierarchical density-based clustering and meta-data from publicly available images",
+    "journal": "Expert Systems with Applications",
+    "type": "journal-article",
+    "year": "2019",
+    "doi": "10.1016/j.eswa.2019.01.046",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85060238970&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0002-6437-914X"
+  },
+  {
+    "title": "Predicting image aesthetics for intelligent tourism information systems",
+    "journal": "Electronics (Switzerland)",
+    "type": "journal-article",
+    "year": "2019",
+    "doi": "10.3390/electronics8060671",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85071183949&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0002-6437-914X"
+  },
+  {
+    "title": "Exploiting visual saliency for assessing the impact of car commercials upon viewers",
+    "journal": "Multimedia Tools and Applications",
+    "type": "journal-article",
+    "year": "2018",
+    "doi": "10.1007/s11042-017-5339-9",
+    "url": "http://dx.doi.org/10.1007/s11042-017-5339-9",
+    "authors": [],
+    "orcid_source": "0000-0002-6437-914X"
+  },
+  {
+    "title": "Enriched dermoscopic-structure-based cad system for melanoma diagnosis",
+    "journal": "Multimedia Tools and Applications",
+    "type": "journal-article",
+    "year": "2018",
+    "doi": "10.1007/s11042-017-4879-3",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85020743290&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0002-6437-914X"
+  },
+  {
+    "title": "Adaptive Lagrange multiplier estimation algorithm in HEVC",
+    "journal": "Signal Processing: Image Communication",
+    "type": "journal-article",
+    "year": "2017",
+    "doi": "10.1016/j.image.2017.04.010",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85018432171&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0002-6437-914X"
+  },
+  {
+    "title": "Bayesian adaptive algorithm for fast coding unit decision in the High Efficiency Video Coding (HEVC) standard",
+    "journal": "Signal Processing: Image Communication",
+    "type": "journal-article",
+    "year": "2017",
+    "doi": "10.1016/j.image.2017.04.004",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85017503874&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0002-6437-914X"
+  },
+  {
+    "title": "Comparing visual descriptors and automatic rating strategies for video aesthetics prediction",
+    "journal": "Signal Processing: Image Communication",
+    "type": "journal-article",
+    "year": "2016",
+    "doi": "10.1016/j.image.2016.07.004",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84979518501&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0002-6437-914X"
+  },
+  {
+    "title": "Succeeding metadata based annotation scheme and visual tips for the automatic assessment of video aesthetic quality in car commercials",
+    "journal": "Expert Systems with Applications",
+    "type": "journal-article",
+    "year": "2015",
+    "doi": "10.1016/j.eswa.2014.07.033",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84906807377&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0002-6437-914X"
+  },
+  {
+    "title": "Temporal segmentation and keyframe selection methods for user-generated video search-based annotation",
+    "journal": "Expert Systems with Applications",
+    "type": "journal-article",
+    "year": "2015",
+    "doi": "10.1016/j.eswa.2014.08.001",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84907564420&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0002-6437-914X"
+  },
+  {
+    "title": "Two-level sliding-window VBR control algorithm for video on demand streaming",
+    "journal": "Signal Processing: Image Communication",
+    "type": "journal-article",
+    "year": "2015",
+    "doi": "10.1016/j.image.2015.05.004",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84939247038&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0002-6437-914X"
+  },
+  {
+    "title": "A region-centered topic model for object discovery and category-based image segmentation",
+    "journal": "Pattern Recognition",
+    "type": "journal-article",
+    "year": "2013",
+    "doi": "10.1016/j.patcog.2013.01.034",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84876704651&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0002-6437-914X"
+  },
+  {
+    "title": "State-space dynamics distance for clustering sequential data",
+    "journal": "Pattern Recognition",
+    "type": "journal-article",
+    "year": "2011",
+    "doi": "10.1016/j.patcog.2010.11.018",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-78651329531&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0002-6437-914X"
+  },
+  {
+    "title": "An improved fast mode decision algorithm for intraprediction in H.264/AVC video coding",
+    "journal": "Signal Processing: Image Communication",
+    "type": "journal-article",
+    "year": "2010",
+    "doi": "10.1016/j.image.2010.10.005",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-78649462496&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0002-6437-914X"
+  },
+  {
+    "title": "The synergy between bounded-distance HMM and spectral subtraction for robust speech recognition",
+    "journal": "Speech Communication",
+    "type": "journal-article",
+    "year": "2010",
+    "doi": "10.1016/j.specom.2009.09.002",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-70449133421&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0002-6437-914X"
+  },
+  {
+    "title": "Uncertainty decoding on Frequency Filtered parameters for robust ASR",
+    "journal": "Speech Communication",
+    "type": "journal-article",
+    "year": "2010",
+    "doi": "10.1016/j.specom.2010.02.002",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-77949914685&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0002-6437-914X"
+  },
+  {
+    "title": "Robust ASR using Support Vector Machines",
+    "journal": "Speech Communication",
+    "type": "journal-article",
+    "year": "2007",
+    "doi": "10.1016/j.specom.2007.01.013",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-34047146422&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0002-6437-914X"
+  },
+  {
+    "title": "A comparison of front-ends for bitstream-based ASR over IP",
+    "journal": "Signal Processing",
+    "type": "journal-article",
+    "year": "2006",
+    "doi": "10.1016/j.sigpro.2005.08.011",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-33646161231&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0002-6437-914X"
+  },
+  {
+    "title": "Band-pass filtering of the time sequences of spectral parameters for robust wireless speech recognition",
+    "journal": "Speech Communication",
+    "type": "journal-article",
+    "year": "2006",
+    "doi": "10.1016/j.specom.2006.07.007",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-33748463352&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0002-6437-914X"
+  },
+  {
+    "title": "Improving CELP coders by backward adaptive non-linear prediction",
+    "journal": "International Journal of Adaptive Control and Signal Processing",
+    "type": "journal-article",
+    "year": "1997",
+    "doi": "10.1002/(SICI)1099-1115(199711)11:7<585::AID-ACS454>3.0.CO;2-9",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-0031276546&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0002-6437-914X"
+  },
+  {
+    "title": "Deep learning for human activity recognition: A comprehensive review of architectures, performance, and challenges across five sensory datasets",
+    "journal": "Expert Systems with Applications",
+    "type": "journal-article",
+    "year": "2026",
+    "doi": "10.1016/j.eswa.2026.132415",
+    "url": "https://doi.org/10.1016/j.eswa.2026.132415",
+    "authors": [],
+    "orcid_source": "0000-0002-9322-3128"
+  },
+  {
+    "title": "Leveraging unlabeled data for lung sound classification through self-supervised contrastive learning",
+    "journal": "Biomedical Signal Processing and Control",
+    "type": "journal-article",
+    "year": "2026",
+    "doi": "10.1016/j.bspc.2025.108477",
+    "url": "https://doi.org/10.1016/j.bspc.2025.108477",
+    "authors": [],
+    "orcid_source": "0000-0002-9322-3128"
+  },
+  {
+    "title": "Alzheimer’s Disease Detection from Speech Using Shapley Additive Explanations for Feature Selection and Enhanced Interpretability",
+    "journal": "Electronics",
+    "type": "journal-article",
+    "year": "2025",
+    "doi": "10.3390/electronics14112248",
+    "url": "https://www.mdpi.com/2079-9292/14/11/2248",
+    "authors": [],
+    "orcid_source": "0000-0002-9322-3128"
+  },
+  {
+    "title": "Bayesian learning of feature spaces for multitask regression",
+    "journal": "Neural Networks",
+    "type": "journal-article",
+    "year": "2024",
+    "doi": "10.1016/j.neunet.2024.106619",
+    "url": "https://doi.org/10.1016/j.neunet.2024.106619",
+    "authors": [],
+    "orcid_source": "0000-0002-9322-3128"
+  },
+  {
+    "title": "Elastic net regularization and gabor dictionary for classification of heart sound signals using deep learning",
+    "journal": "Engineering Applications of Artificial Intelligence",
+    "type": "journal-article",
+    "year": "2024",
+    "doi": "10.1016/j.engappai.2023.107406",
+    "url": "https://doi.org/10.1016/j.engappai.2023.107406",
+    "authors": [],
+    "orcid_source": "0000-0002-9322-3128"
+  },
+  {
+    "title": "An Auditory Saliency Pooling-Based LSTM Model for Speech Intelligibility Classification",
+    "journal": "Symmetry",
+    "type": "journal-article",
+    "year": "2021",
+    "doi": "10.3390/sym13091728",
+    "url": "https://www.mdpi.com/2073-8994/13/9/1728",
+    "authors": [],
+    "orcid_source": "0000-0002-9322-3128"
+  },
+  {
+    "title": "Detecting Deception from Gaze and Speech Using a Multimodal Attention LSTM-Based Framework",
+    "journal": "Applied Sciences",
+    "type": "journal-article",
+    "year": "2021",
+    "doi": "10.3390/app11146393",
+    "url": "https://doi.org/10.3390/app11146393",
+    "authors": [],
+    "orcid_source": "0000-0002-9322-3128"
+  },
+  {
+    "title": "On combining acoustic and modulation spectrograms in an attention LSTM-based system for speech intelligibility level classification",
+    "journal": "Neurocomputing",
+    "type": "journal-article",
+    "year": "2021",
+    "doi": "10.1016/j.neucom.2021.05.065",
+    "url": "https://doi.org/10.1016/j.neucom.2021.05.065",
+    "authors": [],
+    "orcid_source": "0000-0002-9322-3128"
+  },
+  {
+    "title": "Automatic Detection of Depression in Speech Using Ensemble Convolutional Neural Networks",
+    "journal": "Entropy",
+    "type": "journal-article",
+    "year": "2020",
+    "doi": "10.3390/e22060688",
+    "url": "https://doi.org/10.3390/e22060688",
+    "authors": [],
+    "orcid_source": "0000-0002-9322-3128"
+  },
+  {
+    "title": "An attention Long Short-Term Memory based system for automatic classification of speech intelligibility",
+    "journal": "Engineering Applications of Artificial Intelligence",
+    "type": "journal-article",
+    "year": "2020",
+    "doi": "10.1016/j.engappai.2020.103976",
+    "url": "https://www.sciencedirect.com/science/article/pii/S0952197620302827",
+    "authors": [],
+    "orcid_source": "0000-0002-9322-3128"
+  },
+  {
+    "title": "Data Augmentation for Speaker Identification under Stress Conditions to Combat Gender-Based Violence",
+    "journal": "Applied Sciences",
+    "type": "journal-article",
+    "year": "2019",
+    "doi": "10.3390/app9112298",
+    "url": "https://doi.org/10.3390/app9112298",
+    "authors": [],
+    "orcid_source": "0000-0002-9322-3128"
+  },
+  {
+    "title": "Echoic log-surprise: A multi-scale scheme for acoustic saliency detection",
+    "journal": "Expert Systems with Applications",
+    "type": "journal-article",
+    "year": "2018",
+    "doi": "10.1016/j.eswa.2018.07.018",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85050863450&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0002-9322-3128"
+  },
+  {
+    "title": "Enhancement of a text-independent speaker verification system by using feature combination and parallel structure classifiers",
+    "journal": "Neural Computing and Applications",
+    "type": "journal-article",
+    "year": "2018",
+    "doi": "10.1007/s00521-016-2470-x",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84978872996&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0002-9322-3128"
+  },
+  {
+    "title": "Bird sound spectrogram decomposition through Non-Negative Matrix Factorization for the acoustic classification of bird species",
+    "journal": "PLoS ONE",
+    "type": "journal-article",
+    "year": "2017",
+    "doi": "10.1371/journal.pone.0179403",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85020903270&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0002-9322-3128"
+  },
+  {
+    "title": "Acoustic Event Classification using spectral band selection and Non-Negative Matrix Factorization-based features",
+    "journal": "Expert Systems with Applications",
+    "type": "journal-article",
+    "year": "2016",
+    "doi": "10.1016/j.eswa.2015.10.018",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84946616129&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0002-9322-3128"
+  },
+  {
+    "title": "Building a Decision Support System for Inpatient Admission Prediction with the Manchester Triage System and Administrative Check-in Variables",
+    "journal": "CIN - Computers Informatics Nursing",
+    "type": "journal-article",
+    "year": "2016",
+    "doi": "10.1097/CIN.0000000000000230",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84961221583&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0002-9322-3128"
+  },
+  {
+    "title": "Emergency department visit forecasting and dynamic nursing staff allocation using machine learning techniques with readily available open-source software",
+    "journal": "CIN - Computers Informatics Nursing",
+    "type": "journal-article",
+    "year": "2015",
+    "doi": "10.1097/CIN.0000000000000173",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84957558290&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0002-9322-3128"
+  },
+  {
+    "title": "Feature extraction based on the high-pass filtering of audio signals for Acoustic Event Classification",
+    "journal": "Computer Speech and Language",
+    "type": "journal-article",
+    "year": "2015",
+    "doi": "10.1016/j.csl.2014.04.001",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84913604166&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0002-9322-3128"
+  },
+  {
+    "title": "Temporal segmentation and keyframe selection methods for user-generated video search-based annotation",
+    "journal": "Expert Systems with Applications",
+    "type": "journal-article",
+    "year": "2015",
+    "doi": "10.1016/j.eswa.2014.08.001",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84907564420&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0002-9322-3128"
+  },
+  {
+    "title": "Auditory-Inspired Morphological Processing of Speech Spectrograms: Applications in Automatic Speech Recognition and Speech Enhancement",
+    "journal": null,
+    "type": "journal-article",
+    "year": "2013",
+    "doi": "10.1007/s12559-012-9196-6",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84890126800&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0002-9322-3128"
+  },
+  {
+    "title": "Design of an embedded speech-centric interface for applications in handheld terminals",
+    "journal": null,
+    "type": "journal-article",
+    "year": "2013",
+    "doi": "10.1109/MAES.2013.6477866",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84897749098&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0002-9322-3128"
+  },
+  {
+    "title": "Automatic placement of outer volume suppression slices in MR spectroscopic imaging of the human brain",
+    "journal": null,
+    "type": "journal-article",
+    "year": "2010",
+    "doi": "10.1002/mrm.22275",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-77649178092&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0002-9322-3128"
+  },
+  {
+    "title": "Histogram equalization-based features for speech, music, and song discrimination",
+    "journal": null,
+    "type": "journal-article",
+    "year": "2010",
+    "doi": "10.1109/LSP.2010.2049877",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-77952944068&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0002-9322-3128"
+  },
+  {
+    "title": "A simulated annealing approach to speaker segmentation in audio databases",
+    "journal": null,
+    "type": "journal-article",
+    "year": "2008",
+    "doi": "10.1016/j.engappai.2007.07.002",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-43549107972&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0002-9322-3128"
+  },
+  {
+    "title": "Robust ASR using Support Vector Machines",
+    "journal": null,
+    "type": "journal-article",
+    "year": "2007",
+    "doi": "10.1016/j.specom.2007.01.013",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-34047146422&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0002-9322-3128"
+  },
+  {
+    "title": "A comparison of front-ends for bitstream-based ASR over IP",
+    "journal": null,
+    "type": "journal-article",
+    "year": "2006",
+    "doi": "10.1016/j.sigpro.2005.08.011",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-33646161231&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0002-9322-3128"
+  },
+  {
+    "title": "Band-pass filtering of the time sequences of spectral parameters for robust wireless speech recognition",
+    "journal": null,
+    "type": "journal-article",
+    "year": "2006",
+    "doi": "10.1016/j.specom.2006.07.007",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-33748463352&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0002-9322-3128"
+  },
+  {
+    "title": "Offline speaker segmentation using genetic algorithms and mutual information",
+    "journal": null,
+    "type": "journal-article",
+    "year": "2006",
+    "doi": "10.1109/TEVC.2005.857079",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-33645558215&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0002-9322-3128"
+  },
+  {
+    "title": "Recognizing GSM digital speech",
+    "journal": null,
+    "type": "journal-article",
+    "year": "2005",
+    "doi": "10.1109/TSA.2005.853210",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-27744477310&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0002-9322-3128"
+  },
+  {
+    "title": "Recognizing voice over IP: A robust front-end for speech recognition on the World Wide Web",
+    "journal": null,
+    "type": "journal-article",
+    "year": "2001",
+    "doi": "10.1109/6046.923820",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-0035365050&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0002-9322-3128"
+  },
+  {
+    "title": "Lattice representations suggest novel organizing principles for odorant and neural spaces",
+    "journal": "Neural Networks",
+    "type": "journal-article",
+    "year": "2027",
+    "doi": "10.1016/j.neunet.2026.109471",
+    "url": "https://doi.org/10.1016/j.neunet.2026.109471",
+    "authors": [],
+    "orcid_source": "0000-0003-1425-6763"
+  },
+  {
+    "title": "Building artificial situational awareness: Soundscape classification in daily-life scenarios of gender based violence victims",
+    "journal": "Engineering Applications of Artificial Intelligence",
+    "type": "journal-article",
+    "year": "2026",
+    "doi": "10.1016/j.engappai.2026.114871",
+    "url": "https://doi.org/10.1016/j.engappai.2026.114871",
+    "authors": [],
+    "orcid_source": "0000-0003-1425-6763"
+  },
+  {
+    "title": "Formal Context Transforms and Their Affordances for Exploratory Data Analysis",
+    "journal": "Mathematics",
+    "type": "journal-article",
+    "year": "2025",
+    "doi": "10.3390/math14010032",
+    "url": "https://doi.org/10.3390/math14010032",
+    "authors": [],
+    "orcid_source": "0000-0003-1425-6763"
+  },
+  {
+    "title": "Machine Unlearning for Speaker-Agnostic Detection of Gender-Based Violence Condition in Speech",
+    "journal": "Applied Sciences",
+    "type": "journal-article",
+    "year": "2025",
+    "doi": "10.3390/app152212270",
+    "url": "https://doi.org/10.3390/app152212270",
+    "authors": [],
+    "orcid_source": "0000-0003-1425-6763"
+  },
+  {
+    "title": "Authenticity at Risk: Key Factors in the Generation and Detection of Audio Deepfakes",
+    "journal": "Applied Sciences",
+    "type": "journal-article",
+    "year": "2025",
+    "doi": "10.3390/app15020558",
+    "url": "https://doi.org/10.3390/app15020558",
+    "authors": [],
+    "orcid_source": "0000-0003-1425-6763"
+  },
+  {
+    "title": "A Formalization of Multilabel Classification in Terms of Lattice Theory and Information Theory: Concerning Datasets",
+    "journal": "Mathematics",
+    "type": "journal-article",
+    "year": "2024",
+    "doi": "10.3390/math12020346",
+    "url": "https://doi.org/10.3390/math12020346",
+    "authors": [],
+    "orcid_source": "0000-0003-1425-6763"
+  },
+  {
+    "title": "End-to-end recurrent denoising autoencoder embeddings for speaker identification",
+    "journal": "Neural Computing and Applications",
+    "type": "journal-article",
+    "year": "2021",
+    "doi": "10.1007/s00521-021-06083-7",
+    "url": "http://dx.doi.org/10.1007/s00521-021-06083-7",
+    "authors": [],
+    "orcid_source": "0000-0003-1425-6763"
+  },
+  {
+    "title": "Four-Fold Formal Concept Analysis Based on Complete Idempotent Semifields",
+    "journal": "Mathematics",
+    "type": "journal-article",
+    "year": "2021",
+    "doi": "10.3390/math9020173",
+    "url": "https://doi.org/10.3390/math9020173",
+    "authors": [],
+    "orcid_source": "0000-0003-1425-6763"
+  },
+  {
+    "title": "The Singular Value Decomposition over Completed Idempotent Semifields",
+    "journal": "Mathematics",
+    "type": "journal-article",
+    "year": "2020",
+    "doi": "10.3390/math8091577",
+    "url": "https://doi.org/10.3390/math8091577",
+    "authors": [],
+    "orcid_source": "0000-0003-1425-6763"
+  },
+  {
+    "title": "The Rényi Entropies Operate in Positive Semifields",
+    "journal": "Entropy",
+    "type": "journal-article",
+    "year": "2019",
+    "doi": "10.3390/e21080780",
+    "url": "https://doi.org/10.3390/e21080780",
+    "authors": [],
+    "orcid_source": "0000-0003-1425-6763"
+  },
+  {
+    "title": "Data Augmentation for Speaker Identification under Stress Conditions to Combat Gender-Based Violence",
+    "journal": "Applied Sciences",
+    "type": "journal-article",
+    "year": "2019",
+    "doi": "10.3390/app9112298",
+    "url": "https://doi.org/10.3390/app9112298",
+    "authors": [],
+    "orcid_source": "0000-0003-1425-6763"
+  },
+  {
+    "title": "The Case for Shifting the Rényi Entropy",
+    "journal": "Entropy",
+    "type": "journal-article",
+    "year": "2019",
+    "doi": "10.3390/e21010046",
+    "url": "https://doi.org/10.3390/e21010046",
+    "authors": [],
+    "orcid_source": "0000-0003-1425-6763"
+  },
+  {
+    "title": "Echoic log-surprise: A multi-scale scheme for acoustic saliency detection",
+    "journal": "Expert Systems with Applications",
+    "type": "journal-article",
+    "year": "2018",
+    "doi": "10.1016/j.eswa.2018.07.018",
+    "url": "https://doi.org/10.1016/j.eswa.2018.07.018",
+    "authors": [],
+    "orcid_source": "0000-0003-1425-6763"
+  },
+  {
+    "title": "K-Formal Concept Analysis as linear algebra over idempotent semifields",
+    "journal": "Information Sciences",
+    "type": "journal-article",
+    "year": "2018",
+    "doi": "10.1016/j.ins.2018.07.067",
+    "url": "https://doi.org/10.1016/j.ins.2018.07.067",
+    "authors": [],
+    "orcid_source": "0000-0003-1425-6763"
+  },
+  {
+    "title": "Assessing Information Transmission in Data Transformations with the Channel Multivariate Entropy Triangle",
+    "journal": "Entropy",
+    "type": "journal-article",
+    "year": "2018",
+    "doi": "10.3390/e20070498",
+    "url": "https://doi.org/10.3390/e20070498",
+    "authors": [],
+    "orcid_source": "0000-0003-1425-6763"
+  },
+  {
+    "title": "The evaluation of data sources using multivariate entropy tools",
+    "journal": "Expert Systems with Applications",
+    "type": "journal-article",
+    "year": "2017",
+    "doi": "10.1016/j.eswa.2017.02.010",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85013216653&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0003-1425-6763"
+  },
+  {
+    "title": "Interactive knowledge discovery and data mining on genomic expression data with numeric formal concept analysis",
+    "journal": "BMC Bioinformatics",
+    "type": "journal-article",
+    "year": "2016",
+    "doi": "10.1186/s12859-016-1234-z",
+    "url": "https://doi.org/10.1186/s12859-016-1234-z",
+    "authors": [],
+    "orcid_source": "0000-0003-1425-6763"
+  },
+  {
+    "title": "Supporting scientific knowledge discovery with extended, generalized Formal Concept Analysis",
+    "journal": "Expert Systems with Applications",
+    "type": "journal-article",
+    "year": "2016",
+    "doi": "10.1016/j.eswa.2015.09.022",
+    "url": null,
+    "authors": [],
+    "orcid_source": "0000-0003-1425-6763"
+  },
+  {
+    "title": "The spectra of reducible matrices over complete commutative idempotent semifields and their spectral lattices",
+    "journal": "International Journal of General Systems",
+    "type": "journal-article",
+    "year": "2016",
+    "doi": "10.1080/03081079.2015.1072923",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84960414542&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0003-1425-6763"
+  },
+  {
+    "title": "The spectra of irreducible matrices over completed idempotent semifields",
+    "journal": "Fuzzy Sets and Systems",
+    "type": "journal-article",
+    "year": "2015",
+    "doi": "10.1016/j.fss.2014.09.022",
+    "url": null,
+    "authors": [],
+    "orcid_source": "0000-0003-1425-6763"
+  },
+  {
+    "title": "Two-level sliding-window VBR control algorithm for video on demand streaming",
+    "journal": "Signal Processing: Image Communication",
+    "type": "journal-article",
+    "year": "2015",
+    "doi": "10.1016/j.image.2015.05.004",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84939247038&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0003-1425-6763"
+  },
+  {
+    "title": "100% classification accuracy considered harmful: The normalized information transfer factor explains the accuracy paradox",
+    "journal": null,
+    "type": "journal-article",
+    "year": "2014",
+    "doi": "10.1371/journal.pone.0084217",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84897546403&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0003-1425-6763"
+  },
+  {
+    "title": "Auditory-Inspired Morphological Processing of Speech Spectrograms: Applications in Automatic Speech Recognition and Speech Enhancement",
+    "journal": null,
+    "type": "journal-article",
+    "year": "2013",
+    "doi": "10.1007/s12559-012-9196-6",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84890126800&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0003-1425-6763"
+  },
+  {
+    "title": "Real-time robust automatic speech recognition using compact support vector machines",
+    "journal": null,
+    "type": "journal-article",
+    "year": "2012",
+    "doi": "10.1109/TASL.2011.2178597",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84857488250&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0003-1425-6763"
+  },
+  {
+    "title": "Data balancing for efficient training of hybrid ANN/HMM automatic speech recognition systems",
+    "journal": null,
+    "type": "journal-article",
+    "year": "2011",
+    "doi": "10.1109/TASL.2010.2050513",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-78149247542&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0003-1425-6763"
+  },
+  {
+    "title": "Extending conceptualisation modes for generalised Formal Concept Analysis",
+    "journal": null,
+    "type": "journal-article",
+    "year": "2011",
+    "doi": "10.1016/j.ins.2010.04.014",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-79251599435&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0003-1425-6763"
+  },
+  {
+    "title": "Analyzing phonetic confusions using formal concept analysis",
+    "journal": null,
+    "type": "journal-article",
+    "year": "2010",
+    "doi": "10.1121/1.3458854",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-77956407956&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0003-1425-6763"
+  },
+  {
+    "title": "Two information-theoretic tools to assess the performance of multi-class classifiers",
+    "journal": null,
+    "type": "journal-article",
+    "year": "2010",
+    "doi": "10.1016/j.patrec.2010.05.017",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-77955557676&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0003-1425-6763"
+  },
+  {
+    "title": "Robust ASR using Support Vector Machines",
+    "journal": null,
+    "type": "journal-article",
+    "year": "2007",
+    "doi": "10.1016/j.specom.2007.01.013",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-34047146422&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0003-1425-6763"
+  },
+  {
+    "title": "A comparison of front-ends for bitstream-based ASR over IP",
+    "journal": null,
+    "type": "journal-article",
+    "year": "2006",
+    "doi": "10.1016/j.sigpro.2005.08.011",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-33646161231&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0003-1425-6763"
+  },
+  {
+    "title": "Band-pass filtering of the time sequences of spectral parameters for robust wireless speech recognition",
+    "journal": null,
+    "type": "journal-article",
+    "year": "2006",
+    "doi": "10.1016/j.specom.2006.07.007",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-33748463352&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0003-1425-6763"
+  },
+  {
+    "title": "Recognizing GSM digital speech",
+    "journal": null,
+    "type": "journal-article",
+    "year": "2005",
+    "doi": "10.1109/TSA.2005.853210",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-27744477310&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0003-1425-6763"
+  },
+  {
+    "title": "Recognizing voice over IP: A robust front-end for speech recognition on the World Wide Web",
+    "journal": null,
+    "type": "journal-article",
+    "year": "2001",
+    "doi": "10.1109/6046.923820",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-0035365050&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0003-1425-6763"
+  },
+  {
+    "title": "Self-supervised learning and hybrid deep models for predicting the progression of Fuchs’ endothelial corneal dystrophy after cataract surgery",
+    "journal": "Computer Methods and Programs in Biomedicine",
+    "type": "journal-article",
+    "year": "2026",
+    "doi": "10.1016/j.cmpb.2025.109100",
+    "url": "https://doi.org/10.1016/j.cmpb.2025.109100",
+    "authors": [],
+    "orcid_source": "0000-0003-4644-8479"
+  },
+  {
+    "title": "A self-supervised embedding of cell migration features for behavior discovery over cell populations",
+    "journal": "Computer Methods and Programs in Biomedicine",
+    "type": "journal-article",
+    "year": "2024",
+    "doi": "10.1016/j.cmpb.2024.108337",
+    "url": "https://doi.org/10.1016/j.cmpb.2024.108337",
+    "authors": [],
+    "orcid_source": "0000-0003-4644-8479"
+  },
+  {
+    "title": "URI-CADS: A Fully Automated Computer-Aided Diagnosis System for Ultrasound Renal Imaging",
+    "journal": "Journal of Imaging Informatics in Medicine",
+    "type": "journal-article",
+    "year": "2024",
+    "doi": "10.1007/s10278-024-01055-4",
+    "url": "https://doi.org/10.1007/s10278-024-01055-4",
+    "authors": [],
+    "orcid_source": "0000-0003-4644-8479"
+  },
+  {
+    "title": "An interpretable CNN-based CAD system for skin lesion diagnosis",
+    "journal": "Artificial Intelligence in Medicine",
+    "type": "journal-article",
+    "year": "2022",
+    "doi": "10.1016/j.artmed.2022.102370",
+    "url": "https://doi.org/10.1016/j.artmed.2022.102370",
+    "authors": [],
+    "orcid_source": "0000-0003-4644-8479"
+  },
+  {
+    "title": "Behavioural immune landscapes of inflammation",
+    "journal": "Nature",
+    "type": "journal-article",
+    "year": "2022",
+    "doi": "10.1038/s41586-021-04263-y",
+    "url": "http://dx.doi.org/10.1038/s41586-021-04263-y",
+    "authors": [],
+    "orcid_source": "0000-0003-4644-8479"
+  },
+  {
+    "title": "Training deep retrieval models with noisy datasets: Bag exponential loss",
+    "journal": "Pattern Recognition",
+    "type": "journal-article",
+    "year": "2021",
+    "doi": "10.1016/j.patcog.2020.107811",
+    "url": null,
+    "authors": [],
+    "orcid_source": "0000-0003-4644-8479"
+  },
+  {
+    "title": "Finding landmarks within settled areas using hierarchical density-based clustering and meta-data from publicly available images",
+    "journal": "Expert Systems with Applications",
+    "type": "journal-article",
+    "year": "2019",
+    "doi": "10.1016/j.eswa.2019.01.046",
+    "url": "https://doi.org/10.1016/j.eswa.2019.01.046",
+    "authors": [],
+    "orcid_source": "0000-0003-4644-8479"
+  },
+  {
+    "title": "Perceptually-guided deep neural networks for ego-action prediction: Object grasping",
+    "journal": "Pattern Recognition",
+    "type": "journal-article",
+    "year": "2019",
+    "doi": "10.1016/j.patcog.2018.11.013",
+    "url": "https://doi.org/10.1016/j.patcog.2018.11.013",
+    "authors": [],
+    "orcid_source": "0000-0003-4644-8479"
+  },
+  {
+    "title": "Enriched dermoscopic-structure-based cad system for melanoma diagnosis",
+    "journal": "Multimedia Tools and Applications",
+    "type": "journal-article",
+    "year": "2017",
+    "doi": "10.1007/s11042-017-4879-3",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85020743290&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0003-4644-8479"
+  },
+  {
+    "title": "Exploiting visual saliency for assessing the impact of car commercials upon viewers",
+    "journal": "Multimedia Tools and Applications",
+    "type": "journal-article",
+    "year": "2017",
+    "doi": "10.1007/s11042-017-5339-9",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85032883767&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0003-4644-8479"
+  },
+  {
+    "title": "Perceptual modeling in the problem of active object recognition in visual scenes",
+    "journal": "Pattern Recognition",
+    "type": "journal-article",
+    "year": "2016",
+    "doi": "10.1016/j.patcog.2016.03.007",
+    "url": "https://doi.org/10.1016/j.patcog.2016.03.007",
+    "authors": [],
+    "orcid_source": "0000-0003-4644-8479"
+  },
+  {
+    "title": "Goal-oriented top-down probabilistic visual attention model for recognition of manipulated objects in egocentric videos",
+    "journal": "Signal Processing: Image Communication",
+    "type": "journal-article",
+    "year": "2015",
+    "doi": "10.1016/j.image.2015.05.006",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84947870785&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0003-4644-8479"
+  },
+  {
+    "title": "Temporal segmentation and keyframe selection methods for user-generated video search-based annotation",
+    "journal": "Expert Systems with Applications",
+    "type": "journal-article",
+    "year": "2015",
+    "doi": "10.1016/j.eswa.2014.08.001",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84907564420&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0003-4644-8479"
+  },
+  {
+    "title": "A generative model for concurrent image retrieval and ROI segmentation",
+    "journal": null,
+    "type": "journal-article",
+    "year": "2014",
+    "doi": "10.1109/TMM.2013.2286083",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84890959626&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0003-4644-8479"
+  },
+  {
+    "title": "A region-centered topic model for object discovery and category-based image segmentation",
+    "journal": null,
+    "type": "journal-article",
+    "year": "2013",
+    "doi": "10.1016/j.patcog.2013.01.034",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-84876704651&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0003-4644-8479"
+  },
+  {
+    "title": "A low-complexity pre-processing system for restoring low-quality QR code images",
+    "journal": null,
+    "type": "journal-article",
+    "year": "2011",
+    "doi": "10.1109/TCE.2011.6018890",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-80052928607&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0003-4644-8479"
+  },
+  {
+    "title": "Adaptive multipattern fast block-matching algorithm based on motion classification techniques",
+    "journal": null,
+    "type": "journal-article",
+    "year": "2008",
+    "doi": "10.1109/TCSVT.2008.2004917",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-55249095581&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0003-4644-8479"
+  },
+  {
+    "title": "Bridging the weather and climate divide with artificial intelligence",
+    "journal": "Nature Communications",
+    "type": "journal-article",
+    "year": "2026",
+    "doi": "10.1038/s41467-026-75787-y",
+    "url": "https://doi.org/10.1038/s41467-026-75787-y",
+    "authors": [],
+    "orcid_source": "0000-0002-0801-199X"
+  },
+  {
+    "title": "A multivariate analysis of atmospheric drivers for Western European heatwaves",
+    "journal": "Earth System Dynamics",
+    "type": "journal-article",
+    "year": "2026",
+    "doi": "10.5194/esd-17-955-2026",
+    "url": "https://doi.org/10.5194/esd-17-955-2026",
+    "authors": [],
+    "orcid_source": "0000-0002-0801-199X"
+  },
+  {
+    "title": "On the Predictive Skill of Artificial Intelligence–Based Weather Models for Extreme Events Using Uncertainty Quantification",
+    "journal": "Artificial Intelligence for the Earth Systems",
+    "type": "journal-article",
+    "year": "2026",
+    "doi": "10.1175/AIES-D-25-0113.1",
+    "url": "https://doi.org/10.1175/AIES-D-25-0113.1",
+    "authors": [],
+    "orcid_source": "0000-0002-0801-199X"
+  },
+  {
+    "title": "The Maturation of AI in Drought Science: A Review of Trends, Pitfalls, and Priorities",
+    "journal": "Water Resources Research",
+    "type": "journal-article",
+    "year": "2026",
+    "doi": "10.1029/2025WR041828",
+    "url": "https://doi.org/10.1029/2025WR041828",
+    "authors": [],
+    "orcid_source": "0000-0002-0801-199X"
+  },
+  {
+    "title": "A large-scale, multitask, multisensory dataset for climate-aware crop monitoring in the US from 2018–2022",
+    "journal": "Scientific Data",
+    "type": "journal-article",
+    "year": "2026",
+    "doi": "10.1038/s41597-026-06611-x",
+    "url": "https://doi.org/10.1038/s41597-026-06611-x",
+    "authors": [],
+    "orcid_source": "0000-0002-0801-199X"
+  },
+  {
+    "title": "Explainable Earth Surface Forecasting Under Extreme Events",
+    "journal": "Earth's Future",
+    "type": "journal-article",
+    "year": "2025",
+    "doi": "10.1029/2024EF005446",
+    "url": "https://doi.org/10.1029/2024EF005446",
+    "authors": [],
+    "orcid_source": "0000-0002-0801-199X"
+  },
+  {
+    "title": "Calibration and uncertainty quantification for deep learning-based drought detection",
+    "journal": "International Journal of Applied Earth Observation and Geoinformation",
+    "type": "journal-article",
+    "year": "2025",
+    "doi": "10.1016/j.jag.2025.104563",
+    "url": "https://doi.org/10.1016/j.jag.2025.104563",
+    "authors": [],
+    "orcid_source": "0000-0002-0801-199X"
+  },
+  {
+    "title": "Artificial intelligence for modeling and understanding extreme weather and climate events",
+    "journal": "Nature Communications",
+    "type": "journal-article",
+    "year": "2025",
+    "doi": "10.1038/s41467-025-56573-8",
+    "url": "https://doi.org/10.1038/s41467-025-56573-8",
+    "authors": [],
+    "orcid_source": "0000-0002-0801-199X"
+  },
+  {
+    "title": "Explainability can foster trust in artificial intelligence in geoscience",
+    "journal": "Nature Geoscience",
+    "type": "journal-article",
+    "year": "2025",
+    "doi": "10.1038/s41561-025-01639-x",
+    "url": "https://doi.org/10.1038/s41561-025-01639-x",
+    "authors": [],
+    "orcid_source": "0000-0002-0801-199X"
+  },
+  {
+    "title": "Generative networks for spatio-temporal gap filling of Sentinel-2 reflectances",
+    "journal": "ISPRS Journal of Photogrammetry and Remote Sensing",
+    "type": "journal-article",
+    "year": "2025",
+    "doi": "10.1016/j.isprsjprs.2025.01.016",
+    "url": "https://doi.org/10.1016/j.isprsjprs.2025.01.016",
+    "authors": [],
+    "orcid_source": "0000-0002-0801-199X"
+  },
+  {
+    "title": "DeepExtremeCubes: Earth system spatio-temporal data for assessing compound heatwave and drought impacts",
+    "journal": "Scientific Data",
+    "type": "journal-article",
+    "year": "2025",
+    "doi": "10.1038/s41597-025-04447-5",
+    "url": "https://doi.org/10.1038/s41597-025-04447-5",
+    "authors": [],
+    "orcid_source": "0000-0002-0801-199X"
+  },
+  {
+    "title": "Domain knowledge-driven variational recurrent networks for drought monitoring",
+    "journal": "Remote Sensing of Environment",
+    "type": "journal-article",
+    "year": "2024",
+    "doi": "10.1016/j.rse.2024.114252",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85196497679&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0002-0801-199X"
+  },
+  {
+    "title": "Assessing the Impact of Using Short Videos for Teaching at Higher Education: Empirical Evidence from Log-Files in a Learning Management System",
+    "journal": "Revista Iberoamericana de Tecnologias del Aprendizaje",
+    "type": "journal-article",
+    "year": "2023",
+    "doi": "10.1109/RITA.2023.3301411",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85166743245&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0002-0801-199X"
+  },
+  {
+    "title": "Wildfire Danger Prediction and Understanding With Deep Learning",
+    "journal": "Geophysical Research Letters",
+    "type": "journal-article",
+    "year": "2022",
+    "doi": "10.1029/2022GL099368",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85138096305&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0002-0801-199X"
+  },
+  {
+    "title": "Enriched dermoscopic-structure-based cad system for melanoma diagnosis",
+    "journal": "Multimedia Tools and Applications",
+    "type": "journal-article",
+    "year": "2018",
+    "doi": "10.1007/s11042-017-4879-3",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85020743290&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0002-0801-199X"
+  },
+  {
+    "title": "Exploiting visual saliency for assessing the impact of car commercials upon viewers",
+    "journal": "Multimedia Tools and Applications",
+    "type": "journal-article",
+    "year": "2018",
+    "doi": "10.1007/s11042-017-5339-9",
+    "url": "http://www.scopus.com/inward/record.url?eid=2-s2.0-85032883767&partnerID=MN8TOARS",
+    "authors": [],
+    "orcid_source": "0000-0002-0801-199X"
+  }
+]
