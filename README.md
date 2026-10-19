@@ -50,7 +50,7 @@ flowchart TD
     subgraph Workflows [GitHub Actions CI/CD - Semanal]
         Cron[Cron Semanal: Lunes 06:05] -->|Trigger| GHA_Update
         PushBib[Push en **.bib] -->|Trigger| GHA_Norm
-        GHA_Update[Workflows update-*_auto.yml]
+        GHA_Update[Workflows update-*.yml]
         GHA_Norm[Workflow normalize_bib_auto.yml]
     end
 
