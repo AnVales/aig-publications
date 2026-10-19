@@ -42,51 +42,52 @@ El siguiente diagrama ilustra la arquitectura del sistema, destacando el **flujo
 
 ```mermaid
 flowchart TD
-    subgraph Entrada["Entrada de datos"]
-        A["researchers1.json"] -->|"ORCID IDs / nombres"| B
-        A -->|"ORCID IDs"| OA_Script["generate_bibtex.py"]
+    subgraph Entrada [Entrada de Datos]
+        A[researchers1.json] -->|ORCID IDs / Nombres| B
+        A -->|ORCID IDs| OA_Script
     end
 
-    subgraph Workflows["GitHub Actions CI/CD - Semanal"]
-        Cron["Cron semanal: lunes 06:05"] -->|"Trigger"| GHA_Update["Workflows update-*.yml"]
-        PushBib["Push en archivos .bib"] -->|"Trigger"| GHA_Norm["Workflow normalize_bib.yml"]
+    subgraph Workflows [GitHub Actions CI/CD - Semanal]
+        Cron[Cron Semanal: Lunes 06:05] -->|Trigger| GHA_Update
+        PushBib[Push en **.bib] -->|Trigger| GHA_Norm
+        GHA_Update[Workflows update-*.yml]
+        GHA_Norm[Workflow normalize_bib.yml]
     end
 
-    subgraph Auth["Autenticación y cliente API"]
-        GHA_Update -->|"OAuth POST"| OAuth["API ORCID /oauth/token"]
-        OAuth -->|"ORCID_ACCESS_TOKEN"| B["Scripts ORCID: orcid_*.py"]
-        B -->|"Peticiones REST v3.0"| ORCID_API["API pública ORCID - pub.orcid.org"]
+    subgraph Auth [Autenticación & API Client]
+        GHA_Update -->|OAuth POST| OAuth[API ORCID /oauth/token]
+        OAuth -->|ORCID_ACCESS_TOKEN| B[Scripts ORCID: orcid_*.py]
+        B -->|Peticiones REST v3.0| ORCID_API[API Pública ORCID - pub.orcid.org]
     end
 
-    subgraph Process["Procesamiento y normalización ORCID"]
-        ORCID_API -->|"JSON crudo"| C["Clasificación por tipo de obra"]
-        C --> D["Normalización de autores"]
-        D -->|"1. Mapeo por ORCID ID"| D1["Nombre canónico"]
-        D -->|"2. Fallback por firma o regex"| D2["Iniciales y apellidos"]
-        D --> E["Deduplicación jerárquica"]
-        E -->|"DOI > PMID > PMCID > título + año"| F["Escapado de caracteres BibTeX"]
+    subgraph Process [Procesamiento & Normalización ORCID]
+        ORCID_API -->|JSON crudo| C[Clasificación por Tipo de Obra]
+        C --> D[Normalización de Autores]
+        D -->|1. Mapeo por ORCID ID| D1[Nombre Canónico]
+        D -->|2. Fallback Firma/Regex| D2[Iniciales y Apellidos]
+        D --> E[Deduplicación Jerárquica]
+        E -->|DOI > PMID > PMCID > Título+Año| F[Escapado de Caracteres BibTeX]
     end
 
-    subgraph NormStep["Normalización posterior"]
-        GHA_Norm --> N1["normalize_bib.py"]
-        F -->|"Genera .bib"| N1
-        N1 -->|"Limpia y estandariza author = {...}"| N2["Archivos BibTeX limpios"]
+    subgraph NormStep [Normalización Post-Process]
+        GHA_Norm --> N1[normalize_bib.py]
+        F -->|Genera .bib| N1
+        N1 -->|Limpia y estandariza author = {...}| N2[Archivos BibTeX Limpios]
     end
 
-    subgraph Salida["Generación de archivos ORCID"]
-        F --> OutJSON["Archivos .json"]
-        F --> OutHTML["Archivos .html"]
-        N2 --> OutBIB["Archivos .bib finales"]
-        OutJSON -->|"Git commit y push"| Repo["Repositorio GitHub - main"]
-        OutHTML -->|"Git commit y push"| Repo
-        OutBIB -->|"Git commit y push"| Repo
+    subgraph Salida [Generación de Artefactos ORCID]
+        F --> OutJSON[Archivos .json]
+        F --> OutHTML[Archivos .html]
+        N2 --> OutBIB[Archivos .bib Finales]
+        OutJSON & OutHTML & OutBIB -->|Git Commit & Push| Repo[Repositorio GitHub main]
     end
 
-    subgraph Auxiliar["Herramienta auxiliar independiente"]
-        OA_Script -->|"Consulta REST"| OpenAlex_API["API OpenAlex"]
-        OpenAlex_API -->|"Filtra preprints y repositorios"| OA_BIB["publications.bib auxiliar"]
+    subgraph Auxiliar [Herramienta Auxiliar Independiente]
+        OA_Script[generate_bibtex.py] -->|Consulta REST| OpenAlex_API[API OpenAlex]
+        OpenAlex_API -->|Filtra Preprints / Repositorios| OA_BIB[publications.bib auxiliar]
     end
 ```
+
 ---
 
 ## Estructura del Repositorio
@@ -316,4 +317,4 @@ Todos los scripts están enlazados a sus respectivos workflows en `.github/workf
 
 ---
 
-
+*README generado para la documentación completa del repositorio bibliográfico.*
