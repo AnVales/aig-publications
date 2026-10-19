@@ -95,10 +95,10 @@ flowchart TD
 ```
 .
 ├── .github/workflows/
-│   ├── update-publications_auto.yml   # Workflow semanal para artículos de revista (ORCID)
-│   ├── update_conferences_auto.yml    # Workflow semanal para actas/comunicaciones de congresos (ORCID)
-│   ├── update-other-works_auto.yml    # Workflow semanal para otros trabajos académicos (ORCID)
-│   └── normalize_bib_auto.yml         # Workflow disparado al modificar archivos .bib
+│   ├── update-publications.yml   # Workflow semanal para artículos de revista (ORCID)
+│   ├── update_conferences.yml    # Workflow semanal para actas/comunicaciones de congresos (ORCID)
+│   ├── update-other-works.yml    # Workflow semanal para otros trabajos académicos (ORCID)
+│   └── normalize_bib.yml         # Workflow disparado al modificar archivos .bib
 │
 ├── orcid_publications.py              # Extracción y procesado de artículos de revista desde ORCID
 ├── orcid_conferences.py               # Extracción y procesado de ponencias/congresos desde ORCID
