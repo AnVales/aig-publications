@@ -28,11 +28,11 @@ Este repositorio contiene un sistema automatizado desarrollado en Python y GitHu
 
 ## 🔍 Descripción General
 
-El sistema permite mantener actualizada automáticamente la producción científica de un grupo de investigadores. A partir de un archivo JSON (`researchers1.json`) que contiene los nombres y **ORCID IDs** de cada investigador:
+El sistema permite mantener actualizada máticamente la producción científica de un grupo de investigadores. A partir de un archivo JSON (`researchers1.json`) que contiene los nombres y **ORCID IDs** de cada investigador:
 
-1. **Flujo Principal (ORCID)**: El núcleo del sistema consulta semanalmente la API pública v3.0 de **ORCID** para extraer, clasificar (artículos de revista, congresos y otros trabajos), normalizar autores y deduplicar registros.
+1. **Flujo Principal (ORCID)**: El núcleo del sistema consulta semanalmente la API pública v3.0 de **ORCID** para extraer, clasificar (artículos de revista, congresos y otros trabajos), normalizar res y deduplicar registros.
 2. **Herramienta Auxiliar (OpenAlex)**: Se incluye el script `generate_bibtex.py` como utilidad independiente para realizar consultas secundarias o complementarias en la API de **OpenAlex**.
-3. **Generación Multiformato**: Produce automáticamente archivos `.bib`, `.json` y `.html` listos para su difusión o inclusión en la web institucional.
+3. **Generación Multiformato**: Produce máticamente archivos `.bib`, `.json` y `.html` listos para su difusión o inclusión en la web institucional.
 
 ---
 
@@ -51,7 +51,7 @@ flowchart TD
         Cron[Cron Semanal: Lunes 06:05] -->|Trigger| GHA_Update
         PushBib[Push en **.bib] -->|Trigger| GHA_Norm
         GHA_Update[Workflows update-*.yml]
-        GHA_Norm[Workflow normalize_bib_auto.yml]
+        GHA_Norm[Workflow normalize_bib.yml]
     end
 
     subgraph Auth [Autenticación & API Client]
@@ -179,9 +179,9 @@ Cuando se procesan o refinan los archivos `.bib`, el script `normalize_bib.py` r
 La automatización de la integración continua (CI/CD) se organiza mediante cuatro workflows YAML dentro de `.github/workflows/`:
 
 ### Eventos Disparadores (`on:`)
-- **Programación Semanal (`schedule`)**: Los workflows `update-publications_auto.yml`, `update_conferences_auto.yml` y `update-other-works_auto.yml` están configurados mediante expresiones cron (`cron: "5 6 * * 1"`) para ejecutarse automáticamente todos los **lunes a las 06:05 AM** (hora de Europa/Madrid).
+- **Programación Semanal (`schedule`)**: Los workflows `update-publications.yml`, `update_conferences.yml` y `update-other-works.yml` están configurados mediante expresiones cron (`cron: "5 6 * * 1"`) para ejecutarse automáticamente todos los **lunes a las 06:05 AM** (hora de Europa/Madrid).
 - **Ejecución Manual (`workflow_dispatch`)**: Permite a cualquier administrador desencadenar los workflows bajo demanda desde la pestaña *Actions* de GitHub.
-- **Disparador por Cambio de Archivo (`push`)**: El workflow `normalize_bib_auto.yml` se activa automáticamente en cualquier evento `push` hacia la rama `main` que modifique o cree archivos con extensión `**.bib`.
+- **Disparador por Cambio de Archivo (`push`)**: El workflow `normalize_bib.yml` se activa automáticamente en cualquier evento `push` hacia la rama `main` que modifique o cree archivos con extensión `**.bib`.
 
 ### Secuencia de Pasos en el Runner
 Cada runner de GitHub Actions (`ubuntu-latest` / `ubuntu-24.04`) ejecuta la siguiente secuencia ordenada:
