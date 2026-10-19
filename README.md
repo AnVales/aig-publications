@@ -72,7 +72,7 @@ flowchart TD
     subgraph NormStep [Normalización Post-Process]
         GHA_Norm --> N1[normalize_bib.py]
         F -->|Genera .bib| N1
-        N1 -->|Limpia y estandariza author = {...}| N2[Archivos BibTeX Limpios]
+        N1 -->|"Limpia y estandariza author = {...}"| N2[Archivos BibTeX Limpios]
     end
 
     subgraph Salida [Generación de Artefactos ORCID]
