@@ -315,6 +315,4 @@ Configurar en el repositorio (`Settings > Secrets and variables > Actions`):
 
 Todos los scripts están enlazados a sus respectivos workflows en `.github/workflows/`. Se pueden desencadenar manualmente en la pestaña **Actions** de GitHub mediante el botón **Run workflow** (`workflow_dispatch`), o bien esperar a la ejecución automática programada todos los lunes a las 06:05 AM (UTC+2).
 
----
 
-*README generado para la documentación completa del repositorio bibliográfico.*
