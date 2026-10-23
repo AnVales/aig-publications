@@ -15,6 +15,7 @@ from urllib3.util.retry import Retry
 # ============================================================
 
 INPUT_FILE = "researchers1.json"
+MANUAL_BIB = "conferences_no.bib"
 
 OUTPUT_JSON = "conference_publications.json"
 OUTPUT_ALL = "conference_publications_all_orcid.json"
@@ -730,53 +731,50 @@ def make_bibtex_key(pub, index):
     return f"{first_author}{year}{index}"
 
 
+
 def publication_to_bibtex(pub, index):
     key = make_bibtex_key(pub, index)
-
     authors = pub.get("authors") or []
 
     author_text = " and ".join(
-        bibtex_escape(author)
-        for author in authors
+        bibtex_escape(author) for author in authors
     )
 
-    lines = [
-        f"@inproceedings{{{key},",
+    lines = [f"@inproceedings{{{key},"]
+
+    fields = [
+        ("title", "title"),
+        ("author", None),
+        ("booktitle", "booktitle"),
+        ("year", "year"),
+        ("pages", "pages"),
+        ("volume", "volume"),
+        ("number", "number"),
+        ("series", "series"),
+        ("publisher", "publisher"),
+        ("address", "address"),
+        ("month", "month"),
+        ("doi", "doi"),
+        ("url", "url"),
+        ("note", "note"),
     ]
 
-    if pub.get("title"):
-        lines.append(
-            f"  title = {{{bibtex_escape(pub['title'])}}},"
-        )
+    for output_field, source_field in fields:
+        if output_field == "author":
+            value = author_text
+        elif output_field == "booktitle":
+            value = pub.get("booktitle") or pub.get("journal")
+        else:
+            value = pub.get(source_field)
 
-    if author_text:
-        lines.append(
-            f"  author = {{{author_text}}},"
-        )
-
-    if pub.get("journal"):
-        lines.append(
-            f"  booktitle = {{{bibtex_escape(pub['journal'])}}},"
-        )
-
-    if pub.get("year"):
-        lines.append(
-            f"  year = {{{bibtex_escape(pub['year'])}}},"
-        )
-
-    if pub.get("doi"):
-        lines.append(
-            f"  doi = {{{bibtex_escape(pub['doi'])}}},"
-        )
-
-    if pub.get("url"):
-        lines.append(
-            f"  url = {{{bibtex_escape(pub['url'])}}},"
-        )
+        if value:
+            lines.append(
+                f"  {output_field} = {{{bibtex_escape(value)}}},"
+            )
 
     lines.append("}")
-
     return "\n".join(lines)
+
 
 
 def save_bibtex(publications, filename):
@@ -1030,6 +1028,266 @@ def save_json(data, filename):
 
 
 # ============================================================
+# LECTURA Y FUSIÓN DE CONGRESOS MANUALES
+# ============================================================
+
+def normalize_conference_doi(value):
+    """Normaliza un DOI para comparar registros de distintas fuentes."""
+    doi = clean_text(value).lower()
+    doi = re.sub(r"^https?://(dx\.)?doi\.org/", "", doi)
+    doi = re.sub(r"^doi:\s*", "", doi)
+    return doi.strip().rstrip(" .")
+
+
+def parse_conference_bib(filename):
+    """Lee entradas BibTeX y devuelve su tipo, clave y campos."""
+    if not os.path.exists(filename):
+        print(
+            f"AVISO: no existe {filename}; "
+            "se usarán únicamente las comunicaciones de ORCID."
+        )
+        return []
+
+    with open(filename, "r", encoding="utf-8-sig") as file:
+        content = file.read()
+
+    entries = []
+    entry_start = re.compile(
+        r"@(\w+)\s*\{\s*([^,\s]+)\s*,",
+        re.IGNORECASE,
+    )
+
+    for match in entry_start.finditer(content):
+        entry_type = match.group(1).lower()
+        entry_key = match.group(2).strip()
+        pos = match.end()
+        fields = {}
+
+        while pos < len(content):
+            while pos < len(content) and content[pos] in " \t\r\n,":
+                pos += 1
+
+            if pos >= len(content) or content[pos] == "}":
+                break
+
+            field_match = re.match(
+                r"([A-Za-z][A-Za-z0-9_-]*)\s*=\s*",
+                content[pos:],
+            )
+
+            if not field_match:
+                next_comma = content.find(",", pos)
+                next_close = content.find("}", pos)
+                candidates = [
+                    value for value in (next_comma, next_close)
+                    if value != -1
+                ]
+
+                if not candidates:
+                    break
+
+                pos = min(candidates)
+                if content[pos] == ",":
+                    pos += 1
+                continue
+
+            field_name = field_match.group(1).lower()
+            pos += field_match.end()
+
+            while pos < len(content) and content[pos].isspace():
+                pos += 1
+
+            if pos >= len(content):
+                break
+
+            if content[pos] == "{":
+                pos += 1
+                value_start = pos
+                depth = 1
+
+                while pos < len(content) and depth > 0:
+                    if content[pos] == "{":
+                        depth += 1
+                    elif content[pos] == "}":
+                        depth -= 1
+                    pos += 1
+
+                value = content[value_start:pos - 1]
+
+            elif content[pos] == '"':
+                pos += 1
+                value_start = pos
+
+                while pos < len(content):
+                    if (
+                        content[pos] == '"'
+                        and content[pos - 1] != "\\"
+                    ):
+                        break
+                    pos += 1
+
+                value = content[value_start:pos]
+                pos += 1
+
+            else:
+                value_start = pos
+                while pos < len(content) and content[pos] not in ",}\r\n":
+                    pos += 1
+                value = content[value_start:pos].strip()
+
+            fields[field_name] = value.strip()
+
+        entries.append({
+            "entry_type": entry_type,
+            "entry_key": entry_key,
+            "fields": fields,
+        })
+
+    return entries
+
+
+def conference_entry_to_publication(entry):
+    """Convierte una entrada manual al formato del script de congresos."""
+    fields = entry["fields"]
+
+    author_text = fields.get("author", "")
+    authors = [
+        normalize_author_name(author.strip())
+        for author in re.split(r"\s+and\s+", author_text)
+        if author.strip()
+    ]
+
+    doi = normalize_conference_doi(fields.get("doi", ""))
+    url = clean_text(fields.get("url", ""))
+
+    if not url and doi:
+        url = f"https://doi.org/{doi}"
+
+    title = clean_text(fields.get("title", ""))
+    year = clean_text(fields.get("year", ""))
+    booktitle = clean_text(
+        fields.get("booktitle")
+        or fields.get("journal")
+        or fields.get("organization")
+        or fields.get("series")
+        or ""
+    )
+
+    publication = {
+        "put_code": "",
+        "title": title,
+        "type": "conference-paper",
+        "journal": booktitle,
+        "date": "",
+        "year": year,
+        "doi": doi,
+        "pmid": clean_text(fields.get("pmid", "")),
+        "pmcid": clean_text(fields.get("pmcid", "")),
+        "url": url,
+        "authors": authors,
+        "source": "conferences_no.bib",
+        "raw_type": entry["entry_type"],
+        "researcher": "",
+        "orcid": "",
+        "bibtex_key": entry["entry_key"],
+    }
+
+    # Conservar otros campos bibliográficos útiles.
+    for field in (
+        "booktitle", "pages", "volume", "number",
+        "series", "publisher", "address", "month", "note",
+    ):
+        if fields.get(field):
+            publication[field] = fields[field]
+
+    return publication
+
+
+def merge_conference_publications(orcid_publications, manual_publications):
+    """Une las comunicaciones manuales y ORCID sin duplicar registros."""
+    merged = []
+
+    # Primero las entradas manuales para preservar sus metadatos.
+    for pub in manual_publications:
+        item = dict(pub)
+        item["authors"] = list(pub.get("authors") or [])
+        merged.append(item)
+
+    duplicates_merged = 0
+
+    for pub in orcid_publications:
+        doi = normalize_conference_doi(pub.get("doi"))
+        title = normalize_title(pub.get("title"))
+        year = clean_text(pub.get("year"))
+
+        duplicate_index = None
+
+        for index, existing in enumerate(merged):
+            existing_doi = normalize_conference_doi(existing.get("doi"))
+            existing_title = normalize_title(existing.get("title"))
+            existing_year = clean_text(existing.get("year"))
+
+            same_doi = bool(
+                doi and existing_doi and doi == existing_doi
+            )
+            same_title_year = bool(
+                title and existing_title
+                and title == existing_title
+                and year and existing_year
+                and year == existing_year
+            )
+
+            if same_doi or same_title_year:
+                duplicate_index = index
+                break
+
+        if duplicate_index is None:
+            merged.append(dict(pub))
+            continue
+
+        existing = merged[duplicate_index]
+        duplicates_merged += 1
+
+        # Completar datos sin sobrescribir los metadatos manuales existentes.
+        for field, value in pub.items():
+            if field == "authors":
+                if not existing.get("authors") and value:
+                    existing["authors"] = value
+
+            elif field == "researcher":
+                old_names = [
+                    name.strip()
+                    for name in existing.get("researcher", "").split(";")
+                    if name.strip()
+                ]
+                new_name = clean_text(value)
+
+                if new_name and new_name not in old_names:
+                    old_names.append(new_name)
+
+                existing["researcher"] = "; ".join(old_names)
+
+            elif not existing.get(field) and value:
+                existing[field] = value
+
+    # Ordenar por año, de más reciente a más antiguo.
+    merged.sort(
+        key=lambda pub: (
+            clean_text(pub.get("year")) or "0000",
+            normalize_title(pub.get("title")),
+        ),
+        reverse=True,
+    )
+
+    print(f"Comunicaciones manuales leídas: {len(manual_publications)}")
+    print(f"Duplicados fusionados: {duplicates_merged}")
+    print(f"Comunicaciones finales: {len(merged)}")
+
+    return merged
+
+
+
+# ============================================================
 # MAIN
 # ============================================================
 
@@ -1082,11 +1340,30 @@ def main():
         else:
             excluded.append(pub)
 
-    save_json(excluded, OUTPUT_EXCLUDED)
-    save_json(conferences, OUTPUT_JSON)
 
+    # Leer las comunicaciones manuales
+    manual_entries = parse_conference_bib(MANUAL_BIB)
+
+    manual_conferences = [
+        conference_entry_to_publication(entry)
+        for entry in manual_entries
+        if entry["fields"].get("title")
+    ]
+
+    # Fusionar ORCID y el archivo manual antes de generar los resultados
+    conferences = merge_conference_publications(
+        conferences,
+        manual_conferences,
+    )
+
+    # Los excluidos siguen correspondiendo únicamente a ORCID
+    save_json(excluded, OUTPUT_EXCLUDED)
+
+    # Los tres archivos finales contienen las comunicaciones fusionadas
+    save_json(conferences, OUTPUT_JSON)
     save_bibtex(conferences, OUTPUT_BIB)
     save_html(conferences, OUTPUT_HTML)
+
 
     elapsed = time.time() - start_time
 
